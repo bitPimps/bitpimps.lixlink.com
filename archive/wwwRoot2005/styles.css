@@ -1,0 +1,93 @@
+/* Fonts */
+ADDRESS, BLOCKQUOTE, BODY, CAPTION, CENTER, DD, DIR, DIV, DL, DT, FORM, H1, H2, H3, H4, H5, H6, MENU, OL, P, TD, TH, UL {font-size: 0.9em;
+font-family: Verdana, Arial, Helvetica, sans-serif; color: #333333}
+/* Real styles */
+A 				{text-decoration: underline; cursor: auto}
+A:link 		{color: #151547; background-color: transparent}
+A:visited {color: #151547; background-color: transparent}
+A:active 	{color: #333333; background-color: transparent}
+A:hover 	{}
+
+ADDRESS {margin: 0em 0% 0em 0%; font: italic 1em/1 Verdana, Arial, Helvetica, sans-serif}
+BIG {font-size: 1em}
+BLOCKQUOTE {margin: 0em 0% 0em 0%; line-height: 1}
+BODY {margin: 0em 0% 0em 0%;
+font: 0.9em/1.2 Verdana, Arial, Helvetica, sans-serif;
+background-color: #000000;
+cursor: default;
+scrollbar-face-color:#639FB4;
+scrollbar-highlight-color:#DEEBEA;
+scrollbar-3dlight-color:#D0E6F1;
+scrollbar-darkshadow-color:#3B3C97;
+scrollbar-shadow-color:#3A7285;
+scrollbar-arrow-color:#CBE5EE;
+scrollbar-track-color:#A4ADA8;}
+BUTTON {cursor: auto; font: 0.9em/1 Verdana, Arial, Helvetica, sans-serif;
+background-color: #E4E4E4}
+CAPTION {margin: 0em 0% 0em 0%; line-height: 1; color: #333333; font-size: 1em; font-weight: bold}
+CODE {font-size: 0.9em;
+font-family: monospace} /* To avoid overriding boldness/italicity by using font */
+DIV {margin: 0em 0% 0em 0%; line-height: 1}
+DD {margin: 0em 0% 0em 0%; line-height: 1}
+DL {margin: 0em 0% 0em 0%}
+DT {margin: 0em 0% 0em 0%; line-height: 1}
+H1 {margin: 0em 0% 1em 0%; font: 1.2em/1 Verdana, Arial, Helvetica, sans-serif; font-weight: bold}
+H2 {margin: 0em 0% 1em 0%; font: 1em/1 Verdana, Arial, Helvetica, sans-serif}
+H3 {margin: 0em 0% 1em 0%; font: 1em/1 Verdana, Arial, Helvetica, sans-serif}
+H4 {margin: 0em 0% 1em 0%; font: 1em/1 Verdana, Arial, Helvetica, sans-serif}
+H5 {margin: 0em 0% 1em 0%; font: 1em/1 Verdana, Arial, Helvetica, sans-serif}
+H6 {margin: 0em 0% 1em 0%; font: 1em/1 Verdana, Arial, Helvetica, sans-serif}
+HR {margin: 0em 0% 1em 0%}
+HTML {margin: 0}
+INPUT {cursor: auto; font-size: 0.9em/1 Verdana, Arial, Helvetica, sans-serif; color: #333333;
+background-color: #E4E4E4; border: 1px solid #3B3C97}
+KBD {font: 0.9em monospace}
+LI {margin: 0.5em 0% 0em 0%; line-height: 1}
+OL {margin: 0em 0% 0em 5%; list-style: decimal}
+UL UL OL OL, UL OL UL OL, OL UL OL OL, OL OL UL OL, OL UL OL, OL OL {list-style: lower-alpha}
+OL UL OL OL, OL OL UL OL, UL OL OL OL, OL OL OL {list-style: lower-roman}
+OL OL OL OL {list-style: decimal}
+P {margin: 0em 0% 0em 0%; line-height: 1.2}
+PRE {margin: 0em 0% 0em 0%; font: 0.9em/1 monospace}
+SAMP {font: 1em monospace}
+SMALL {font-size: 0.8em}
+SUB {font-size: 0.8em}
+SUP {font-size: 0.8em}
+TD {line-height: 1}
+TEXTAREA {cursor: text; font-size: 1em/1 Verdana, Arial, Helvetica, sans-serif; color: #333333;
+background-color: #E4E4E4; border: 1px solid #3B3C97}
+TH {font: bold 0.9em/1 Verdana, Arial, Helvetica, sans-serif; background-color: #DEEBEA}
+TT {font: 0.9em monospace}
+UL {margin: 0em 0% 2em 2%; list-style: disc}
+UL UL, OL OL UL UL, OL UL OL UL, UL OL OL UL, OL UL UL, UL OL UL {list-style: circle}
+OL UL UL UL, UL OL UL UL, UL UL OL UL, UL UL UL {list-style: square}
+UL UL UL UL {list-style: disc}
+
+/* Fix for NN 6.2 */
+TR.decoration img { display: block; }
+/* Classes */
+.copyright		{ font-size: 10px; color: #B6C4BD; background-color: transparent; }
+.textfield		{ font-size: 12px; color: #3A4942; background-color: #E4E4E4; margin-top: 3px; padding-top: 2px; padding-right: 5px; padding-bottom: 2px; padding-left: 5px; }
+.button				{ font-size: 12px; color: #3A4942; background-color: #E4E4E4; margin-top: 3px; padding-top: 2px; padding-right: 5px; padding-bottom: 2px; padding-left: 5px; }
+/* --Backgrounds */
+.bgBlack			{ background-color: #000000; }
+.bgBlueA			{ background-color: #9DC1DF; }
+.bgBlueB			{ background-color: #39658A; }
+.bgGreenA			{ background-color: #A4ADA8; }
+.bgGreenB			{ background-color: #3A4942; }
+.bgGrey				{ background-color: #E4E4E4; }
+.bgOrangeA		{ background-color: #F8C599; }
+.bgOrangeB		{ background-color: #EF4427; }
+
+.bgHomeSub		{ background-image: url(images/backgrounds/home_sub.jpg); background-repeat: repeat-y; background-color: #A4ADA8; background-position: center; }
+.bgLogoUnder	{ background-image: url(images/backgrounds/logo_under.gif); background-repeat: repeat-x; background-color: #A4ADA8; background-position: center; }
+/* Elements */
+.txtInfo		{font-size: 0.7em;}
+.txtStats		{font-size: 0.8em; color: #151547;}
+.txtSelect	{font-size: 0.9em/1 Verdana, Arial, Helvetica, sans-serif; color: #333333;
+width: 150px; background-color: #F5FFF6; border: 1px solid #3B3C97}
+.txtField		{font-size: 0.9em/1 Verdana, Arial, Helvetica, sans-serif; color: #333333;
+width: 170px; background-color: #F5FFF6; border: 1px solid #3B3C97}
+td.row				{background-color: #EFEFEF; padding: 3px}
+.txtTitle		{font-size: 1.2em; font-weight: bold}
+.txtDesc		{font-size: 0.9em}
