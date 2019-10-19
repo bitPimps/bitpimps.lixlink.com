@@ -1,0 +1,276 @@
+<html>
+<head>
+<title>DIV STYLE</title>
+<style>
+td {color:white; font-family:Arial; font-size:14px}
+input,select {color:blue; background:#eeffee; width:65px}
+</style>
+
+<script src="qblib.js"></script>
+
+
+<script language="Jscript">
+
+//****** Config: allow only "position:relative" -> for ONLINE-POSTING
+var RELATIVE=true; // =false for WHOLE WEBPAGE DESIGN
+
+
+
+function retdivStyle()
+{
+ var fobj= document.FO
+
+ var reg= /gif|jpg|png/ ;
+ if(fobj.TX_backgroundimage.value!='' &&  !reg.test(fobj.TX_backgroundimage.value) )
+  { alert("File type isn't a image type."); return; }
+
+ 
+ with(DIVSTYLE)
+ {
+  backgroundColor= fobj.CO_bgcolor.value
+
+  var temp= fobj.TX_backgroundimage.value
+  if( temp ) { backgroundImage= "url(" + temp + ")";  }
+  else backgroundImage=''
+
+  color= fobj.CO_color.value
+  
+  width= fobj.PI_width.value;
+  height= fobj.PI_height.value;
+  clip= 'rect(0px '+width+'px '+height+'px 0px)'
+
+  
+  if(RELATIVE==true) fobj.OP_position.selectedIndex=2; // only relative position
+  position= fobj.OP_position.value
+  if(position) { pixelLeft= fobj.IN_left.value; pixelTop= fobj.IN_top.value }
+  else { left= ''; top= '' }  
+
+  zIndex= fobj.IN_zindex.value;
+  padding= fobj.PI_padding.value;
+
+  textAlign= fobj.OP_textalign.value
+  fontFamily= fobj.OP_fontfamily.value
+  fontWeight= fobj.OP_fontweight.value
+  textDecoration= fobj.OP_textdecoration.value
+  fontStyle= fobj.OP_fontstyle.value
+
+  fontSize= fobj.PI_fontsize.value
+  lineHeight= fobj.PR_lineheight.value;
+
+  window.opener.setHiddenValue();
+
+ }
+
+
+}
+
+
+
+
+function init()
+{
+ var objF= window.opener.document.frames[window.opener.fID];
+ if(!objF){alert('Please click to select the editor');return}
+  
+ var sel = objF.document.selection;
+ if(sel.type=='None'){alert('Please select a outer of div-layer');return} 
+
+ var Range = sel.createRange();
+
+ DIVSTYLE= Range(0).style
+ var fobj= document.FO
+ with(DIVSTYLE) 
+ {
+  fobj.IN_zindex.value= zIndex
+
+  fobj.CO_bgcolor.value= backgroundColor
+
+  var temp= backgroundImage
+  if(temp) temp= temp.substring(temp.indexOf("(")+1, temp.indexOf(")"))
+  fobj.TX_backgroundimage.value= temp
+  
+  
+  fobj.CO_color.value= color
+
+  fobj.IN_left.value= pixelLeft
+  fobj.IN_top.value= pixelTop
+  fobj.PI_width.value= pixelWidth
+  fobj.PI_height.value= pixelHeight
+
+  fobj.PI_padding.value= parseInt(padding)
+  if(isNaN(fobj.PI_padding.value)) fobj.PI_padding.value=''
+
+  fobj.PI_fontsize.value= parseInt(fontSize)
+  if(isNaN(fobj.PI_fontsize.value)) fobj.PI_fontsize.value=''
+
+  fobj.PR_lineheight.value= lineHeight
+
+  fobj.OP_position.value= position
+  fobj.OP_textalign.value= textAlign
+  fobj.OP_fontfamily.value= fontFamily
+  fobj.OP_fontweight.value= fontWeight
+  fobj.OP_fontweight.value= fontWeight
+  fobj.OP_textdecoration.value= textDecoration
+  fobj.OP_fontstyle.value= fontStyle
+
+ }
+
+
+}
+
+
+
+
+/****************************************************/
+
+</script>
+
+
+</head>
+
+<body bgcolor=menu onFocus="init()" scroll=no>
+
+<center>
+<form name="FO">
+
+<table bgcolor=#999999 border=1 width=100% cellpading=0 cellspacing=0>
+<tbody>
+
+<!-- 1st row -->
+<tr>
+<td align=middle bgcolor=#aa4444 colspan=10>DIV STYLE</td>
+</tr>
+
+<!-- 2nd row -->
+<tr>
+<td align=right>bgcolor</td><td><input name=CO_bgcolor onChange="retdivStyle()"></td>
+<td align=right>backgroundImage</td>
+<td colspan=7>
+<input name="TX_backgroundimage" style="width:350px" onChange="retdivStyle()">
+<input type=file name="f_backgroundimage" style="width:0px" onChange="checkFiletype(this.form,this.name); retdivStyle()"></td>
+</tr>
+
+
+<!-- 3rd row -->
+<tr>
+<tr>
+<td align=right>textColor</td><td><input name=CO_color onChange="retdivStyle()"></td>
+
+<td align=right>Left</td><td><input name=IN_left onChange="retdivStyle()"></td>
+<td align=right>Top</td><td><input name=IN_top onChange="retdivStyle()"></td>
+
+<td align=right>width</td><td><input name=PI_width onChange="retdivStyle()"></td>
+<td align=right>height</td><td><input name=PI_height onChange="retdivStyle()"></td>
+
+</tr>
+
+
+<!-- 3rd row -->
+<tr>
+<td align=right>fontFamily</td>
+<td>
+<select name=OP_fontfamily onChange="retdivStyle()">
+<option value=''>
+<option value='arial'>arial
+<option value='times new roman'>times new roman
+</select>
+</td>
+
+<td align=right>fontSize</td><td><input name=PI_fontsize onChange="retdivStyle()"></td>
+<td align=right>lineHeight</td><td><input name=PR_lineheight onChange="retdivStyle()"></td>
+
+<td align=right>fontWeight</td>
+<td>
+<select name=OP_fontweight onChange="retdivStyle()">
+<option value=''>
+<option value='100'>100
+<option value='200'>200
+<option value='300'>300
+<option value='400'>400
+<option value='500'>500
+<option value='600'>600
+<option value='700'>700
+<option value='800'>800
+<option value='900'>900
+</select>
+</td>
+
+<td align=right>textAlign</td>
+<td>
+<select name=OP_textalign onChange="retdivStyle()">
+<option value=''>
+<option value='center'>center
+<option value='justify'>justify
+<option value='right'>right
+</select>
+</td>
+
+</tr>
+
+
+
+<!-- 4th row -->
+<tr>
+<td align=right>textDeco</td>
+<td>
+<select name=OP_textdecoration onChange="retdivStyle()">
+<option value=''>
+<option value='underline'>underline
+<option value='overline'>overline
+<option value='line-through'>line-through
+<!-- <option value='blink'>blink -->
+</select>
+</td>
+
+<td align=right>fontStyle</td>
+<td>
+<select name=OP_fontstyle onChange="retdivStyle()">
+<option value=''>normal
+<option value='italic'>italic
+<option value='oblique'>oblique
+</select>
+</td>
+
+<td align=right>padding</td><td><input name=PI_padding onChange="retdivStyle()"></td>
+
+<td align=right>Position</td>
+<td>
+<select name=OP_position onChange="retdivStyle()">
+<option value=''>
+<option value='absolute'>absolute
+<option value='relative'>relative
+</select>
+</td>
+<td align=right>zIndex</td><td><input name=IN_zindex onChange="retdivStyle()"></td>
+
+</tr>
+
+
+
+<tr><td colspan=10 align=center>
+<input onMouseDown=setObjectColor(0,'red','retdivStyle()') title=Minus type=button value="-" style="width:22px; height:22px;  background:#FF0000; color:white">
+<input onMouseDown=setObjectColor(1,'red','retdivStyle()') title=Plus type=button value="+" style="width:22px; height:22px;  background:#FF0000; color:white">
+&nbsp;&nbsp;
+<input onMouseDown=setObjectColor(0,'green','retdivStyle()') title=Minus type=button value="-" style="width:22px; height:22px;  background:#00FF00; color:black">
+<input onMouseDown=setObjectColor(1,'green','retdivStyle()') title=Plus type=button value="+" style="width:22px; height:22px;  background:#00FF00; color:black">
+&nbsp;&nbsp;
+<input onMouseDown=setObjectColor(0,'blue','retdivStyle()') title=Minus type=button value="-" style="width:22px; height:22px;  background:#0000FF; color:white">
+<input onMouseDown=setObjectColor(1,'blue','retdivStyle()') title=Plus type=button value="+" style="width:22px; height:22px;  background:#0000FF; color:white">
+&nbsp;&nbsp;
+
+<input onClick=retdivStyle() title=Button type=button value="Do" style="width:70px; height:22px; background:#aa4444; color:white">
+<input onClick=self.close() title=Back type=button value="Close" style="width:70px; height:22px; background:#aa4444; color:white">
+&nbsp;&nbsp;
+
+<input onMouseDown=setValueSmaller('retdivStyle()') title=Minus type=button value="-" style="width:22px; height:22px;  background:#aa4444; color:white">
+<input onMouseDown=setValueBigger('retdivStyle()') title=Plus type=button value="+" style="width:22px; height:22px;  background:#aa4444; color:white">
+
+
+</td></tr>
+
+</tbody></table>
+
+</form>
+</center>
+</body>
+</html>
