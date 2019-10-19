@@ -1,0 +1,68 @@
+BODY          {scrollbar-face-color:#253340; scrollbar-shadow-color: #2F414F; scrollbar-highlight-color: #D9CA65;scrollbar-3dlight-color: #D9CA65; scrollbar-darkshadow-color: #D9CA65; scrollbar-track-color: #3D4E61;scrollbar-arrow-color: #D9CA65;}
+A
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #DECB63;
+}
+A:active
+{
+	color: #DECB63;
+}
+A:hover
+{
+	text-decoration: underline overline;
+	color: #DECB63;
+}
+
+TD,#normaltext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #FFFFFF;
+}
+#smalltext
+{
+	font-size: 8pt;
+}
+
+TH
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #213042;
+	background-color: #D6C34A;
+}
+#table1
+{
+	background-color: #29414A;
+}
+#table2
+{
+	background-color: #213042;
+}
+#lines
+{
+	background-color: #DECB63;
+}
+
+#body
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11pt;
+	color: #D6C34A;
+	background-color: #394D63;
+}
+#headertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #D6C34A;
+}
+#bigheadertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 14pt;
+	color: #000000;
+}

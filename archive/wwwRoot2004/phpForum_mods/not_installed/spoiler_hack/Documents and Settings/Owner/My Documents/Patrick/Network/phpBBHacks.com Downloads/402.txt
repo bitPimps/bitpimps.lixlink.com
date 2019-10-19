@@ -1,0 +1,208 @@
+################################################################# 
+## Mod Title: BB Code Spoiler Mod
+## Mod Version: 1.0.0 
+## Author: Damien Heiser < damien@thenitelife.com > - http://www.thenitelife.com 
+## Description: Adds BB Code for Entering "Spoiler" Text
+## 
+## Installation Level: (easy to medium) 
+## Installation Time: 10 Minutes 
+## Files To Edit: 
+##			forumroot/includes/bbcode.php
+##			forumroot/templates/subSilver/bbcode.tpl
+##			forumroot/posting.php
+##			forumroot/templates/subSilver/posting_body.tpl
+##			forumroot/language/lang_xxx/lang_main.php
+##			
+## Included Files: (n/a, or list of included/required files) 
+################################################################# 
+## Security Disclaimer: This MOD Cannot Be Posted To Or Added At Any Non-Official phpBB Sites 
+################################################################# 
+## 
+## Author Note: 
+## This mod will put black text on a black background so someone can put in something about a game 
+## movie, or something else, without someone being "spoiled" to the contents before they have
+## seen it.
+## 
+################################################################# 
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+################################################################# 
+
+# 
+#-----[ ACTION: open ]------------------------------------------ 
+# 
+
+	forumroot/includes/bbcode.php
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+# 
+
+	// [i] and [/i] for italicizing text.
+	$text = str_replace("[i:$uid]", $bbcode_tpl['i_open'], $text);
+	$text = str_replace("[/i:$uid]", $bbcode_tpl['i_close'], $text);
+
+# 
+#-----[ ACTION: add below ]------------------------------------------ 
+# 
+
+	// [spoiler] and [/spoiler] for entering spoiled text MOD.
+	$text = str_replace("[spoiler:$uid]", $bbcode_tpl['spoiler_open'], $text);
+	$text = str_replace("[/spoiler:$uid]", $bbcode_tpl['spoiler_close'], $text);
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+# 
+
+	// [i] and [/i] for italicizing text.
+	$text = preg_replace("#\[i\](.*?)\[/i\]#si", "[i:$uid]\\1[/i:$uid]", $text);
+
+# 
+#-----[ ACTION: add below ]------------------------------------------ 
+#
+
+	// [spoiler] and [/spoiler] for entering spoiled text MOD.
+	$text = preg_replace("#\[spoiler\](.*?)\[/spoiler\]#si", "[spoiler:$uid]\\1[/spoiler:$uid]", $text);
+
+
+# 
+#-----[ ACTION: open ]------------------------------------------ 
+# 
+
+	forumroot/templates/subSilver/bbcode.tpl
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+# 
+
+<!-- BEGIN i_open --><span style="font-style: italic"><!-- END i_open -->
+<!-- BEGIN i_close --></span><!-- END i_close -->
+
+# 
+#-----[ ACTION: add below ]------------------------------------------ 
+# 
+
+<!-- BEGIN spoiler_open -->
+<table width="90%" cellspacing="1" cellpadding="3" border="0" align="center">
+<tr>
+	<span style="font-size: 10px;">Spoiler:</span>
+</tr>
+<tr>
+	<td><span style="font-size: 10px; color: #000000; background-color: #000000"><!-- END spoiler_open -->
+<!-- BEGIN spoiler_close -->
+	</span>
+</td>
+</tr>
+</table>
+<!-- END spoiler_close -->
+
+# 
+#-----[ ACTION: open ]------------------------------------------ 
+#
+
+	forumroot/posting.php
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+#
+
+	'L_BBCODE_F_HELP' => $lang['bbcode_f_help'],
+
+# 
+#-----[ ACTION: add below ]------------------------------------------ 
+#
+
+	'L_BBCODE_R_HELP' => $lang['bbcode_r_help'],
+
+# 
+#-----[ ACTION: open ]------------------------------------------ 
+#
+
+	forumroot/templates/subSilver/posting_body.tpl
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+#
+
+f_help = "{L_BBCODE_F_HELP}";
+
+# 
+#-----[ ACTION: add below ]------------------------------------------ 
+#
+
+r_help = "{L_BBCODE_R_HELP}";
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+#
+
+bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]');
+
+# 
+#-----[ ACTION: replace with ]------------------------------------------ 
+#
+
+bbtags = new Array('[b]','[/b]','[i]','[/i]','[u]','[/u]','[quote]','[/quote]','[code]','[/code]','[list]','[/list]','[list=]','[/list]','[img]','[/img]','[url]','[/url]','[spoiler]','[/spoiler]');
+
+# NOTE: Added ,'[spoiler]','[/spoiler]' to the end of the array.
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+#
+
+			<td><span class="genmed"> 
+			  <input type="button" class="button" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onClick="bbstyle(16)" onMouseOver="helpline('w')" />
+			  </span></td>
+
+# 
+#-----[ ACTION: add below ]------------------------------------------ 
+#
+			<td><span class="genmed"> 
+			  <input type="button" class="button" accesskey="r" name="addbbcode18" value="Spoiler" style="width: 60px" onClick="bbstyle(18)" onMouseOver="helpline('r')" />
+			  </span></td>
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+#
+
+					<select name="addbbcode18" onChange="bbfontstyle('[color=' + this.form.addbbcode18.options[this.form.addbbcode18.selectedIndex].value + ']', '[/color]')" onMouseOver="helpline('s')">
+
+# 
+#-----[ ACTION: replace with ]------------------------------------------ 
+#
+
+					<select name="addbbcode20" onChange="bbfontstyle('[color=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/color]')" onMouseOver="helpline('s')">
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+#
+
+					</select> &nbsp;{L_FONT_SIZE}:<select name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]')" onMouseOver="helpline('f')">
+
+# 
+#-----[ ACTION: replace with ]------------------------------------------ 
+#
+
+					</select> &nbsp;{L_FONT_SIZE}:<select name="addbbcode22" onChange="bbfontstyle('[size=' + this.form.addbbcode22.options[this.form.addbbcode22.selectedIndex].value + ']', '[/size]')" onMouseOver="helpline('f')">
+
+# 
+#-----[ ACTION: open ]------------------------------------------ 
+#
+
+	forumroot/language/lang_xxx/lang_main.php
+
+# 
+#-----[ ACTION: find ]------------------------------------------ 
+#
+
+$lang['bbcode_f_help'] = "Font size: [size=x-small]small text[/size]";
+
+# 
+#-----[ ACTION: add below ]------------------------------------------ 
+#
+
+$lang['bbcode_r_help'] = "Spoiler text: [spoiler]spoiler text[/spoiler] (alt+r)";
+
+# 
+#-----[ SAVE/CLOSE ALL FILES ]------------------------------------------ 
+# 
+# EoM

@@ -1,0 +1,83 @@
+BODY      {
+
+	             SCROLLBAR-FACE-COLOR: #666666;
+
+                     SCROLLBAR-HIGHLIGHT-COLOR: #000000;
+
+                     SCROLLBAR-SHADOW-COLOR: #000000;
+
+                     SCROLLBAR-3DLIGHT-COLOR: #666666;
+
+                     SCROLLBAR-ARROW-COLOR: #000000;
+
+                     SCROLLBAR-TRACK-COLOR: #666666;
+
+                     SCROLLBAR-DARKSHADOW-COLOR: #666666;
+}
+A
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #333333;
+}
+A:active
+{
+	color: #333333;
+}
+A:hover
+{
+	text-decoration: underline overline;
+	color: #333333;
+}
+
+TD,#normaltext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #000000;
+}
+#smalltext
+{
+	font-size: 8pt;
+}
+
+TH
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #424542;
+}
+#table1
+{
+	background-color: #9C9A9C;
+}
+#table2
+{
+	background-color: #636563;
+}
+#lines
+{
+	background-color: #000000;
+}
+
+#body
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11pt;
+	color: #000000;
+	background-color: #9C6563;
+}
+#headertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #000000;
+}
+#bigheadertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 14pt;
+	color: #000000;
+}

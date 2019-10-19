@@ -1,0 +1,203 @@
+################################################################# 
+## MOD Title: Spoiler BBcode Mod 
+## MOD Author: D2K < dra2k4@yahoo.co.uk > http://www.revolt2.tk 
+##
+## MOD Description: 
+##		Adds a spoiler tag to your forum. 
+##              	Has a button for showing or hiding the spoiler.
+##              	The Spoiler Tag can contain URLs, Images etc. as normal posts can.
+##
+## MOD Version: 1.0.0 
+## 
+## Installation Level: Easy 
+## Installation Time: 5 Minutes 
+## Files To Edit: 	includes/bbcode.php 
+##	                templates/subSilver/bbcode.tpl, 
+##	  	templates/subSilver/posting_body.tpl
+##	  	posting.php
+##	  	language/lang_english/lang_main.php
+##
+## Included Files: (n/a) 
+############################################################## 
+## This mod is the first version.
+## I do not know anything about compatibility problems.
+## If you use other Styles than subSilver, you have to modify the files of these styles accordingly.
+## If you have other languages than English, apply patch to language files accordingly.
+############################################################## 
+## Authors Notes: tested with phpBB2 v2.0.11
+##This Mod is compatible with Easymod by Nuttzy
+############################################################## 
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD 
+############################################################## 
+
+# 
+#-----[ OPEN ]------------------------------------------ 
+# 
+includes/bbcode.php 
+
+# 
+#-----[ FIND ]------------------------------------------ 
+# 
+	// [b] and [/b] for bolding text.
+	$text = str_replace("[b:$uid]", $bbcode_tpl['b_open'], $text);
+	$text = str_replace("[/b:$uid]", $bbcode_tpl['b_close'], $text);
+
+# 
+#-----[ BEFORE, ADD ]------------------------------------------ 
+# 
+	// Begin 'SPOILER BBcode MOD' 
+	// [spoiler] and [/spoiler] for spoiler-textbocks   
+	$text = str_replace("[spoiler:$uid]", $bbcode_tpl['spoiler_open'], $text); 
+	$text = str_replace("[/spoiler:$uid]", $bbcode_tpl['spoiler_close'], $text); 
+	// End 'SPOILER BBcode MOD' 
+
+# 
+#-----[ FIND ]------------------------------------------ 
+# 
+	// [b] and [/b] for bolding text.
+	$text = preg_replace("#\[b\](.*?)\[/b\]#si", "[b:$uid]\\1[/b:$uid]", $text);
+
+# 
+#-----[ BEFORE, ADD ]------------------------------------------ 
+# 
+	// Begin 'SPOILER BBcode MOD' 
+	// [spoiler] and [/spoiler] for setting spoiler-textblocks
+	$text = preg_replace("#\[spoiler\](.*?)\[/spoiler\]#si", "[spoiler:$uid]\\1[/spoiler:$uid]", $text); 
+	// End 'SPOILER BBcode MOD' 
+
+# 
+#-----[ OPEN ]------------------------------------------ 
+# 
+templates/subSilver/bbcode.tpl 
+
+# 
+#-----[ FIND ]------------------------------------------ 
+# 
+<!-- BEGIN b_open --><span style="font-weight: bold"><!-- END b_open -->
+<!-- BEGIN b_close --></span><!-- END b_close -->
+
+# 
+#-----[ BEFORE, ADD ]------------------------------------------ 
+# 
+<!-- BEGIN spoiler_open -->
+<table width="90%" cellspacing="1" cellpadding="3" border="0" align="center">
+<tr>
+	<td>
+<span style="font-size: 11px;">
+<div style="margin:20px; margin-top:5px">
+<div class="smallfont" style="margin-bottom:2px">
+<b>Spoiler:</b> <input type="button" value="Show" style="width:45px;font-size:10px;margin:0px;padding:0px;" onClick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Hide'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Show'; }">
+</div>
+<p>
+<div class="alt2" style="margin: 0px; padding: 6px; border: 1px inset; background-color: #FAFAFA; border: #D1D7DC; border-style: solid; border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px">
+<div style="display: none;">
+<!-- END spoiler_open -->
+<!-- BEGIN spoiler_close -->
+</div>
+</p>
+</div>
+</div>
+</span>
+</td>
+</tr>
+</table>
+<!-- END spoiler_close -->
+
+# 
+#-----[ OPEN ]------------------------------------------ 
+#
+templates/subSilver/posting_body.tpl 
+
+# 
+#-----[ FIND ]------------------------------------------ 
+#
+f_help = "{L_BBCODE_F_HELP}";
+
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+r_help = "{L_BBCODE_R_HELP}";
+
+# 
+#-----[ FIND ]------------------------------------------ 
+#
+('[b]','[/b]','[i]','[/i]',
+
+# 
+#-----[IN-LINE FIND ]------------------------------------------ 
+#
+'[/url]'
+#
+#-----[ IN-LINE AFTER, ADD ]------------------------------------------
+# If you have other added BBcode then move this to the last place.
+,'[spoiler]','[/spoiler]'
+# 
+#-----[ FIND ]------------------------------------------ 
+#
+			<td><span class="genmed"> 
+			  <input type="button" class="button" accesskey="w" name="addbbcode16" value="URL" style="text-decoration: underline; width: 40px" onClick="bbstyle(16)" onMouseOver="helpline('w')" />
+			  </span></td>
+
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#If you already have an '18' BBcode, manually change '18' to the next even number that you haven't got. e.g. '20'
+			<td><span class="genmed"> 
+			  <input type="button" class="button" accesskey="r" name="addbbcode18" value="Spoiler" style="width: 60px" onClick="bbstyle(18)" onMouseOver="helpline('r')" />
+			  </span></td>
+
+# 
+#-----[ FIND ]------------------------------------------ 
+#
+					<select name="addbbcode18" onChange="bbfontstyle('[color=' + this.form.addbbcode18.options[this.form.addbbcode18.selectedIndex].value + ']', '[/color]');this.selectedIndex=0;" onMouseOver="helpline('s')">
+
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#If you already have an '20' or above as the number, manually change '20' to the next even number that you haven't got. e.g. '22'
+					<select name="addbbcode20" onChange="bbfontstyle('[color=' + this.form.addbbcode18.options[this.form.addbbcode20.selectedIndex].value + ']', '[/color]');this.selectedIndex=0;" onMouseOver="helpline('s')">
+
+# 
+#-----[ FIND ]------------------------------------------ 
+#
+					</select> &nbsp;{L_FONT_SIZE}:<select name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode20.options[this.form.addbbcode20.selectedIndex].value + ']', '[/size]')" onMouseOver="helpline('f')">
+
+
+#
+#-----[ REPLACE WITH ]------------------------------------------
+#If you already have an '22' or above as a number, manually change '22' to the next even number that you haven't got. e.g. '24'
+					</select> &nbsp;{L_FONT_SIZE}:<select name="addbbcode20" onChange="bbfontstyle('[size=' + this.form.addbbcode22.options[this.form.addbbcode22.selectedIndex].value + ']', '[/size]')" onMouseOver="helpline('f')">
+
+
+# 
+#-----[ OPEN ]------------------------------------------ 
+#
+posting.php
+
+# 
+#-----[ FIND ]------------------------------------------ 
+#
+	'L_BBCODE_F_HELP' => $lang['bbcode_f_help'],
+
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+	'L_BBCODE_R_HELP' => $lang['bbcode_r_help'], 
+
+# 
+#-----[ OPEN ]------------------------------------------ 
+# 
+language/lang_english/lang_main.php
+
+# 
+#-----[ FIND ]------------------------------------------ 
+#
+$lang['bbcode_f_help'] = 'Font size: [size=x-small]small text[/size]';
+
+#
+#-----[ AFTER, ADD ]------------------------------------------
+#
+$lang['bbcode_r_help'] = "Spoiler inside text: [spoil]spoiler text[/spoil] (alt+r)";
+
+# 
+#-----[ SAVE/CLOSE ALL FILES ]------------------------------------------ 
+# 
+# EoM 

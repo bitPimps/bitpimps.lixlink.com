@@ -1,0 +1,881 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://www.phpbb.com/kb/article.php?article_id=42 -->
+<HTML><HEAD><TITLE>phpBB :: Knowledge base - Viewing article Sessions table is full</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META http-equiv=Expires content=-1>
+<META content=en name=Language>
+<META content=Global name=distribution>
+<META content="phpBB Group © 2002" name=Copyright>
+<META content="subBlue design" name=Author>
+<META 
+content="phpBB (PHP Bulletin Board) is the leading free open-source bulletin board package. Create an online community on your website today!" 
+name=abstract>
+<META 
+content="phpBB is a high powered, fully scalable, and highly customisable open-source bulletin board package. phpBB has a user-friendly interface, simply and straightforward administration panel, and helpful FAQ. It is based on the powerful PHP server language and a choice of MySQL, MS-SQL, PostgreSQL or Access/ODBC database servers which makes phpBB the ideal free community solution for all web sites." 
+name=description>
+<META 
+content="free bulletin board,phpbb,phpbb2,forum,open source,php,mysql,postgres,subsilver,community builder,communities,community creator,customise,multi-lingual,templates,fast" 
+name=keywords>
+<META http-equiv=Content-Style-Type content=text/css><LINK 
+href="phpBB  Knowledge base - Viewing article Sessions table is full_files/subSilver.css" 
+type=text/css rel=stylesheet><!-- 
+  Site created by subBlue design
+  http://www.subBlue.com
+-->
+<STYLE type=text/css>.siteTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 22px; COLOR: #006699; LINE-HEIGHT: 120%; FONT-FAMILY: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.siteTextSmall {
+	FONT-SIZE: 10px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.siteTextMed {
+	FONT-SIZE: 11px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.siteText {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+P {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+TD {
+	FONT-SIZE: 12px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+A.siteText {
+	COLOR: #006699; TEXT-DECORATION: none
+}
+A.siteTextMed {
+	COLOR: #006699; TEXT-DECORATION: none
+}
+A.siteTextSmall {
+	COLOR: #006699; TEXT-DECORATION: none
+}
+A.siteText:hover {
+	COLOR: #ff6600; TEXT-DECORATION: underline
+}
+A.siteTextMed:hover {
+	COLOR: #ff6600; TEXT-DECORATION: underline
+}
+A.siteTextSmall:hover {
+	COLOR: #ff6600; TEXT-DECORATION: underline
+}
+.siteBotLinks {
+	FONT-SIZE: 11px; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+A.siteBotLinks {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+A.siteBotLinks:visited {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+A.siteBotLinks:hover {
+	COLOR: #004c75; TEXT-DECORATION: underline
+}
+.bgTop {
+	BACKGROUND-IMAGE: url(/images/bg_top.gif); BACKGROUND-REPEAT: repeat-x
+}
+.bgBottom {
+	BACKGROUND-IMAGE: url(/images/bg_bottom.gif); BACKGROUND-REPEAT: repeat-x; BACKGROUND-COLOR: #e8eef2
+}
+.bgMiddle {
+	BACKGROUND-IMAGE: url(/images/bgMiddle.gif); BACKGROUND-REPEAT: repeat-x
+}
+TH {
+	BACKGROUND-IMAGE: url(/phpBB/templates/subSilver/images/cellpic3.gif)
+}
+TD.cat {
+	BACKGROUND-IMAGE: url(/phpBB/templates/subSilver/images/cellpic1.gif)
+}
+TD.rowpic {
+	BACKGROUND-IMAGE: url(/phpBB/templates/subSilver/images/cellpic2.jpg); BACKGROUND-REPEAT: repeat-y
+}
+TD.catHead {
+	BACKGROUND-IMAGE: url(/phpBB/templates/subSilver/images/cellpic1.gif)
+}
+TD.catSides {
+	BACKGROUND-IMAGE: url(/phpBB/templates/subSilver/images/cellpic1.gif)
+}
+TD.catLeft {
+	BACKGROUND-IMAGE: url(/phpBB/templates/subSilver/images/cellpic1.gif)
+}
+TD.catRight {
+	BACKGROUND-IMAGE: url(/phpBB/templates/subSilver/images/cellpic1.gif)
+}
+TD.catBottom {
+	BACKGROUND-IMAGE: url(/phpBB/templates/subSilver/images/cellpic1.gif)
+}
+</STYLE>
+
+<SCRIPT language=JavaScript type=text/javascript>
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+	var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+	if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+	d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2523" name=GENERATOR></HEAD>
+<BODY text=#000000 vLink=#5584aa link=#006699 bgColor=#e5e5e5 
+onload="MM_preloadImages('/images/b_features-over.gif','/images/b_demo-over.gif','/images/b_downloads-over.gif','/images/b_support-over.gif','/images/b_comm-over.gif','/images/b_styles-over.gif','/images/b_mods-over.gif','/images/links-over.gif','/images/news-over.gif','/images/about-over.gif','/images/home-over.gif')">
+<TABLE cellSpacing=0 cellPadding=2 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=bodyline bgColor=#ffffff>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD width=189><A href="http://www.phpbb.com/index.php" 
+            target=_top><IMG height=105 alt="PHP Bulletin Board Home" 
+            src="phpBB  Knowledge base - Viewing article Sessions table is full_files/mainlogo.gif" 
+            width=189 border=0></A></TD>
+          <TD class=bgTop vAlign=top width="100%">
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=center align=right>
+                <TD colSpan=7 height=43>
+                  <TABLE cellSpacing=0 cellPadding=0 align=right border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><A 
+                        onmouseover="MM_swapImage('news','','/images/news-over.gif',1)" 
+                        onmouseout=MM_swapImgRestore() 
+                        href="http://www.phpbb.com/phpBB/viewforum.php?f=14"><IMG 
+                        height=11 alt=News 
+                        src="phpBB  Knowledge base - Viewing article Sessions table is full_files/news.gif" 
+                        width=31 border=0 name=news></A></TD>
+                      <TD><IMG height=11 alt="" 
+                        src="phpBB  Knowledge base - Viewing article Sessions table is full_files/block_change.gif" 
+                        width=10></TD><!-- td><a href="/links/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('links','','/images/links-over.gif',1)"><img name="links" border="0" src="/images/links.gif" width="31" height="11" alt="Links" /></a></td>
+				<td width="10"><img src="/images/block_change.gif" width="10" height="11" alt="" /></td-->
+                      <TD><A 
+                        onmouseover="MM_swapImage('about','','/images/about-over.gif',1)" 
+                        onmouseout=MM_swapImgRestore() 
+                        href="http://www.phpbb.com/about.php"><IMG height=11 
+                        alt=About 
+                        src="phpBB  Knowledge base - Viewing article Sessions table is full_files/about.gif" 
+                        width=36 border=0 name=about></A></TD>
+                      <TD width=10><IMG height=11 alt="" 
+                        src="phpBB  Knowledge base - Viewing article Sessions table is full_files/block_change.gif" 
+                        width=10></TD>
+                      <TD><A 
+                        onmouseover="MM_swapImage('home','','/images/home-over.gif',1)" 
+                        onmouseout=MM_swapImgRestore() 
+                        href="http://www.phpbb.com/index.php"><IMG height=11 
+                        alt=Home 
+                        src="phpBB  Knowledge base - Viewing article Sessions table is full_files/home.gif" 
+                        width=47 border=0 
+              name=home></A></TD></TR></TBODY></TABLE></TD></TR>
+              <TR vAlign=bottom>
+                <TD class=bgMiddle align=middle width="14%" height=50><A 
+                  onmouseover="MM_swapImage('features','','/images/b_features-over.gif',1)" 
+                  onmouseout=MM_swapImgRestore() 
+                  href="http://www.phpbb.com/features.php"><IMG height=50 
+                  alt="Features of phpBB" 
+                  src="phpBB  Knowledge base - Viewing article Sessions table is full_files/b_features.gif" 
+                  width=53 border=0 name=features></A></TD>
+                <TD class=bgMiddle align=middle width="14%" height=50><A 
+                  onmouseover="MM_swapImage('demo','','/images/b_demo-over.gif',1)" 
+                  onmouseout=MM_swapImgRestore() 
+                  href="http://www.phpbb.com/demo.php"><IMG height=50 
+                  alt="Test drive phpBB" 
+                  src="phpBB  Knowledge base - Viewing article Sessions table is full_files/b_demo.gif" 
+                  width=44 border=0 name=demo></A></TD>
+                <TD class=bgMiddle align=middle width="14%" height=50><A 
+                  onmouseover="MM_swapImage('downloads','','/images/b_downloads-over.gif',1)" 
+                  onmouseout=MM_swapImgRestore() 
+                  href="http://www.phpbb.com/downloads.php"><IMG height=50 
+                  alt=Downloads 
+                  src="phpBB  Knowledge base - Viewing article Sessions table is full_files/b_downloads.gif" 
+                  width=69 border=0 name=downloads></A></TD>
+                <TD class=bgMiddle align=middle width="14%" height=50><A 
+                  onmouseover="MM_swapImage('support','','/images/b_support-over.gif',1)" 
+                  onmouseout=MM_swapImgRestore() 
+                  href="http://www.phpbb.com/support/"><IMG height=50 
+                  alt="Support for phpBB" 
+                  src="phpBB  Knowledge base - Viewing article Sessions table is full_files/b_support.gif" 
+                  width=52 border=0 name=support></A></TD>
+                <TD class=bgMiddle align=middle width="14%" height=50><A 
+                  onmouseover="MM_swapImage('community','','/images/b_comm-over.gif',1)" 
+                  onmouseout=MM_swapImgRestore() 
+                  href="http://www.phpbb.com/phpBB/"><IMG height=50 
+                  alt="The phpBB Community" 
+                  src="phpBB  Knowledge base - Viewing article Sessions table is full_files/b_comm.gif" 
+                  width=72 border=0 name=community></A></TD>
+                <TD class=bgMiddle align=middle width="14%" height=50><A 
+                  onmouseover="MM_swapImage('styles','','/images/b_styles-over.gif',1)" 
+                  onmouseout=MM_swapImgRestore() 
+                  href="http://www.phpbb.com/styles/"><IMG height=50 
+                  alt="Styles for customising phpBB" 
+                  src="phpBB  Knowledge base - Viewing article Sessions table is full_files/b_styles.gif" 
+                  width=41 border=0 name=styles></A></TD>
+                <TD class=bgMiddle align=middle width="14%" height=50><A 
+                  onmouseover="MM_swapImage('phpBBmods','','/images/b_mods-over.gif',1)" 
+                  onmouseout=MM_swapImgRestore() 
+                  href="http://www.phpbb.com/mods/"><IMG height=50 
+                  alt="3rd party modifications to phpBB" 
+                  src="phpBB  Knowledge base - Viewing article Sessions table is full_files/b_mods.gif" 
+                  width=40 border=0 
+        name=phpBBmods></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=10 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle colSpan=2><IMG 
+            src="phpBB  Knowledge base - Viewing article Sessions table is full_files/title_kb.gif"><BR><A 
+            class=siteText href="http://www.phpbb.com/support/">Support Home</A> 
+            | <A class=siteText 
+            href="http://www.phpbb.com/kb/index.php">Knowledge Base Home</A> | 
+            <A class=siteText href="http://www.phpbb.com/kb/submit.php">Submit 
+            Article</A> | <A class=siteText 
+            href="http://www.phpbb.com/kb/search.php">Search Articles</A> | <A 
+            class=siteText href="http://www.phpbb.com/kb/categories.php">Browse 
+            Articles</A> <FONT class=navfont><B></B></FONT></TD></TR>
+        <TR>
+          <TD>
+            <TABLE class=forumline cellSpacing=1 cellPadding=4 width="100%" 
+            border=0>
+              <TBODY>
+              <TR>
+                <TH class=thHead noWrap>&nbsp;Sessions table is 
+              full&nbsp;</TH></TR>
+              <TR>
+                <TD class=row1><B>Description:</B> How to fix the dreaded 
+                  'phpbb_sessions' is full error. Also has information on HEAP 
+                  and MyISAM tables, sessions and why the error occurs in the 
+                  first place.</TD></TR>
+              <TR>
+                <TD class=row1><B>Author:</B> Black Fluffy Lion</TD></TR>
+              <TR>
+                <TD class=row1><B>Date:</B> Thu Jan 16, 2003 7:14 pm</TD></TR>
+              <TR>
+                <TD class=row1><B>Type:</B> Fix</TD></TR>
+              <TR>
+                <TD class=row1><B>Keywords:</B> sessions, table, full, empty, 
+                  myisam, heap, phpbb_sessions, delete, floodings, 
+              session_id</TD></TR>
+              <TR>
+                <TD class=row1><B>Category:</B> <A class=postlink 
+                  href="http://www.phpbb.com/kb/list_articles.php?category_id=6">Miscellanea</A></TD></TR>
+              <TR>
+                <TD class=spaceRow height=1><IMG height=1 alt="" src="" 
+                  width=1></TD></TR>
+              <TR>
+                <TD class=row1 wrap="wrap"><SPAN class=postbody><A 
+                  class=postlink 
+                  href="http://bfl.rctek.com/guides/?guide=sessions" 
+                  target=_blank><SPAN style="FONT-WEIGHT: bold">View as HTML or 
+                  printer friendly version</SPAN></A> <BR><BR><BR><SPAN 
+                  style="FONT-SIZE: 27px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Contents</SPAN></SPAN> <BR>
+                  <UL><BR>
+                    <LI>The problem <BR>
+                    <UL><BR>
+                      <LI>The error message <BR>
+                      <LI>Why it occurs <BR>
+                      <UL><BR>
+                        <LI>HEAP tables <BR>
+                        <LI>Why the table is full <BR>
+                        <LI>Sessions table flooding <BR></LI></UL></LI></UL><BR>
+                    <LI>The fix <BR>
+                    <UL><BR>
+                      <LI>Which fix to use <BR>
+                      <LI>Automatic table emptying script <BR>
+                      <LI>Emptying the table manually... <BR>
+                      <UL><BR>
+                        <LI>...using phpMyAdmin <BR>
+                        <LI>...using command line <BR></LI></UL><BR>
+                      <LI>Limiting the number of sessions per IP <BR>
+                      <LI>Increasing the table's MAX_ROWS... <BR>
+                      <UL><BR>
+                        <LI>...using phpMyAdmin <BR>
+                        <LI>...using command line <BR></LI></UL><BR>
+                      <LI>Making the table's type MyISAM... <BR>
+                      <UL><BR>
+                        <LI>...using phpMyAdmin <BR>
+                        <LI>...using command line 
+                  <BR></LI></UL></LI></UL></LI></UL><BR><BR><SPAN 
+                  style="FONT-SIZE: 27px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">The problem</SPAN></SPAN> 
+                  <BR><BR><SPAN 
+                  style="FONT-SIZE: 22px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">The error message</SPAN></SPAN> 
+                  <BR><BR>First of all, before trying to fix it, let's have a 
+                  look at the error itself: <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>phpBB : Critical Error 
+                        wrote:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=quote>Error creating new session <BR><BR><SPAN 
+                        style="FONT-WEIGHT: bold"><SPAN 
+                        style="TEXT-DECORATION: underline">DEBUG</SPAN></SPAN> 
+                        <BR><BR>SQL Error : 1114 The table 'phpbb_sessions' is 
+                        full <BR><BR>INSERT INTO phpbb_sessions (session_id, 
+                        session_user_id, session_start, session_time, 
+                        session_ip, session_page, session_logged_in) VALUES 
+                        ('544c13e2eea831bb6402a4b35f78e96a', -1, 1041341439, 
+                        1041341439, '7f000001', 0, 0) 
+                  <BR></TD></TR></TBODY></TABLE><SPAN class=postbody><BR>What 
+                  does this mean?? As it says, there has been an error creating 
+                  a new session. A session is a piece of data which tracks the 
+                  user as they move around the fora. This is used for tasks such 
+                  as to see whether the user is logged in (for checking if they 
+                  have permission to view a certain page), what page they are 
+                  viewing (for Who is Online) and what their IP is (for the 
+                  admin panel). The session is stored in two places - the client 
+                  side and the server side. On the client side, the session is 
+                  stored either as a cookie on the user's computer, or appended 
+                  to URLs in the forum (e.g. index.php?sid=<SPAN 
+                  style="FONT-STYLE: italic">session_id</SPAN>). On the server 
+                  side, the session is stored in the database, in the sessions 
+                  table (phpbb_sessions by default). This is where the problem 
+                  arises - the table phpbb_sessions is full. <BR><BR><SPAN 
+                  style="FONT-SIZE: 22px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Why it occurs</SPAN></SPAN> 
+                  <BR><BR>Now, why does this happen in the first place?? 'I'm 
+                  innocent!', I hear you say, 'I haven't added any MODs or 
+                  anything, I just woke up one day to see that error message!'. 
+                  Well, you are innocent. This error is nothing to do with you 
+                  (or any of your users) breaking the fora, don't worry. 
+                  <BR><BR>As mentioned above, the problem is that the table in 
+                  your database which stores the sessions is full. But why does 
+                  this happen?? Read on, all will be explained below... 
+                  <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">HEAP tables</SPAN></SPAN> <BR><BR>To 
+                  understand why this error occurs, first you need to understand 
+                  about how the sessions table is designed. If possible, the 
+                  sessions table's type is HEAP, instead of the default table 
+                  type of MyISAM. HEAP tables have the advantage over MyISAM of 
+                  having all the data stored in memory, not on hard-disk. This 
+                  makes them faster than MyISAM tables, which store all their 
+                  data on disk (although both table types' lock is at table 
+                  level). The only part of a HEAP table which is stored on 
+                  hard-disk are the column and table definitions, which are 
+                  stored in a file with a .frm extension. Another important 
+                  point to note about HEAP tables is that all the data in them 
+                  will be lost if MySQL crashes or is restarted, unlike MyISAM 
+                  tables, which will keep all their data. <BR><BR>All of these 
+                  properties make the HEAP table ideal for a table which 
+                  contains temporary information. The sessions table contains 
+                  just that - data in the sessions table will only be valid for 
+                  the amount of time that the session length is set to in the 
+                  admin panel (the default is 1 hour or 3600 seconds). Losing a 
+                  row in the sessions table would just lose the user's sessions 
+                  (thus making them have to login again and the new post markers 
+                  would be lost), whereas losing a row in phpbb_users, a MyISAM 
+                  table, would delete a user's account permanently, which is far 
+                  more serious. <BR><BR>Although deleting a row has the same 
+                  effect on both types of table (the data is irrecoverable), 
+                  because session data is intended to be temporary, the results 
+                  of deleting data are far less harmful and serious. In fact, 
+                  once a session is no longer valid (the session length has been 
+                  reached since its last update or insertion), it is utterly 
+                  useless. It cannot be used anymore, since the session is 
+                  effectively dead. <BR><BR>HEAP is a feature which was 
+                  introduced at MySQL version 3.23.0, so if you're using an 
+                  earlier version then your sessions table will be MyISAM. 
+                  Despite all the differences between MyISAM and HEAP, having 
+                  your sessions table as MyISAM instead of HEAP shouldn't 
+                  produce any noticeable changes, except perhaps being a bit 
+                  slower. <BR><BR><SPAN style="COLOR: green"><SPAN 
+                  style="FONT-WEIGHT: bold">Related link:</SPAN></SPAN> <A 
+                  class=postlink href="http://www.mysql.com/doc/en/HEAP.html" 
+                  target=_blank>MySQL: HEAP tables - documentation on MySQL's 
+                  HEAP table type</A>. <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Why the table is full</SPAN></SPAN> 
+                  <BR><BR>To prevent HEAP tables from eating up all the memory 
+                  by having too many rows in them, a limit, MAX_ROWS, is placed 
+                  on the table. This limit specifies a number which is the 
+                  maximum number of rows that the table can have. The default 
+                  value of MAX_ROWS varies from host to host, but it's often 
+                  550. This means that when you try and insert another row into 
+                  the sessions table when it already has 550 rows there, the 
+                  table is full error occurs. <BR><BR>There is a safe guard to 
+                  prevent you from accidentally creating HEAP tables which eat 
+                  up all the memory by forgetting to set MAX_ROWS or by setting 
+                  to something huge - you cannot create HEAP tables that are 
+                  bigger than the value of max_heap_table_size, a MySQL 
+                  variable. In versions prior to 3.23.2, if the size of HEAP 
+                  table exceeds the size of the variable tmp_table_size, the 
+                  table is full error can occur. In newer versions of MySQL, 
+                  HEAP tables are automatically converted to MyISAM when they 
+                  reach the size of tmp_table_size. Either MAX_ROWS or 
+                  tmp_table_size can be used to limit the size of a table, but 
+                  it is usually the size of MAX_ROWS which will cause the error. 
+                  <BR><BR>By default, phpBB does not have a system to 
+                  automatically empty the sessions table when it gets full, 
+                  though one may be in the next major release, 2.2. 
+                  <BR><BR><SPAN style="COLOR: green"><SPAN 
+                  style="FONT-WEIGHT: bold">Related link:</SPAN></SPAN> <A 
+                  class=postlink 
+                  href="http://www.mysql.com/doc/en/Full_table.html" 
+                  target=_blank>MySQL: The table is full Error - all the 
+                  possible reasons for receiving a 'table is full' error</A>. 
+                  <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Sessions table 
+                  flooding</SPAN></SPAN> <BR><BR>Because the sessions table 
+                  isn't automatically emptied, issues can occur with 'session 
+                  flooding'. When a user views the index page, a session_id is 
+                  created, and a new row is inserted into the sessions table. 
+                  Then the user clicks on a link (to the memberlist, or to view 
+                  a forum or whatever) and everything is dandy - the user's 
+                  session is the same as the one which was created on the index 
+                  page so no extra row is inserted. But then, the user decides 
+                  to open up a new index.php, without using their existing 
+                  session, thus creating a new row in the database. This is easy 
+                  to do if the user's browser is not set to accept cookies, 
+                  because the session_id will be passed with the URL (e.g. 
+                  index.php?sid=<SPAN 
+                  style="FONT-STYLE: italic">session_id</SPAN>). By deleting the 
+                  sid which is appended to the URL, the user makes their session 
+                  row in the database old and no longer valid, but it still 
+                  exists, filling up the table. The user can then just repeat 
+                  this process, filling up the sessions table every time a new 
+                  session is created, yet not deleting the old session. By doing 
+                  this, the limit set by MAX_ROWS can soon be reached, bringing 
+                  on the table is full error. <BR><BR>Note that just because 
+                  your sessions table is full it doesn't mean that someone has 
+                  actively and maliciously trying to fill it. Chances are that 
+                  it is just full because of all the users that visit your site, 
+                  and that no-one has been trying to fill it up in an attempt to 
+                  bring your site down. Sometimes it can just be a confused 
+                  search engine spider, who doesn't like dynamic session ids, 
+                  filling up the sessions table. <BR><BR><SPAN 
+                  style="FONT-SIZE: 27px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">The fix</SPAN></SPAN> <BR><BR><SPAN 
+                  style="FONT-SIZE: 22px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Which fix to use</SPAN></SPAN> 
+                  <BR><BR><SPAN style="COLOR: red"><SPAN 
+                  style="FONT-WEIGHT: bold">Warning:</SPAN></SPAN> Before 
+                  reading any of the fixes below, please read this section which 
+                  will tell you which fix to use depending on the circumstances. 
+                  Also, before proceeding, please <A class=postlink 
+                  href="http://www.phpbb.com/kb/article.php?article_id=9" 
+                  target=_blank>backup your database</A> (or at least the 
+                  sessions table) and your phpBB files (or at least 
+                  includes/sessions.php)! <BR><BR>There are various ways to fix 
+                  the problems spoken about above, each is suited to a different 
+                  situation. The first thing you should try is the automatic 
+                  table emptying script. If that doesn't work, then try emptying 
+                  the table manually. If, after all that, the sessions table 
+                  fills too quickly, try limiting the number of sessions per IP 
+                  or increasing the table's MAX_ROWS. If all else fails, then 
+                  try making the table's type MyISAM. <BR><BR><SPAN 
+                  style="FONT-SIZE: 22px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Automatic table emptying 
+                  script</SPAN></SPAN> <BR><BR>This fix is the first one you 
+                  should try and nearly always works. Thanks to <A 
+                  class=postlink 
+                  href="http://www.phpbb.com/phpBB/profile.php?mode=viewprofile&amp;u=46" 
+                  target=_blank>Ashe</A> for writing it and <A class=postlink 
+                  href="http://www.phpbb.com/phpBB/profile.php?mode=viewprofile&amp;u=8501" 
+                  target=_blank>morpheus2matrix</A> for providing it. Open 
+                  includes/sessions.php using a text/code editor such as 
+                  Wordpad, and find the following code (line 152). 
+                  <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>Code:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=code>message_die(CRITICAL_ERROR, 'Error 
+                        creating new session', '', __LINE__, __FILE__, 
+                    $sql);</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>Replace this with the following code. 
+                  <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>Code:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=code>$error = TRUE; <BR>if (SQL_LAYER == 
+                        "mysql" || SQL_LAYER == "mysql4") <BR>{ <BR>&nbsp; 
+                        &nbsp; $sql_error = $db-&gt;sql_error($result); 
+                        <BR>&nbsp; &nbsp; if ($sql_error["code"] == 1114) 
+                        <BR>&nbsp; &nbsp; { <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                        $result = $db-&gt;sql_query('SHOW TABLE STATUS LIKE 
+                        "'.SESSIONS_TABLE.'"'); <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                        $row = $db-&gt;sql_fetchrow($result); <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; if ($row["Type"] == "HEAP") <BR>&nbsp; 
+                        &nbsp; &nbsp; &nbsp; { <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; if ($row["Rows"] &gt; 2500) <BR>&nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $delete_order 
+                        = (SQL_LAYER=="mysql4") ? " ORDER BY session_time ASC" : 
+                        ""; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; $db-&gt;sql_query("DELETE QUICK FROM 
+                        ".SESSIONS_TABLE."$delete_order LIMIT 50"); <BR>&nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; else <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; { <BR>&nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        $db-&gt;sql_query("ALTER TABLE ".SESSIONS_TABLE." 
+                        MAX_ROWS=".($row["Rows"]+50)); <BR>&nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; } <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; if ($db-&gt;sql_query($sql)) <BR>&nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $error = 
+                        FALSE; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; } <BR>&nbsp; &nbsp; } 
+                        <BR>} <BR>if ($error) <BR>{ <BR>&nbsp; &nbsp; 
+                        message_die(CRITICAL_ERROR, "Error creating new 
+                        session", "", __LINE__, __FILE__, $sql); 
+                    <BR>}</TD></TR></TBODY></TABLE><SPAN class=postbody><BR>This 
+                  script will delete the oldest 50 rows (no longer valid 
+                  sessions) from the sessions table if there are more than 2500 
+                  rows in the table currently. If there are less than 2500 rows 
+                  in the table, then 50 is added to the table's MAX_ROWS (see 
+                  Why the table is full for more on MAX_ROWS). This basically 
+                  means that the table's capacity gets bigger and bigger until 
+                  the maximum amount of rows hits 2500. From then on, instead of 
+                  increasing the table's capacity, the script deletes the oldest 
+                  50 (and no longer needed) sessions. <BR><BR><SPAN 
+                  style="FONT-SIZE: 22px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Emptying the table 
+                  manually...</SPAN></SPAN> <BR><BR>Doing this will delete all 
+                  the rows in your sessions table. It should fix the problem, 
+                  but you'll need to do it every time the table gets full, which 
+                  is why the automatic script talked about above is preferable. 
+                  This fix requires a database administration tool such as <A 
+                  class=postlink href="http://www.phpmyadmin.net/" 
+                  target=_blank>phpMyAdmin</A>, or command line access to be 
+                  available. Remember to backup your database first! 
+                  <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">...using phpMyAdmin</SPAN></SPAN> 
+                  <BR><BR>Using phpMyAdmin, login and click your username in the 
+                  top of the left hand frame or select your database there. In 
+                  the main frame, make sure you're in the Structure tab. Then 
+                  scroll down to your sessions table, phpbb_sessions by default. 
+                  To the right of it, you should see some links. Click on the 
+                  rightmost one, Empty. A javascript box should popup, saying: 
+                  <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>phpMyAdmin 
+                    wrote:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=quote>Do you really want to : DELETE FROM 
+                        `phpbb_sessions`</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>Verify that it does actually say that, and 
+                  that you aren't emptying the wrong table (if it is wrong then 
+                  click 'Cancel' and then you'll get a chance to empty the right 
+                  table). If it is right, then click OK to empty the sessions 
+                  table. All done. <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">...using command line</SPAN></SPAN> 
+                  <BR><BR>To execute some SQL to empty the table, use the 
+                  following query: <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>Code:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=code>DELETE FROM 
+                  phpbb_sessions;</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>Make sure you change the <SPAN 
+                  style="COLOR: #006600">phpbb_</SPAN> part of <SPAN 
+                  style="COLOR: #006600">phpbb_sessions</SPAN> if you specified 
+                  a different table prefix during installation. <BR><BR><SPAN 
+                  style="FONT-SIZE: 22px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Limiting the number of sessions per 
+                  IP</SPAN></SPAN> <BR><BR>This fix should only be used if you 
+                  are experiencing problems with too many sessions being created 
+                  for one user (see Sessions table flooding). Thanks to <A 
+                  class=postlink 
+                  href="http://www.phpbb.com/phpBB/profile.php?mode=viewprofile&amp;u=1814" 
+                  target=_blank>R45</A> for writing it. Open 
+                  includes/sessions.php using a text/code editor such as 
+                  Wordpad, and find the code (around lines 136-145): 
+                  <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>Code:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=code>&nbsp; &nbsp; // <BR>&nbsp; &nbsp; // 
+                        Create or update the session <BR>&nbsp; &nbsp; // 
+                        <BR>&nbsp; &nbsp; $sql = "UPDATE " . SESSIONS_TABLE . " 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; SET session_user_id = 
+                        $user_id, session_start = $current_time, session_time = 
+                        $current_time, session_page = $page_id, 
+                        session_logged_in = $login <BR>&nbsp; &nbsp; &nbsp; 
+                        &nbsp; WHERE session_id = '" . $session_id . "' 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; AND 
+                        session_ip = '$user_ip'"; <BR>&nbsp; &nbsp; if ( 
+                        !$db-&gt;sql_query($sql) || !$db-&gt;sql_affectedrows() 
+                        ) <BR>&nbsp; &nbsp; { <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                        $session_id = 
+                  md5(uniqid($user_ip));</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>After the above (but making sure you don't 
+                  delete the above code), add: <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>Code:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=code>&nbsp; &nbsp; &nbsp; &nbsp; $sql = 
+                        "SELECT COUNT(*) as numrows FROM ". SESSIONS_TABLE ." 
+                        WHERE session_ip = '$user_ip'"; <BR>&nbsp; &nbsp; &nbsp; 
+                        &nbsp; $result = $db-&gt;sql_query($sql); <BR>&nbsp; 
+                        &nbsp; &nbsp; &nbsp; if ( !$result ) <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; { <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; message_die(CRITICAL_ERROR, 'Error checking 
+                        existing sessions', '', __LINE__, __FILE__, $sql); 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; } <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; $numrows = 
+                        $db-&gt;sql_fetchrow($result); <BR>&nbsp; &nbsp; &nbsp; 
+                        &nbsp; if($numrows['numrows'] &gt; 4) <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; { <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; $delete_limit = $numrows['numrows'] - 4; 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; switch( 
+                        SQL_LAYER ) <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; { <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; case 'mysql4': <BR>&nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $sql = 
+                        "DELETE FROM ". SESSIONS_TABLE ." WHERE session_ip = 
+                        '$user_ip' ORDER BY session_start ASC LIMIT 
+                        $delete_limit"; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break; <BR>&nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        default: <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; $sql = "SELECT session_start 
+                        FROM ". SESSIONS_TABLE ." WHERE session_ip = '$user_ip' 
+                        ORDER BY session_start DESC LIMIT 4"; <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        $result = $db-&gt;sql_query($sql); <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; if ( !$db-&gt;sql_query($sql) ) 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; { <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        message_die(CRITICAL_ERROR, 'Error select session data', 
+                        '', __LINE__, __FILE__, $sql); <BR>&nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $session_rows 
+                        = $db-&gt;sql_fetchrowset($result); <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; $sql = "DELETE FROM ". 
+                        SESSIONS_TABLE ." WHERE session_ip = '$user_ip' AND 
+                        session_start &lt; ".$session_rows[3]['session_start']; 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } 
+                        <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; if ( !$db-&gt;sql_query($sql) ) <BR>&nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        message_die(CRITICAL_ERROR, 'Error deleting old 
+                        sessions', '', __LINE__, __FILE__, $sql); <BR>&nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } <BR>&nbsp; &nbsp; 
+                        &nbsp; &nbsp; }</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>This code will see how many sessions 
+                  already exist for the user. If it finds five or more, then the 
+                  oldest session (or sessions, depending on the version of MySQL 
+                  and how many sessions already exist) belonging to that user's 
+                  IP are deleted, to make room for the new session. <BR><BR>To 
+                  change the check to allow a different number of sessions per 
+                  IP, change the highlighted part of this line: <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>includes/sessions.php 
+                        wrote:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=quote>if($numrows['numrows'] &gt; <SPAN 
+                        style="COLOR: red">4</SPAN>)</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>For example, to delete the sessions only if 
+                  the user already has more than ten sessions, the following 
+                  code would be used: <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>includes/sessions.php 
+                        wrote:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=quote>if($numrows['numrows'] &gt; <SPAN 
+                        style="COLOR: red">10</SPAN>)</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>Note that limiting sessions on a per IP 
+                  basis is not suitable if you have many users behind a proxy. 
+                  If you had twenty people behind one proxy gateway accessing 
+                  the fora at the same time, then the total number of people 
+                  acccessing the fora from behind that proxy would be limited, 
+                  not the amount of connections one user creates on the fora. 
+                  <BR><BR>There is code that limits the amount of sessions in a 
+                  60 second period already present in phpBB 2.2, the next major 
+                  release of phpBB, but no anti-session flooding code will be 
+                  added to phpBB 2.0.x. <BR><BR><SPAN 
+                  style="FONT-SIZE: 22px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Increasing the table's 
+                  MAX_ROWS...</SPAN></SPAN> <BR><BR>Increasing the table's 
+                  MAX_ROWS isn't a real solution as much as it is a workaround. 
+                  It increases the session table's capacity (see Why the table 
+                  is full for more on MAX_ROWS), so that the table has more 
+                  space to insert rows into. <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">...using phpMyAdmin</SPAN></SPAN> 
+                  <BR><BR>Using phpMyAdmin, login and click your username in the 
+                  top of the left hand frame or select your database there. In 
+                  the main frame, click on the SQL tab at the top. In the box 
+                  entitled 'Run SQL query/queries on database', enter: 
+                  <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>MySQL query 
+                      wrote:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=quote>ALTER TABLE phpbb_sessions MAX_ROWS = 
+                        <SPAN 
+                  style="COLOR: red">2500</SPAN>;</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>Edit the <SPAN 
+                  style="COLOR: red">2500</SPAN> to the number of rows you wish 
+                  the table to have. The MySQL variable max_heap_table_size 
+                  should prevent you from creating a table too big, so as long 
+                  as you don't go over that then it should be OK. Make sure you 
+                  change the <SPAN style="COLOR: #006600">phpbb_</SPAN> part of 
+                  <SPAN style="COLOR: #006600">phpbb_sessions</SPAN> if you 
+                  specified a different table prefix during installation. 
+                  <BR><BR>When you've altered the code to your heart's desire, 
+                  click the Go button further down the page to execute the 
+                  query. <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">...using command line</SPAN></SPAN> 
+                  <BR><BR>To execute some SQL to increase the MAX_ROWS of the 
+                  table, use this query: <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>MySQL query 
+                      wrote:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=quote>ALTER TABLE phpbb_sessions MAX_ROWS = 
+                        <SPAN 
+                  style="COLOR: red">2500</SPAN>;</TD></TR></TBODY></TABLE><SPAN 
+                  class=postbody><BR>As above, edit the <SPAN 
+                  style="COLOR: red">2500</SPAN> to the number of rows you wish 
+                  the table to have. The MySQL variable max_heap_table_size 
+                  should prevent you from creating a table too big, so as long 
+                  as you don't go over that then it should be OK. Make sure you 
+                  change the <SPAN style="COLOR: #006600">phpbb_</SPAN> part of 
+                  <SPAN style="COLOR: #006600">phpbb_sessions</SPAN> if you 
+                  specified a different table prefix during installation. 
+                  <BR><BR><SPAN 
+                  style="FONT-SIZE: 22px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">Making the table's type 
+                  MyISAM...</SPAN></SPAN> <BR><BR>This is the last thing you 
+                  should try to do if the table is full, and only when the above 
+                  fixes have failed. Making the table MyISAM instead of HEAP 
+                  shouldn't produce any noticable differences, except perhaps be 
+                  a little slower. A MyISAM table should be a lot harder to fill 
+                  (2 or 4 GB of space to fill by default), if MAX_ROWS is set to 
+                  something high enough. See also HEAP tables for more on the 
+                  differences between MyISAM and HEAP tables. <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">...using phpMyAdmin</SPAN></SPAN> 
+                  <BR><BR>Using phpMyAdmin, login and click your username in the 
+                  top of the left hand frame or select your database there. In 
+                  the main frame, make sure you're in the Structure tab. In the 
+                  main frame, scroll down until you see the table 
+                  phpbb_sessions. Click on the Properties link by it. At the 
+                  top, select the Options tab. There should be a bullet point 
+                  saying 'Table type', with a select list next to it with the 
+                  Heap option selected. Click on the select menu and select 
+                  MyISAM from the list (it's usually the first and top option). 
+                  Then click on the Go button. <BR><BR><SPAN 
+                  style="FONT-SIZE: 17px; LINE-HEIGHT: normal"><SPAN 
+                  style="FONT-WEIGHT: bold">...using command line</SPAN></SPAN> 
+                  <BR><BR>To change the sessions table to MyISAM instead of 
+                  HEAP, use the following SQL: <BR><BR></SPAN>
+                  <TABLE cellSpacing=1 cellPadding=3 width="90%" align=center 
+                  border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><SPAN class=genmed><B>Code:</B></SPAN></TD></TR>
+                    <TR>
+                      <TD class=code>ALTER TABLE phpbb_sessions TYPE = 
+                      MYISAM;</TD></TR></TBODY></TABLE><SPAN class=postbody><BR>Make 
+                  sure you change the <SPAN style="COLOR: #006600">phpbb_</SPAN> 
+                  part of <SPAN style="COLOR: #006600">phpbb_sessions</SPAN> if 
+                  you specified a different table prefix during installation. 
+                  <BR><BR><SPAN 
+                  style="FONT-SIZE: 10px; LINE-HEIGHT: normal">Last updated 29 
+                  May 2003</SPAN></SPAN></TD></TR>
+              <TR>
+                <TD class=catBottom align=middle></TD></TR></TBODY></TABLE>
+        <TR>
+          <TD width="100%">
+            <HR SIZE=1>
+          </TD></TR>
+        <TR></TR>
+        <TR>
+          <TD noWrap align=middle rowSpan=2>
+            <FORM action=./login.php method=post><FONT 
+            color=#00e000><B></B></FONT><SPAN class=siteTextSmall>Username: 
+            </SPAN><INPUT class=post name=username> <SPAN 
+            class=siteTextSmall>Password: </SPAN><INPUT class=post type=password 
+            name=password> <INPUT type=hidden value=1 name=login> <INPUT class=mainoption type=submit value=Login> 
+        </FORM></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD class=bgBottom align=middle height=37><SPAN 
+            class=siteBotLinks><A class=siteBotLinks 
+            href="http://www.phpbb.com/news.php">News</A> | <A 
+            class=siteBotLinks 
+            href="http://www.phpbb.com/features.php">Features</A> | <A 
+            class=siteBotLinks href="http://www.phpbb.com/demo.php">Demo</A> | 
+            <A class=siteBotLinks 
+            href="http://www.phpbb.com/downloads.php">Downloads</A> | <A 
+            class=siteBotLinks 
+            href="http://www.phpbb.com/support.php">Support</A> | <A 
+            class=siteBotLinks href="http://www.phpbb.com/phpBB/">Community</A> 
+            | <A class=siteBotLinks 
+            href="http://www.phpbb.com/styles/">Styles</A> | <A 
+            class=siteBotLinks href="http://www.phpbb.com/mods/">Mods</A> | <A 
+            class=siteBotLinks href="http://www.phpbb.com/links/">Links</A> | <A 
+            class=siteBotLinks 
+            href="http://www.cafepress.com/cp/store/store.aspx?storeid=phpBB,phpBB2,phpBB3,phpBB4" 
+            target=_blank>Merchandise</A> | <A class=siteBotLinks 
+            href="http://www.phpbb.com/about.php">About</A> | <A 
+            class=siteBotLinks 
+            href="http://www.phpbb.com/index.php">Home</A><BR></SPAN><SPAN 
+            class=gen>&nbsp;</SPAN><SPAN class=copyright>© Copyright 2002 The <A 
+            class=copyright href="http://www.phpbb.com/about.php">phpBB 
+            Group</A>.</SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></BODY></HTML>

@@ -1,0 +1,575 @@
+################################
+######## Version 0.91 ##########
+################################
+
+@group_names = ('Banned','Guest','User','Superuser','Administrator','Chat Master');
+
+######## messages on coming into the room/chat ##########
+$message{in_chat} =  '>>> %s enters %s.
+>>> %s opens the door, looks around and enters into %s.
+>>> %s walks slowly into %s.
+>>> %s jumps into %s.
+>>> <ZONG!> %s beams into %s.';
+
+$message{in_room} =  '>>> %s enters the room %s.
+>>> %s opens the door, looks around and enters into the room %s.
+>>> %s walks slowly into the room %s.
+>>> %s jumps into the room %s.
+>>> <ZONG!> %s beams into the room %s.';
+
+######## messages on going out of the room/chat ##########
+$message{out_chat} = '<<< %s walks out of %s.
+<<< %s leaves %s.
+<<< %s crawls out of %s.
+<<< %s sneaks quietly out of %s.
+<<< %s jumps out of %s.
+<<< <ZONG!> %s beams out of %s.';
+
+$message{out_room} = '<<< %s walks out of the room %s.
+<<< %s leaves the room %s.
+<<< %s crawls out of the room %s.
+<<< %s sneaks quietly out of the room %s.
+<<< %s jumps out of the room %s.
+<<< <ZONG!> %s beams out of the room %s.';
+
+######## error messages ##########
+$message{error_couldnotopen} = 'The file %s could not be opened. Please contact the webmaster.';
+
+$message{error_nopermission} = 'You do not have permission to access this section.';
+$message{error_profile_nopermission} = 'You do not have permission to change this profile.';
+$message{error_deleteuser_nopermission} = 'You do not have permission to delete this user.';
+$message{error_roomlist_nopermission} = 'You do not have permission to change this room.';
+$message{error_invite_nopermission} = 'Only room owner and admistrators are allowed to invite people.';
+
+$message{error_ban_nothingtodo} = 'You must fill out at least one field.';
+$message{error_search_nothingtodo} = 'You did not enter any text to search for.';
+$message{error_nousernamegiven} = 'Please enter a value for the username field.';
+$message{error_nonicknamegiven} = 'Please enter a value for the nickname field.';
+$message{error_nopasswordgiven} = 'Please enter a value for the password field.';
+$message{error_noemailgiven} = 'Please enter a value for the e-mail field.';
+$message{error_noroomnamegiven} = 'Please enter a value for the room name field.';
+$message{error_messages_notextgiven} = 'You did not enter any text.';
+$message{error_noguestlogin} = 'You must register to use this chat.';
+
+$message{error_passwordsnotequal} = 'The submitted passwords are not identical.';
+$message{error_wrongpassword} = 'The password you entered is wrong.';
+$message{error_illegalemail} = 'E-mail address contains illegal characters.';
+$message{error_illegalbirthdate} = 'The submitted birth date is illegal, please enter it again.';
+$message{error_wrongbirthdate} = 'The birth date you entered is wrong.';
+
+$message{error_usernameexists} = 'The username %s already exists, please enter a different name.';
+$message{error_nicknameexists} = 'The nickname %s already exists, please enter a different name.';
+$message{error_roomnameexists} = 'The room name %s already exists, please enter a different name.';
+
+$message{error_unknownusername} = 'Username %s was not found.';
+$message{error_unknownroom} = 'Room name %s was not found.';
+$message{error_unknowncolor} = 'Unknown color %s.';
+$message{error_unknownowner} = 'No user with the nickname %s was found. Please enter a different owner.';
+$message{error_ambiguousowner} = 'The name of the owner could not be completed since several nicknames start with the same sequence. Please be more precise.';
+$message{error_unknownmessage} = 'Message %s does not exist.';
+
+$message{error_deleteuser_chatmaster} = 'Chat master cannot be deleted.';
+$message{error_deleteuser_guest} = 'Guests are deleted automatically on logout.';
+$message{error_lastmessage} = 'You cannot delete the last entry for a chat message.';
+
+$message{error_nologinrecord} = 'You are not logged in, please login again.';
+$message{error_usernamebanned} = 'This username was banned. If you disagree with this, please email to %s.';
+$message{error_ipbanned} = 'This IP address was banned. If you think this is a mistake, please email to %s.';
+$message{error_ipcerror} = 'IPC connection could not be established.';
+$message{error_mailprogramerror} = 'There was an error opening the mail program.';
+
+$message{error_maintenance} = 'Sorry. Maintenance is being carried out on the chat at present. Please try again in a few minutes.';
+
+$message{error_unknowncommand} = 'Unknown command %s.';
+$message{error_onoff} = 'Please enter either \'on\' or \'off\'.';
+$message{error_gagged} = 'Hey, do you think you are allowed to speak? I think not!!';
+$message{error_ambiguousname} = 'The name %s could not be completed since several names start with the same sequence. Please be more precise.';
+$message{error_msgtooneself} = 'Speaking to yourself again?';
+$message{error_samenickname} = 'That is already your nickname!';
+$message{error_ignoreoneself} = 'Why do you want to ignore yourself? I can\'t see anyone else wanting to speak to you if you ignore yourself!!';
+$message{error_alreadyignored} = 'You are already ignoring %s.';
+$message{error_notignored} = 'You are not ignoring %s at the moment.';
+$message{error_invite_publicroom} = 'This room is public, you do not need to invite people.';
+$message{error_alreadyinvited} = '%s has already been invited.';
+$message{error_notinvited} = '%s has not been invited yet.';
+
+$message{error_notinroom} = '%s is not in the room.';
+$message{error_notonline} = '%s is offline at the moment.';
+$message{error_notfound} = '%s is not a valid user.';
+
+$message{error_msg_namenotgiven} = 'Ok, and who should receive this message?';
+$message{error_unignore_namenotgiven} = 'Nice idea, but who do you mean?';
+$message{error_uninvite_namenotgiven} = 'Nice idea, but who do you mean?';
+$message{error_push_namenotgiven} = 'And who do you want to push?';
+$message{error_push_roomnotgiven} = 'Where do you want to put them?';
+$message{error_push_alreadythere} = 'But they are already there!';
+$message{error_kick_namenotgiven} = 'And who do you want to kick?';
+$message{error_gag_namenotgiven} = 'And who do you want to gag?';
+
+$message{error_push_admin} = '%s is administrator! You didn\'t really want to push an admin, did you?';
+$message{error_kick_admin} = '%s is administrator! You didn\'t really want to kick an admin, did you?';
+$message{error_gag_admin} = '%s is administrator! You didn\'t really want to gag an admin, did you?';
+
+######## info messages ##########
+$message{info_currentcolor} = 'Your current color is %s.';
+$message{info_nickname} = 'Your nickname is %s.';
+$message{info_room} = 'You are in room %s.';
+
+$message{info_ignore} = 'The following users are ignored: %s';
+$message{info_ignorenoone} = 'You are not ignoring any users at the moment.';
+$message{info_ignored} = 'The user %s is ignoring you now.';
+$message{info_notignored} = '%s has decided not to ignore you anymore.';
+$message{info_ignoresuccessful} = 'You will not receive any messages from %s anymore.';
+$message{info_unignoresuccessful} = 'Now you can receive messages from %s again.';
+
+$message{info_colorsuccessful} = 'A new color was set, %s.';
+
+$message{info_smileyson} = 'The smileys are on at the moment.';
+$message{info_smileysoff} = 'The smileys are off at the moment.';
+$message{info_smileyssuccessful_on} = 'The smileys are now on, %s.';
+$message{info_smileyssuccessful_off} = 'The smileys are now off, %s.';
+
+$message{info_invite} = 'The following users have been invited to this room: %s.';
+$message{info_invitenoone} = 'No users have been invited to this room at the moment.';
+$message{info_invited} = 'You were invited to the room %s.';
+$message{info_uninvited} = 'Your invitation for the room %s was canceled.';
+$message{info_invitesuccess} = 'The user %s was invited.';
+$message{info_uninvitesuccess} = 'The invitation of user %s was canceled.';
+
+$message{info_pushed} = '%s pushes %s into the room %s.';
+$message{info_kicked} = '%s kicks %s out of the chat.';
+$message{info_gagged} = '%s casts a spell on %s, who is now not able to speak a word for %s minutes.';
+$message{info_ungagged} = '%s allows %s to speak again.';
+$message{info_nickchanged} = '%s has changed their name to %s';
+
+$message{greeting_welcome} = 'Welcome to room %s';
+$message{greeting_topic} = 'The topic in this room is: %s';
+
+################################
+######## Version 0.92 ##########
+################################
+
+@group_tags = ('','guest','','Admin','Admin','Admin');
+@months_names = ('January','February','March','April','May','June','July','August','September','October','November','December');
+
+$message{error_unknownnickname} = 'Nickname %s was not found.';
+$message{error_reminder_disabled} = 'You do not need the password reminder with the current chat settings.';
+
+$message{info_awayon} = '%s is away now';
+$message{info_awayoff} = '%s is back';
+
+$message{reminder_success} = 'Your password has been changed and sent to you through e-mail. It should arrive in a few minutes.';
+
+$text{yes} = 'Yes';
+$text{no} = 'No';
+$text{activated} = 'activated';
+$text{deactivated} = 'deactivated';
+
+$text{text_tagto} = 'to %s';
+$text{text_tagprivateto} = 'whispers to %s';
+$text{text_tagprivate} = 'private';
+$text{text_tagtoall} = 'to all';
+
+$text{login_news} = 'Chat news';
+$text{login_nouseronline} = 'No users in public rooms...';
+$text{login_username_wrong} = 'Wrong username?';
+$text{login_nickname_wrong} = 'Wrong nickname?';
+$text{login_password_guests} = '(members only)';
+$text{login_cookie_saveusername} = 'Save username and password';
+$text{login_cookie_savenickname} = 'Save nickname and password';
+$text{login_submit} = 'Login';
+
+$text{reminder_title} = 'Password reminder';
+$text{reminder_comment} = 'Please enter your information so a new password can be sent to you.';
+$text{reminder_submit} = 'Send password';
+$text{reminder_mail_subject} = 'Automatic password reminder';
+$text{reminder_mail_body} = 'Hello %s,
+
+you asked for a new password for your chat account
+%s. Your new password is:
+
+	  %s
+
+Please login now and change your password immediately.';
+
+$text{profile_username} = 'Username';
+$text{profile_nickname} = 'Nickname';
+$text{profile_password} = 'Password';
+$text{profile_password_again} = 'Password (again)';
+$text{profile_email} = 'E-mail';
+$text{profile_email_private} = 'E-mail only visible to admins';
+$text{profile_website} = 'Website';
+$text{profile_website_title} = 'Website&nbsp;(Title)';
+$text{profile_website_url} = 'Website&nbsp;(URL)';
+$text{profile_lastlogin} = 'Last&nbsp;login';
+$text{profile_room} = 'Room';
+$text{profile_birthdate} = 'Birth date';
+$text{profile_birthdate_day} = 'Day';
+$text{profile_birthdate_month} = 'Month';
+$text{profile_birthdate_year} = 'Year';
+$text{profile_position} = 'Position';
+$text{profile_color} = 'Color';
+$text{profile_color_red} = 'Red part';
+$text{profile_color_green} = 'Green part';
+$text{profile_color_blue} = 'Blue part';
+$text{profile_pullmode} = 'Safe&nbsp;mode';
+$text{profile_browser} = 'Browser';
+$text{profile_ip} = 'IP address';
+$text{profile_clientip} = 'Client IP';
+$text{profile_hostname} = 'Host';
+$text{profile_smileys} = 'Use smileys';
+$text{profile_state_online} = 'Online';
+$text{profile_state_away} = 'Away';
+$text{profile_state_offline} = 'Offline';
+
+$text{profile_privatemessage} = 'Private&nbsp;message';
+$text{profile_privatemessage_submit} = 'Send';
+
+$text{profile_editprofile} = 'Edit profile';
+$text{profile_gag} = 'Gag';
+$text{profile_kick} = 'Kick';
+$text{profile_ban} = 'Ban this address';
+
+$text{viewprofile_comment} = '';
+$text{modifyprofile_comment} = '';
+$text{modifyprofile_submit} = 'Save profile';
+$text{deleteprofile_submit} = 'Delete user';
+
+$text{register_submit} = 'Create account';
+
+$text{traceroute_title} = 'Traceroute for %s';
+$text{traceroute_comment} = 'Determining the route to %s:';
+
+$text{users_title} = 'Room %s<br>%s of %s user(s)';
+$text{users_tagowner} = 'owner';
+
+$text{userlist_title} = 'User list';
+$text{userlist_comment} = '';
+
+$text{usersearch_title} = 'User search';
+$text{usersearch_comment} = '';
+$text{usersearch_text} = 'Find&nbsp;text';
+$text{usersearch_position} = 'Position';
+$text{usersearch_position_somewhere} = 'Somewhere';
+$text{usersearch_position_beginning} = 'At the beginning of the name';
+$text{usersearch_position_end} = 'At the end of the name';
+$text{usersearch_submit} = 'Search';
+$text{usersearch_showall} = 'Show all users';
+
+$text{searchresults_title} = 'Search results';
+$text{searchresults_comment} = '';
+$text{searchresults_nothingfound} = 'Nothing found...';
+$text{searchresults_again} = 'New search';
+
+$text{rooms_title} = 'Go to room:';
+
+$text{roomlist_title} = 'Room list';
+$text{roomlist_comment} = '';
+$text{roomlist_name} = 'Name';
+$text{roomlist_state} = 'Status';
+$text{roomlist_state_public} = 'public';
+$text{roomlist_state_private} = 'private';
+$text{roomlist_state_permanent} = 'permanent';
+$text{roomlist_state_temporary} = 'temporary';
+$text{roomlist_topic} = 'Topic';
+$text{roomlist_owner} = 'Owner';
+$text{roomlist_accessibility} = 'Accessibility';
+$text{roomlist_permanence} = 'Permanence';
+$text{roomlist_room_modify} = 'Modify';
+$text{roomlist_room_users} = 'User(s)';
+$text{roomlist_createnew} = 'Create new room';
+
+$text{roomlist_greetingmessage} = 'Greeting message';
+$text{roomlist_goodbyemessage} = 'Goodbye message';
+
+$text{createroom_title} = 'New room';
+$text{modifyroom_title} = 'Modify room';
+$text{modifyroom_comment} = '';
+$text{modifyroom_submit} = 'Save room';
+$text{deleteroom_submit} = 'Delete room';
+
+$text{admin_title} = 'Administrator functions';
+$text{admin_comment} = '';
+$text{admin_banlist} = 'Banned IPs';
+$text{admin_traffic} = 'Traffic statistics';
+$text{admin_news} = 'Modify chat news';
+$text{admin_settings} = 'General settings';
+$text{admin_permissions} = 'Adjust permissions';
+$text{admin_smileys} = 'Adjust smileys';
+$text{admin_commandaliases} = 'Define aliases for chat commands';
+$text{admin_coloraliases} = 'Define aliases for colors';
+$text{admin_messages} = 'Modify chat messages';
+$text{admin_texts} = 'Modify chat texts';
+$text{admin_groupnames} = 'Modify names of the user groups';
+$text{admin_grouptags} = 'Modify tags of the user groups';
+$text{admin_monthsnames} = 'Modify names of the months';
+$text{admin_maintenance} = 'Switch to maintenance mode';
+$text{admin_maintenance_end} = 'Leave the maintenance mode';
+
+$text{trafficstats_title} = 'Traffic statistics';
+$text{trafficstats_comment} = 'The traffic statistics are %s at the moment. Only dynamic contents are counted, that means no pictures or static HTML, like help pages.';
+$text{trafficstats_date} = 'Date';
+$text{trafficstats_traffic} = 'Transmitted bytes';
+$text{trafficstats_clear} = 'Clear statistics';
+
+$text{viewnews_title} = 'News entries';
+$text{viewnews_comment} = 'You can fill in more than one entry, in this case a random one is shown.';
+$text{viewnews_entry_modify} = 'Modify';
+$text{viewnews_entry_delete} = 'Delete';
+$text{viewnews_createnew} = 'Create new entry';
+
+$text{modifynews_title} = 'Modify news entry';
+$text{modifynews_comment} = '';
+$text{modifynews_text} = 'Text';
+$text{modifynews_submit} = 'Save news entry';
+
+$text{banlist_title} = 'Banned addresses';
+$text{banlist_comment} = '';
+$text{banlist_domain} = 'Domain';
+$text{banlist_ip} = 'IP address';
+$text{banlist_clientip} = 'Client IP';
+$text{banlist_time} = 'Time';
+$text{banlist_commenttext} = 'Comment';
+$text{banlist_entry_modify} = 'Modify';
+$text{banlist_createnewentry} = 'Add new address';
+
+$text{createbanlistentry_title} = 'New entry';
+$text{modifybanlistentry_title} = 'Modify entry';
+$text{modifybanlistentry_comment} = 'Please fill in at least one field. If you use more than one, all of the criteria must be true. You can use any part of the IP address or the ending of the host name.';
+$text{modifybanlistentry_submit} = 'Save entry';
+$text{deletebanlistentry_submit} = 'Delete entry';
+
+$text{messages_title} = 'Chat messages';
+$text{messages_comment} = 'If you submit more than one text for a message it is selected by random.';
+$text{messages_name} = 'Name';
+$text{messages_text} = 'Text';
+$text{messages_message_modify} = 'Modify';
+$text{messages_createnew} = 'Create new text';
+
+$text{createmessage_title} = 'New text';
+$text{modifymessage_title} = 'Modify text';
+$text{modifymessage_comment} = '';
+$text{modifymessage_submit} = 'Save text';
+$text{deletemessage_submit} = 'Delete text';
+
+$text{texts_title} = 'Chat texts';
+$text{texts_comment} = 'You can use HTML tags in the chat texts. If you do so, make sure they are correct!';
+$text{texts_name} = 'Name';
+$text{texts_text} = 'Text';
+$text{texts_text_modify} = 'Modify';
+
+$text{modifytext_title} = 'Modify text';
+$text{modifytext_comment} = '';
+$text{modifytext_submit} = 'Save text';
+
+$text{modifygroupnames_title} = 'Modify names of the user groups';
+$text{modifygroupnames_comment} = '';
+$text{modifygroupnames_submit} = 'Save names';
+
+$text{modifygrouptags_title} = 'Modify tags of the user groups';
+$text{modifygrouptags_comment} = 'These tags are shown next to the nickname in the user list.';
+$text{modifygrouptags_submit} = 'Save tags';
+
+$text{modifymonthsnames_title} = 'Modify names of the months';
+$text{modifymonthsnames_comment} = '';
+$text{modifymonthsnames_submit} = 'Save names of the months';
+
+$text{smileys_image} = 'Picture';
+$text{smileys_abbreviations} = 'Abbreviations';
+$text{smileys_visible} = 'Visible';
+$text{smileys_width} = 'Width';
+$text{smileys_height} = 'Height';
+$text{smileys_smiley_modify} = 'Modify';
+$text{smileys_smiley_move} = 'Move';
+$text{smileys_createnew} = 'Add picture';
+
+$text{viewsmileys_title} = 'Adjust smileys';
+$text{viewsmileys_comment} = '';
+$text{createsmiley_title} = 'Add picture';
+$text{modifysmiley_title} = 'Modify smiley';
+$text{modifysmiley_comment} = 'You can enter more then one abbreviation, separated by spaces. The name of the picture should <b>not</b> contain the path and the extension, as only pictures in GIF format stored in the images directory are accepted.';
+$text{modifysmiley_submit} = 'Save entry';
+$text{deletesmiley_submit} = 'Delete entry';
+$text{movesmiley_title} = 'Move smiley';
+$text{movesmiley_comment} = '';
+$text{movesmiley_insertafter} = 'Insert after';
+$text{movesmiley_insertafter_first} = '--- At the first position ---';
+$text{movesmiley_submit} = 'Move';
+
+$text{settings_title} = 'Modify settings';
+$text{settings_comment} = 'You can click on the question mark to get a more detailed explanation. Please read it before you change something. Sometimes it is necessary to log in again for changes to become active.';
+$text{settings_chatname} = 'Chat name';
+$text{settings_enable_news} = 'Activate chat news';
+$text{settings_enable_traffic_stat} = 'Activate traffic statistics';
+$text{settings_enable_smileys} = 'Activate smileys';
+$text{settings_allow_guestlogin} = 'Allow guest login (without password)';
+$text{settings_use_usernames} = 'Use usernames';
+$text{settings_use_server_auth} = 'Authorization via htaccess';
+$text{settings_pull_mode_only} = 'Allow only safe mode';
+$text{settings_webmaster_email} = 'Webmasters mail address';
+$text{settings_mailprog} = 'Location of sendmail program';
+$text{settings_defaultcolor} = 'Default color';
+$text{settings_defaultroom} = 'Default room';
+$text{settings_alive_test_rate} = 'Connection test rate (Standard mode)';
+$text{settings_log_clean_rate} = 'Log cleaning rate';
+$text{settings_log_length} = 'Maximum age of log entries';
+$text{settings_time_distance} = 'Time difference between users and server';
+$text{settings_max_login_time} = 'Maximum login time';
+$text{settings_cookie_name} = 'Cookie name';
+$text{settings_submit} = 'Save settings';
+
+$text{maintenance_title} = 'Maintenance mode';
+
+$text{commandaliases_title} = 'Aliases for chat commands';
+$text{commandaliases_comment} = '';
+$text{commandaliases_alias} = 'Alias';
+$text{commandaliases_command} = 'Command';
+$text{commandaliases_alias_modify} = 'Modify';
+$text{commandaliases_createnew} = 'Create new alias';
+
+$text{coloraliases_title} = 'Aliases for colors';
+$text{coloraliases_comment} = '';
+$text{coloraliases_alias} = 'Alias';
+$text{coloraliases_command} = 'HTML color';
+$text{coloraliases_alias_modify} = 'Modify';
+$text{coloraliases_createnew} = 'Create new alias';
+
+$text{modifycommandalias_title} = 'Modify alias';
+$text{modifycommandalias_comment} = '';
+$text{modifycommandalias_submit} = 'Save alias';
+$text{deletecommandalias_submit} = 'Remove alias';
+
+$text{modifycoloralias_title} = 'Modify alias';
+$text{modifycoloralias_comment} = '';
+$text{modifycoloralias_submit} = 'Save alias';
+$text{deletecoloralias_submit} = 'Remove alias';
+
+$text{permissions_title} = 'Modify permissions';
+$text{permissions_comment} = '';
+$text{permissions_permission} = 'Permission type';
+$text{permissions_startingwithgroup} = 'beginning with usergroup';
+$text{permissions_admin} = 'Admin functions';
+$text{permissions_admin_banlist} = 'IP banning';
+$text{permissions_admin_traffic} = 'Traffic statistics';
+$text{permissions_admin_news} = 'Change chat news';
+$text{permissions_admin_settings} = 'General settings';
+$text{permissions_admin_permissions} = 'Modify permissions';
+$text{permissions_admin_smileys} = 'Change smileys';
+$text{permissions_admin_aliases0} = 'Define aliases for chat commmands';
+$text{permissions_admin_aliases1} = 'Define aliases for colors';
+$text{permissions_admin_messages} = 'Modify chat messages';
+$text{permissions_admin_texts} = 'Modify chat texts';
+$text{permissions_admin_list0} = 'Names of user groups';
+$text{permissions_admin_list1} = 'Tags of user groups';
+$text{permissions_admin_list2} = 'Names of the months';
+$text{permissions_admin_maintenance} = 'Switch to maintenance mode';
+$text{permissions_img} = '/img command';
+$text{permissions_kick} = '/kick command';
+$text{permissions_gag} = '/gag command';
+$text{permissions_push} = '/push command';
+$text{permissions_broadcast} = '/broadcast command';
+$text{permissions_privaterooms} = 'Enter private rooms';
+$text{permissions_invite} = 'Invite users to a room not owned by you';
+$text{permissions_profile_seeemail} = 'See the e-mail address of all users';
+$text{permissions_profile_seelastlogin} = 'See the time of last login';
+$text{permissions_profile_seeip} = 'See the IP address of the users';
+$text{permissions_profile_seepullmode} = 'See if the user is in safe mode';
+$text{permissions_profile_modify} = 'Modify profiles of other users';
+$text{permissions_rooms_create} = 'Create room';
+$text{permissions_rooms_createprivate} = 'Create private rooms';
+$text{permissions_rooms_createpermanent} = 'Create permanent rooms';
+$text{permissions_rooms_changeowner} = 'Change room owner';
+$text{permissions_rooms_modify} = 'Modify rooms of other users';
+$text{permissions_submit} = 'Save permissions';
+
+$message{question_maintenance} = 'After switching to maintenance mode all users except you will be kicked from the chat. Do you really want to switch to maintenance mode?';
+$message{info_maintenance_success} = 'The chat is in maintenance mode now. If you leave the chat now you will not be able to login again. In this case you have to change the value of the variable $maintenance in Settings.dat to 0. If you stay logged in you can end the maintenance mode by clicking to Leave maintenance mode in Admin functions.';
+
+$message{error_unknowntext} = 'The chat text %s doesn\'t exist.';
+
+$message{error_unknownsmiley} = 'The picture %s doesn\'t exist, please add it first.';
+$message{error_smileyexists} = 'The picture %s has been added already.';
+$message{error_noimagegiven} = 'You must fill in the name of the picture.';
+$message{error_illegalimage} = 'The name of the picture contains illegal characters.';
+$message{error_imagemandatory} = 'You cannot delete this picture.';
+
+$message{error_unknownalias} = 'The alias %s was not found.';
+$message{error_aliasexists} = 'Sorry, %s already exists.';
+$message{error_noaliasgiven} = 'You must fill in the name of the alias.';
+$message{error_illegalalias} = 'The alias submitted is illegal.';
+$message{error_illegalalias_color} = 'The color contains illegal characters.';
+
+$message{error_illegaldefaultroom} = 'The default room must be public and permanent.';
+$message{error_mailprognotfound} = 'The sendmail program couldn\'t be found, please make sure that the path is correct.';
+
+$message{info_img} = 'Nice picture with regards from %s';
+$message{info_img_private} = 'Nice picture for %s with regards from %s';
+
+################################
+######## Version 0.93 ##########
+################################
+
+$text{permissions_rooms_createmoderated} = 'Create moderated rooms';
+$text{permissions_rooms_moderate} = 'Moderate in rooms of other users';
+
+$text{roomlist_moderation} = 'Moderation';
+$text{roomlist_state_moderated} = 'moderated';
+$text{roomlist_state_nonmoderated} = 'not moderated';
+
+$text{users_tagmoderator} = 'Moderator';
+$text{users_tagvip} = 'VIP';
+
+$message{error_moderated_nopermission} = 'You do not have permission to execute this command in a moderated room.';
+$message{error_moderated_msg_nopermission} = 'The user %s is in a moderated room, you do not have permission to send him a private message.';
+
+$message{error_vip_nopermission} = 'Only moderators can appoint VIPs.';
+$message{error_vip_nonmoderatedroom} = 'This room is not moderated, it is not necessary to appoint VIPs.';
+$message{error_alreadyvip} = 'The user %s is already a VIP.';
+$message{error_notvip} = 'The user %s is not a VIP.';
+$message{error_removevip_namenotgiven} = 'Would you please tell me who you mean?';
+
+$message{info_vip} = 'The following users are VIPs in this room: %s.';
+$message{info_vipnoone} = 'There are no VIPs appointed for this room yet.';
+$message{info_vipadded} = 'You were made a VIP in the room %s.';
+$message{info_vipremoved} = 'Your VIP status in the room %s was canceled.';
+$message{info_addvipsuccess} = 'The user %s is now a VIP.';
+$message{info_removevipsuccess} = 'The VIP status of %s was canceled.';
+
+$text{settings_max_username_len} = 'Maximum length for usernames';
+$text{settings_max_nickname_len} = 'Maximum length for nicknames';
+$text{settings_max_password_len} = 'Maximum length for passwords';
+$text{settings_max_websitetitle_len} = 'Maximum length for homepage titles';
+$text{settings_max_websiteurl_len} = 'Maximum length for homepage URLs';
+$text{settings_max_email_len} = 'Maximum length for email addresses';
+$text{settings_max_roomname_len} = 'Maximum length for room names';
+
+$message{error_mknodfailed} = 'The creation of a named pipe (execution of mknod or mkfifo) failed. Please contact the webmaster.';
+$message{error_couldnotopenpipe} = 'The pipe for the user could not be opened. Please contact the webmaster.';
+
+$text{settings_externalmknod} = 'Use an external mknod or mkfifo program';
+$text{settings_mknodprog} = 'Path to the mknod program';
+$text{settings_mkfifoprog} = 'Path to the mkfifo program';
+$text{settings_display_userlist_shortcuts} = 'Display shortcuts for /msg and @';
+$text{settings_pwseed} = 'Password crypting seed';
+$text{settings_log_private_msgs} = 'Log private messages';
+
+$message{error_max_users} = 'Only %s users are allowed in this chat at the same time. Unfortunately this limit has been reached already. Please try again later.';
+$text{settings_max_users} = 'Maximum number of users in the chat';
+$text{permissions_ignore_max_users} = 'Ignore the maximum user number';
+
+$text{settings_roomlist_cols} = 'Maximum number of columns in the room selection list';
+
+$text{settings_SYS_mknod} = 'SYS_mknod';
+$text{settings_S_IFIFO} = 'S_IFIFO';
+$message{error_max_username_len} = 'The username is too long.';
+
+$message{error_max_nickname_len} = 'The nickname is too long.';
+$message{error_max_password_len} = 'The password is too long.';
+$message{error_max_websitetitle_len} = 'The website title is too long.';
+$message{error_max_websiteurl_len} = 'The website URL is too long.';
+$message{error_max_email_len} = 'The e-mail address is too long.';
+$message{error_max_roomname_len} = 'The room name is too long.';
+
+$text{settings_alive_test_rate_pull} = 'Connection test rate (Safe mode)';
+
+1;

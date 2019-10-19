@@ -1,0 +1,68 @@
+BODY          {scrollbar-face-color:#D4DEC3;scrollbar-highlight-color:#FFFFFF; scrollbar-3dlight-color:#DDE2D5; scrollbar-darkshadow color:#000000; scrollbar- shadow-color:#808080;scrollbar-arrow-color:#FFFFFF;scrollbar-track-color:#DDE2D5;; }
+A
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+A:active
+{
+	color: #FFA600;
+}
+A:hover
+{
+	text-decoration: underline overline;
+	color: blue;
+}
+
+TD,#normaltext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #000000;
+}
+#smalltext
+{
+	font-size: 8pt;
+}
+
+TH
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #000000;
+	background-color: #8C9A84;
+}
+#table1
+{
+	background-color: #CEE3B5;
+}
+#table2
+{
+	background-color: #D6DFC6;
+}
+#lines
+{
+	background-color: #8C8E8C;
+}
+
+#body
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11pt;
+	color: #5A5D5A;
+	background-color: #DEE3D6;
+}
+#headertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #000000;
+}
+#bigheadertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 14pt;
+	color: #000000;
+}

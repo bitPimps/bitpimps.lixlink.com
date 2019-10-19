@@ -1,0 +1,829 @@
+phpBB.com :: View topic - [BETA] Spoiler BBcode MOD++
+
+
+
+
+             FAQ   Search   Memberlist   Usergroups    Register  
+             Profile   Log in to check your private messages   Log in 
+
+                  [BETA] Spoiler BBcode MOD++
+                  Goto page 1, 2  Next
+                    
+                        phpBB.com Forum Index -> MOD Development
+                  View previous topic :: View next topic  
+                  AuthorMessage
+                  cheesypeanut
+                  Registered User
+
+
+                  Joined: 05 May 2003
+                  Posts: 122
+                  Location: England
+                        Posted: Wed Jun 30, 2004 8:09 pm    Post subject: [BETA] 
+                        Spoiler BBcode MOD++ 
+
+
+
+                        This MOD is closely based upon the MOD by elfy, found 
+                        here 
+                        http://www.phpbb.com/phpBB/viewtopic.php?p=206691&highlight=#206691. 
+
+
+                        However, my version of the MOD adds the ability to view 
+                        the "hidden spoiler text" by simply moving the cursor 
+                        over the text, without having to select it. 
+
+                        I will post a demo of this shortly or maybe a few 
+                        screenshots if I cannot host a demo board. 
+
+                        I would like to acknowledge elfy for his original code 
+                        which meant that I could write this MOD. Thanks. 
+
+                        EDIT:I have changed the title of this MOD to avoid any 
+                        confusion with others 
+
+                              Code:
+
+                              ################################################################# 
+
+                              ## MOD Title: Spoiler BBcode MOD++ 
+                              ## MOD Author: cheesypeanut < 
+                              simonpitfield@frogpspawn.org > (Simon Pitfield) 
+                              http://www.frogspawn.org 
+                              ## MOD Description: Adds a spoiler BBcode to your 
+                              forum, which reveals the hidden text onmouseover. 
+                              ## 
+                              ## MOD Version: 1.0.0 
+                              ## 
+                              ## Installation Level: Easy 
+                              ## Installation Time: 5 Minutes 
+                              ## Files To Edit: bbcode.tpl, 
+                              ##                bbcode.php, 
+                              ##         subSilver.css 
+                              ## Included Files: (n/a) 
+                              ############################################################## 
+
+                              ## For Security Purposes, Please Check: 
+                              http://www.phpbb.com/mods/downloads/ for the 
+                              ## latest version of this MOD. Downloading this 
+                              MOD from other sites could cause malicious code 
+                              ## to enter into your phpBB Forum. As such, phpBB 
+                              will not offer support for MOD's not offered 
+                              ## in our MOD-Database, located at: 
+                              http://www.phpbb.com/mods/downloads/ 
+                              ############################################################## 
+
+                              ## Authors Notes: Tested with phpBB2 v2.0.8 - in 
+                              Opera 7.51, Internet Explorer 6.02, Mozilla 1.7 
+                              ## 
+                              ############################################################## 
+
+                              ## Before Adding This MOD To Your Forum, You 
+                              Should Back Up All Files Related To This MOD 
+                              ############################################################## 
+
+
+                              # 
+                              #-----[ OPEN 
+                              ]------------------------------------------ 
+                              # 
+                              includes/bbcode.php 
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # 
+
+                              // [b] and [/b] for bolding text    
+                              $text = str_replace("[b:$uid]", 
+                              $bbcode_tpl['b_open'], $text); 
+                              $text = str_replace("[/b:$uid]", 
+                              $bbcode_tpl['b_close'], $text); 
+                              # 
+                              #-----[ BEFORE, ADD 
+                              ]------------------------------------------ 
+                              # 
+
+                              // Begin 'SPOILER BBcode MOD' 
+                              // [spoiler] and [/spoiler] for spoiler-text    
+                              $text = str_replace("[spoiler:$uid]", 
+                              $bbcode_tpl['spoiler_open'], $text); 
+                              $text = str_replace("[/spoiler:$uid]", 
+                              $bbcode_tpl['spoiler_close'], $text); 
+                              // End 'SPOILER BBcode MOD' 
+
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # 
+
+                              // [b] and [/b] for bolding text. 
+                              $text = preg_replace("#\[b\](.*?)\[/b\]#si", 
+                              "[b:$uid]\\1[/b:$uid]", $text); 
+                              # 
+                              #-----[ BEFORE, ADD 
+                              ]------------------------------------------ 
+                              # 
+
+                              // Begin 'SPOILER BBcode MOD' 
+                              // [spoiler] and [/spoiler] for setting 
+                              spoiler-text 
+                              $text = 
+                              preg_replace("#\[spoiler\](.*?)\[/spoiler\]#si", 
+                              "[spoiler:$uid]\\1[/spoiler:$uid]", $text); 
+                              // End 'SPOILER BBcode MOD' 
+                              # 
+                              #-----[ OPEN 
+                              ]------------------------------------------ 
+                              # 
+                              templates/subSilver/bbcode.tpl 
+
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # 
+
+                              <!-- BEGIN b_open --><span style="font-weight: 
+                              bold"><!-- END b_open --> 
+                              <!-- BEGIN b_close --></span><!-- END b_close --> 
+                              # 
+                              #-----[ BEFORE, ADD 
+                              ]------------------------------------------ 
+                              # 
+
+                              <!-- BEGIN spoiler_open --><span class="spoiler" 
+                              onmouseover="this.style.color='#FFFFFF';" 
+                              onmouseout="this.style.color=this.style.backgroundColor='#000000'"><!-- 
+                              END spoiler_open --> 
+                              <!-- BEGIN spoiler_close --></span><!-- END 
+                              spoiler_close --> 
+
+                              # 
+                              #-----[ OPEN 
+                              ]------------------------------------------ 
+                              # 
+                              templates/subSilver/subSilver.css 
+
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # 
+
+                              /* This is the outline round the main forum tables 
+                              */ 
+                              .forumline   { background-color: white; border: 
+                              0px black solid; } 
+
+                              # 
+                              #-----[ AFTER, ADD 
+                              ]------------------------------------------ 
+                              # 
+
+                              /* BBcode Spoiler MOD++ - by cheesypeanut */ 
+                              .spoiler { color: black; text-decoration: none; 
+                              background-color: black; font-weight: normal; } 
+
+                              # 
+                              #-----[ SAVE/CLOSE ALL FILES 
+                              ]------------------------------------------ 
+                              # 
+                              # EoM 
+
+
+
+                        PLEASE NOTE IF YOU ARE USING A NON-DEFAULT THEME YOU 
+                        WILL HAVE TO ADD THIS SMALL PIECE OF CODE BELOW, 
+                        OBVIOUSLY REPLACING "subSilver" WITH THE NAME OF YOUR 
+                        THEME. 
+
+                        Thanks to cherokee red, Schwpz and beggers for the 
+                        heads-up.  
+
+                              Code:
+
+                              # 
+                              #-----[ OPEN 
+                              ]------------------------------------------ 
+                              # 
+                              templates/subSilver/overall_header.tpl 
+
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # 
+
+                              /* This is the outline round the main forum tables 
+                              */ 
+                              .forumline{ background-color: {T_TD_COLOR2}; 
+                              border: 2px {T_TH_COLOR2} solid; } 
+
+                              # 
+                              #-----[ AFTER, ADD 
+                              ]------------------------------------------ 
+                              # 
+
+                              /* BBcode Spoiler MOD++ - by cheesypeanut */ 
+                              .spoiler { color: black; text-decoration: none; 
+                              background-color: black; font-weight: normal; } 
+
+
+
+                        If you would like to add a button to insert the BBcode 
+                        alongside the default BBcode buttons you must first 
+                        install [2.0.6] Multiple BBCode MOD. It is very quick 
+                        and easy. You must then install the code below on your 
+                        board. 
+
+                              Code:
+
+                              # 
+                              # IMPORTANT: you MUST first install the latest 
+                              version of the Multi Quick BBCode Mod (1.2.1+). 
+                              # This can be found here: 
+                              http://www.phpbb.com/phpBB/viewtopic.php?t=145513 
+                              # 
+
+                              # 
+                              #-----[ OPEN 
+                              ]------------------------------------------ 
+                              # 
+                              posting.php 
+
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # 
+                                 'L_EMPTY_MESSAGE' => $lang['Empty_message'], 
+
+                              # 
+                              #-----[ BEFORE, ADD 
+                              ]------------------------------------------ 
+                              # 
+                                 'L_BBCODE_6_HELP' => $lang['bbcode_6_help'], 
+
+                              # 
+                              #-----[ FIND ]--------------------------------- 
+                              # 
+                              $EMBB_keys = array('' 
+                              $EMBB_widths = array('' 
+                              $EMBB_values = array('' 
+
+                              # 
+                              #-----[ IN-LINE FIND 
+                              ]--------------------------------- 
+                              # 
+                              $EMBB_keys = array('' 
+
+                              # 
+                              #-----[ IN-LINE AFTER, ADD 
+                              ]--------------------------------- 
+                              # 
+                              ,'6' 
+
+                              # 
+                              #-----[ IN-LINE FIND 
+                              ]--------------------------------- 
+                              # 
+                              $EMBB_widths = array('' 
+
+                              # 
+                              #-----[ IN-LINE AFTER, ADD 
+                              ]--------------------------------- 
+                              # 
+                              ,'55' 
+
+                              # 
+                              #-----[ IN-LINE FIND 
+                              ]--------------------------------- 
+                              # 
+                              $EMBB_values = array('' 
+
+                              # 
+                              #-----[ IN-LINE AFTER, ADD 
+                              ]--------------------------------- 
+                              # 
+                              ,'Spoiler' 
+
+                              # 
+                              #-----[ OPEN 
+                              ]------------------------------------------ 
+                              # You need to do this for all of your installed 
+                              template styles 
+                              # 
+                              templates/subSilver/posting_body.tpl 
+
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # 
+                              f_help = "{L_BBCODE_F_HELP}"; 
+
+                              # 
+                              #-----[ AFTER, ADD 
+                              ]------------------------------------------ 
+                              # 
+                              n6_help = "{L_BBCODE_6_HELP}"; 
+
+                              # 
+                              #-----[ FIND ]--------------------------------- 
+                              # 
+                              # NOTE: the actual line to find is MUCH longer, 
+                              containing all the bbcode tags 
+                              # 
+                              bbtags = new Array( 
+
+                              # 
+                              #-----[ IN-LINE FIND 
+                              ]--------------------------------- 
+                              # 
+                              '[url]','[/url]' 
+
+                              # 
+                              #-----[ IN-LINE AFTER, ADD 
+                              ]--------------------------------- 
+                              # 
+                              ,'[spoiler]','[/spoiler]' 
+
+
+                              # 
+                              #-----[ OPEN 
+                              ]------------------------------------------ 
+                              # You need to do this for all installed languages 
+                              # 
+                              language/lang_english/lang_main.php 
+
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # Full line in English is: $lang['bbcode_f_help'] 
+                              = 'Font size: [size=x-small]small text[/size]'; 
+                              # 
+                              $lang['bbcode_f_help'] = 
+
+                              # 
+                              #-----[ AFTER, ADD 
+                              ]------------------------------------------ 
+                              # You need to do this for all installed languages 
+                              # 
+                              $lang['bbcode_6_help'] = 'Spoiler text: 
+                              [spoiler]this is the spoiler text[/spoiler] 
+                              (alt+6)'; 
+
+                              # 
+                              #-----[ SAVE/CLOSE ALL FILES 
+                              ]------------------------------------------ 
+                              # 
+                              # EoM 
+
+
+
+                        If you run into any problems, let me know via e-mail or 
+                        reply to this post and I will do my best to sort you 
+                        out. 
+
+                        Peace out 
+                        _________________
+
+
+                        Last edited by cheesypeanut on Sun Jul 04, 2004 11:55 
+                        am; edited 5 times in total
+
+                  Back to top    
+
+
+                  Schwpz
+                  Registered User
+
+
+                  Joined: 07 May 2003
+                  Posts: 232
+                  Location: Planet Zot
+                        Posted: Wed Jun 30, 2004 9:35 pm    Post subject:  
+
+
+
+                        It works perfectly, that is one really handy mod! 
+                        Thanks you so much!!  
+
+                        Now I will hopefully prevent come across topics ruining 
+                        all the anime endings for me again!  
+
+                        Only one question: is it possible to add a button for it 
+                        (like with the code and code buttons) instead of typing 
+                        [spoiler][/spoiler] manually? 
+                        Or have I missed something while installing it? ^^
+                        _________________
+                        ..:: PlanetZot.com - Your ultimate source for animation! 
+                        ^^ 
+                        ..:: Dynamic Avatar Clothes and Items ::..
+
+                  Back to top    
+
+
+                  cheesypeanut
+                  Registered User
+
+
+                  Joined: 05 May 2003
+                  Posts: 122
+                  Location: England
+                        Posted: Thu Jul 01, 2004 8:51 am    Post subject:  
+
+
+
+                        Hey, 
+
+                        Great idea for improving the MOD! You haven't missed it, 
+                        I didn't think of it when I was writing it. 
+
+                        I will code it up later and add it! I'll PM you when 
+                        I've done it too, to let you know. 
+
+                        Thanks for the idea.
+                        _________________
+
+
+                  Back to top    
+
+
+                  cherokee red
+                  Registered User
+
+
+                  Joined: 29 Mar 2004
+                  Posts: 1108
+                  Location: Airdrie
+                        Posted: Thu Jul 01, 2004 10:21 am    Post subject:  
+
+
+
+                        Having a bit of trouble with this mod. i had another 
+                        spoiler tag on my forum, but you had to hightlight it 
+                        with the mouse, so I decided to switch to this one. 
+
+                        I deleted the old one and added the new one, but now 
+                        everytime I load a page with spoiled text on it, or 
+                        refresh the page, I need to hever my mouse over the text 
+                        to get it to turn black. 
+
+                        To see that i mean, go here and refresh the page a few 
+                        times - 
+                        http://mrikasu.com/cherokeered/viewtopic.php?t=49 
+
+                        you shouldn't need to log in.
+                        _________________
+                        homepage | forums | -music and stats 
+                        [RELEASED] rEd Bar - 1.0.1
+
+                  Back to top     
+
+
+                  cheesypeanut
+                  Registered User
+
+
+                  Joined: 05 May 2003
+                  Posts: 122
+                  Location: England
+                        Posted: Thu Jul 01, 2004 11:17 am    Post subject:  
+
+
+
+                        I see what you mean. Are you sure that you added the 
+                        line below to your .css file for the template that you 
+                        are using? 
+
+                              Code:
+                              /* BBcode Spoiler MOD++ - by cheesypeanut */ 
+                              .spoiler { color: black; text-decoration: none; 
+                              background-color: black; font-weight: normal; }
+
+
+                        Try that, but if that fails, post the content of your 
+                        bbcode.tpl and the content of your .css file and I will 
+                        try and see if i can sort the problem.
+                        _________________
+
+
+                  Back to top    
+
+
+                  cherokee red
+                  Registered User
+
+
+                  Joined: 29 Mar 2004
+                  Posts: 1108
+                  Location: Airdrie
+                        Posted: Thu Jul 01, 2004 2:23 pm    Post subject:  
+
+
+
+                        http://mrikasu.com/cherokeered/docs/subSilver.txt 
+                        and 
+                        http://mrikasu.com/cherokeered/docs/bbcode.txt 
+
+                        thanks for taking a look 
+                        _________________
+                        homepage | forums | -music and stats 
+                        [RELEASED] rEd Bar - 1.0.1
+
+                  Back to top     
+
+
+                  cherokee red
+                  Registered User
+
+
+                  Joined: 29 Mar 2004
+                  Posts: 1108
+                  Location: Airdrie
+                        Posted: Thu Jul 01, 2004 2:24 pm    Post subject:  
+
+
+
+                        sorry. ignore this. it came out as a double 
+                        _________________
+                        homepage | forums | -music and stats 
+                        [RELEASED] rEd Bar - 1.0.1
+
+                  Back to top     
+
+
+                  cheesypeanut
+                  Registered User
+
+
+                  Joined: 05 May 2003
+                  Posts: 122
+                  Location: England
+                        Posted: Thu Jul 01, 2004 2:45 pm    Post subject:  
+
+
+
+                        Well they're both fine  , how about overall_header.tpl? 
+                        Can you post that?
+                        _________________
+
+
+                  Back to top    
+
+
+                  Schwpz
+                  Registered User
+
+
+                  Joined: 07 May 2003
+                  Posts: 232
+                  Location: Planet Zot
+                        Posted: Thu Jul 01, 2004 2:51 pm    Post subject:  
+
+
+
+                        I didn't encounter any problems while adding this so 
+                        perhaps the problem you are experiencing might have 
+                        something to do with the removal of the other spoiler 
+                        code you were using. 
+
+                        Just a thought! ^^
+                        _________________
+                        ..:: PlanetZot.com - Your ultimate source for animation! 
+                        ^^ 
+                        ..:: Dynamic Avatar Clothes and Items ::..
+
+                  Back to top    
+
+
+                  cherokee red
+                  Registered User
+
+
+                  Joined: 29 Mar 2004
+                  Posts: 1108
+                  Location: Airdrie
+                        Posted: Thu Jul 01, 2004 2:54 pm    Post subject:  
+
+
+
+                        http://mrikasu.com/cherokeered/docs/overall_header.txt 
+
+                        i think it should be ok to just view the source yeah? 
+                        it's not letting me just output the text  
+                        It should be fine though, as i've not needed to edit it 
+                        for ages
+                        _________________
+                        homepage | forums | -music and stats 
+                        [RELEASED] rEd Bar - 1.0.1
+
+                  Back to top     
+
+
+                  cheesypeanut
+                  Registered User
+
+
+                  Joined: 05 May 2003
+                  Posts: 122
+                  Location: England
+                        Posted: Thu Jul 01, 2004 3:01 pm    Post subject:  
+
+
+
+                        Right its because you're using a wierd theme/style I 
+                        think. 
+
+                        In your overall_header.tpl, do this: 
+
+                              Code:
+                              # 
+                              #-----[ FIND 
+                              ]------------------------------------------ 
+                              # 
+
+                              /* This is the outline round the main forum tables 
+                              */ 
+                              .forumline{ background-color: {T_TD_COLOR2}; 
+                              border: 2px {T_TH_COLOR2} solid; } 
+
+                              # 
+                              #-----[ AFTER, ADD 
+                              ]------------------------------------------ 
+                              # 
+
+                              /* BBcode Spoiler MOD++ - by cheesypeanut */ 
+                              .spoiler { color: black; text-decoration: none; 
+                              background-color: black; font-weight: normal; } 
+
+
+
+                        Hopefully that should do the trick. And thanks Schwpz 
+                        _________________
+
+
+                  Back to top    
+
+
+                  cherokee red
+                  Registered User
+
+
+                  Joined: 29 Mar 2004
+                  Posts: 1108
+                  Location: Airdrie
+                        Posted: Thu Jul 01, 2004 3:11 pm    Post subject:  
+
+
+
+                        It did. great work cp. 
+                        like to see this get released. best spoiler i've seen so 
+                        far 
+                        _________________
+                        homepage | forums | -music and stats 
+                        [RELEASED] rEd Bar - 1.0.1
+
+                  Back to top     
+
+
+                  Schwpz
+                  Registered User
+
+
+                  Joined: 07 May 2003
+                  Posts: 232
+                  Location: Planet Zot
+                        Posted: Thu Jul 01, 2004 3:36 pm    Post subject:  
+
+
+
+                              cherokee red wrote:
+                              best spoiler i've seen so far 
+
+
+                        I totally agree. 
+                        Excellent job cheesypeanut! 
+                        _________________
+                        ..:: PlanetZot.com - Your ultimate source for animation! 
+                        ^^ 
+                        ..:: Dynamic Avatar Clothes and Items ::..
+
+                  Back to top    
+
+
+                  beggers
+                  Registered User
+
+
+                  Joined: 23 Nov 2001
+                  Posts: 503
+
+                        Posted: Fri Jul 02, 2004 5:52 am    Post subject:  
+
+
+
+                              cheesypeanut wrote:
+                              Right its because you're using a wierd theme/style 
+                              I think. 
+
+                              In your overall_header.tpl, do this: 
+
+                                Code:
+                                # 
+                                #-----[ FIND 
+                                ]------------------------------------------ 
+                                # 
+
+                                /* This is the outline round the main forum 
+                                tables */ 
+                                .forumline{ background-color: {T_TD_COLOR2}; 
+                                border: 2px {T_TH_COLOR2} solid; } 
+
+                                # 
+                                #-----[ AFTER, ADD 
+                                ]------------------------------------------ 
+                                # 
+
+                                /* BBcode Spoiler MOD++ - by cheesypeanut */ 
+                                .spoiler { color: black; text-decoration: none; 
+                                background-color: black; font-weight: normal; } 
+
+
+
+                              Hopefully that should do the trick. And thanks 
+                              Schwpz 
+
+
+                        Just to let you know, I had the same problem and that 
+                        fix made it work. However, I don't believe I ever had a 
+                        previous spoiler mod. Anyway, nice work on this!
+                        _________________
+                        WWE|Movies|Games|Digital Cameras|Blackjack|Sports
+
+                  Back to top    
+
+
+                  Schwpz
+                  Registered User
+
+
+                  Joined: 07 May 2003
+                  Posts: 232
+                  Location: Planet Zot
+                        Posted: Fri Jul 02, 2004 10:53 am    Post subject:  
+
+
+
+                        I just switched template and now I experienced the very 
+                        same thing as the others - and it was solved by the very 
+                        same fix too. 
+
+                        I might suggest placing that fix in the 
+                        spoiler-install-thingy as a possible to-do thing to 
+                        everyone who aren't using the default template, that way 
+                        you will avoid lots of frustration and questions about 
+                        it in the future!  
+                        Just a thought! ^^
+                        _________________
+                        ..:: PlanetZot.com - Your ultimate source for animation! 
+                        ^^ 
+                        ..:: Dynamic Avatar Clothes and Items ::..
+
+                  Back to top    
+
+
+                        Display posts from previous: All Posts1 Day7 Days2 
+                          Weeks1 Month3 Months6 Months1 Year Oldest FirstNewest 
+                          First 
+
+                        phpBB.com Forum Index -> MOD DevelopmentAll times are 
+GMT
+                  Goto page 1, 2  Next 
+                  Page 1 of 2
+
+                   
+                        Jump to: Select a forum 
+                          General----------------Announcements 
+                          phpBB----------------phpBB SupportConvertorsphpBB 
+                          Discussion phpBB Modifications----------------MOD 
+                          Release Announcements & SupportMOD RequestsMOD 
+                          DevelopmentMOD Writers Discussion phpBB 
+                          Styles----------------Styles Announcements & 
+                          ReleasesStyles Development & Discussion Non-phpBB 
+                          specific----------------General DiscussionTest Me 
+
+                  You cannot post new topics in this forum
+                  You cannot reply to topics in this forum
+                  You cannot edit your posts in this forum
+                  You cannot delete your posts in this forum
+                  You cannot vote in polls in this forum
+
+
+
+
+
+            News | Features | Demo | Downloads | Support | Community | Styles | 
+            Mods | Merchandise | About | Home 
+            Web Hosting | Host Department Web Hosting | Sports Betting | Web 
+            Hosting | phpBB Hosting at $7.95 
+
+
+Powered by phpBB © 2001, 2003 phpBB Group :: Hosting donated by Doreo Hosting
+ 

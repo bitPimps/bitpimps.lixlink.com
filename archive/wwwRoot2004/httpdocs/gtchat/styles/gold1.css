@@ -1,0 +1,70 @@
+BODY {
+	SCROLLBAR-FACE-COLOR: #ff7f00; SCROLLBAR-HIGHLIGHT-COLOR: #ffaf88; SCROLLBAR-SHADOW-COLOR: #aa5700; SCROLLBAR-3DLIGHT-COLOR: #ff7f00; SCROLLBAR-ARROW-COLOR: #221100; SCROLLBAR-TRACK-COLOR: #aa5700; SCROLLBAR-DARKSHADOW-COLOR: #221100
+}
+A
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #000000;
+}
+A:active
+{
+	color: #dddddd;
+}
+A:hover
+{
+	text-decoration: underline overline;
+	color: #ff7f00;
+}
+
+TD,#normaltext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #000000;
+}
+#smalltext
+{
+	font-size: 8pt;
+}
+
+TH
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #000000;
+	background-color: #FF7900;
+}
+#table1
+{
+	background-color: #FFA242;
+}
+#table2
+{
+	background-color: #E79618;
+}
+#lines
+{
+	background-color: #000000;
+}
+
+#body
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11pt;
+	color: #000000;
+	background-color: #946529;
+}
+#headertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #000000;
+}
+#bigheadertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 14pt;
+	color: #000000;
+}

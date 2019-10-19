@@ -1,0 +1,70 @@
+BODY          { scrollbar-face-color: maroon; scrollbar-shadow-color: #000000; scrollbar-highlight-color: black;
+                scrollbar-3dlight-color: #E0E0E0; scrollbar-darkshadow-color: #000000;
+                scrollbar-track-color: #666666; scrollbar-arrow-color: orange;} 
+A
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #FF8E00;
+}
+A:active
+{
+	color: #FFA600;
+}
+A:hover
+{
+	text-decoration: underline overline;
+	color: red;
+}
+
+TD,#normaltext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #FFA600;
+}
+#smalltext
+{
+	font-size: 8pt;
+}
+
+TH
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #FF9A31;
+	background-color: #630000;
+}
+#table1
+{
+	background-color: #636563;
+}
+#table2
+{
+	background-color: #000000;
+}
+#lines
+{
+	background-color: #CE3000;
+}
+
+#body
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11pt;
+	color: #000000;
+	background-color: #840000;
+}
+#headertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #000000;
+}
+#bigheadertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 14pt;
+	color: #000000;
+}

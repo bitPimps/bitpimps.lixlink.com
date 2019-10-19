@@ -1,0 +1,179 @@
+#!/bin/sh
+
+# gtchat script
+
+# here is also some standard parameters, that must be specified:
+# vhost_path - full path to vhost root directory
+# domain_name - name of domain
+# install_prefix - path of application inside vhost directory
+# ssl_target_directory - true, if application is in httpsdocs
+
+# list of parameters for gtchat:
+# gtchat_language
+# gtchat_colorscheme
+# gtchat_welcome_message
+
+check_standard_parameters()
+{
+	if [ "X${vhost_path}" = "X" ]; then
+		echo "$scriptname: no vhost_path parameter specified for application"
+		exit 1
+	fi
+	if [ "X${domain_name}" = "X" ]; then
+		echo "$scriptname: no domain_name parameter specified for application"
+		exit 1
+	fi
+	if [ "X${install_prefix}" = "X" ]; then
+		echo "$scriptname: no install_prefix parameter specified for application"
+		exit 1
+	fi
+	if [ "X${ssl_target_directory}" = "X" ]; then
+		echo "$scriptname: no ssl_target_directory parameter specified for application"
+		exit 1
+	fi
+};
+
+parse_standard_parameters()
+{
+	if [ "X${ssl_target_directory}" = "Xtrue" ]; then
+		documents_directory="httpsdocs"
+		proto="https"
+	else
+		documents_directory="httpdocs"
+		proto="http"
+	fi
+};
+
+backup_config()
+{
+	if [ ! -f "$1.orig" ]; then
+		# backup original config file
+		mv "$1" "$1.orig"
+	fi
+};
+
+generate_gtchat_config()
+{
+	backup_config $1
+	> $1
+	echo "\$htmlurl = \"${proto}://${domain_name}/${install_prefix}\";  # absolute URL of your chat's HTML pages (without trailing '/')" >> $1
+	echo "\$cgiurl = \"${proto}://${domain_name}/cgi-bin/${install_prefix}\";  # absolute URL of scripts directory (without trailing '/')" >> $1
+	echo "\$imagesurl = \"/${install_prefix}/images\";                     # URL of your images directory" >> $1
+	echo "\$sourcedir = \"./Sources\";           # Directory with chat source files" >> $1
+	echo "\$vardir = \"./Variables\";            # Directory with variable files" >> $1
+	echo "\$templdir = \"./Templates\";          # Directory with HTML template files" >> $1
+	echo "\$memberdir = \"./Members\";           # Directory with member data" >> $1
+	echo "\$roomdir = \"./Rooms\";               # Directory with room data" >> $1
+	echo "1;" >> $1
+	echo "" >> $1
+};
+
+gtchat_variables() {
+	gtchat_root_d=${vhost_path}/${documents_directory}/${install_prefix}
+	gtchat_cgi_d=${vhost_path}/cgi-bin/${install_prefix}
+	gtchat_lp_d=${gtchat_root_d}/locales
+	gtchat_styles_d=${gtchat_root_d}/styles
+
+	gtchat_lp_file1=${gtchat_root_d}/locales/lp_${gtchat_language}-0.93/httpdocs-files.tar.gz
+	gtchat_lp_file2=${gtchat_root_d}/locales/lp_${gtchat_language}-0.93/cgi-bin-files.tar.gz
+	gtchat_style_file=${gtchat_root_d}/styles/${gtchat_colorscheme}.css
+	gtchat_config_file=${gtchat_cgi_d}/Directories.dat
+	gtchat_templates_directory=${gtchat_root_d}
+	gtchat_templates_directory2=${gtchat_cgi_d}/Templates
+	gtchat_template_files="logo.html index.html commands.html faq.html"
+	gtchat_template_files2="login.html register.html"
+
+	# check presence of language pack files
+	if [ ! -f ${gtchat_lp_file1} ]; then
+		echo "$scriptname: no ${gtchat_lp_file1} language pack file is found"
+		exit 1
+	fi
+
+	if [ ! -f ${gtchat_lp_file2} ]; then
+		echo "$scriptname: no ${gtchat_lp_file2} language pack file is found"
+		exit 1
+	fi
+
+	if [ ! -f ${gtchat_style_file} ]; then
+		echo "$scriptname: no ${gtchat_style_file} style file is found"
+		exit 1
+	fi
+}
+
+gtchat_make_configs() {
+	# copy colorscheme file
+	# ignore any errors there
+	cp -f ${gtchat_style_file} ${gtchat_root_d}/style.css
+
+	# unpack locale files
+	# check for error here is good idea
+	tar -C ${gtchat_root_d} -zxf ${gtchat_lp_file1} 
+	if [ 0$? -ne 0 ]; then
+		echo "Unable to unpack ${gtchat_lp_file1}"
+		exit 1
+	fi
+
+	# it is not really matter, if this will fail. we cannot detect currently used locale
+	tar -C ${gtchat_cgi_d} -zxf ${gtchat_lp_file2} 
+
+	# generate gtchat primary config file
+	generate_gtchat_config ${gtchat_config_file}
+
+	for i in ${gtchat_template_files}; do
+		sed -e "s|@@INSTALL_PREFIX@@|${install_prefix}|g" \
+			-e "s|@@WELCOME_MESSAGE@@|${gtchat_welcome_message}|g" $subst_environ < "${gtchat_templates_directory}/$i.in" > "${gtchat_templates_directory}/$i"
+	done
+
+	for i in ${gtchat_template_files2}; do
+		sed -e "s|@@INSTALL_PREFIX@@|${install_prefix}|g" \
+			-e "s|@@WELCOME_MESSAGE@@|${gtchat_welcome_message}|g" $subst_environ < "${gtchat_templates_directory2}/$i.in" > "${gtchat_templates_directory2}/$i"
+	done
+
+}
+
+gtchat_make_admin() {
+	pwd_crypt=`perl -e 'print crypt($ARGV[0],(join "", (".", "/", 0..9, "A".."Z", "a".."z")[rand 64, rand 64]))' "$gtchat_admin_passwd"`
+
+	sed -e "1s|^.*\$|$pwd_crypt|" \
+		-e "4s|^.*\$|$gtchat_admin_email|" \
+		_bdz0wuzn.dat >_bdz0wuzn.dat.tmp \
+		&& mv -f _bdz0wuzn.dat.tmp _bdz0wuzn.dat
+}
+
+var=`cat | awk '{
+	eqpos=index($0, "=");
+	if (eqpos>1) {
+		var=substr($0, 1, eqpos-1);
+		val=substr($0, eqpos+1);
+
+		tmp="[\x5c\x5c]";
+		tmp2="\x5c\x5c\x5c\x5c";
+		gsub(tmp,tmp2,val);
+
+
+		tmp2="\x5c\x5c\x5c\x22";
+		gsub("\"",tmp2,val);
+		print var "=\"" val "\"";
+	};
+}'`
+
+eval $var
+
+scriptname=`basename "$0"`
+# now we have full set of parameters, stored in variables
+
+check_standard_parameters
+parse_standard_parameters
+
+gtchat_variables
+
+# walk to the directory, where we have permission to be
+cd "${vhost_path}"
+
+gtchat_make_configs
+
+cd "${vhost_path}/cgi-bin/${install_prefix}/Members"
+
+gtchat_make_admin
+
+exit 0

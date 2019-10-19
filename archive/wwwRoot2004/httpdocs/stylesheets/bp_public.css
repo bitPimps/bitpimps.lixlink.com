@@ -1,0 +1,80 @@
+/* Fonts */
+ADDRESS, BLOCKQUOTE, CAPTION, CENTER, DD, DIR, DIV, DL, DT, FORM, MENU, OL, P, TD, UL { font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #3A4942; background: transparent; }
+
+/* Links */
+A										{ font-family: Arial, Helvetica, sans-serif; background: transparent; }
+A:active 						{  }
+A:hover       			{  }
+A:link 							{  }
+A:visited						{  }
+.headLink					{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #FFDDAB; background: transparent; }
+.headLink A				{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #FFDDAB; background: transparent; text-decoration: underline; }
+.headLink A:hover	{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #EF4427; background: #FFDDAB; }
+.text					{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #3A4942; background: transparent; }
+.text A				{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #3A4942; background: transparent; text-decoration: underline; }
+.text A:hover	{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #A4ADA8; background: #3A4942; text-decoration: underline; }
+.anchorGreen A	{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #FFDDAB; background: transparent; text-decoration: none; }
+/* Real styles */
+ADDRESS 			{	font-style: italic; }
+B							{ font-weight: bold; }
+BIG 					{	font-size: 12px; }
+BLOCKQUOTE 		{	line-height: 1; }
+BODY 					{	font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #3A4942; background: #000000; }
+BUTTON 				{	cursor: auto; }
+CAPTION 			{	line-height: 1; }
+CODE 					{ font-family: Courier New, Courier, mono; font-size: 10px; color: #FAA605; background: transparent; border-bottom: 1px dotted #E1E1E1; } /* To avoid overriding boldness/italicity by using font */
+DIV 					{	 }
+DD 						{	 }
+DL 						{	 }
+DT 						{	font-weight: bold; }
+FIELDSET			{ border: none; }
+H1 						{	font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+H2 						{	font-family: Arial, Helvetica, sans-serif; font-size: 15px; }
+H3 						{	font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+H4 						{	font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; }
+H5 						{	font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+H6 						{	font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
+HR 						{	 }
+HTML 					{	 }
+INPUT 				{	cursor: auto; }
+KBD 					{	font-family: monospace; font-size: 10px; }
+LI 						{	 }
+OL 						{	list-style: decimal; }
+UL UL OL OL, UL OL UL OL, OL UL OL OL, OL OL UL OL, OL UL OL, OL OL {	list-style: lower-alpha;}
+OL UL OL OL, OL OL UL OL, UL OL OL OL, OL OL OL {	list-style: lower-roman; }
+OL OL OL OL 	{	list-style: decimal; }
+P 						{	 }
+PRE 					{	font-family: monospace; font-size: 10px; }
+SAMP 					{	font-family: monospace; font-size: 10px; }
+SMALL 				{	font-size: 9px; }
+SUB 					{	font-size: 9px; }
+SUP 					{	font-size: 9px; }
+TD 						{	 }
+TEXTAREA 			{	cursor: text; }
+TH 						{	 }
+TT 						{	font-family: monospace; font-size: 10px; }
+UL 						{	list-style: disc; }
+UL UL, OL OL UL UL, OL UL OL UL, UL OL OL UL, OL UL UL, UL OL UL { list-style: circle; }
+OL UL UL UL, UL OL UL UL, UL UL OL UL, UL UL UL {	list-style: square; }
+UL UL UL UL 	{	list-style: disc; }
+
+/* Fix for NN 6.2 */
+TR.decoration img { display: block; }
+/* Classes */
+.copyright		{ font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #B6C4BD; background-color: transparent; }
+.textfield		{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #3A4942; background-color: #E4E4E4; margin-top: 3px; padding-top: 2px; padding-right: 5px; padding-bottom: 2px; padding-left: 5px; }
+.button				{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #3A4942; background-color: #E4E4E4; margin-top: 3px; padding-top: 2px; padding-right: 5px; padding-bottom: 2px; padding-left: 5px; }
+
+/* --Backgrounds */
+.bgBlack			{ background-color: #000000; }
+.bgBlueA			{ background-color: #9DC1DF; }
+.bgBlueB			{ background-color: #39658A; }
+.bgGreenA			{ background-color: #A4ADA8; }
+.bgGreenB			{ background-color: #3A4942; }
+.bgGrey				{ background-color: #E4E4E4; }
+.bgOrangeA		{ background-color: #F8C599; }
+.bgOrangeB		{ background-color: #EF4427; }
+
+.bgHomeSub		{ background-image: url(../../images/backgrounds/home_sub.jpg); background-repeat: repeat-y; background-color: #A4ADA8; background-position: center; }
+.bgLogoUnder	{ background-image: url(../../images/backgrounds/logo_under.gif); background-repeat: repeat-x; background-color: #A4ADA8; background-position: center; }
+/* Elements */

@@ -1,0 +1,74 @@
+BODY          {scrollbar-face-color: #C0C0C0;
+                scrollbar-shadow-color: #000000;
+                scrollbar-highlight-color: #000000;
+               scrollbar-3dlight-color: #000000;
+                scrollbar-darkshadow-color: #000000;
+                scrollbar-track-color:  #000000;
+               scrollbar-arrow-color: #000000;}
+A
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFBA00;
+}
+A:active
+{
+	color: #FFBA00;
+}
+A:hover
+{
+	text-decoration: underline overline;
+	color: #dddddd;
+}
+
+TD,#normaltext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #FFFFFF;
+}
+#smalltext
+{
+	font-size: 8pt;
+}
+
+TH
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #313821;
+}
+#table1
+{
+	background-color: #313821;
+}
+#table2
+{
+	background-color: #394921;
+}
+#lines
+{
+	background-color: #ffffff;
+}
+
+#body
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11pt;
+	color: #ffffff;
+	background-color: #394931;
+}
+#headertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10pt;
+	color: #ffffff;
+}
+#bigheadertext
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 14pt;
+	color: #ffffff;
+}
