@@ -1,0 +1,58 @@
+phpChat 1.0b, Copyright (c) 1999 by Till Gerken, till@phpwebdev.com
+-------------------------------------------------------------------
+
+This software is distributed under the terms of the license contained in
+phpChat_license.txt. If you cannot find this file, you have an unofficial
+and thus illegal version of phpChat. Please delete it at once and get
+a fresh archive from http://www.phpwizard.net/phpChat.
+
+phpChat is NOT free, for commercial usage you need to purchase a commercial
+license. Please contact till@phpwebdev.com for details.
+
+For notes about installation, please see INSTALL.
+
+1. Overview
+-----------
+
+phpChat is an open source chat system written entirely in PHP. It is
+based on the widely known and broadly used IRC protocol. This makes
+phpChat substantially different from the average database-backed chat
+systems, which usually only allow one instance to be run.
+
+phpChat allows to connect multiple chat servers together to form a chat
+network, route traffic through existing networks or simply work as stand-
+alone chat application.
+
+In a slightly restricted manner and with few modifications it can also
+operate as safe gateway to IRC by bypassing firewalls, using HTTP for
+interfacing into the secured network behind the firewall and using IRC
+from a webserver outside of the secured network for interfacing the chat
+server.
+
+2. Restrictions in the beta version
+-----------------------------------
+
+This version of phpChat is a beta version, meaning it is a working, but
+not complete version of the final package.
+
+The current restrictions are:
+
+- limited command interpreter
+- sessions are not cleaned up correctly yet (occasionally leaves ghosts
+  in the database and memory)
+- only one channel / window is supported
+- database abstraction is rudimentary and only MySQL is supported so far
+- partly insufficient documentation
+- no administration tools
+- the creation code for shared memory is broken and thus needs an injector
+- other minor bugs
+
+It is, however, functional already and can be used.
+
+3. Copyright and contact
+------------------------
+
+This software archive is copyright and maintained by Till Gerken,
+till@phpwebdev.com.
+
+Additional code has been contributed by Tobias Ratschiller, tobias@dnet.it.

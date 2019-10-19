@@ -1,0 +1,649 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://members.cox.net/codesuidae/FetMod.html -->
+<HTML><HEAD><TITLE>ZipZap SE MOSFET Mod</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2523" name=GENERATOR></HEAD>
+<BODY style="COLOR: rgb(255,255,255); BACKGROUND-COLOR: rgb(0,0,0)" 
+vLink=#ff99ff aLink=#9999ff link=#33ccff>
+<H1>ZipZap SE MOSFET Mod</H1>
+<H2 style="COLOR: rgb(255,255,51)">Index:</H2>
+<DIV style="MARGIN-LEFT: 40px">
+<UL>
+  <LI><A 
+  href="http://members.cox.net/codesuidae/FetMod.html#Summary">Summary</A> 
+  <LI><A 
+  href="http://members.cox.net/codesuidae/FetMod.html#Difficulty">Difficulty 
+  Level</A> 
+  <LI><A href="http://members.cox.net/codesuidae/FetMod.html#Parts">Parts 
+  Required</A> 
+  <LI><A 
+  href="http://members.cox.net/codesuidae/FetMod.html#ToolsRequired">Tools 
+  Required</A> 
+  <LI><A 
+  href="http://members.cox.net/codesuidae/FetMod.html#ToolsRecommended">Tools 
+  Recommended</A> 
+  <LI><A 
+  href="http://members.cox.net/codesuidae/FetMod.html#Description">Description 
+  of Modifications</A> 
+  <UL>
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#ReferenceDiagrams">Reference 
+    Diagram</A><BR></LI></UL>
+  <UL>
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#Transistor">Transistor 
+    Replacement</A> 
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#Resistor">Resistor 
+    Bridging</A> 
+    <LI><A href="http://members.cox.net/codesuidae/FetMod.html#Gate">Gate 
+    Jumper</A> </LI></UL>
+  <LI><A 
+  href="http://members.cox.net/codesuidae/FetMod.html#Procedure">Procedure</A> 
+  <UL>
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#Preperation">Preperation</A><BR></LI></UL>
+  <UL>
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#PreTesting">Testing</A> 
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#Disassembly">Disassembly</A> 
+
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#Identification">Identification 
+    of Components</A> 
+    <LI><A href="http://members.cox.net/codesuidae/FetMod.html#Removal">Removal 
+    of old components</A> 
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#Installation">Installation 
+    of new components</A> 
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#Inspection">Inspection</A> 
+
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#Assembly">Assembly</A><BR>
+    <LI><A 
+    href="http://members.cox.net/codesuidae/FetMod.html#PostTesting">Testing</A> 
+    </LI></UL>
+  <LI><A href="http://members.cox.net/codesuidae/FetMod.html#PartsSources">Parts 
+  Sources</A> <BR>
+  <LI><A 
+  href="http://members.cox.net/codesuidae/FetMod.html#FETModService">FETMod 
+  Service</A><BR>
+  <LI><A 
+  href="http://members.cox.net/codesuidae/FetMod.html#Credits">Credits</A> 
+</LI></UL></DIV>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=Summary></A><SPAN style="COLOR: rgb(255,255,51)">Summary</SPAN></H2>
+<P style="MARGIN-LEFT: 40px">Most 1/64th scale micro RC cars use transistors in 
+the circuits that drive their motors.&nbsp; Replacing the transistors with 
+MOSFET devices and optionally removing several resistors and rerouting one of 
+the MOSFET gate circuits allows more power to be delivered to the motors.&nbsp; 
+This document deals specificly with the ZipZap SE and provides instructions for 
+identifying the transistors to be replaced for other cars. </P>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=Difficulty></A><SPAN style="COLOR: rgb(255,255,51)">Difficulty 
+Level<BR></SPAN></H2>
+<P style="MARGIN-LEFT: 40px">8 out of 10.&nbsp; The high difficulty level is due 
+mostly to the fine soldering required and the high potential of permanently 
+disabling the vehicle. </P>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=Parts></A><SPAN style="COLOR: rgb(255,255,51)">Parts 
+Required</SPAN></H2>
+<P style="MARGIN-LEFT: 40px">For each motor control circuit (h-bridge) to be 
+upgraded, you will require:<BR></P>
+<UL>
+  <UL>
+    <LI>2 IRLML2502 (or compatable n-channel SOT-23 MOSFET) 
+    <LI>2 IRLML6401 (or compatable p-channel SOT-23 MOSFET) 
+    <UL>
+      <LI>Optionally you may use n-channel devices in place of the 
+      p-channel<BR></LI></UL>
+    <LI>Scrap of copper wire 
+    <UL>
+      <LI>This is for bridging resistors, an optional 
+step<BR></LI></UL></LI></UL></UL>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=ToolsRequired></A><SPAN style="COLOR: rgb(255,255,51)">Tools 
+Required</SPAN></H2>
+<DIV style="MARGIN-LEFT: 40px">The following tools are required to perform this 
+mod.<BR></DIV>
+<UL>
+  <UL>
+    <LI>Soldering iron, 15-35Watts, cone tip 
+    <LI>Solder 
+    <LI>Hobby knife or small jewlers screwdriver </LI></UL></UL>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=ToolsRecommended></A><SPAN style="COLOR: rgb(255,255,51)">Tools 
+Recommended</SPAN></H2>
+<DIV style="MARGIN-LEFT: 40px">The following tools, while not absolutely 
+necessary, are recommended to make the mod easier.<BR></DIV>
+<UL>
+  <UL>
+    <LI>Magnifying lens, hobby clamps or putty 
+    <LI>Small container for parts 
+    <LI>Soldering flux 
+    <LI>Desoldering braid 
+    <LI>Multimeter (Volt-Ohm meter) 
+    <LI>RPM meter </LI></UL></UL>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=Description></A><SPAN style="COLOR: rgb(255,255,51)">Description of 
+Modifications</SPAN></H2>
+<DIV style="MARGIN-LEFT: 40px">
+<H3><SPAN style="COLOR: rgb(255,255,51)"><A name=ReferenceDiagrams></A>Reference 
+Diagrams</SPAN></H3>
+<DIV style="MARGIN-LEFT: 40px">You may refer to the following diagrams for 
+component naming and locations on the PCB.<BR><BR></DIV>
+<DIV style="MARGIN-LEFT: 80px">
+<TABLE style="WIDTH: 100%; TEXT-ALIGN: left" cellSpacing=2 cellPadding=2 
+border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle; TEXT-ALIGN: left">The components are 
+      not labeled on the board, refer to this diagram for placment. There may be 
+      slight variations from board to board, so you may want to verify 
+      connections to other components if your board varies from what you see 
+      here.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top; TEXT-ALIGN: center"><IMG alt="" 
+      src="ZipZap SE MOSFET Mod_files/ZipZapMotorDriveLayout.jpg"> </TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">H-bridge Schematic 1st 
+      Generation.&nbsp; Inputs from the controller chip are at the unconnected 
+      ends of RSB3, RSB4, RDB3 and RDB4.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top; TEXT-ALIGN: center"><IMG 
+      style="WIDTH: 406px; HEIGHT: 337px" 
+      alt="ZipZap SE 1st Generation Drive and Steering Schematic" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-Drive-Steer-Gen1.png"><BR></TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle; TEXT-ALIGN: left">H-bridge Schematic 
+      2nd Generation.&nbsp; Same as above, but with the addition of QD5 to 
+      control the base of QD1.&nbsp; This is the 2nd generation version of the 
+      gate jumper mod, it eliminates the need to perform the gate jumper 
+      mod.&nbsp; QD5 is found on the top of the board, near the front on the 
+      driver side.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 409px; HEIGHT: 369px" 
+      alt="Zip Zap SE 2nd Generation Steering and Drive Schematic" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-Drive-Steer-Gen2.png"><BR></TD></TR></TBODY></TABLE></DIV><BR></DIV><BR>
+<H3 style="MARGIN-LEFT: 40px"><A name=Transistor></A><SPAN 
+style="COLOR: rgb(255,255,51)">Transistor Replacement</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">The primary performance improvement provided by the 
+fet mod is achieved by the replacement of the stock transistors with MOSFET 
+devices. MOSFETs allow more power to be delivered to the motors, which increases 
+both torque and maximum speed of the motors. This, in turn, provides more 
+responsive steering and better acceleration and top speed.<BR><BR></P>
+<H3 style="MARGIN-LEFT: 40px"><A name=Resistor></A><SPAN 
+style="COLOR: rgb(255,255,51)">Resistor Bridging</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">There is a total of four resistors that can be 
+modifed to provide a slight performance improvement. RDB1, RDB2, RDB3 and RDB4 
+are the base resistors for the transistor gates. Their function is to limit the 
+current that flows into the base of each transistor (only a small amount of 
+current is required to saturate, or fully turn on, the transistors.&nbsp; Too 
+much current will damage them.&nbsp; These transistors use a base current of 
+about 1.5mA). Changing them is optional unless the Gate Jumper modification is 
+performed. <BR></P>
+<DIV style="MARGIN-LEFT: 80px">The gate of a MOSFET (the equivalent of the base 
+of a transistor) does not draw a significant amount of current, so these 
+resistors can be removed and replaced (or simply bridged) with a bit of 
+wire.&nbsp; This allows the MOSFET to turn on slightly faster, and in the case 
+of QD1 and QD2 allows a slightly higher gate voltage. Bridging only resistors 
+RDB3 and RDB4 will have a minimal effect. RDB3 and RDB4 are series resistors in 
+the MOSFET gate circuit and do not have a significant effect on the operation of 
+the MOSFET. It is recommended that RDB3 and RDB4 are left unbridged. </DIV>
+<P style="MARGIN-LEFT: 80px">Resistors RDB1 and RDB2, in addition to their 
+function as current-limiting base resistors, form a voltage divider with the 
+pullup resistors RDP1 and RDP2. This voltage divider results in a very small 
+reduction of the gate voltage supplied to QD1 and QD2. By bridging RDB1 and RDB2 
+the gate to source voltage (Vgs) can be increased to help the MOSFET process as 
+much power as possible. The voltage divider ratio of 1000:75 means that the 
+maximum increase in gate voltage would be about 7%.&nbsp; I do not currently 
+have performance data from which to make a recomendation on this mod.&nbsp; 
+<BR><BR>
+<TABLE style="WIDTH: 100%; TEXT-ALIGN: left" cellSpacing=2 cellPadding=2 
+border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle; TEXT-ALIGN: left">The generation 1 
+      schematic shown here has had the four transistor base resistors RDB1, 
+      RDB2, RDB3 and RDB4 bridged.&nbsp; It is recommended that only the 
+      resistors at the top of the diagram, RDB1 and RDB2, be replaced.&nbsp; 
+      There is no significant performance gain from replacing RDB2 and 
+      RDB3.&nbsp; The transistors have been replaced with MOSFETs.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 403px; HEIGHT: 337px" 
+      alt="ZipZap SE 1st Generation Resistor Bridging" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-Resistor-FetMod-Gen1.png"><BR></TD></TR></TBODY></TABLE></P>
+<H3 style="MARGIN-LEFT: 40px"><BR></H3>
+<H3 style="MARGIN-LEFT: 40px"><A name=Gate></A><SPAN 
+style="COLOR: rgb(255,255,51)">Gate Jumper</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">A significant performance improvement can be 
+obtained on first generation SE's by jumpering the gate of QD3 to the gate of 
+QD1. The base of QD1 is normally pulled down through QD3, but QD3 is already 
+processing a much larger amount of current from the motor, and so it does not 
+provide as much of a pull-down for the QD1 gate as possible.&nbsp; The gate of 
+QD3 is only active when the car is in reverse, so by jumpering the gate of QD1 
+to the gate of QD3, QD1 can be kept on except when QD3 is on (p-channel devices 
+are on when the gate is how, n-channel are on when the gate is high). This mod 
+requires that RDB1 be removed rather than bridged. Leaving RDB1 connected or 
+bridge may cause damage to the mosfets.&nbsp; <BR></P>
+<P style="MARGIN-LEFT: 80px">After performing the gate jumper mod you will 
+probably notice that the motor will give a little surge of power when the car is 
+first turned on.&nbsp; There is a small delay between power-up and the 
+activation of the car's CPU, during this time the RDP1 pullup is holding QD1 off 
+and QD3 on, which in turn turns on QD2, allowing current flow to the 
+motor.&nbsp; By removing RDP1 this surge can be eliminated.<BR></P>
+<P style="MARGIN-LEFT: 80px">Since QD1 and QD3 are on opposite sides of the PCB, 
+it is necessary to run a small wire from the front of the board to the 
+back.&nbsp; This can be accomplished by running the wire around the front or 
+side of the board, or a very thin piece of magnet wire (solid copper wire with 
+very thin enamal insulation, usually reddish in color) may be threaded through 
+one of the small holes in the board (these holes are called 'through plated 
+vias' and serve to connect traces on one side of the board to traces on the 
+other side).<BR></P>
+<DIV style="MARGIN-LEFT: 40px">
+<DIV style="MARGIN-LEFT: 40px">The vias in the PCB are about 30 guage (0.25mm or 
+so in diameter), and frequently have a bit of solder blocking them.&nbsp; 
+Compressed air or a vacuum desoldering tool will clear them.&nbsp; Desoldering 
+braid my not work well due to the small size, but it can be used to remove most 
+of the solder before using a bit of the magnet wire to clear the hole while the 
+solder is still liquid. Before running the wire through the via it will be 
+necesary to pull the last quarter inch through a piece of very fine sand paper 
+to remove the burrs from the cut end (when clipped the wire is slightly crushed, 
+making it expand sideways to a greater diameter). Thread the wire through the 
+via and cut off the part that sanded portion. Poke the new end into a blob of 
+hot solder on the end of the soldering iron. This should be sufficent to burn 
+off a bit of the enamel insulation and allow for soldering. Do NOT put solder on 
+the via! Use a very small dot of hot glue or epoxy to secure the wire at the 
+via.&nbsp; Epoxy is not recommended because it cannot be removed.&nbsp; If the 
+wire fails the epoxy cannot be removed to make repairs.<BR></DIV>
+<DIV style="MARGIN-LEFT: 80px"><BR>
+<TABLE style="WIDTH: 100%; TEXT-ALIGN: left" cellSpacing=2 cellPadding=2 
+border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle; TEXT-ALIGN: left">The generation 1 
+      schematic shown here has had three of the transistor base resistors RDB2, 
+      RDB3 and RDB4 bridged.&nbsp; RDB1 has been removed completely and the gate 
+      of QD1 has been bridged to QD3. The transistors have been replaced with 
+      MOSFETs.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 403px; HEIGHT: 337px" 
+      alt="ZipZap SE Gate Jumper Schematic" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-Gate-Jumper-FetMod-Gen1.png"><BR></TD></TR></TBODY></TABLE></DIV></DIV><BR>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=Procedure></A><SPAN 
+style="COLOR: rgb(255,255,51)">Procedure</SPAN></H2>
+<H3 style="MARGIN-LEFT: 40px"><A name=Preperation></A><SPAN 
+style="COLOR: rgb(255,255,51)">Preperation</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">The leads to be soldered are very small, so it is 
+essential to have a properly configured soldering iron. If the tip of the iron 
+is not clean and sharp, use a file on the cold iron to produce a pencil-like 
+point. Heat the iron to operating temperature and clean with a wet rag or 
+sponge, then apply enough solder to produce a uniform coating on the tip and 
+again clean the tip on the rag or sponge. The tip should be left with a very 
+thin coat of solder, but no drips. </P>
+<H3 style="MARGIN-LEFT: 40px"><A name=PreTesting></A><SPAN 
+style="COLOR: rgb(255,255,51)">Testing</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">Start by testing the performance of your RC car. If 
+you have an RPM meter measure the unloaded acceleration and top speed of the 
+car. You may also time the car over a fixed distance, or measure the maximum 
+incline the car can climb. Select conditions (track surfaces and distances) that 
+can be replicated for comparison testing. Test with a variety of motors if you 
+like.&nbsp; The MOSFET mod seems to perform best with the Radio Shack NOS 
+motor.&nbsp; This motor is fast, but does not exceed the capacity of the 
+batteries to provide power.&nbsp; Faster motors like the King 4.2 also perform 
+very well, but they demand more current than the stock battery can supply.&nbsp; 
+For best performance with very low resistance motors you will need a higher 
+performance battery.<BR></P>
+<H3 style="MARGIN-LEFT: 40px"><A name=Disassembly></A><SPAN 
+style="COLOR: rgb(255,255,51)">Disassembly</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">First verify that the car is turned off. Remove the 
+battery as a precaution. Shorting leads while power is applied can destroy 
+components and ruin the car. </P>
+<P style="MARGIN-LEFT: 80px">Using a small jewelers screwdriver remove the two 
+screws holding the PCB. One is located near the front center of the PCB, the 
+other is at the rear, near where the antenna is connected. Remove the small 
+plastic clip held down by the rear screw and place the screws, clip and black 
+plastic retainer from the front of the PCB and place them in a small container 
+(you may also draw a large diagram of the car and place the parts on the diagram 
+to make replacement very easy). </P>
+<DIV style="MARGIN-LEFT: 80px">
+<TABLE style="WIDTH: 840px; HEIGHT: 331px" cellSpacing=2 cellPadding=2 
+  border=1><TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">If the top of the PCB is painted black, 
+      it will be necessary to remove some of the paint in order to identify and 
+      remove components. Use the jewelers screwdriver to carefully flake off the 
+      paint as you work. </TD>
+    <TD style="VERTICAL-ALIGN: top; WIDTH: 410px"><IMG 
+      style="WIDTH: 400px; HEIGHT: 307px" alt="ZipZap SE Paint Removal" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-FETMod-Removing-Paint.jpg"><BR></TD></TR></TBODY></TABLE></DIV>
+<P style="MARGIN-LEFT: 80px"><BR></P>
+<P style="MARGIN-LEFT: 80px">To see the bottom of the PCB, carefully lift the 
+PCB off the chassis and note the positions of the wires. When reassembling the 
+car you will want to replace the wires as you found them for the best fit. Flip 
+the PCB over to expose the components on the bottom the board. Use small clamps 
+or putty to secure the board and chassis to the work surface, but be careful not 
+to place too much tension on the wires. Wires pulled off of the board can 
+usually be fixed, but sometimes it can take some very delicate soldering! </P>
+<H3 style="MARGIN-LEFT: 40px"><A name=Identification></A><SPAN 
+style="COLOR: rgb(255,255,51)">Identification of components</SPAN></H3>
+<DIV style="MARGIN-LEFT: 80px">
+<UL>
+  <LI>
+  <H3><SPAN style="COLOR: rgb(255,255,51)">General 
+Layout</SPAN><BR></H3></LI></UL></DIV>
+<DIV style="MARGIN-LEFT: 120px">
+<TABLE style="WIDTH: 840px; HEIGHT: 331px" cellSpacing=2 cellPadding=2 
+  border=1><TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle; WIDTH: 50%; TEXT-ALIGN: left">
+      <DIV style="TEXT-ALIGN: left">This is an illistration of the top and 
+      bottom of the ZipZap SE PCB.&nbsp; The components are designated using the 
+      following naming convention:<BR></DIV>
+      <UL>
+        <LI style="TEXT-ALIGN: left">First letter 'Q' indicates a transistor 
+        <UL>
+          <LI>Second letter 'D' indicates Drive 
+          <LI>Second letter 'S' indicates Steering </LI></UL>
+        <LI>First Letter 'R' indicates a resistor 
+        <UL>
+          <LI>Second letter 'D' indicates Drive 
+          <LI>Second letter 'S' indicates Steering 
+          <LI>Third letter 'B' or 'P' indicates a Base or Pullup 
+          resistor<BR></LI></UL></LI></UL></TD>
+    <TD style="VERTICAL-ALIGN: middle; TEXT-ALIGN: center"><IMG alt="" 
+      src="ZipZap SE MOSFET Mod_files/ZipZapMotorDriveLayout.jpg"></TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">This is a first generation schematic of 
+      the components and the connections between them.&nbsp; The two h-shaped 
+      sections are called h-bridges, the one on the right is for the drive 
+      motor, the left is for the steering motor.&nbsp; The inputs to control the 
+      motors are at the unconnected ends of RSB3, RSB4, RDB3 and RDB4.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 406px; HEIGHT: 337px" 
+      alt="ZipZap SE First Generation Schematic" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-Drive-Steer-Gen1.png"><BR></TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">This is a second generation schematic 
+      of the SE drive components.&nbsp; Note the inclusion of QD5 near the 
+      middle of the diagram.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 409px; HEIGHT: 369px" 
+      alt="ZipZap SE Second Generation Schematic" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-Drive-Steer-Gen2.png"><BR></TD></TR></TBODY></TABLE></DIV>
+<DIV style="MARGIN-LEFT: 80px">
+<UL>
+  <LI>
+  <H3><SPAN style="COLOR: rgb(255,255,51)">Recognizing 
+  Transistors</SPAN><BR></H3></LI></UL></DIV>
+<DIV style="MARGIN-LEFT: 120px; TEXT-ALIGN: center">
+<TABLE style="WIDTH: 100%" cellSpacing=2 cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">This is a typical surface mount 
+      transistor.&nbsp; At the right side of the image two of the three legs can 
+      be seen soldered to the PCB.&nbsp; The third leg is in the center of the 
+      opposite side of the device.<BR></TD>
+    <TD style="WIDTH: 50%">
+      <DIV style="TEXT-ALIGN: center"></DIV>
+      <DIV style="MARGIN-LEFT: 40px; TEXT-ALIGN: center"><IMG alt="" 
+      src="ZipZap SE MOSFET Mod_files/Transistor.jpg"></DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV style="MARGIN-LEFT: 80px">
+<UL>
+  <LI>
+  <H3><SPAN style="COLOR: rgb(255,255,51)">Recognizing 
+Resistors</SPAN></H3></LI></UL></DIV>
+<DIV style="MARGIN-LEFT: 120px">
+<TABLE style="WIDTH: 100%; TEXT-ALIGN: left" cellSpacing=2 cellPadding=2 
+border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">This is a typical surface mount 
+      resistor.&nbsp; The value of the resistor is printed on the top.&nbsp; The 
+      first two digits are the first to digits in the value, the third digit 
+      indicates the number of zeros that come after the first two digits.&nbsp; 
+      The value of the resistor at the right is 150 Ohms.<BR></TD>
+    <TD style="WIDTH: 50%; TEXT-ALIGN: center"><IMG 
+      style="WIDTH: 173px; HEIGHT: 175px" alt="Typical Surface Mount Resistor" 
+      src="ZipZap SE MOSFET Mod_files/Resistor.jpg"></TD></TR></TBODY></TABLE></DIV><BR>
+<DIV style="MARGIN-LEFT: 80px">
+<UL>
+  <LI>
+  <H3><SPAN style="COLOR: rgb(255,255,51)">Locating 
+  Transistors</SPAN><BR></H3></LI></UL></DIV>
+<DIV style="MARGIN-LEFT: 120px; TEXT-ALIGN: center">
+<TABLE style="WIDTH: 100%; HEIGHT: 255px" cellSpacing=2 cellPadding=2 
+  border=1><TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: top" colSpan=2>The primary components to be 
+      changed are the transistors. On the ZipZap SE PCB half of the transistors 
+      (the n-channels) are on the bottom of the board, and half (the p-channels) 
+      are on the top. The main drive motor transistors are the four closest to 
+      the front of the PCB. The steering motor is controlled by the four 
+      transistors located directly to the rear of the drive 
+  transistors.<BR></TD></TR>
+  <TR>
+    <TD>In this image of the bottom of the PCB the n-channel transistors can 
+      be seen.&nbsp; The two on the right are the drive transistors.&nbsp; The 
+      two on the left are the steering transistors.<BR><BR>These will be 
+      replaced with n-channel MOSFETs, such as the IRLML2502s. Some ZipZap SE 
+      boards come with one of the n-channel drive transistors (the on in the top 
+      right-hand corner of this image, QD4 in the illistration above) 
+      double-stacked, it will appear to be twice as tall as the other 
+      transistors.</TD>
+    <TD style="VERTICAL-ALIGN: top">
+      <DIV style="MARGIN-LEFT: 40px; TEXT-ALIGN: center"><IMG alt="" 
+      src="ZipZap SE MOSFET Mod_files/ZZSEBottomTransistorID.jpg"></DIV></TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">In this image of the top of the PCB the 
+      p-channel transistors can be seen.&nbsp; The two at the top (the front of 
+      the board when installed in the car) are the drive transistors.&nbsp; The 
+      two at the bottom are the steering transistors.&nbsp; Note that the 
+      transistor at the lower right is obscured by a black-painted component in 
+      this image.&nbsp; This component must be gently bent upward to expose the 
+      transistor.<BR><BR>These will be replaced with p-channel MOSFETs, such as 
+      the IRLML6401s.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG alt="" 
+      src="ZipZap SE MOSFET Mod_files/ZZSETopTransistorID.jpg"><BR></TD></TR></TBODY></TABLE><BR></DIV>
+<DIV style="MARGIN-LEFT: 80px">
+<UL>
+  <LI>
+  <H3><SPAN style="COLOR: rgb(255,255,51)">Locating 
+  Resistors</SPAN><BR></H3></LI></UL></DIV>
+<DIV style="MARGIN-LEFT: 120px; TEXT-ALIGN: center">
+<TABLE style="WIDTH: 917px; HEIGHT: 500px; TEXT-ALIGN: left" cellSpacing=2 
+cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">This is an image of the five resistors 
+      on bottom of the PCB that are part of the h-bridges.<BR><BR>The two 
+      resistors on the right, RDB3 and RDB4, can be bridged by replacing it with 
+      a bit of wire.&nbsp; This is mostly easily done if the resistor is removed 
+      first, but this is not necessary for the bridge to work.&nbsp; If the 
+      steering transistors are also replaced with MOSFETs the steering base 
+      resistors can also be bridged, but it is unlikely that any performance 
+      difference will be apparent.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG alt="" 
+      src="ZipZap SE MOSFET Mod_files/ZZSEBottomResistorID.jpg"></TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">This is an image of the seven resistors 
+      on the top of the PCB that are part of the h-bridges.<BR><BR>The two 
+      resistors at the top of the image, RDB1 and RDB2, should also be bridged, 
+      unless the gate jumper mod (see above) is also performed.&nbsp; If the 
+      gate jumper mod is performed, RDB1 must be removed completely and the pads 
+      left unjumpered.&nbsp; As above, if the steering is upgraded to MOSFETs, 
+      RSB1, the only steering base resistors on the top, can also be bridged 
+      (again unless the gate jumper mod is performed on the steering h-bridge, 
+      in which case, remove the appropriate resistor).<BR><BR>It is not 
+      necessary to modify the pullup resistors.&nbsp; Bridging them will result 
+      in a short-circuit when the h-bridge is active, and removing them will 
+      leave the MOSFET gates floating, which will probably also result in a 
+      short-circuit.&nbsp; The values of the pull-ups can be increased if 
+      desired, anything from 3k to 33k would be sufficent.&nbsp; This 
+      modification would save a very small amount of power.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG alt="" 
+      src="ZipZap SE MOSFET Mod_files/ZZSETopResistorID.jpg"></TD></TR></TBODY></TABLE></DIV>
+<DIV style="MARGIN-LEFT: 80px">
+<UL>
+  <LI>
+  <H3><SPAN style="COLOR: rgb(255,255,51)">Gate Jumper 
+Leads</SPAN><BR></H3></LI></UL></DIV><BR>
+<DIV style="MARGIN-LEFT: 120px; TEXT-ALIGN: center">
+<TABLE style="WIDTH: 100%; TEXT-ALIGN: left" cellSpacing=2 cellPadding=2 
+border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">In this image of the top of the PCB, 
+      the gate lead of MOSFET QD1 is circled in blue.&nbsp; To perform the gate 
+      jumper mod this lead must be connected to the gate lead of MOSFET QD3, 
+      seen below.&nbsp; For this mod to work the resistor RDB1 must be removed 
+      and left unbridged.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 300px; HEIGHT: 287px" 
+      alt="" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-FETMod-Gate-Jumper-Pt1.jpg"><BR></TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">In this image of the bottom of the PCB, 
+      the gate lead of MOSFET QD3 is circled in blue.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 300px; HEIGHT: 222px" 
+      alt="ZipZap SE Gate Jumper Point 2" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-FETMod-Gate-Jumper-Pt2.jpg"></TD></TR></TBODY></TABLE></DIV>
+<P style="MARGIN-LEFT: 80px"><BR></P>
+<H3 style="MARGIN-LEFT: 40px"><A name=Removal></A><SPAN 
+style="COLOR: rgb(255,255,51)">Removal of old components</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">Working quickly to avoid unnecessary heating of 
+components, heat one leg of the component and use a small jewelers screwdriver 
+to pry that side of the component up off the PCB. Do not attempt to lift the 
+component until the solder on the leg to be lifted has melted, lifting a 
+component before the solder has melted can tear the copper pad it is connected 
+to up off the PCB, making replacement very difficult. Transisters are usually 
+most easily removed by lifting the side with one leg first. Resistors can 
+usually be heated all at once, freeing both sides at the same time. Frequently 
+they will stick to the tip of the iron. </P>
+<P style="MARGIN-LEFT: 80px">After the components have been removed, touch the 
+soldering iron to the pads to clean up the solder. If there is more than a very 
+slight lump of solder, use the desoldering braid to remove the extra. There 
+should be just enough solder to hold down the new components that will be placed 
+there.<BR></P>
+<DIV style="MARGIN-LEFT: 80px">
+<TABLE style="WIDTH: 100%; HEIGHT: 325px; TEXT-ALIGN: left" cellSpacing=2 
+cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">Here on the top of the board the 
+      p-channel transistors for the drive motor have been removed.&nbsp; This is 
+      a second generation board, QD5 can be seen at the lower right side of the 
+      image.&nbsp; Toward the top of the image the two PNP transistors for the 
+      steering motor can be seen.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top; WIDTH: 410px"><IMG 
+      style="WIDTH: 400px; HEIGHT: 311px" 
+      alt="ZipZap SE PChan Drive Transistors Removed" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-FETMod-Drive-PChan-Rem.jpg"><BR></TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">Here on the bottom of the board the 
+      n-channel transistors for the drive motor have been removed. Toward the 
+      upper right corner of the image the two NPN transistors for the steering 
+      motor can be see, just below the component labeled 'A3'.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 400px; HEIGHT: 308px" 
+      alt="ZipZap SE N-Channel Transistors Removed" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-FETMod-Drive-NChan-Rem.jpg"><BR></TD></TR></TBODY></TABLE></DIV>
+<P style="MARGIN-LEFT: 80px"><BR></P>
+<H3 style="MARGIN-LEFT: 40px"><A name=Installation></A><SPAN 
+style="COLOR: rgb(255,255,51)">Installation of new components</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">The NPN transistors on the bottom of the board are 
+to be replaced with the n-channel MOSFETs (IRLML2502), the PNP transistors on 
+the top of the board are to be replaced with p-channel MOSFETS (IRLML6401). 
+Resistors can be bridged with a bit of wire without removing the resistor if 
+desired. </P>
+<P style="MARGIN-LEFT: 80px">Using a jewelers screwdriver place a small amount 
+of soldering flux on the pads, then place the component on the pads and use the 
+jewelers screwdriver to position it and hold it down. You may also use a bit of 
+contact cement or other adhesive to hold the component in place while soldering. 
+Just be aware that if removal of the component becomes necessary, a permanent 
+adhesive could complicate the operation. Heat one leg of the component to secure 
+it, then proceed to the next leg. If the component is heated excessively allow 
+it to cool a bit before continuing. </P>
+<DIV style="MARGIN-LEFT: 80px">
+<TABLE style="TEXT-ALIGN: left" cellSpacing=2 cellPadding=2 border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">Place the new component on top of the 
+      small lump of solder left on the pads.&nbsp; No extra solder should be 
+      required when installing the components.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top; WIDTH: 275px"><IMG 
+      style="WIDTH: 262px; HEIGHT: 189px" alt="ZipZap SE FET Placement" 
+      src="ZipZap SE MOSFET Mod_files/ZZSE-FETMod-Position-FET.jpg"><BR></TD></TR></TBODY></TABLE></DIV>
+<P style="MARGIN-LEFT: 80px"><BR></P>
+<H3 style="MARGIN-LEFT: 40px"><A name=Inspection></A><SPAN 
+style="COLOR: rgb(255,255,51)">Inspection</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">After all the new components have been installed, 
+use a magnifying lens to carefully inspect all soldering and components. Verify 
+that no solder has formed a 'bridge' to adjacent pads, and that all components 
+are properly connected. </P>
+<H3 style="MARGIN-LEFT: 40px"><A name=Assembly></A><SPAN 
+style="COLOR: rgb(255,255,51)">Assembly</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">Reinstall the battery and return the PCB to its 
+original position. Carefully arrange the wires under the board as you observed 
+them when removing the PCB. Reinstall the front and rear PCB clips, and don't 
+forget to thread the antenna back through the strain-relief in the rear clip. Do 
+not over-tighten the screws, the plastic strips easily and can be difficult to 
+repair. </P>
+<DIV style="MARGIN-LEFT: 80px; TEXT-ALIGN: center">
+<TABLE style="WIDTH: 100%; TEXT-ALIGN: left" cellSpacing=2 cellPadding=2 
+border=1>
+  <TBODY>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">This is the top of a finished first 
+      generation board with a double stack of p-channel MOSFETs and bridged 
+      resistors.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 550px; HEIGHT: 463px" 
+      alt="" src="ZipZap SE MOSFET Mod_files/ZZSEFinishedTop.jpg"></TD></TR>
+  <TR>
+    <TD style="VERTICAL-ALIGN: middle">This is the bottom of a finished first 
+      generation board with a double stack of n-channel MOSFETs and bridged 
+      resistors.<BR></TD>
+    <TD style="VERTICAL-ALIGN: top"><IMG style="WIDTH: 550px; HEIGHT: 548px" 
+      alt="" 
+  src="ZipZap SE MOSFET Mod_files/ZZSEFinishedBottom.jpg"></TD></TR></TBODY></TABLE></DIV>
+<H3 style="MARGIN-LEFT: 40px"><A name=PostTesting></A><SPAN 
+style="COLOR: rgb(255,255,51)">Testing</SPAN></H3>
+<P style="MARGIN-LEFT: 80px">Refer to the notes taken during inital testing and 
+retest the vehicles performance under the same conditions. By compairing results 
+you will get a quantitive assessment of the performance improvement, rather than 
+error-prone and subjective qualitive assessments (i.e. 'it feels twice as fast!' 
+). </P>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=PartsSources></A><SPAN style="COLOR: rgb(255,255,51)">Parts 
+Sources</SPAN></H2>
+<P style="MARGIN-LEFT: 40px">Suitable MOSFETs can be obtained from Digikey 
+(http://www.digikey.com) in the USA as part numbers 'IRLML2502CT-ND' and 
+'IRLML6401CT-ND' for about USD0.66 each (plus shipping and USD5 handling for 
+orders under USD25) or from http://www.rs-components.com.au in Australia. Mouser 
+(http://www.mouser.com) also carries a wide range of SOT-23 MOSFETs that will 
+work, but as of the time of this writing Mouser did not carry the IRLML* parts 
+listed in this document.<BR></P>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><SPAN style="COLOR: rgb(255,255,51)"><A name=FETModService></A>FETMod 
+Service</SPAN><BR></H2>
+<DIV style="MARGIN-LEFT: 40px">If you do not feel you can safely perform a FET 
+mod on your car, or if you've already attempted it and cannot get it working, I 
+can help you out.&nbsp; I offer FET mod service for $20 for one car, or $17 each 
+for multiple cars.&nbsp; You pay shipping to me, I'll pay shipping back to you. 
+It usually takes about 7 to 10 days for the car to make it through the US mail 
+service in the contigious states.&nbsp; If you would like to take advantage of 
+this service, please contact me via <A href="aim://codesuidae/">AOL IM</A> or <A 
+href="mailto:codesuidae@cox.net">email</A>.<BR></DIV><BR>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<H2><A name=Credits></A><SPAN style="COLOR: rgb(255,255,51)">Credits</SPAN></H2>
+<P style="MARGIN-LEFT: 40px">Many people have contributed to the information in 
+this document, it would not exist without information from ph2t, cyborgZero, 
+codeSuidae or the <A href="http://www.microrccenter.com/">MicroRC 
+Center</A>&nbsp; web site.<BR></P>
+<HR style="WIDTH: 100%; HEIGHT: 2px">
+
+<P><BR></P></BODY></HTML>

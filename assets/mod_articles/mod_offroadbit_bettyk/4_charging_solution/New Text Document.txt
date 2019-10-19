@@ -1,0 +1,43 @@
+image 1
+
+this is how i solve the problem of charging my chopped chassis bits. you could use a small dc plug and socket arrangement, but that would probably involve removing the shell when charging. i always dual cell my bits, but you could apply this idea to a single cell bit as well. BE VERY CAREFUL WHEN SOLDERING BATTERIES!! if heated enough they will explode, which aint so great when your face is 30 cm away! at the very least you'll kill your battery so take care.
+
+
+image 2
+
+connect the + & - on one side of the batteries. find some thin (but not too thin) metal and cut a couple of strips. tin one end of each strip with solder.
+
+
+image 3
+
+turn the batteries over and tin the other terminals. hold the metal strips with the tinned part touching the terminals and solder in place. be as quick as you can and cool the batteries by blowing on them immediately. bend the strips over, down the sides of the batteries.
+
+
+image 4
+
+place the batteries in the chassis where you want them to sit. hold them in place and mark the terminals through the holes in the chassis. pay careful attention to keep the orientation of the terminals the same, ie right side terminal is positive.
+
+
+
+image 5
+
+make holes where you marked the terminals, put a thin piece of plastic or something between the terminal and the battery to avoid damaging the battery. find 2 screws and tap a thread into the holes you just made.
+
+
+
+image 6
+
+connect the batteries to the rx pcb by soldering. place them in the chassis, hold the hinge in place and insert a screw through the hinge, then the chassis, and into the battery terminal. you can see the screw just poking through between the terminal and battery in the above pic.
+
+
+
+image 7
+
+so basically, the screws and washers that affix the hinge to the chassis double as charging terminals. as it won't fit on a standard charging plate anymore, i've made an adaptor that clips on so i can alternate between chopped and stock chassis', shown in the pics below. of course you could find a way to modify a charging plate to clip on without interfering with the suspension, but i gotta leave some things for others to figure out!
+
+
+image 8
+
+
+
+

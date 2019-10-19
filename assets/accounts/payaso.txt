@@ -1,0 +1,39 @@
+------------------
+* NOTES *
+------------------
+- You can change your account details,
+  just let me know what you want.
+
+- You can have all emails sent to your
+  email address (listed below), forwarded
+  to another email address.
+
+- You can have your website URL (listed
+  below), forward to another website.
+
+------------------
+ACCOUNT INFO
+------------------
+Full Name: Payaso
+Email Address: payaso@lixlink.com
+Unix Login: payaso
+Password: stv420
+URL: http://www.payaso.lixlink.com/
+Space: 5 MB
+
+------------------
+FTP INFO
+------------------
+Host: lixlink.com
+Username: payaso
+Password: stv420
+Directory: /web
+
+
+------------------
+MAIL INFO
+------------------
+POP3: lixlink.com
+SMTP: (use your own: work / home)
+Username: payaso
+Password: stv420
