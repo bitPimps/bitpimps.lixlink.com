@@ -1,0 +1,130 @@
+##############################################################
+## MOD Title: FreeCap Visual Confirmation
+## MOD Author: A_Jelly_Doughnut <support@jd1.clawz.com> (n/a) N/A
+## MOD Description: Replaces the visual confirmation with a GD-based one
+##		New CAPTCHA is based on freeCap 1.4.  See www.puremango.co.uk for that.
+## MOD Version: 0.0.2
+##
+## Installation Level: Easy
+## Installation Time: 5 Minutes
+## Files To Edit: usercp_confirm.php, usercp_register.php
+##
+## Included Files: functions_freecap.php, .ht_freecap_font1.gdf, .ht_freecap_font2.gdf, .ht_freecap_font3.gdf,
+##	.ht_freecap_font4.gdf, .ht_freecap_font5.gdf, .ht_freecap_im1.jpg, .ht_freecap_im2.jpg, .ht_freecap_im3.jpg,
+##  .ht_freecap_img.jpg, .ht_freecap_im5.jpg
+## License: http://opensource.org/licenses/gpl-license.php GNU General Public License v2
+##############################################################
+## For security purposes, please check: http://www.phpbb.com/mods/
+## for the latest version of this MOD. Although MODs are checked
+## before being allowed in the MODs Database there is no guarantee
+## that there are no security problems within the MOD. No support
+## will be given for MODs not found within the MODs Database which
+## can be found at http://www.phpbb.com/mods/
+##############################################################
+## Author Notes:
+##	This has been ported to and fro so many times...
+##	Ported from Standalone to OCbb 0.9.5 by A_Jelly_Doughnut
+##	Ported from OCbb 0.9.5 to phpBB2 by A_Jelly_Doughnut
+##
+##############################################################
+## MOD History:
+##	 2005-11-28 - Version 0.0.2
+##		- Oops, that method of generating and confirming a code didn't work if a # showed up
+##		- Renamed from Enhanced Visual Confirmation
+##   2005-11-27 - Version 0.0.1
+##      - Initial release
+##
+##############################################################
+## Before Adding This MOD To Your Forum, You Should Back Up All Files Related To This MOD
+##############################################################
+
+#
+#----[ COPY ]---------------------
+#
+# Note that you can replace any of these fonts or images with your own should you desire.
+# Just keep the names the same.
+freecap/.ht_freecap_font1.gdf to includes/freecap/.ht_freecap_font1.gdf
+freecap/.ht_freecap_font2.gdf to includes/freecap/.ht_freecap_font2.gdf
+freecap/.ht_freecap_font3.gdf to includes/freecap/.ht_freecap_font3.gdf
+freecap/.ht_freecap_font4.gdf to includes/freecap/.ht_freecap_font4.gdf
+freecap/.ht_freecap_font5.gdf to includes/freecap/.ht_freecap_font5.gdf
+freecap/.ht_freecap_im1.gdf to includes/freecap/.ht_freecap_im1.gdf
+freecap/.ht_freecap_im2.gdf to includes/freecap/.ht_freecap_im2.gdf
+freecap/.ht_freecap_im3.gdf to includes/freecap/.ht_freecap_im3.gdf
+freecap/.ht_freecap_im4.gdf to includes/freecap/.ht_freecap_im4.gdf
+freecap/.ht_freecap_im5.gdf to includes/freecap/.ht_freecap_im5.gdf
+functions_freecap.php to includes/functions_freecap.php
+
+#
+#----[ OPEN ]---------------------
+#
+includes/usercp_confirm.php
+
+#
+#----[ FIND ]---------------------
+#
+if (@extension_loaded('zlib'))
+
+#
+#----[ REPLACE WITH ]-------------
+#
+
+if (@extension_loaded('gd') || @extension_loaded('gd2'))
+{
+	require($root_path . "includes/functions_freecap.$phpEx");
+
+	// output final image :-)
+	sendImage($im);
+	// (sendImage also destroys all used images)
+}
+elseif (@extension_loaded('zlib'))
+
+#
+#----[ OPEN ]---------------------
+#
+includes/usercp_register.php
+
+#
+#----[ FIND ]---------------------
+#
+				if ($row['code'] == $confirm_code)
+#
+#----[ REPLACE WITH ]-------------
+#
+
+				if (@extension_loaded('gd') || @extension_loaded('gd2'))
+				{
+					$logic = 'return strtolower($row[\'code\'])) != strtolower($confirm_code);';
+				}
+				else
+				{
+					$logic = 'return $row[\'code\'] != $confirm_code;';
+				}
+
+				if (eval($logic))
+
+#
+#----[ FIND ]---------------------
+#
+			$code .= $confirm_chars[mt_rand(0, $max_chars)];
+		}
+
+#
+#----[ AFTER, ADD ]---------------
+#
+		$code = strtolower(preg_replace('#(\d)#e', 'chr($1 + 96)', $code));
+
+#
+#----[ FIND ]---------------------
+#
+		$confirm_image = (@extension_loaded('zlib')) ? '<img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id") . '" alt="" title="" />' : '<img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=1") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=2") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=3") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=4") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=5") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=6") . '" alt="" title="" />';
+
+#
+#----[ REPLACE WITH ]-------------
+#
+		$confirm_image = (@extension_loaded('gd') || @extension_loaded('gd2')) ? "<img src=\"" . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id") . '" alt="" title="" />' : ((@extension_loaded('zlib')) ? '<img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id") . '" alt="" title="" />' : '<img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=1") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=2") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=3") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=4") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=5") . '" alt="" title="" /><img src="' . append_sid("profile.$phpEx?mode=confirm&amp;id=$confirm_id&amp;c=6") . '" alt="" title="" />');
+
+#
+#----[ SAVE/CLOSE ALL FILES ]-----
+#
+# EoM
