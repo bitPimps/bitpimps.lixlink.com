@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/xp_publish.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/xp_publish.php $
+  $Revision: 8884 $
 **********************************************/
 
 // ------------------------------------------------------------------------- //
@@ -480,7 +480,7 @@ function output_footer()
 {
     global $WIZARD_BUTTONS, $ONBACK_SCRIPT, $ONNEXT_SCRIPT;
     global $CONFIG, $CPG_PHP_SELF;
-    
+
     $site_url = trim($CONFIG['site_url'], '/') . '/';
     $gallery_name_javascript = javascript_string($CONFIG['gallery_name']);
     $gallery_description_javascript = javascript_string($CONFIG['gallery_description']);
@@ -627,7 +627,7 @@ function process_login()
     global $ONNEXT_SCRIPT, $ONBACK_SCRIPT, $WIZARD_BUTTONS;
     global $template_login_success, $template_login_failure,$template_login;
     global $lang_login_php, $cpg_udb;
-    
+
     $superCage = Inspekt::makeSuperCage();
 
     $tt = 'worked';
@@ -728,13 +728,13 @@ function create_album()
     global $ONNEXT_SCRIPT, $ONBACK_SCRIPT, $WIZARD_BUTTONS;
     global $template_create_album;
     global $lang_errors, $lang_xp_publish_php;
-    
+
     $superCage = Inspekt::makeSuperCage();
 
     if (!(USER_CAN_CREATE_ALBUMS || USER_IS_ADMIN)) {
         simple_die(ERROR, $lang_errors['perm_denied'], __FILE__, __LINE__);
     }
-    
+
     if (USER_IS_ADMIN) {
         $category = $superCage->post->getInt('cat');
     } else {
@@ -846,7 +846,7 @@ function process_picture()
     //using getRaw as it will be sanitized in the code below in the preg_match. {SaWey}
      $filename = $superCage->files->getRaw('/userpicture/name');
      if (get_magic_quotes_gpc()){
-        $filename = stripslashes($filename); 
+        $filename = stripslashes($filename);
      }
     // Replace forbidden chars with underscores
     //$picture_name = replace_forbidden($_FILES['userpicture']['name']);

@@ -12,10 +12,10 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/nl/uploading.htm $
-  $Revision: 8304 $
-  $Date: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/nl/uploading.htm $
+  $Revision: 8884 $
+  $Date: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -61,18 +61,18 @@
 <a name="uploading_structure_edit"></a><h3>The temporary edit folder<a href="#uploading_structure_edit" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
 <p>Inside the albums-folder, you'll find a sub-folder named "edit" - that's the only temporary folder coppermine is using. It is being used for internal purposes only: if you use http uploads and the user has already uploaded several pics, they go to that folder first. The user then has to assign the uploaded files to albums, which is the moment when the uploaded files get moved from the temporary folder to the actual sub-folders of the userpics folder. If he doesn't assign the uploaded files to albums (or something goes wrong), the temporary files remain in the edit-folder, where the garbage collection takes care of them from time to time and deletes older temporary files. This mechanism is necessary because the http upload mechanism can be tricky to handle, seen from the perspective of a programmer: all kind of weird things could happen (the files could be too large, there could be no more webspace left, the target folder might lack the needed write permissions for the script). Using the temporary folder for http uploads just makes coppermine's http upload mechanisms more reliable, which was the reason why it has been designed the way it is. Don't touch the <tt class="code">edit</tt>-folder at all manually: don't rename it, don't delete it, don't upload files there - just leave it as it is and let coppermine use it for it's own purposes.</p>
 
-<a name="uploading_structure_ftp"></a><h3>FTP-uploads<a href="#uploading_structure_ftp" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3> 
+<a name="uploading_structure_ftp"></a><h3>FTP-uploads<a href="#uploading_structure_ftp" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
 <p>FTP uploads are a totally different animal: as the initial FTP upload isn't being performed by coppermine, but the admin user himself (using his FTP client), it's <em>his</em> task to make sure the files he tried to upload are actually there where they are expected. What the batch-add process does is adding the files that already are physically where you want them to be to the database. To make sure that you understand this concept: the database itself doesn't contain the files - think of it as a logical structure only, that keeps track of the physical location of the files and some other parameters (like dimensions, the album the file resides in etc.). Think of the database as a phone book that doesn't actually contain the people it lists, nor does it contain wires nor phones: all a phone book consists of are records that point to something in real life (a person's name &amp; address &amp; phone number).</p>
 <p>This being said, your FTP-uploads should go into a folder structure within the albums-folder. They must not go into the userpics folder, but into a folder-structure of it's own. Those folders you create with your FTP app are not temporary folders, but they are permanent: coppermine doesn't move those files around, but leaves them where you FTP-uploaded them to in the first place.</p>
 
 <a name="uploading_structure_xppublish"></a><h3>XP Publisher uploads<a href="#uploading_structure_xppublish" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-<p>When you use <a href="uploading_xp-publisher.htm">XP Publisher</a> to upload, there is another storage pattern that is being applied: the files go into sub-folders of the albums folder that are named wpw-yyyymmdd, where "wpw" stands for "Windows Publishing Wizard" and yyyy for the year, mm for the month and dd for the day of the upload. Again, coppermine doesn't move those files around - they remain where they are.</p> 
+<p>When you use <a href="uploading_xp-publisher.htm">XP Publisher</a> to upload, there is another storage pattern that is being applied: the files go into sub-folders of the albums folder that are named wpw-yyyymmdd, where "wpw" stands for "Windows Publishing Wizard" and yyyy for the year, mm for the month and dd for the day of the upload. Again, coppermine doesn't move those files around - they remain where they are.</p>
 
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/theme_create_matching_page_tutorial.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/theme_create_matching_page_tutorial.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -176,7 +176,7 @@
 <p>Ce que nous allons faire maintenant, est de se débarrasser du contenu inutile qui se trouve dans template.html:</p>
 <p>Dans l'exemple de notre tutoriel, c'est particulièrement simple, mais dans la réalité ce peut devenir plus que délicat pour arriver à réaliser votre propre thème personnalisé, en particulier si vous êtes débutant en HTML et que votre sortie est plus complexe, mais ne vous alarmez pas: suivez ce tutoriel étape par étape, en effaçant attentivement élément par élément, et en prévisualisant pour voir si tout fonctionne comme prévu.</p>
 <p>Nous allons remplacer le contenu par des appels aux conteneurs: ça nécessite une première explication - si vous n'avez pas l'habitude du concept des <a href="theme_template.htm#theme_template_token">conteneurs de thèmes</a> lisez d'abord cette section.</p>
-<ul> 
+<ul>
     <li>Le conteneur <strong>{GALLERY}</strong><br />
         Dans notre petit exemple, nous devons enlever le texte de la colonne de gauche qui commence avec les mots <tt class="code">This is the main content.</tt> et se termine par &quot;<tt class="code">The center column of this example design is supposed to contain the actual page content.</tt>&quot;, nous effaçons donc
         <textarea rows="3" class="cpg_code smallcode" style="width:93%">&lt;h1&gt;This is the main content.&lt;/h1&gt;
@@ -184,7 +184,7 @@
         &lt;p&gt;The center column of this example design is supposed to contain the actual page content.</textarea>
         du fichier template.html. A la place, nous voulons par la suite que le contenu principal généré par Coppermine soit affiché, nous devons donc colle l'appel au conteneur principal <tt class="code">{GALLERY}</tt> de <tt class="code">themes/my_theme/template_copy.html</tt> à cette place.<br />
         Actuellement le contenu du fichier <tt class="code">themes/mon_theme/template.html</tt> doit ressembler à ceci:
-        
+
         <textarea rows="10" class="cpg_code smallcode" style="width:93%">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
 &lt;head&gt;
@@ -398,7 +398,7 @@
 <ul>
     </li>
     <li>Le conteneur <strong>{LANG_DIR}</strong><br />
-        Dans <tt class="code">themes/mon_theme/template.html</tt>, trouvez la balise d'ouverture  <tt class="code">&lt;html&gt;</tt> dans notre exemple elle ressemble à ça: 
+        Dans <tt class="code">themes/mon_theme/template.html</tt>, trouvez la balise d'ouverture  <tt class="code">&lt;html&gt;</tt> dans notre exemple elle ressemble à ça:
         <pre class="cpg_code">&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;</pre>
         Replace that with
         <pre class="cpg_code">&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="{LANG_DIR}"&gt;</pre>
@@ -642,7 +642,7 @@ doit être coupé et traité séparément. Le reste n'existe pas deux fois, donc
 <pre class="cpg_code">/*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -650,11 +650,11 @@ doit être coupé et traité séparément. Le reste n'existe pas deux fois, donc
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
+  Coppermine version: 1.5.48
   $Source$
-  $Revision: 8304 $
+  $Revision: 8884 $
 
-  $Date: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $
+  $Date: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $
 **********************************************/</pre>
 <p>de ce fichier.</p>
 <p>Comme résultat, voici ce à quoi doivent ressembler nos deux fichiers:</p>
@@ -1508,31 +1508,31 @@ html:first-child .bookmark_list img { /* Opera */
 }
 
 #bookmarkIt { /* This is the container that wraps the entire social bookmarks button */
-	float: left; 
-	border: 1px solid #0E72A4; 
-	padding: 0px 3px; 
-    font-size: 80%; 
+	float: left;
+	border: 1px solid #0E72A4;
+	padding: 0px 3px;
+    font-size: 80%;
     cursor: pointer;
     background-color: #D1D7DC;
     margin-left:3px;
     margin-right:3px;
     margin-top:0px;
-    margin-bottom:0px; 
-} 
-#popupClose { 
-	display: none; 
-	vertical-align: top; 
-} 
-#popupBookmark { 
-	display: none; 
-	position: absolute; 
-	z-index: 100; 
-} 
-#popupBookmark ul { 
-	float: left; 
-	width: 180px; 
-    border: 1px solid #aaa; 
-    background-color: #fff; 
+    margin-bottom:0px;
+}
+#popupClose {
+	display: none;
+	vertical-align: top;
+}
+#popupBookmark {
+	display: none;
+	position: absolute;
+	z-index: 100;
+}
+#popupBookmark ul {
+	float: left;
+	width: 180px;
+    border: 1px solid #aaa;
+    background-color: #fff;
 }
 
 /*** The Essential Code ***/
@@ -1610,8 +1610,8 @@ html:first-child .bookmark_list img { /* Opera */
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

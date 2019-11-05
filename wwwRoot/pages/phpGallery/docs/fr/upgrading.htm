@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/upgrading.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/upgrading.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -49,6 +49,359 @@
                 <th valign="top" align="left">Paquetage</td>
                 <th valign="top" align="left">Raison de la mise à jour</td>
                 <th valign="top" align="left"><span class="small">Date de publication</span></td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.48</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,79577.0.html">Announcement thread</a></li>
+                    <li>Added support for custom MySQL server port to vBulletin bridge (<a href="http://forum.coppermine-gallery.net/index.php/topic,78918.0.html">thread</a>)</li>
+                    <li>Updated Japanese language file (user contribution)</li>
+                    <li>Fixed white screens with low privileged users clicking into open albums when using theme "curve" (<a href="http://forum.coppermine-gallery.net/index.php/topic,79283.0.html">thread</a>)</li>
+                    <li>Fixed XSS issue</li>
+                    <li>Updated header information to reflect current year</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2018-12-21</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.46</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,78979.0.html">Announcement thread</a></li>
+                    <li>Fixed possible directory traversal vulnerability (<a href="http://forum.coppermine-gallery.net/index.php/topic,78978.0.html">thread</a>)</li>
+                    <li>Updated header information to reflect current year</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2017-02-15</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.44</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,78867.0.html">Announcement thread</a></li>
+                    <li>Fixed zip upload of plugins for 64 bit PHP (<a href="http://forum.coppermine-gallery.net/index.php/topic,64.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,78710.0.html">thread</a>)</li>
+                    <li>Updated link in credits page (<a href="http://forum.coppermine-gallery.net/index.php/topic,78727.0.html">thread</a>)</li>
+                    <li>Added new options to hidden feature "sort order of albums" (<a href="http://forum.coppermine-gallery.net/index.php/topic,78795.0.html">thread</a>)</li>
+                    <li>Replaced hard-coded number "10000" with constant "FIRST_USER_CAT" (<a href="http://forum.coppermine-gallery.net/index.php/topic,10000.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,78848.0.html">thread</a>)</li>
+                    <li>Fixed possible SQL injection vulnerabilities</li>
+                    <li>Fixed possible arbitrary shell command execution</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2016-09-23</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.42</td>
+                <td valign="top">
+                  <ul>
+                    <li>Maintenance release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,78720.0.html">Announcement thread</a></li>
+                    <li>Removed superfluous code in function "UnsharpMask"</li>
+                    <li>Updated header information to reflect current year</li>
+                    <li>Fixed install wizard step 9 for some PHP versions (<a href="http://forum.coppermine-gallery.net/index.php/topic,9.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,78388.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,78513.0.html">thread</a>)</li>
+                    <li>Fixed preview pictures in batch-add interface (<a href="http://forum.coppermine-gallery.net/index.php/topic,78626.0.html">thread</a>)</li>
+                    <li>Removed PHP notices in classic installer</li>
+                    <li>Changed redirection target if classic installer is locked</li>
+                    <li>Changed default color of flash upload button (<a href="http://forum.coppermine-gallery.net/index.php/topic,77179.0.html">thread</a>)</li>
+                    <li>Added new cpg_db_* functions (<a href="http://forum.coppermine-gallery.net/index.php/topic,77214.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,78699.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2016-05-11</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.40</td>
+                <td valign="top">
+                  <ul>
+                    <li>Maintenance release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,78478.0.html">Announcement thread</a></li>
+                    <li>Updated Finnish language file (user contribution)</li>
+                    <li>Fixed not processed variable in db_input.php (<a href="http://forum.coppermine-gallery.net/index.php/topic,78348.0.html">thread</a>)</li>
+                    <li>Added hidden feature to set default value for album property "Visitors can upload files" (<a href="http://forum.coppermine-gallery.net/index.php/topic,78355.0.html">thread</a>)</li>
+                    <li>Fixed broken referrer feature (<a href="http://forum.coppermine-gallery.net/index.php/topic,78385.0.html">thread</a>)</li>
+                    <li>Better double vote prevention if detailed vote statistics are enabled in the config</li>
+                    <li>Added hidden feature to display confirmation message when adding/removing pictures to/from favorites (<a href="http://forum.coppermine-gallery.net/index.php/topic,78394.0.html">thread</a>)</li>
+                    <li>Updated header information to reflect current year</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2015-11-18</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.38</td>
+                <td valign="top">
+                  <ul>
+                    <li>Maintenance release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,78322.0.html">Announcement thread</a></li>
+                    <li>Fixed batch-add interface if directory name contains specific strings (<a href="http://forum.coppermine-gallery.net/index.php/topic,78202.0.html">thread</a>)</li>
+                    <li>Fixed watermarking issue in admin tools (<a href="http://forum.coppermine-gallery.net/index.php/topic,78212.0.html">thread</a>)</li>
+                    <li>Updated onlinestats plugin: fixed MySQL error (<a href="http://forum.coppermine-gallery.net/index.php/topic,77521.0.html">thread</a>)</li>
+                    <li>Added hidden feature to hide file count and disk space usage in user manager to increase performance (<a href="http://forum.coppermine-gallery.net/index.php/topic,78129.0.html">thread</a>)</li>
+                    <li>Preparation for hidden features plugin to display button next to album drop-down box to display only empty albums (<a href="http://forum.coppermine-gallery.net/index.php/topic,77824.0.html">thread</a>)</li>
+                    <li>Fixed GIF support check when resizing images (<a href="http://forum.coppermine-gallery.net/index.php/topic,78279.0.html">thread</a>)</li>
+                    <li>Fixed album sort order for "first level" albums (<a href="http://forum.coppermine-gallery.net/index.php/topic,77314.0.html">thread</a>)</li>
+                    <li>Added hidden feature to adjust log file retention (<a href="http://forum.coppermine-gallery.net/index.php/topic,78309.0.html">thread</a>)</li>
+                    <li>Fixed database error if meta albums are viewed with invalid or missing parameters (<a href="http://forum.coppermine-gallery.net/index.php/topic,78067.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2015-08-13</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.36</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,78194.0.html">Announcement thread</a></li>
+                    <li>Strip whitespace from imported IPTC title and caption (<a href="http://forum.coppermine-gallery.net/index.php/topic,77981.0.html">thread</a>)</li>
+                    <li>Fixed icon when deleting picture from an album (<a href="http://forum.coppermine-gallery.net/index.php/topic,78036.0.html">thread</a>)</li>
+                    <li>Made phpBB 3 bridge compatible with phpBB version 3.1.x (<a href="http://forum.coppermine-gallery.net/index.php/topic,78055.0.html">thread</a>)</li>
+                    <li>Updated Italian language file (<a href="http://forum.coppermine-gallery.net/index.php/topic,78101.0.html">thread</a>)</li>
+                    <li>Fixed database error for non-existing files (<a href="http://forum.coppermine-gallery.net/index.php/topic,78067.0.html">thread</a>)</li>
+                    <li>Fixed typo in French docs (<a href="http://forum.coppermine-gallery.net/index.php/topic,78188.0.html">thread</a>)</li>
+                    <li>Fixed various security vulnerabilities (<a href="http://forum.coppermine-gallery.net/index.php/topic,78158.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2015-05-07</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.34</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,77892.0.html">Announcement thread</a></li>
+                    <li>Added i18n support for visiblehookpoints plugin</li>
+                    <li>Fixed XSS issue (<a href="http://forum.coppermine-gallery.net/index.php/topic,77880.0.html">thread</a>)</li>
+                    <li>Better contrast for help boxes when using the theme "curve" (<a href="http://forum.coppermine-gallery.net/index.php/topic,77851.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2014-10-24</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.32</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,77840.0.html">Announcement thread</a></li>
+                    <li>Updated Czech language file (user contribution)</li>
+                    <li>Fixed displaying wrong image issue (<a href="http://forum.coppermine-gallery.net/index.php/topic,77705.0.html">thread</a>)</li>
+                    <li>Fixed issue with user gallery pagination (<a href="http://forum.coppermine-gallery.net/index.php/topic,77790.0.html">thread</a>)</li>
+                    <li>Added hidden feature to hide already existing files on batch-add interface (<a href="http://forum.coppermine-gallery.net/index.php/topic,77671.0.html">thread</a>)</li>
+                    <li>Fixed pre-selection of files for Windows driven systems on batch-add interface (<a href="http://forum.coppermine-gallery.net/index.php/topic,77834.0.html">thread</a>)</li>
+                    <li>Fixed several issues with file path names on batch-add (<a href="http://forum.coppermine-gallery.net/index.php/topic,77820.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,77823.0.html">thread</a>)</li>
+                    <li>Added hidden feature to display only empty albums on batch-add (<a href="http://forum.coppermine-gallery.net/index.php/topic,77824.0.html">thread</a>)</li>
+                    <li>Fixed comment form submit for Android browser</li>
+                    <li>Fixed XSS issue (<a href="http://forum.coppermine-gallery.net/index.php/topic,77831.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2014-10-07</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.30</td>
+                <td valign="top">
+                  <ul>
+                    <li>Maintenance release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,77654.0.html">Announcement thread</a></li>
+                    <li>Removed some PHP notices during installation</li>
+                    <li>Fixed wrong display of albums in not displayed sub categories (<a href="http://forum.coppermine-gallery.net/index.php/topic,77464.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,77470.0.html">thread</a>)</li>
+                    <li>Allow access to update.php if gallery is in offline mode (<a href="http://forum.coppermine-gallery.net/index.php/topic,77485.0.html">thread</a>)</li>
+                    <li>Fixed pagination after deleting all hit stats (<a href="http://forum.coppermine-gallery.net/index.php/topic,77606.0.html">thread</a>)</li>
+                    <li>Fixed batch add interface issue when selecting folder (<a href="http://forum.coppermine-gallery.net/index.php/topic,77442.0.html">thread</a>)</li>
+                    <li>When bridged to phpBB3, use admin group IDs from database, if available (<a href="http://forum.coppermine-gallery.net/index.php/topic,77383.0.html">thread</a>)</li>
+                    <li>Fixed misleading "URL of the bridge app" help box regarding trailing slash (<a href="http://forum.coppermine-gallery.net/index.php/topic,76286.0.html">thread</a>)</li>
+                    <li>Fixed display of not allowed file types that already exist in the gallery (<a href="http://forum.coppermine-gallery.net/index.php/topic,77381.0.html">thread</a>)</li>
+                    <li>Fixed default value for columns that use the MySQL datatype "datetime" (<a href="http://forum.coppermine-gallery.net/index.php/topic,77646.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2014-07-08</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.28</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,77376.0.html">Announcement thread</a></li>
+                    <li>Fixed misleading template error message</li>
+                    <li>Fixed display of keywords with special characters (<a href="http://forum.coppermine-gallery.net/index.php/topic,76830.0.html">thread</a>)</li>
+                    <li>Removed duplicate page header if error occurs when deleting an album</li>
+                    <li>Added hidden feature to regard upload time of linked files in album info (<a href="http://forum.coppermine-gallery.net/index.php/topic,77021.0.html">thread</a>)</li>
+                    <li>Fixed reference to documentation in config</li>
+                    <li>Fixed various documentation glitches</li>
+                    <li>Optimized main page code to reduce database query count</li>
+                    <li>Fixed album and file count if category contains private albums</li>
+                    <li>Updated known issues page</li>
+                    <li>Fixed album and file count if category contains currently not displayed sub-categories (<a href="http://forum.coppermine-gallery.net/index.php/topic,60827.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,76914.0.html">thread</a>)</li>
+                    <li>Moved config options "Horizontal/vertical padding for full-size pop-up", "Albums can be private" and "Show private album icon to unlogged user" to other groups</li>
+                    <li>Don't redirect to registration form after login (<a href="http://forum.coppermine-gallery.net/index.php/topic,77140.0.html">thread</a>)</li>
+                    <li>Added possibility to use pictures linked to albums via album keyword as category thumbnail (<a href="http://forum.coppermine-gallery.net/index.php/topic,77008.0.html">thread</a>)</li>
+                    <li>Fixed function 'starttable' in theme 'curve' to make fully compatible with plugin hook 'search_form'</li>
+                    <li>Replaced some jQuery code with plain JavaScript code to make admin tools compatible with later jQuery versions, in case users want to upgrade (<a href="http://forum.coppermine-gallery.net/index.php/topic,76858.0.html">thread</a>)</li>
+                    <li>Updated Catalan language file (user contribution)</li>
+                    <li>Added plugin hook 'theme_thumbnails_header'</li>
+                    <li>Added plugin hooks 'comment_update', 'comment_add' and 'comment_approve' (<a href="http://forum.coppermine-gallery.net/index.php/topic,60896.0.html">thread</a>)</li>
+                    <li>Increased character limit to allow recently released top level domains (<a href="http://forum.coppermine-gallery.net/index.php/topic,77183.0.html">thread</a>)</li>
+                    <li>Added function 'theme_album_info' to make information which is displayed next to each album themeable</li>
+                    <li>Fixed several issues with keywords manager</li>
+                    <li>Fixed XSS issue</li>
+                    <li>Fixed utilization of CSS class 'middlethumb' on film strip (<a href="http://forum.coppermine-gallery.net/index.php/topic,77353.0.html">thread</a>)</li>
+                    <li>Updated packaging docs</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2014-04-02</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.26</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,76998.0.html">Announcement thread</a></li>
+                    <li>Fixed custom menu link icon (<a href="http://forum.coppermine-gallery.net/index.php/topic,76418.0.html">thread</a>)</li>
+                    <li>Fixed error message when removing favorite pictures (<a href="http://forum.coppermine-gallery.net/index.php/topic,76549.0.html">thread</a>)</li>
+                    <li>Fixed possible issue when searching for image titles (<a href="http://forum.coppermine-gallery.net/index.php/topic,76393.0.html">thread</a>)</li>
+                    <li>Optimized admin tools "Update thumbs and/or resized photos" and "Delete original image backup for watermarked images" (<a href="http://forum.coppermine-gallery.net/index.php/topic,75189.0.html">thread</a>)</li>
+                    <li>Optimized code if 'Show first level album thumbnails in categories' is disabled (<a href="http://forum.coppermine-gallery.net/index.php/topic,76466.0.html">thread</a>)</li>
+                    <li>Added possibility to choose category thumbnail for user galleries category (<a href="http://forum.coppermine-gallery.net/index.php/topic,76604.0.html">thread</a>)</li>
+                    <li>Fixed display of quota on profile page if user belongs to more than one group</li>
+                    <li>Fixed display of additional groups on profile page if user doesn't belong to more than one group</li>
+                    <li>Fixed strict standards warning messages (<a href="http://forum.coppermine-gallery.net/index.php/topic,76493.0.html">thread</a>)</li>
+                    <li>Added PHP4-replacement of function htmlspecialchars_decode to fix email issues (<a href="http://forum.coppermine-gallery.net/index.php/topic,76665.0.html">thread</a>)</li>
+                    <li>Extended captcha_plugin_enabled function to distinguish various forms</li>
+                    <li>Optimized album thumbnails code to reduce database query count (<a href="http://forum.coppermine-gallery.net/index.php/topic,76466.0.html">thread</a>)</li>
+                    <li>Fixed typo in plugin writing docs (<a href="http://forum.coppermine-gallery.net/index.php/topic,76720.0.html">thread</a>)</li>
+                    <li>Updated template plugin to match fixed typo in the docs (<a href="http://forum.coppermine-gallery.net/index.php/topic,76720.0.html">thread</a>)</li>
+                    <li>Fixed regex check for "The content of the main page" in config (<a href="http://forum.coppermine-gallery.net/index.php/topic,76317.0.html">thread</a>)</li>
+                    <li>Shuffled thumbnails for meta album "random" instead of sorting them by pid (<a href="http://forum.coppermine-gallery.net/index.php/topic,76742.0.html">thread</a>)</li>
+                    <li>Fixed docs regarding user quota (<a href="http://forum.coppermine-gallery.net/index.php/topic,76773.0.html">thread</a>)</li>
+                    <li>Added CSS class "thumbnail" to thumbnail images on thumbnails.php pages (<a href="http://forum.coppermine-gallery.net/index.php/topic,76662.0.html">thread</a>)</li>
+                    <li>Added CSS class "thumbnail" to album thumbnails (<a href="http://forum.coppermine-gallery.net/index.php/topic,76662.0.html">thread</a>)</li>
+                    <li>Fixed clickable keyword list content (<a href="http://forum.coppermine-gallery.net/index.php/topic,76793.0.html">thread</a>)</li>
+                    <li>Removed references to constants THEME_HAS_VANITY_GRAPHICS and THEME_IS_XHTML10_TRANSITIONAL, as they didn't worked as intended</li>
+                    <li>Fixed XSS issue (<a href="http://forum.coppermine-gallery.net/index.php/topic,76830.0.html">thread</a>)</li>
+                    <li>Added CSS classes "thumb_title_title", "thumb_title_views", "thumb_title_owner", "thumb_caption_caption", "thumb_caption_msg_date", "thumb_caption_author", "thumb_caption_ctime", "thumb_caption_rating", "thumb_caption_mtime" to thumbnail meta data on thumbnails.php pages (<a href="http://forum.coppermine-gallery.net/index.php/topic,76902.0.html">thread</a>)</li>
+                    <li>Fixed smiley detection in theme directory (<a href="http://forum.coppermine-gallery.net/index.php/topic,76746.0.html">thread</a>)</li>
+                    <li>Added constant THEME_HAS_COMMENT_GRAPHICS to use theme-depended images for approve/disapprove/delete/edit/report comments (<a href="http://forum.coppermine-gallery.net/index.php/topic,76746.0.html">thread</a>)</li>
+                    <li>Fixed XSS issue (<a href="http://forum.coppermine-gallery.net/index.php/topic,76930.0.html">thread</a>)</li>
+                    <li>Updated SWFUpload to fix several XSS issues (<a href="http://forum.coppermine-gallery.net/index.php/topic,76930.0.html">thread</a>)</li>
+                    <li>Updated Czech language file (user contribution)</li>
+                    <li>Updated header information to reflect new year</li>
+                    <li>Fixed permission check if users aren't allowed to upload to public albums (<a href="http://forum.coppermine-gallery.net/index.php/topic,76979.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2014-01-07</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.24</td>
+                <td valign="top">
+                  <ul>
+                    <li>Maintenance release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,76259.0.html">Announcement thread</a></li>
+                    <li>More precise database query times in debug output (<a href="http://forum.coppermine-gallery.net/index.php/topic,75864.0.html">thread</a>)</li>
+                    <li>Fixed album drop-down box options for guests (<a href="http://forum.coppermine-gallery.net/index.php/topic,75905.0.html">thread</a>)</li>
+                    <li>Display maximum allowed file size when using the Flash-driven uploader</li>
+                    <li>Updated packaging docs</li>
+                    <li>Fixed edit files button next to public albums if user isn't allowed to create albums, but can upload files (<a href="http://forum.coppermine-gallery.net/index.php/topic,75545.0.html">thread</a>)</li>
+                    <li>Fixed registration process if "personal_album_on_registration" is enabled (related to <a href="http://forum.coppermine-gallery.net/index.php/topic,74187.0.html">thread</a>)</li>
+                    <li>Added Persian language file (user contribution)</li>
+                    <li>Fixed possible missing parameter error during registration process (<a href="http://forum.coppermine-gallery.net/index.php/topic,76112.0.html">thread</a>)</li>
+                    <li>Fixed PHP notices during install (<a href="http://forum.coppermine-gallery.net/index.php/topic,64257.0.html">thread</a>)</li>
+                    <li>Don't check unsupported/disallowed file types at the batch-add upload form (<a href="http://forum.coppermine-gallery.net/index.php/topic,76084.0.html">thread</a>)</li>
+                    <li>Merged missing code changes of error message support for the batch add process</li>
+                    <li>Added Windows 8 support to statistic details page (<a href="http://forum.coppermine-gallery.net/index.php/topic,76221.0.html">thread</a>)</li>
+                    <li>Added support for Internet Explorer 9 & 10 to statistic details page (<a href="http://forum.coppermine-gallery.net/index.php/topic,76221.0.html">thread</a>)</li>
+                    <li>Fixed accent issues on keyword manager (<a href="http://forum.coppermine-gallery.net/index.php/topic,76226.0.html">thread</a>)</li>
+                    <li>Added IP address to security log (<a href="http://forum.coppermine-gallery.net/index.php/topic,75085.0.html">thread</a>)</li>
+                    <li>Added missing plugin hooks to theme 'curve' (<a href="http://forum.coppermine-gallery.net/index.php/topic,75613.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2013-05-22</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.22</td>
+                <td valign="top">
+                  <ul>
+                    <li>Maintenance release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,75858.0.html">Announcement thread</a></li>
+                    <li>Re-arranged packaging steps in English docs</li>
+                    <li>Select newly created database during Coppermine installation</li>
+                    <li>Changed icon for 'retry' button on installer</li>
+                    <li>Fixed 'album has been locked for editing' message for secondary group memberships (<a href="http://forum.coppermine-gallery.net/index.php/topic,74756.0.html">thread</a>)</li>
+                    <li>Updated Italian language file (user contribution)</li>
+                    <li>Updated Brazilian language file (user contribution)</li>
+                    <li>Moved comparison from several places to function 'cpg_picture_dimension_exceeds_intermediate_limit'</li>
+                    <li>Fixed "newer/older than" search feature</li>
+                    <li>Fixed handling of intermediate-sized files in admin tools and during upload (<a href="http://forum.coppermine-gallery.net/index.php/topic,74769.0.html">thread</a>)</li>
+                    <li>Fixed named anchors in plugin manager</li>
+                    <li>Fixed several table width layout issues</li>
+                    <li>Fixed several possible MySQL permission issues for bridged galleries</li>
+                    <li>Fixed error message 'undefined function gettext()' when using EXIF library (<a href="http://forum.coppermine-gallery.net/index.php/topic,74818.0.html">thread</a>)</li>
+                    <li>Added plugin hook 'upload_file_name' to batch-add interface</li>
+                    <li>Prepared code for user cookie consent (<a href="http://forum.coppermine-gallery.net/index.php/topic,74961.0.html">thread</a>)</li>
+                    <li>Also reset album views when "Reset view counters" is chosen at the admin tools (<a href="http://forum.coppermine-gallery.net/index.php/topic,74958.0.html">thread</a>)</li>
+                    <li>Strip unneeded EXIF data before storing it in the database (<a href="http://forum.coppermine-gallery.net/index.php/topic,75011.0.html">thread</a>)</li>
+                    <li>Updated Danish language file (user contribution)</li>
+                    <li>Fixed predefined album name when editing albums at the album manager</li>
+                    <li>Added hidden feature to set sort order of albums (<a href="http://forum.coppermine-gallery.net/index.php/topic,75112.0.html">thread</a>)</li>
+                    <li>Replaced special HTML entities with characters on email subject (<a href="http://forum.coppermine-gallery.net/index.php/topic,75052.0.html">thread</a>)</li>
+                    <li>Fixed "My gallery" view for user admin mode</li>
+                    <li>Made debug output W3C conform (<a href="http://forum.coppermine-gallery.net/index.php/topic,75049.0.html">thread</a>)</li>
+                    <li>Optimized function 'get_pic_pos'</li>
+                    <li>Added hidden feature to toggle the display of the sort buttons on the thumbnail page</li>
+                    <li>Use correct language flag for Luxembourgish language file (<a href="http://forum.coppermine-gallery.net/index.php/topic,75160.0.html">thread</a>)</li>
+                    <li>Order pictures by 'ctime' instead of by 'pid' (<a href="http://forum.coppermine-gallery.net/index.php/topic,65676.0.html">thread</a>)</li>
+                    <li>Optical improvement of dropdown box at batch-add interface (<a href="http://forum.coppermine-gallery.net/index.php/topic,75178.0.html">thread</a>)</li>
+                    <li>Fixed typo in French language file (<a href="http://forum.coppermine-gallery.net/index.php/topic,75414.0.html">thread</a>)</li>
+                    <li>Don't list administrator and guest groups in category manager's "allowed to create albums" dropdown box</li>
+                    <li>Hide upload button for guests with upload permission if there's no album with uploads enabled</li>
+                    <li>Hide "My gallery" button for guests (<a href="http://forum.coppermine-gallery.net/index.php/topic,75399.0.html">thread</a>)</li>
+                    <li>Fixed typo in Swedish language file</li>
+                    <li>Added form token check to flash uploader (<a href="http://forum.coppermine-gallery.net/index.php/topic,75503.0.html">thread</a>)</li>
+                    <li>Fixed upload for guests (<a href="http://forum.coppermine-gallery.net/index.php/topic,75559.0.html">thread</a>)</li>
+                    <li>Fixed formatting of some help pages (<a href="http://forum.coppermine-gallery.net/index.php/topic,75476.0.html">thread</a>)</li>
+                    <li>Fixed performance issue on intermediate-sized view for large files (<a href="http://forum.coppermine-gallery.net/index.php/topic,75589.0.html">thread</a>)</li>
+                    <li>Added hidden config option to display all files after flash upload (<a href="http://forum.coppermine-gallery.net/index.php/topic,75588.0.html">thread</a>)</li>
+                    <li>Fixed album properties "Choose album" drop-down list for regular users</li>
+                    <li>Updated docs to reflect changes of Subversion repository</li>
+                    <li>Removed category hierarchy string from album drop-down box at several places</li>
+                    <li>Removed possible category dupes from album drop-down box at several places (only occur in user mode)</li>
+                    <li>Don't use pictures from password protected albums as user gallery icon (<a href="http://forum.coppermine-gallery.net/index.php/topic,75780.0.html">thread</a>)</li>
+                    <li>Unified album drop-down boxes (<a href="http://forum.coppermine-gallery.net/index.php/topic,75840.0.html">thread</a>)</li>
+                    <li>Fixed check if user is allowed to edit files in public albums</li>
+                    <li>Added button if user is allowed to edit files in public albums (<a href="http://forum.coppermine-gallery.net/index.php/topic,75545.0.html">thread</a>)</li>
+                    <li>Fixed album ownership of automatically created user albums during user registration (<a href="http://forum.coppermine-gallery.net/index.php/topic,74187.0.html">thread</a>)</li>
+                    <li>Updated header information to reflect new year</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2013-01-11</td>
+              </tr>
+              <tr>
+                <td valign="top">cpg1.5.20</td>
+                <td valign="top">
+                  <ul>
+                    <li>Security release (stable)</li>
+                    <li><a href="http://forum.coppermine-gallery.net/index.php/topic,74682.0.html">Announcement thread</a></li>
+                    <li>Disabled possibility to move albums to root level of user category (<a href="http://forum.coppermine-gallery.net/index.php/topic,74323.0.html">thread</a>)</li>
+                    <li>Fixed broken IP address lookup (<a href="http://forum.coppermine-gallery.net/index.php/topic,74346.0.html">thread</a>)</li>
+                    <li>Fixed email validation for registration process (<a href="http://forum.coppermine-gallery.net/index.php/topic,74388.0.html">thread</a>)</li>
+                    <li>Updated Serbian language file (user contribution)</li>
+                    <li>Changed status in credits section to 'retired'</li>
+                    <li>Updated Italian language file (user contribution)</li>
+                    <li>Re-added 'search by owner name' checkbox to search form (<a href="http://forum.coppermine-gallery.net/index.php/topic,66818.0.html">thread</a>, <a href="http://forum.coppermine-gallery.net/index.php/topic,67757.0.html">thread</a>)</li>
+                    <li>New feature: display only the uploaded files from the last queue after flash upload (<a href="http://forum.coppermine-gallery.net/index.php/topic,73826.0.html">thread</a>)</li>
+                    <li>Fixed behavior of "Show first level album thumbnails in categories" setting (<a href="http://forum.coppermine-gallery.net/index.php/topic,74568.0.html">thread</a>)</li>
+                    <li>Added plugin hook 'theme_album_params'</li>
+                    <li>Fixed quota bar in user manager for secondary group memberships (<a href="http://forum.coppermine-gallery.net/index.php/topic,74392.0.html">thread</a>)</li>
+                    <li>Display default groups "Administrators" and "Registered" on modify user page (<a href="http://forum.coppermine-gallery.net/index.php/topic,74391.0.html">thread</a>)</li>
+                    <li>Moved code from usermgr.php to function 'cpg_get_groups'</li>
+                    <li>Added Opera compatibility for rounded corners to theme 'curve' (<a href="http://forum.coppermine-gallery.net/index.php/topic,74598.0.html">thread</a>)</li>
+                    <li>Fixed error message at "Edit file information" form (<a href="http://forum.coppermine-gallery.net/index.php/topic,74648.0.html">thread</a>)</li>
+                    <li>Updated EXIF library (<a href="http://forum.coppermine-gallery.net/index.php/topic,74671.0.html">thread</a>)</li>
+                    <li>Fixed clickable keywords in file information box at intermediate view (<a href="http://forum.coppermine-gallery.net/index.php/topic,74678.0.html">thread</a>)</li>
+                    <li>Fixed search results when searching for specific characters (<a href="http://forum.coppermine-gallery.net/index.php/topic,74678.0.html">thread</a>)</li>
+                    <li>Fixed error message when activating more than one user in the user manager (<a href="http://forum.coppermine-gallery.net/index.php/topic,74326.0.html">thread</a>)</li>
+                    <li>Fixed different gallery behavior for register_globals on/off setting (<a href="http://forum.coppermine-gallery.net/index.php/topic,74360.0.html">thread</a>)</li>
+                  </ul>
+                </td>
+                <td valign="top" align="right">2012-03-29</td>
               </tr>
               <tr>
                 <td valign="top">cpg1.5.18</td>
@@ -390,13 +743,13 @@
         </div>
         <p>Comme vous pouvez le voir, l'équipe de développement de Coppermine est constamment en train de corriger et d'améliorer le script. Chaque élément de logiciel non banal contient des bugs, il est donc non garanti que la version qui actuellement la plus récente, sera la dernière entièrement vierge de bugs, qui sera publiée dans la série cpg1.5.x. Il est absolument vital que vous fassiez une mise à jour aussitôt qu'un nouveau paquetage est mis à disposition.</p>
         <a name="upgrade_why_reasons_end"></a>
-        
+
         <a name="upgrade_why_changelog"></a><h3>Changelog<a href="#upgrade_why_changelog" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Le détail des changements qui sont intervenus dans une nouvelle version peuvent être trouvés dans le fichier "changelog" qui se trouve dans chaque paquetage. Le fichier "changelog" se trouve dans le répertoire racine du paquetage de Coppermine. Le fichier "changelog" contient plus d'informations sur les langues supplémentaires et la date de la correction.</p>
         <p>Le fichier "changelog" est un fichier texte qui peut être lu par un simple éditeur de texte - sur une machine utilisant Windows, Notepad.exe convient parfaitement.</p>
         <a name="upgrade_why_changelog_end"></a>
     </div><a name="upgrade_why_end"></a>
-    
+
     <a name="upgrade_any"></a><h2>Étapes nécessaires lors de la mise à jour de Coppermine (depuis n'importe quelle version)<a href="#upgrade_any" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     <p>Les instructions ci-dessus s'appliquent pour <strong>toutes</strong> les mises à jour de Coppermine, donc s'il vous plaît prenez le temps de les lires attentivement.</p>
     <ul>
@@ -435,21 +788,21 @@
     </ul>
     <p>Pour être tout à fait clair:</p>
     <p class="cpg_message_error">Il n'y a pas de paquetage séparé pour les mises à niveau - Coppermine vient toujours comme un paquetage complet qui peut être utilisé à la fois pour une nouvelle installation ainsi qu'une mise à niveau.</p>
-    
-    
-    
-    
-    
+
+
+
+
+
     <a name="upgrade_particular"></a><h2>Action supplémentaires pour la mise à jour depuis une version particulière<a href="#upgrade_particular" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     <p>En fonction de la version depuis laquelle vous faites une mise à jour, il y a des actions supplémentaires à réaliser:</p>
-    
+
         <div class="indent">
         <a name="upgrade_10"></a><a name="upgrade_12"></a><h3>Mise à jour depuis une version de cpg1.0, cpg1.1, cpg1.2.x ou cpg1.3.x vers cpg1.5.x<a href="#upgrade_10" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-        
+
         <p>La possibilité de mettre directement à jour depuis cpg1.0, cpg1.1, cpg1.2.x ou cpg1.3.x vers cpg1.5.x a été supprimée - si vous utilisez aussi une ancienne version, vous devrez faire votre mise à jour en deux temps (de votre version vers cpg1.4.x puis vers cpg1.5.x)</p>
-        
-        
-        
+
+
+
         <a name="upgrade_14"></a><h3>Mise à jour depuis cpg1.4.x vers cpg1.5.x<a href="#upgrade_14" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <ul>
           <li>
@@ -492,18 +845,18 @@
           <li>
               <a name="upgrade_14_uri_upload"></a><h4>URI upload removed<a href="#upgrade_14_uri_upload" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
               The <abbr title="Uniform Resource Identifier">URI</abbr> upload feature has been removed from cpg1.4.x to cpg1.5.x, as it wasn't actually doing what many users thought that it would do: when using URI uploads people expected the file to remain at the URI that they entered into the upload form and not be transfered to the webspace where their Coppermine gallery resided on. Subsequently, they thought that they could safe webspace. This was a misconception and in fact just wishfull thinking: using URI uploads in cpg1.4.x, the file actually was uploaded to the Coppermine webspace no matter what.<br />
-              Therefore, the actual feature "URI upload" was removed in cpg1.5.x. However (depending on the operating system of your client) you can (ab)use the regular http upload form to accomplish a similar thing in cpg1.5.x: when entering the URL of a file accepted by Coppermine into the http upload form, the file will get downloaded to your client's temporary folder and then a regular http upload from your client to your server will be performed. This is not actually a feature built into coppermine, but rather a feature of your <abbr title="operating system">OS</abbr>/browser and therefore it goes unsupported. However, there is no action required when performing the upgrade - this paragraph is just meant to inform you that the feature was dropped. 
+              Therefore, the actual feature "URI upload" was removed in cpg1.5.x. However (depending on the operating system of your client) you can (ab)use the regular http upload form to accomplish a similar thing in cpg1.5.x: when entering the URL of a file accepted by Coppermine into the http upload form, the file will get downloaded to your client's temporary folder and then a regular http upload from your client to your server will be performed. This is not actually a feature built into coppermine, but rather a feature of your <abbr title="operating system">OS</abbr>/browser and therefore it goes unsupported. However, there is no action required when performing the upgrade - this paragraph is just meant to inform you that the feature was dropped.
           </li>
           <li>
               <a name="upgrade_14_new_features"></a><h4>Configurer les nouvelles fonctionnalités<a href="#upgrade_14_new_features" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
               En comparaison avec cpg1.4.x, la nouvelle version cpg1.5.x vient avec de nombreuses nouvelles fonctions. Certaines d'entre elles sont activées par défaut après avoir effectuée la mise à niveau, ce qui pourrait ne pas être, ce que vous souhaitez. Par conséquence, il est souhaitable que vous (au moins superficiellement) lisiez la <a href="index.htm#features">liste des fonctionnalités</a> et vérifier le <a href="configuration.htm#admin">panneau de configuration</a> ainsi que le <a href="groups.htm#group_cp">panneau de gestion des groupes</a> pour les changements. La façon dont la gestion des langues de Coppermine a été changée est importante, c'est pourquoi vous devez visiter le <a href="languages.htm#language_manager">gestionnaire de langue</a> au moins une fois après la mise à niveau et configurer le support des langues.
           </li>
         </ul>
-        
+
         <a name="upgrade_15"></a><h3>Mise à jour depuis d’une ancienne version de cpg1.5.x vers la version la plus récente de cpg1.5.x<a href="#upgrade_15" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Il n'y a pas d'autres mesures à suivre lors d’une mise à niveau depuis une ancienne version de cpg1.5.x vers la version une plus récente de cette famille. La simple exécution des instructions de base mentionnée ci-dessus dans les <a href="#upgrade_any">Étapes nécessaires lors de la mise à jour de Coppermine (depuis n'importe quelle version)</a> sera suffisante.</p>
     </div><a name="upgrade_particular_end"></a>
-    
+
     <a name="updater"></a><h2>Mise à jour du script<a href="#updater" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     <p>Le script de mise à jour va mettre à jour votre base de données et effacer les fichiers laissés par les anciennes versions qui ne sont plus nécessaires par votre version. Il est accessible en cliquant sur le lien correspondant dans le menu administrateur ou en entrant l'URL dans la barre d'adresse de votre navigateur.</p>
     <p class="cpg_example">Vous pouvez lancer le script de mise à jour en entrant <tt class="code">http://votresite.fr/votre_dossier_coppermine/update.php</tt> dans la barre d'adresse de votre navigateur.</p>
@@ -531,13 +884,13 @@
             <p>Vous devez lancer le script de mise à jour à chaque fois que vous mettez votre galerie à jour, c.a.d. à chaque fois que le fichier <tt class="code">sql/update.sql</tt> est remplacé par une nouvelle version.</p>
             <p>Cela ne pose pas de problèmes de lancer le script de mise à jour plusieurs fois de suite. Donc si vous avez un doute, lancez-le à nouveau.</p>
         </div><a name="updater_end"></a>
-        
+
     <a name="versioncheck"></a><h2>L'outil de vérification de version<a href="#versioncheck" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     <p>Depuis la publication de cpg1.3.2 Coppermine dispose d'un outil complémentaire de vérification de version pour vous aidez à résoudre les problèmes lors des mises à jour facilement. Pour lancer le vérificateur de version, ajoutez simplement <tt>versioncheck.php</tt> dans la barre d'adresse de votre navigateur après vous être identifié en tant qu'administrateur dans votre galerie Coppermine (exemple: <tt>http://votresite.fr/votre_dossier_coppermine/versioncheck.php</tt>). Avec la version 1.5.x, vous pouvez lancer l'utilitaire de vérification de version depuis le <a href="admin_menu.htm#admin_menu">menu administrateur</a>.</p>
     <p class="cpg_message_info">L'outil de vérification de version <strong>ne fait pas</strong> de mise à jour: il ne télécharge pas la nouvelle version de Coppermine pour vous ni n'installe aucune corrections - il est juste là pour vous rendre attentif aux nouvelles versions et à vous aider à vérifier si la mise à jour s'est bien passée.</p>
-    
+
     <div class="indent">
-    
+
         <a name="versioncheck_description_start"></a><h3>Que fait t’il<a href="#versioncheck_description_start" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Le script de &quot;vérification de version&quot; est fait pour deux choses:</p>
         <ul>
@@ -547,13 +900,13 @@
         <p>Le script passe en revue les fichiers de votre serveur web et essaye de vérifier si la version de votre fichier local sur votre serveur est la même que celle du référentiel de http://coppermine-gallery.net. Les fichiers qui ne sont pas identiques sont affichés et sont les fichiers que vous devriez mettre à jour.</p>
         <p>En comparaison des versions précédentes, la page de vérification de version à été refaite pour cpg1.5.x aussi bien visuellement qu'en matière de fonctionnalités.</p>
         <a name="versioncheck_description_end"></a>
-        
+
         <a name="versioncheck_first_run"></a><h3>Première utilisation<a href="#versioncheck_first_run" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Lors du premier lancement du vérificateur de version vous verrez la page <a href"versioncheck_options_start"> d'option</a> en premier. Pour commencer, les options par défaut devraient être OK, soumettez donc juste le formulaire. Le script va ensuite déterminer la version de Coppermine que vous utilisez actuellement, et essayer de trouver le fichier XML sur le référentiel de Coppermine qui correspond à votre version. S’il y arrive il va comparer tous les fichiers qui existent sur votre serveur avec les fichiers les plus récents recommandés (en essayant d'obtenir les données depuis le référentiel). Par conséquent, vous devriez voir une liste de répertoires et de fichiers qui sont supposés exister sur votre serveur ainsi qu'une explication si la version de vos fichiers est la plus récente. Pour plus de détails sur l'interprétation de cet affichage continuez la lecture.</p>
-        
-        
-        
-        
+
+
+
+
         <a name="versioncheck_options_start"></a><h3>Options<a href="#versioncheck_options_start" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <img src="images/versioncheck_options.gif" alt="" border="0" width="386" height="120" title="Options for the version check screen" align="right" />
         <p>Il y a un petit nombre d'options disponibles sur la page de vérification de version qui devraient s'expliquer très facilement par elles-mêmes:</p>
@@ -582,14 +935,14 @@
             </li>
             <li><a name="versioncheck_options_no_connect_online_repository"></a><h4>Ne pas se connecter au référentiel en ligne<a href="#versioncheck_options_no_connect_online_repository" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
             Si vous sélectionnez cette option, le vérificateur de version n'essayera pas de se connecter au référentiel en ligne et utilisera le fichier XML local à la place. N'utilisez cette option que si la connexion au référentiel en ligne ne fonctionne pas pour vous (par exemple si vous êtes sur un intranet et que votre serveur n'a pas d'accès internet). L'inconvénient le plus important de la non connexion au référentiel en ligne est le fait que vous n'aurez aucune information quand à la nécessité d'une mise à jour ni sur la dernière version disponible, essayez donc plutôt de trouver la raison pour laquelle vous ne pouvez pas vous connecter au référentiel en ligne.<br />
-            Pendant la période de développement, (entre les publications), le référentiel en ligne n'est pas souvent mis à jour, donc, si vous utilisez la <a href="dev_subversion.htm#subversion">vérification par SVN</a> (par exemple si vous êtes développeur), vous pouvez sélectionner cette option. 
+            Pendant la période de développement, (entre les publications), le référentiel en ligne n'est pas souvent mis à jour, donc, si vous utilisez la <a href="dev_subversion.htm#subversion">vérification par SVN</a> (par exemple si vous êtes développeur), vous pouvez sélectionner cette option.
             <a name="versioncheck_options_no_connect_online_repository_end"></a>
             </li>
         </ul>
         <p>L'écran d'options vous permets de configurer le vérificateur de version, ou plutôt ce qui est affiché. Ces options ne sont pas sauvegardées, vous devrez donc les ajuster à chaque fois que vous utiliserez le vérificateur de version. Les options par défaut devraient correspondre pour la plupart des utilisateurs - ne les changez que si voue avez une bonne raison de le faire.</p>
         <a name="versioncheck_options_end"></a>
-        
-         
+
+
         <a name="versioncheck_comparison_start"></a><h3>Comparaison de version<a href="#versioncheck_comparison_start" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <img src="images/versioncheck_output.png" border="0" width="400" height="191" alt="" title="Output generated by version check" align="right" />
         <p>Il y a beaucoup d'informations placées dans un très petit espace. Voici un exemple de sortie possible et ce que cette sortie signifie:</p>
@@ -628,7 +981,7 @@
             Le lien vers le référentiel SVN (web SVN) est présent comme une fonction complémentaire pour les utilisateurs très expérimentés et les développeurs. Lisez les instructions concernant le <a href="dev_subversion.htm#subversion">référentiel de subversion</a> pour en savoir plus. Si tout est correct, vous n'avez pas besoin de ce lien de toute façon.</li>
         </ul>
         <a name="versioncheck_comparison_end"></a>
-        
+
         <a name="versioncheck_problems"></a><h3>Choses pouvant mal se passer avec le vérificateur de version<a href="#versioncheck_problems" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Comme les actions réalisées par le vérificateur de version sont complexes, il y a plusieurs choses qui peuvent mal se passer, en fonction de la configuration de votre serveur:</p>
         <ul>
@@ -642,14 +995,14 @@
         </ul>
         <p>Le vérificateur de version est mis à disposition gratuitement pour les utilisateurs finaux. Comme il y a beaucoup de facteurs qui ont un impact sur lui, il peut ou ne peut pas fonctionner sur votre configuration de serveur. Si l'outil de vérification de version ne fait rien du tout, c'est probablement le cas pour vous - ne vous alarmez pas : assurez-vous juste que votre installation de Coppermine est à jour en activant l'option de configuration "<a href="configuration.htm#admin_general_coppermine_news">Affichez les news de coppermine-gallery.net</a>". Vous devriez vous alarmer et regarder de plus près uniquement si des problèmes individuels sont rapportés par l'outil de vérification de version (par exemple uniquement si <em>certaines</em> lignes contiennent des remarques dans la colonne commentaires).</p>
         <a name="versioncheck_problems_end"></a>
-        
+
         <a name="versioncheck_expect"></a><h3>Fausse attente<a href="#versioncheck_expect" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Pour certains cela peut paraitre banal, pour d'autres un élément d'information particulièrement important: naturellement, les fichiers qui n'ont pas été remplacés lors de la mise à jour (exemple <tt class="code">anycontent.php</tt>) apparaitront comme anciens dans la sortie du vérificateur de version. C'est bien entendu normal. Cela ne pose pas de problèmes si vous faites la mise à jour exactement comme expliqué, comme les fichiers que vous êtes supposés garder pendant le processus de mise à jour ne contiennent pas de code nécessitant d'être mis à jour. Par exemple, <tt class="code">anycontent.php</tt> ne contient aucun code actuellement (celui qui se trouve dans le packages de Coppermine). Il <em>peut</em> contenir du code personnalisé que vous avez décidé d'utiliser. Pour plus de détails sur l'utilisation d’<tt class="code">anycontent.php</tt>, regardez la section &quot;<a href="php-content.htm#php-content_anycontent">Utilisation d'anycontent.php</a>&quot;.</p>
         <p>L'outil de vérification de version ne <em>télécharge</em> pas les versions de fichiers les plus récente sur internet - il <em>vérifie</em> juste les fichiers que vous avez sur votre serveur à la liste de fichiers la  plus récente. L'outil de vérification de version ne vérifie pas, ni désinfecte votre site contre le piratage.</p>
-        
+
     </div><a name="versioncheck_end"></a>
-    
-    
+
+
     <a name="upgrade_faq"></a><h2>FAQ de mise à jour<a href="#upgrade_faq" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     <ul>
         <li><a name="upgrade_faq_new_releases_alert"></a><h3>Comment trouver des informations sur les nouvelles mises à jour de Coppermine ?<a href="#upgrade_faq_new_releases_alert" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
@@ -683,8 +1036,8 @@
 
 <div id="doc_footer">
     <div class="doc_info_wrapper">
-        <span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-        <span id="doc_revision">$Revision: 8304 $</span>
+        <span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+        <span id="doc_revision">$Revision: 8884 $</span>
     </div>
 </div>
 </body>

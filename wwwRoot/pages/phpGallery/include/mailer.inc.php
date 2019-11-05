@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,10 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/include/mailer.inc.php $
-  $Revision: 8304 $
-
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/mailer.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
 // Custom mail function
@@ -25,6 +24,9 @@ function cpg_mail($to, $subject, $msg_body = '', $type = 'text/plain', $sender_n
     if (!$msg_body_plaintext){
         $msg_body_plaintext = strip_tags($msg_body);
     }
+
+    // convert possible special HTML entities to characters
+    $subject = htmlspecialchars_decode($subject, ENT_QUOTES);
 
     // send mails to ALL admins - not bridged only
     if ($to == 'admin') {
@@ -62,10 +64,10 @@ function cpg_mail($to, $subject, $msg_body = '', $type = 'text/plain', $sender_n
     $mail = new cpg_PHPmailer();
 
     if ($CONFIG['smtp_host']) {
-        
+
         $mail->IsSMTP();
         $mail->Host = $CONFIG['smtp_host'];
-        
+
         if ($CONFIG['smtp_username']) {
             $mail->SMTPAuth = true;
             $mail->Username = $CONFIG['smtp_username'];
@@ -73,7 +75,7 @@ function cpg_mail($to, $subject, $msg_body = '', $type = 'text/plain', $sender_n
         } else {
             $mail->SMTPAuth = false;
         }
-        
+
     } else {
         $mail->IsMail();
     }
@@ -91,19 +93,19 @@ function cpg_mail($to, $subject, $msg_body = '', $type = 'text/plain', $sender_n
     $mail->AltBody = $msg_body_plaintext;
     $mail->CharSet = $charset;
     $mail->Sender = $CONFIG['gallery_admin_email'];
-    
+
     if ($CONFIG['smtp_host'] && $CONFIG['log_mode'] == CPG_LOG_ALL) {
         $mail->SMTPDebug = 2;
         ob_start();
     }
-    
+
     $result = $mail->Send();
-    
+
     if ($CONFIG['smtp_host'] && $CONFIG['log_mode'] == CPG_LOG_ALL) {
         $log = ob_get_clean();
         log_write($log, CPG_MAIL_LOG);
     }
-    
+
     return $result;
 }
 
@@ -576,7 +578,7 @@ class cpg_PHPMailer {
     }
 
     $toArr = split(',', $to);
-    
+
     if ($this->Sender != '' && strtolower(ini_get('safe_mode')) != 'on' && ini_get('safe_mode') != 1) {
       $old_from = ini_get('sendmail_from');
       ini_set('sendmail_from', $this->Sender);
@@ -750,7 +752,7 @@ class cpg_PHPMailer {
    * @return bool
    */
   function SetLanguage($lang_type, $lang_path = 'language/') {
-  
+
     global $lang_mailer;
 
     $this->language = &$lang_mailer;

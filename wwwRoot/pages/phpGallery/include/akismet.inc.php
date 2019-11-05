@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/include/akismet.inc.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/akismet.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
@@ -25,8 +25,8 @@ $akismet_config['blog'] = $CONFIG['site_url'];
 
 function cpg_akismet_send($argument_array = '', $host = '', $url = '') {
     global $akismet_config, $LINEBREAK;
-    if (!(is_array($argument_array)) || $host == '' || $url == '') { 
-        return FALSE; 
+    if (!(is_array($argument_array)) || $host == '' || $url == '') {
+        return FALSE;
     }
     $content = '';
     foreach ($argument_array as $key => $val) {
@@ -44,7 +44,7 @@ function cpg_akismet_send($argument_array = '', $host = '', $url = '') {
     if ($fh != FALSE) {
         @fwrite($fh, $request);
         while (!(feof($fh))) {
-            $response .= fgets($fh, 1160); 
+            $response .= fgets($fh, 1160);
         }
         @fclose( $fh );
         $response = explode($LINEBREAK . $LINEBREAK, $response, 2);
@@ -58,18 +58,18 @@ function cpg_akismet_verify_key() {
     $host = $akismet_config['akismet_host'];
     $url = 'http://' . $host . '/' . $akismet_config['akismet_version'] . '/verify-key';
     $valid  = cpg_akismet_send($argument_array, $host, $url);
-    if ($valid[1] == 'valid') { 
-        return TRUE;  
+    if ($valid[1] == 'valid') {
+        return TRUE;
     } else {
-        return $valid; 
+        return $valid;
     }
 }
 
 function cpg_akismet_submit_data($variable_array, $type = '') {
     global $akismet_config;
     $result = cpg_akismet_verify_key();
-    if ($result != TRUE) { 
-        return FALSE; 
+    if ($result != TRUE) {
+        return FALSE;
     }
     if ($type == 'ham') {
         $submit_type = 'submit-ham';
@@ -84,10 +84,10 @@ function cpg_akismet_submit_data($variable_array, $type = '') {
     $result = cpg_akismet_send($variable_array, $host, $url);
     // Akismet sends the a lower-case string "true" back, not to be confused with a boolean!
     // We convert this to a boolean return value.
-    if ($result[1] == 'true') { 
-        return TRUE; 
+    if ($result[1] == 'true') {
+        return TRUE;
     } else {
-        return FALSE;  
+        return FALSE;
     }
 }
 

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/calendar.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/calendar.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -23,7 +23,7 @@ require('include/init.inc.php');
 // function definitions
 
 class MyCalendar extends Calendar {
-    
+
     function getCalendarLink($month, $year)
     {
         return "calendar.php?month=$month&amp;year=$year";
@@ -34,7 +34,7 @@ class MyCalendar extends Calendar {
         global $CONFIG, $lang_calendar_php, $FORBIDDEN_SET;
 
         $date = sprintf('%d-%02d-%02d', $year, $month, $day);
-      
+
         $sql = "SELECT COUNT(*) FROM {$CONFIG['TABLE_PICTURES']} AS p WHERE approved = 'YES' AND DATE(FROM_UNIXTIME(ctime)) = '$date' $FORBIDDEN_SET";
         $result = cpg_db_query($sql);
         list($nb_pics) = mysql_fetch_row($result);
@@ -44,7 +44,7 @@ class MyCalendar extends Calendar {
         } else {
             $link = '';
         }
-      
+
         return $link;
     }
 }

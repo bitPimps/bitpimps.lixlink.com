@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/french.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/french.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'French_FR';
@@ -55,7 +55,7 @@ $lang_bad_words = array('merde', 'putain', 'enculé*', 'salope', 'bite', 'cul', 
 $lang_meta_album_names['random'] = 'Photos aléatoires';
 $lang_meta_album_names['lastup'] = 'Derniers ajouts';
 $lang_meta_album_names['lastalb'] = 'Derniers albums mis à jour';
-$lang_meta_album_names['lastcom'] = 'Derniers commentaries';
+$lang_meta_album_names['lastcom'] = 'Derniers commentaires';
 $lang_meta_album_names['topn'] = 'Les plus populaires';
 $lang_meta_album_names['toprated'] = 'Les mieux notées';
 $lang_meta_album_names['lasthits'] = 'Les dernières images vues';
@@ -115,6 +115,7 @@ $lang_common['keywords_insert1'] = 'Mots-clés (séparés par un(e) %s)'; // cpg
 $lang_common['keywords_insert2'] = 'Insérer depuis une liste'; // cpg1.5
 $lang_common['keyword_separator'] = 'Séparateur de mots-clés'; // cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'espace', ','=>'virgule', ';'=>'point-virgule'); // cpg1.5
+$lang_common['owner_name'] = 'Nom du propriétaire'; // cpg1.5
 $lang_common['filename'] = 'Nom du fichier'; // cpg1.5
 $lang_common['filesize'] = 'Taille du fichier'; // cpg1.5
 $lang_common['album'] = 'Album'; // cpg1.5
@@ -288,7 +289,7 @@ $lang_img_nav_bar['go_album_start'] = 'Retourner au début';
 
 $lang_rate_pic['rate_this_pic'] = 'Noter cette image ';
 $lang_rate_pic['no_votes'] = '(pas encore de note)';
-$lang_rate_pic['rating'] = '(note actuelle : %s / %s pour %s votes)'; 
+$lang_rate_pic['rating'] = '(note actuelle : %s / %s pour %s votes)';
 $lang_rate_pic['rubbish'] = 'Très mauvais';
 $lang_rate_pic['poor'] = 'Mauvais';
 $lang_rate_pic['fair'] = 'Moyen';
@@ -2118,7 +2119,7 @@ $lang_upload_php['up_instr_3'] = 'Sélectionnez d\'autres fichiers à téléchar
 $lang_upload_php['up_instr_4'] = 'Lorsque vous avez téléchargé les fichiers, cliquez sur le bouton &quot;Continuer&quot;. Note : le bouton n\'apparaîtra qu\'après avoir téléchargé au moins un fichier.';
 $lang_upload_php['up_instr_5'] = 'Vous serez dirigé vers un écran vous permettant d\'enter les détails concernant les fichiers téléchargés. Après avoir complété le formulaire, soumettez-le en utilisant le bouton &quot;Appliquer les changements&quot; au bas du formulaire.';
 $lang_upload_php['restriction_zip'] = 'Les fichiers ZIP téléchargés resteront compressés.';
-$lang_upload_php['restriction_filesize'] = 'La taille des fichiers téléchargés sur votre serveur ne doivent pas avoir plus de %s chacuns.'; 
+$lang_upload_php['restriction_filesize'] = 'La taille des fichiers téléchargés sur votre serveur ne doivent pas avoir plus de %s chacuns.';
 $lang_upload_php['reg_instr_1'] = 'Action invalide pour la création du formulaire.';
 $lang_upload_php['no_name'] = 'Nom de fichier introuvable.'; // cpg1.5
 $lang_upload_php['no_tmp_name'] = 'Impossible de télécharger'; // cpg1.5

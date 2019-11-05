@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/viewlog.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/viewlog.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE',1);
@@ -30,13 +30,13 @@ function display_log_list()
     global $lang_viewlog_php, $folder_icon, $delete_all_icon, $delete_this_icon, $view_icon, $lang_date;
 
     $log_list = getloglist('logs/');
-    
+
     if (count($log_list)>0) {
         foreach ($log_list as $log) {
-            
+
             $mtime = localised_date($log['mtime'], $lang_date['log']);
             $filesize = cpg_format_bytes($log['filesize']);
-            
+
             echo <<<EOT
                             <tr>
                                     <td class="tableb">
@@ -74,7 +74,7 @@ function display_log($logname)
                     <td class="tableb">
                             <ul>
 EOT;
-  
+
     $log_array = explode('---' , log_read($logname));
 
     foreach ($log_array as $log_entry) {
@@ -82,7 +82,7 @@ EOT;
     		echo '<li>' . nl2br(htmlspecialchars(trim($log_entry))) . '</li>' . $LINEBREAK;
     	}
     }
-    
+
     echo <<<EOT
                             </ul>
                     </td>

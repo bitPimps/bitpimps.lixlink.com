@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/estonian.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/estonian.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Coppermine ei tunnista...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'Estonian';
@@ -115,6 +115,7 @@ $lang_common['keywords_insert1'] = 'Võtmesõnad (eraldamiseks %s)'; // cpg1.5
 $lang_common['keywords_insert2'] = 'Sisesta nimekirjast'; // cpg1.5
 $lang_common['keyword_separator'] = 'Võtmesõnade eraldaja'; //cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'tühik', ','=>'koma', ';'=>'semikoolon'); // cpg1.5
+$lang_common['owner_name'] = 'Omaniku nimi'; // cpg1.5
 $lang_common['filename'] = 'Faili nimi'; // cpg1.5
 $lang_common['filesize'] = 'Faili maht'; // cpg1.5
 $lang_common['album'] = 'Album'; // cpg1.5
@@ -688,7 +689,7 @@ $lang_admin_php['language_autodetect'] = 'Keele automaattuvastus'; // cpg1.5
 $lang_admin_php['charset'] = 'Märgistiku kodeering'; // cpg1.5
 // 'previous_next_tab'] = 'Display previous/next on tabbed pages'; // cpg1.5
 $lang_admin_php['theme'] = 'Teema'; // cpg1.5
-$lang_admin_php['custom_lnk_name'] = 'Kohandatud menüülingi nimetus'; // cpg1.5 
+$lang_admin_php['custom_lnk_name'] = 'Kohandatud menüülingi nimetus'; // cpg1.5
 $lang_admin_php['custom_lnk_url'] = 'Kohandatud menüülingi URL'; // cpg1.5
 $lang_admin_php['enable_menu_icons'] = 'Luba menüüikoonid'; // cpg1.5
 $lang_admin_php['show_bbcode_help'] = 'Kuva BBCode abi'; // cpg1.5

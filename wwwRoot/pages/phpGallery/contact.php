@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/contact.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/contact.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -76,7 +76,7 @@ if ($superCage->post->keyExists('submit')) {
 
     // check captcha
     if ((!USER_ID && $CONFIG['contact_form_guest_enable'] == 1) || (USER_ID && $CONFIG['contact_form_registered_enable'] == 1)) {
-        if (!captcha_plugin_enabled()) {
+        if (!captcha_plugin_enabled('contact')) {
             require_once("include/captcha.inc.php");
             if (!PhpCaptcha::Validate($captcha)) {
                 $captcha_remark = $lang_errors['captcha_error'];
@@ -87,7 +87,7 @@ if ($superCage->post->keyExists('submit')) {
             CPGPluginAPI::action('captcha_contact_validate', null);
         }
     }
-    
+
     // check email address
     if (!USER_ID && $CONFIG['contact_form_guest_email_field'] == 2) {
         if (!Inspekt::isEmail($email_address)) {
@@ -95,22 +95,22 @@ if ($superCage->post->keyExists('submit')) {
             $error++;
         }
     }
-    
+
     // check subject field
     if ($CONFIG['contact_form_subject_field'] >= 2 && $subject == '') {
         $expand_array[] = 'subject_remark';
         $error++;
     }
-    
+
     // check message field
     if ($message == '') {
         $expand_array[] = 'message_remark';
         $error++;
     }
-    
+
     // send the mail if no error occured
     if ($error == 0) {
-    
+
         // compose the email
         $original_subject = $subject;
         if ($subject != '') {
@@ -132,57 +132,57 @@ if ($superCage->post->keyExists('submit')) {
             $sender_email = $CONFIG['gallery_admin_email'];
             $sender_name = $CONFIG['gallery_admin_email'];
         }
-        
+
         if (USER_ID) {
-    
+
             $visitor_status = $lang_contact_php['registered_user'];
             $text_user_name = '"'.$USER_DATA['user_name'].'"';
             $html_user_name = '<a href="'.$CONFIG['ecards_more_pic_target'].'profile.php?uid='.USER_ID.'">'.$USER_DATA['user_name'].'</a>';
-          
+
             if ($USER_DATA['user_email']) {
-            
+
                 $email_address = $USER_DATA['user_email'];
-                
+
                 if ($CONFIG['contact_form_sender_email'] == 1) {
                     $sender_email = $email_address;
                     $sender_name = $USER_DATA['user_name'];
                 }
-                
+
             } else {
                 $email_address = $lang_contact_php['unknown'];
                 $sender_email = $CONFIG['gallery_admin_email'];
                 $sender_name = $CONFIG['gallery_admin_email'];
             }
-            
+
         } else {
-        
+
             $visitor_status = $lang_contact_php['guest'];
-          
+
             if ($user_name == '') {
                 $user_name = $lang_contact_php['unknown'];
             }
-          
+
             $text_user_name = '"'.$user_name.'"';
             $html_user_name = '&laquo;'.$user_name.'&raquo;';
-            
+
             if ($email_address == '') {
-            
+
                 $email_address = $lang_contact_php['unknown'];
                 $sender_email = $CONFIG['gallery_admin_email'];
                 $sender_name = $CONFIG['gallery_admin_email'];
-                
+
             } elseif ($CONFIG['contact_form_sender_email'] == 1 && $user_name != '') {
-            
+
                 $sender_email = $email_address;
                 $sender_name = $user_name;
-                
+
             } else {
-            
+
                 $sender_email = $CONFIG['gallery_admin_email'];
                 $sender_name = $CONFIG['gallery_admin_email'];
             }
         }
-        
+
         $html_message = $message_header .
                         '<br />' . $LINEBREAK .
                         sprintf($lang_contact_php['user_info'], $visitor_status, $html_user_name, $email_address) .
@@ -214,15 +214,6 @@ if ($superCage->post->keyExists('submit')) {
                 log_write("Sending email from contact form successful (name: $sender_name, email: $sender_email, subject: $original_subject, IP: $ip", CPG_MAIL_LOG);
             }
 
-            if ( ($matches = $superCage->post->getMatched('referer', '/((\%3C)|<)[^\n]+((\%3E)|>)|(.*http.*)|(.*script.*)/i')) ) {
-                $CPG_REFERER = 'index.php';
-            } else {
-                /**
-                 * Using getRaw() since we are checking the referer in the above if condition.
-                 */
-                $CPG_REFERER = $superCage->post->getRaw('referer');
-            }
-
             cpgRedirectPage($CONFIG['ecards_more_pic_target'].$CPG_REFERER, $lang_common['information'], $lang_contact_php['email_sent']);
         }
     } // beyond this point an error must have happened - let the visitor review his input
@@ -234,7 +225,7 @@ if ($superCage->post->keyExists('submit')) {
     } else {
         $user_name = $lang_contact_php['your_name'];
     }
-  
+
     $email_address = '';
     $subject =  '';
     $message =  '';
@@ -242,7 +233,7 @@ if ($superCage->post->keyExists('submit')) {
 }
 
 pageheader($lang_contact_php['title']);
-print '<form method="post" action="'.$CPG_PHP_SELF.'" name="contactForm" id="contactForm" onsubmit="return validateContactFormFields();">'.$LINEBREAK;
+print '<form method="post" action="'.$CPG_PHP_SELF.'?referer=' . urlencode($CPG_REFERER) . '" name="contactForm" id="contactForm" onsubmit="return validateContactFormFields();">'.$LINEBREAK;
 
 starttable('100%', cpg_fetch_icon('contact', 2) . $lang_contact_php['title'], 3);
 
@@ -275,7 +266,7 @@ if (!USER_ID && $CONFIG['contact_form_guest_email_field'] != 0) {
         $email_remark_visibility = 'none';
         $highlightFieldCSS = '';
     }
-    
+
     print <<< EOT
     <tr>
         <td class="tableb" align="right">
@@ -303,7 +294,7 @@ if ($CONFIG['contact_form_subject_field'] != 0) {
         $subject_remark_visibility = 'none';
         $highlightFieldCSS = '';
     }
-    
+
     print <<< EOT
     <tr>
         <td class="tableb" align="right">
@@ -320,7 +311,7 @@ if ($CONFIG['contact_form_subject_field'] != 0) {
     </tr>
 EOT;
 }
-  
+
 if (in_array('message_remark', $expand_array)) {
     $message_remark_visibility = 'block';
     $highlightFieldCSS = 'important';
@@ -328,7 +319,7 @@ if (in_array('message_remark', $expand_array)) {
     $message_remark_visibility = 'none';
     $highlightFieldCSS = '';
 }
-  
+
 print <<< EOT
     <tr>
         <td class="tableb" valign="top" align="right" width="30%">
@@ -348,7 +339,7 @@ EOT;
 // captcha field
 if ((!USER_ID && $CONFIG['contact_form_guest_enable'] == 1) || (USER_ID && $CONFIG['contact_form_registered_enable'] == 1)) {
 
-    $captcha_help = cpg_display_help('f=empty.htm&amp;base=64&amp;h='.urlencode(base64_encode(serialize($lang_common['captcha_help_title']))).'&amp;t='.urlencode(base64_encode(serialize($lang_common['captcha_help']))), 470, 245);
+    $captcha_help = cpg_display_help('f=empty.htm&amp;h=lang_common[captcha_help_title]&amp;t=lang_common[captcha_help]', 470, 245);
 
     if (in_array('captcha_remark', $expand_array)) {
         $captcha_remark_visibility = 'block';
@@ -357,7 +348,7 @@ if ((!USER_ID && $CONFIG['contact_form_guest_enable'] == 1) || (USER_ID && $CONF
         $captcha_remark_visibility = 'none';
         $highlightFieldCSS = '';
     }
-    
+
     $captcha_print = <<< EOT
     <tr>
         <td class="tableb" valign="top" align="right">
@@ -374,9 +365,9 @@ if ((!USER_ID && $CONFIG['contact_form_guest_enable'] == 1) || (USER_ID && $CONF
         </td>
     </tr>
 EOT;
-  
+
     $captcha_print = CPGPluginAPI::filter('captcha_contact_print', $captcha_print);
-  
+
     print $captcha_print;
 }
 
@@ -385,7 +376,6 @@ list($timestamp, $form_token) = getFormToken();
 print <<< EOT
     <tr>
         <td class="tableb" valign="top" align="right">
-            <input type="hidden" name="referer" value="$CPG_REFERER" />
             <input type="hidden" name="form_token" value="{$form_token}" />
             <input type="hidden" name="timestamp" value="{$timestamp}" />
         </td>

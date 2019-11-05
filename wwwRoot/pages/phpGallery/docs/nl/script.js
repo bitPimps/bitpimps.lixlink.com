@@ -1,7 +1,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -9,9 +9,9 @@
   as published by the Free Software Foundation.
   
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/nl/script.js $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/nl/script.js $
+  $Revision: 8884 $
 **********************************************/
 
 var linebreak = '\n';
@@ -1473,7 +1473,7 @@ function cpgDocHeader() {
     if (getUrlParameters('hide_nav') == 1) {
         return;
     }
-    $('#docheader').text('Coppermine Photo Gallery v1.5.18: Documentatie en Handleiding');
+    $('#docheader').text('Coppermine Photo Gallery v1.5.48: Documentatie en Handleiding');
     $('#docheader').after('<br clear="all" />\n<a name="top" class="en" class="en"></a>');
     $('#docheader').before('<img src="../images/coppermine-logo.png" alt="Coppermine Photo Gallery - Uw Online Fotogalerij" align="left" />\n');
 }

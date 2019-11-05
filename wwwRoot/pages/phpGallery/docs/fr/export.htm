@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/export.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/export.htm $
+  $Revision: 8884 $
 
 
 -->
@@ -41,24 +41,24 @@
     <a name="backup"></a><a name="backup_export"></a><h2>Sauvegarde de votre galerie<a href="#backup" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     <p>Cette page est destinée à expliquer la façon de sauvegarder une galerie Coppermine.</p>
     <p>Les sauvegardes peuvent être utilisées pour restaurer votre galerie en cas de problème (si le disque dur du serveur est hors service, un piratage, ou erreur de manipulation) ou si vous souhaitez <a href="#moving">déplacer</a> votre galerie (déplacer votre serveurs, changer d’hébergeur, utiliser une autre application).</p>
-    
+
     <p>Coppermine stocke le contenu à la fois au niveau du système de fichiers (a l’intérieure de votre espace web - c'est le disque dur de votre serveur web) ainsi que dans la de base de données. Voyez la base de données comme un tableau géant de tables qui sont liées les une avec les autres. Bien que la base de données soit (techniquement) stockée dans des fichiers, vous ne pouvez pas sauvegarder le fichier qui représente la base de données. Cela vient de la façon dont une base de données fonctionne. En outre, vous n'avez généralement pas accès au dossier qui représente la base de données (Ne commencez pas à le chercher pour essayer de le trouver - vous ne seriez quand même pas en mesure de l'utiliser). C'est pourquoi le processus de sauvegarde doit être double: vous devez sauvegarder vos fichiers et vous avez besoin de sauvegarder également votre base de données. Une sauvegarde de l'une d'elles sans l'autre se traduira par une sauvegarde incomplète qui sera difficilement utilisable.</p>
-    
+
     <div class="indent">
-    
+
         <a name="backup_file"></a><h3>Sauvegarde des fichiers<a href="#backup_file" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>La sauvegarde des fichiers est assez simple et vous devriez déjà être familier avec la technologie, en supposant que vous avez installé Coppermine de la manière recommandée par l'équipe de développement de Coppermine : utilisez votre <a href="dev_tools.htm#dev_tools_ftp_client">application FTP</a> favorite. Méfiez-vous des outils basiques intégrés dans un éditeur <abbr title="Vous voyez ce que vous obtenez">WYSIWYG</abbr>. Méfiez-vous des logiciels simulant les applications &quot;web-FTP&quot; vous avez besoin d’un véritable logiciel FTP. Si vous n'en avez pas déjà, procurez vous-en un avant de continuer.</p>
-        
+
         <a name="backup_file_complete"></a><h4>Sauvegarde complète des fichiers<a href="#backup_file_complete" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
         <p>Le terme "sauvegarde complète de fichiers" signifie dans ce cas "une sauvegarde de tous les fichiers de la galerie Coppermine". Il est conseillé de l’effectuer au moins une fois, ainsi, vous aurez une sauvegarde complète qui vous servira après un sinistre.</p>
         <p>Pour accomplir une telle sauvegarde, créez en premier, un dossier sur votre disque dur local. Bien sûr, vous devez vous assurer au préalable qu'il y ait assez de place sur le périphérique de stockage que vous utilisez (votre disque dur interne ou externe dans la plupart des cas) pour contenir toute la galerie, une fois que la sauvegarde sera effectuée. Si vous êtes à court d'espace disque sur votre ordinateur, vous pouvez graver le contenu de votre sauvegarde sur un CD ou un DVD une fois que votre sauvegarde est terminée, puis libérer le précieux espace du disque dur après que vous ayez tout copié sur CD/DVD.</p>
-        
+
         <a name="backup_file_partial"></a><h4>Sauvegarde partielle des fichiers<a href="#backup_file_partial" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
         <p>Si vous effectuez des sauvegardes fréquemment, vous n'avez pas à faire une sauvegarde complète des fichiers à chaque fois, comme le code du noyau de Coppermine (c'est à dire tous les fichiers qui font que Coppermine fonctionne sur le serveur) ne change pas d'une sauvegarde à l'autre. C'est pourquoi vous pouvez effectuer ensuite une sauvegarde partielle, c'est à dire uniquement le contenu du dossier albums de Coppermine qui correspond à <tt class="code">http://exemple.fr/votre_dossier_coppermine/albums/</tt>. Si vous avez besoin d’effectuer une restauration plus tard, vous devrez restaurer votre première sauvegarde complète et puis restaurer votre sauvegarde partielle qui a été créé plus tard et qui sera plus précise et récents.</p>
-        
+
         <a name="backup_file_incremental"></a><h4>Incrémenter un fichier de sauvegarde<a href="#backup_file_incremental" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
-        <p>Il existe d’astucieux outils disponibles auprès de tiers qui effectueront une sauvegarde incrémentielle par FTP, c'est à dire qu'ils ne sauvegardent que les fichiers qui sont nouveaux ou qui ont changé depuis la dernière fois que la sauvegarde a été effectuée. Cela permet de réduire de façon spectaculaire le temps nécessaire pour effectuer une sauvegarde, mais compliquera un peu plus une restauration après une catastrophe - vous ne devriez utiliser cette option si vous savez ce que vous faites.</p> 
-        
+        <p>Il existe d’astucieux outils disponibles auprès de tiers qui effectueront une sauvegarde incrémentielle par FTP, c'est à dire qu'ils ne sauvegardent que les fichiers qui sont nouveaux ou qui ont changé depuis la dernière fois que la sauvegarde a été effectuée. Cela permet de réduire de façon spectaculaire le temps nécessaire pour effectuer une sauvegarde, mais compliquera un peu plus une restauration après une catastrophe - vous ne devriez utiliser cette option si vous savez ce que vous faites.</p>
+
         <a name="backup_database"></a><h3>Sauvegarde de la base de données<a href="#backup_database" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Coppermine crée lors de l'installation initiale plusieurs tables dans la base de données qui sont utilisées pour stocker de contenu:</p>
         <ul>
@@ -68,7 +68,7 @@
         	<li>...</li>
         </ul>
         <p>Il existe de nombreuses autres tables qui stockent des aspects spécifiques du contenu de votre galerie - pour une liste complète de toutes les tables et la structure en leur sein, jetez un œil au <a href="dev_database.htm#db_intro">schéma de la base de données</a>. Toutes les tables d'une galerie Coppermine ont le même préfixe - celui que vous avez choisi lors de l'installation initiale. Pour effectuer une sauvegarde de la base de données, assurez-vous de sauvegarder <strong>toutes</strong> les tables Coppermine, c'est à dire toutes celles qui ont le préfixe que vous avez choisi lors de l'installation. Si vous n'êtes pas sûr du préfixe, téléchargez le fichier include/config.inc.php avec votre logiciel FTP sur votre ordinateur, puis ouvrer le pour afficher ce qu’il contient à l'aide d'un éditeur de texte (le Bloc-notes est très bien): le préfixe doit être nommé dedans. Par défaut, le nom du préfixe est <tt class="code">cpg15x_</tt>.</p>
-        
+
         <a name="backup_database_what"></a><h4>Sauvegarde de la base de données: qu’est-ce qui doit être sauvegardé ?<a href="#backup_database_what" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
         <p>La formulation peut varier, en fonction de l'outil que vous utilisez et de sa version pour effectuer la sauvegarde, vous vous avez besoin de savoir exactement quoi sauvegarder.</p>
         <p>Une sauvegarde complète contient à la fois la définition de la <em>structure</em> des tables de la base de données (à savoir les "instructions" nécessaires pour créer les tables vides si elles ont été perdues ou ont besoin d'être créé sur un autre serveur), ainsi que les données (à savoir, le contenu actuel des tables).</p>
@@ -79,7 +79,7 @@
             <li>La table <a href="dev_database.htm#db_temp_messages">cpg15x_temp_messages</a> est utilisé pour stocker les messages d'une page à l'autre - le contenu est de très courte durée et sera purgé fréquemment, de sorte que la table n'a pas besoin d'être préservé lors de l'exécution des sauvegardes fréquente.</li>
         </ul>
         <p>Gardez à l'esprit que Coppermine vous fera savoir (à savoir, qu’il y aura un message d'erreur) si une table est <strong>manquante</strong>, vous devez donc créer les tables ci-dessus en premier lieu, mais elles peuvent être vides.</p>
-        
+
         <a name="backup_database_tools"></a><h4>Outils de sauvegarde de base de données<a href="#backup_database_tools" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
         <p>Coppermine n'inclue <strong>pas</strong> d'outil de sauvegarde de base de données - donc vous aurez besoin d'en trouver un vous-même et l'utiliser. Cependant, il y a une liste d'outils que l'équipe de développement recommande:</p>
         <ul>
@@ -123,20 +123,20 @@
         	    [<a href="http://dev.mysql.com/doc/refman/5.0/en/mysqlhotcopy.html" rel="external" class="external">Plus</a>]
         	</li>
         </ul>
-        
+
         <a name="backup_database_after"></a><h4>Sauvegarde de la base de données: qu’est-ce qui doit être sauvegardé ?<a href="#backup_database_after" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
         <p>Après avoir effectué manuellement la sauvegarde de la base de données, il est important de s'assurer que celle-ci fonctionne comme prévu. Par conséquence, vous devriez vraiment d’abord essayer d'ouvrir le fichier et voir s’il n’est pas corrompu. Idéalement, vous devriez effectuer une restauration sur une galerie test pour vous assurez que tout fonctionne comme prévu.</p>
         <p>Il y a de nombreux utilisateurs qui comptent sur leur sauvegarde, sans jamais l'avoir testée une fois: si vous n'avez jamais testé votre stratégie de sauvegarde, vous ne saurez jamais si elle vous permettra d'effectuer une restauration en cas de catastrophe. Sachant qu’il y a beaucoup de choses qui peuvent mal tourner, il est vraiment recommandé de tester votre sauvegarde.</p>
-    
+
     </div>
-    
+
     <a name="moving"></a><h2>Déplacement de votre galerie<a href="#moving" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     <p>Votre galerie Coppermine peut être déplacée sur votre serveur ainsi que d'un espace web à l'autre. Voici comment accomplir ces tâches:</p>
-    
+
     <div class="indent">
-    
+
         <a name="moving_folder"></a><h3>Déplacement au sein de votre serveur<a href="#moving_folder" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-        Le déplacement de votre galerie sur votre serveur web (par exemple à partir d'un dossier particulier à la racine de votre site ou vice versa) est relativement facile. Coppermine se compose de deux volets: 
+        Le déplacement de votre galerie sur votre serveur web (par exemple à partir d'un dossier particulier à la racine de votre site ou vice versa) est relativement facile. Coppermine se compose de deux volets:
         <ul>
             <li>Fichiers</li>
             <li>Documents de base de données</li>
@@ -232,7 +232,7 @@
         		Peu importe le dossier source et le dossier cible, ce n'est pas du tout important, pas plus qu'importe la profondeur dans lequel le répertoire de Coppermine est imbriqué dans la structure des dossiers sur votre serveur. Les étapes nécessaires pour effectuer le transfert de Coppermine à partir d'un dossier vers la racine du site ou vice versa ne diffèrent pas du tout: la racine du site est en fait simplement représentée par un dossier au niveau du système de fichiers du serveur, et vous déplacez le contenu vers un dossier.
         	</li>
         </ul>
-        
+
         <a name="moving_server"></a><h3>Déplacement d'un serveur à un autre<a href="#moving_server" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Ce scénario s'applique généralement lorsque vous passez d'un hébergeur à l'autre. En fait, vous créer une copie de vos fichiers (<a href="export.htm#backup_file_complete">sauvegarde complète des fichiers</a>) et une copie de votre base de données <a href="export.htm#backup_database">sauvegarde complète de la base de données</a>) de l'ancien serveur et une restauration des copies sur le nouveau serveur.</p>
         <p>Vous êtes encouragés à créer et maintenir des sauvegardes fréquentes dans le cas où quelque chose se passe mal, donc vous devriez vraiment déjà avoir une sauvegarde. Toutefois, si vous n'en n’avez pas, vous devez en créer une <strong>maintenant</strong>. Vous devez garder à l'esprit qu'il pourrait y avoir une interruption de votre site lors du déplacement d'un hébergeur à l'autre. Idéalement, l’interruption sera négligeable, mais vous ne serez généralement pas en mesure d'accéder à la galerie sur l'ancien serveur n’y sur le nouveau sous la même URL en le même temps. Par conséquence, vous devez sauvegarder l'ancien serveur pendant que vous le pouvez encore, c'est à dire avant que votre contrat d’hébergement n’arrive à expiration et que vous ne puissiez plus accéder à l'ancien serveur pour créer la sauvegarde. Si vous n'avez pas de sauvegarde et que votre serveur n'est plus accessible, vous n’aurez pas de chance: personne ne sera en mesure de vous aider à récupérer votre galerie - il est absolument obligatoire d'avoir une sauvegarde de travail à la fois de vos fichiers ainsi que votre base de données.</p>
@@ -280,9 +280,9 @@
         		Testez toutes les facettes de votre galerie: essayez de vous connecter en tant que qu’utilisateur régulier (non-administrateur), essayez d'utiliser le <a href="uploading_http.htm#upload_http">téléchargement http</a>, postez un commentaire, etc.
         	</li>
         </ul>
-        
-        
-        
+
+
+
         <a name="moving_disadvantages"></a><h3>Inconvénients du renommage<a href="#moving_disadvantages" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <div class="cpg_message_warning">
         	Il y a plusieurs inconvénients lors du changement d'URL de votre galerie:
@@ -292,8 +292,8 @@
         	</ul>
         </div>
         Tim Berners (&quot;l'inventeur&quot; du <abbr title="world wide web">www</abbr>) a inventé le slogan &quot;<a href="http://www.w3.org/Provider/Style/URI" rel="external" class="external">Cool URIs don't change (les bonnes adresses URI ne changent pas)</a>&quot; qui s'applique toujours, ainsi vous feriez mieux de réfléchir à deux fois avant de renommer le répertoire de Coppermine une fois qu'il a été établi. Il est préférable de choisir un nom de dossier intelligent dès le départ (lors de la première installation de Coppermine). Quoi qu'il en soit, si vous <em>devez</em> change changer l'URI de votre galerie (ou en fait tout autre URL), vous devriez au moins mettre en place une redirection qui se charge du changement: sur les serveurs sous Apache (et à condition que votre serveur supporte cette fonctionnalité), vous pouvez mettre en place une redirection en utilisant un fichier <tt class="code">.htaccess file</tt> avec <a href="http://httpd.apache.org/docs/1.3/mod/mod_alias.html#redirect" rel="external" class="external">directive de redirection</a>.
-        
-        
+
+
         <a name="moving_config_url"></a><h3>Changer l'URL de Coppermine dans la configuration<a href="#moving_config_url" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <div class="cpg_message_validation">
         	Chaque fois que l'URL de votre galerie change (c'est à dire après avoir déplacé votre galerie dans votre serveur Web ou après avoir renommé le dossier dans lequel elle résidait), vous devez tenir compte du changement de l'URL dans la configuration de Coppermine:
@@ -307,17 +307,17 @@
         		<li>Faites défiler vers le bas le panneau de configuration</li>
         		<li>Enregistrez vos modifications en soumettant le formulaire en utilisant le bouton correspondant au bas de la page</li>
         	</ul>
-    
+
     </div>
-    
+
 </div>
 <a name="export_end"></a><a name="backup_end"></a>
 
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

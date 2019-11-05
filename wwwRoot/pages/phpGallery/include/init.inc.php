@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,17 +10,15 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/include/init.inc.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/init.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
-define('COPPERMINE_VERSION', '1.5.18');
+define('COPPERMINE_VERSION', '1.5.48');
 define('COPPERMINE_VERSION_STATUS', 'stable');
 
-if (!defined('IN_COPPERMINE')) {
-    die('Not in Coppermine...');
-}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 function cpgGetMicroTime()
 {
@@ -28,12 +26,6 @@ function cpgGetMicroTime()
     return ((float)$usec + (float)$sec);
 }
 $cpg_time_start = cpgGetMicroTime();
-
-// List of valid meta albums - needed for displaying 'no image to display' message
-$valid_meta_albums = array('lastcom', 'lastcomby', 'lastup', 'lastupby', 'topn', 'toprated', 'lasthits', 'random', 'search', 'lastalb', 'favpics', 'datebrowse');
-
-// HTML tags replace pairs (used at some places for input validation)
-$HTML_SUBST = array('&' => '&amp;', '"' => '&quot;', '<' => '&lt;', '>' => '&gt;', '%26' => '&amp;', '%22' => '&quot;', '%3C' => '&lt;', '%3E' => '&gt;','%27' => '&#39;', "'" => '&#39;');
 
 // Set a flag if register globals is on to show a warning to admin
 if (ini_get('register_globals') == '1' || strtolower(ini_get('register_globals')) == 'on') {
@@ -58,6 +50,12 @@ if ($register_globals_flag && is_array($GLOBALS)) {
         }
     }
 }
+
+// List of valid meta albums - needed for displaying 'no image to display' message
+$valid_meta_albums = array('lastcom', 'lastcomby', 'lastup', 'lastupby', 'topn', 'toprated', 'lasthits', 'random', 'search', 'lastalb', 'favpics', 'datebrowse');
+
+// HTML tags replace pairs (used at some places for input validation)
+$HTML_SUBST = array('&' => '&amp;', '"' => '&quot;', '<' => '&lt;', '>' => '&gt;', '%26' => '&amp;', '%22' => '&quot;', '%3C' => '&lt;', '%3E' => '&gt;','%27' => '&#39;', "'" => '&#39;');
 
 // Store all reported errors in the $cpgdebugger
 require_once('include/debugger.inc.php');
@@ -184,13 +182,16 @@ while ( ($row = mysql_fetch_assoc($result)) ) {
 } // while
 mysql_free_result($result);
 
+// Check if Coppermine is allowed to store cookies (cookie consent is required and user has agreed to store cookies)
+define('CPG_COOKIES_ALLOWED', ($CONFIG['cookies_need_consent'] && !$superCage->cookie->keyExists($CONFIG['cookie_name'].'_cookies_allowed') ? false : true));
+
 // A space cannot be stored in the config table since the value field is VARCHAR, so %20 is used instead.
 if ($CONFIG['keyword_separator'] == '%20') {
     $CONFIG['keyword_separator'] = ' ';
 }
 
 if ($CONFIG['log_mode']) {
-    spring_cleaning('logs', CPG_DAY * 2, array('log_header.inc.php'));
+    spring_cleaning('logs', ($CONFIG['log_retention'] > 0 ? $CONFIG['log_retention'] : CPG_DAY * 2), array('log_header.inc.php'));
 }
 
 // Record User's IP address
@@ -398,7 +399,7 @@ if (USER_ID > 0) {
 // Include the jquery javascript library. Jquery will be included on all pages.
 js_include('js/jquery-1.3.2.js');
 
-// Include the scripts.js javascript library that contains coppermine-specific 
+// Include the scripts.js javascript library that contains coppermine-specific
 // JavaScript that is being used on all pages.
 // Do not remove this line unless you really know what you're doing
 js_include('js/scripts.js');
@@ -413,7 +414,7 @@ js_include('js/jquery.elastic.js');
 /**
  * Use $CPG_REFERER wherever $_GET['referer'] is used
  */
-if ( ($matches = $superCage->get->getMatched('referer', '/((\%3C)|<)[^\n]+((\%3E)|>)|(.*http.*)|(.*script.*)/i')) ) {
+if ( ($matches = $superCage->get->getMatched('referer', '/((\%3C)|<)[^\n]+((\%3E)|>)|(.*http.*)|(.*script.*)|(^[\W].*)/i')) ) {
     $CPG_REFERER = 'index.php';
 } else {
     /**
@@ -471,7 +472,7 @@ if (!GALLERY_ADMIN_MODE && $CONFIG['allow_private_albums']) {
     get_private_album_set();
 }
 
-if (!USER_IS_ADMIN && $CONFIG['offline'] && !strstr($CPG_PHP_SELF, 'login')) {
+if (!USER_IS_ADMIN && $CONFIG['offline'] && $CPG_PHP_SELF != 'login.php' && $CPG_PHP_SELF != 'update.php') {
     pageheader($lang_errors['offline_title']);
     msg_box($lang_errors['offline_title'], $lang_errors['offline_text']);
     pagefooter();

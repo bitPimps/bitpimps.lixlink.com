@@ -1,7 +1,7 @@
 ##  ********************************************
 ##  Coppermine Photo Gallery
 ##  ************************
-##  Copyright (c) 2003-2012 Coppermine Dev Team
+##  Copyright (c) 2003-2019 Coppermine Dev Team
 ##  v1.0 originally written by Gregory Demar
 ##
 ##  This program is free software; you can redistribute it and/or modify
@@ -9,9 +9,9 @@
 ##  as published by the Free Software Foundation.
 ##
 ##  ********************************************
-##  Coppermine version: 1.5.18
-##  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/sql/schema.sql $
-##  $Revision: 8304 $
+##  Coppermine version: 1.5.48
+##  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/sql/schema.sql $
+##  $Revision: 8884 $
 ##  ********************************************
 
 #
@@ -108,7 +108,7 @@ CREATE TABLE CPG_comments (
   msg_id mediumint(10) NOT NULL auto_increment,
   msg_author varchar(25) NOT NULL default '',
   msg_body text NOT NULL,
-  msg_date datetime NOT NULL default '0000-00-00 00:00:00',
+  msg_date datetime NOT NULL default '1000-01-01 00:00:00',
   msg_raw_ip tinytext,
   msg_hdr_ip tinytext,
   author_md5_id varchar(32) NOT NULL default '',
@@ -238,7 +238,7 @@ CREATE TABLE CPG_pictures (
   pwidth smallint(6) NOT NULL default '0',
   pheight smallint(6) NOT NULL default '0',
   hits int(10) NOT NULL default '0',
-  mtime datetime NOT NULL default '0000-00-00 00:00:00' ,
+  mtime datetime NOT NULL default '1000-01-01 00:00:00',
   ctime int(11) NOT NULL default '0',
   owner_id int(11) NOT NULL default '0',
   pic_rating int(11) NOT NULL default '0',
@@ -335,8 +335,8 @@ CREATE TABLE CPG_users (
   user_active enum('YES','NO') NOT NULL default 'NO',
   user_name varchar(25) NOT NULL default '',
   user_password varchar(40) NOT NULL default '',
-  user_lastvisit datetime NOT NULL default '0000-00-00 00:00:00',
-  user_regdate datetime NOT NULL default '0000-00-00 00:00:00',
+  user_lastvisit datetime NOT NULL default '1000-01-01 00:00:00',
+  user_regdate datetime NOT NULL default '1000-01-01 00:00:00',
   user_group_list varchar(255) NOT NULL default '',
   user_email varchar(255) NOT NULL default '',
   user_email_valid enum('YES','') NOT NULL default '',
@@ -381,4 +381,3 @@ CREATE TABLE CPG_vote_stats (
   PRIMARY KEY  (`sid`)
 ) COMMENT='Detailed stats about votes, only used when enabled';
 # --------------------------------------------------------
-

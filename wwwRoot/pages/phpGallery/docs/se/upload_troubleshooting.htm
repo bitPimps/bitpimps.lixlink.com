@@ -11,9 +11,9 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <!--
   SVN version info:
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/se/upload_troubleshooting.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/se/upload_troubleshooting.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -331,7 +331,7 @@ Warning: move_uploaded_file(/tmp/<span style="color:blue;">phpezCYKr</span>)
     Det finns (åtminstone i teorin) ingen begränsning <em>i Coppermine</em> vad gäller filstorlek eller dimensioner som scriptet kan hantera. Det finns emellertid åtminstone en begränsning på webbservern: omskalning av bilder (för att skapa medelstora bilder och/eller miniatyrbilder) förbrukar minne och bränner CPU cykler. För att förhindra att servern kraschar, har serveradministratören begränsat mängden av minne som PHP scriptet kan använda. Felmeddelandet ovan betyder att mängden minne har överskridits, d.v.s. den bild som scriptet försöker att ladda upp förbrukar för mycket minne.
     <ul>
         <li><strong>Alternativ 1 (bäst):</strong><br />
-        Utöka den mängd minne som kan allokeras i php.ini som det föreslås i avsnittet <a href="upload_troubleshooting.htm#upload_trouble_memory_usage">Minnesanvändning under omskalning</a>. 
+        Utöka den mängd minne som kan allokeras i php.ini som det föreslås i avsnittet <a href="upload_troubleshooting.htm#upload_trouble_memory_usage">Minnesanvändning under omskalning</a>.
         Om du inte kan ändra php.ini, bör du läsa alternativ 2 och 3.</li>
          <li><strong>Alternativ 2 (förståndigt):</strong><br />
          Skala om dina bilder före du laddar upp dem om du inte kräver högupplösta bilder. Detta spara både bandbredd och tid åt dig.</li>
@@ -611,18 +611,18 @@ Warning: move_uploaded_file(/tmp/<span style="color:blue;">phpezCYKr</span>)
 max_execution_time = 30     ; Maximal processtid för varje script, i sekunder
 max_input_time = 60        ; Maximal mängd tid som varje script har att analysera begärt data
 memory_limit = 8M      ; Maximalt mängd minna varje script kan förbruka (8MB)</pre>
-    
+
     <p>Nu utökar du minnesgränsen för att passa dina behov. 9 till 16 MB bör klara de flesta krav.</p>
     <p></p>Om du inte kan ändra php.ini inställningarna själv, kan du alltid be din serveradministratör att ändra dem åt dig. De flesta administratörer (särskilt på delade webbhotell) kommer inte att vilja göra detta eftersom inställningen påverkar alla på servern. En högre minnesgräns kräver ett lägre antal användare som hostas på samma server för att bibehålla serverns stabilitet. Detta begränsar vinst, osv.</p>
-    
+
     <div class="cpg_message_error">Ställ <strong>inte</strong> några frågor på Coppermines supportforum om hur du kan konfigurera din webbserver; Coppermines support omfattar inte detta. Vanligtvis (om du har webbhotell, vilket majoriteten av Coppermines användare har), så kan du inte ändra webbserverns inställningar i alla fall. Det kan bara den person som faktiskt administreras servern göra (d.v.s. webbhotellets administratör).<br />
     Därför så får du be <strong>ditt webbhotell</strong> om support om du har problem med resursbegränsningar eller andra frågor som har med webbserverns inställningar att göra. Om du har din egen webbserver (vilket Coppermines utvecklingsteam inte rekommenderar), bör du läsa på om dina problem i dokumentationen som kom tillsammans med webbservern.</div>
 </div>
 <a name="upload_trouble_end"></a>
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

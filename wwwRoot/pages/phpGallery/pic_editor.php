@@ -2,17 +2,17 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/pic_editor.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/pic_editor.php $
+  $Revision: 8884 $
 **********************************************/
 
 // embedded images
@@ -82,9 +82,9 @@ if ($pid > 0) {
     $result = cpg_db_query("SELECT category FROM {$CONFIG['TABLE_ALBUMS']} WHERE aid = '{$CURRENT_PIC['aid']}'");
     $CURRENT_ALBUM = mysql_fetch_assoc($result);
     mysql_free_result($result);
-        
+
 } else {
-    cpg_die(ERROR, $lang_errors['non_exist_ap'], __FILE__, __LINE__); 
+    cpg_die(ERROR, $lang_errors['non_exist_ap'], __FILE__, __LINE__);
 }
 
 if (!(GALLERY_ADMIN_MODE || ($CONFIG['users_can_edit_pics'] && $CURRENT_PIC['owner_id'] == USER_ID) || ($CURRENT_ALBUM['category'] == FIRST_USER_CAT + USER_ID)) || !USER_ID) {
@@ -131,7 +131,7 @@ if ($superCage->get->getInt('id')) {
    $newimage = $CURRENT_PIC['filename'];
 }else if(!isset($newimage)){
    //$newimage = $_POST['newimage'];
-   $matches = $superCage->post->getMatched('newimage','/^[0-9A-Za-z\/_.\-~]+$/');
+   $matches = $superCage->post->getMatched('newimage','/^[0-9A-Za-z_.\-~]+$/');
    $newimage = $matches[0];
 }
 
@@ -142,7 +142,7 @@ if ($superCage->get->getInt('id')) {
       }*/
       if ($superCage->post->keyExists('quality')) {
          $imgObj->quality = $superCage->post->getInt('quality');
-      }  
+      }
 
       if ($imgObj->imgRes){
           /*if ($_POST['clipval'] && $_POST['cropping']==true){
@@ -289,7 +289,7 @@ $json_script = "<script type=\"text/javascript\">var js_vars = eval('($json_vars
     margin-left:auto;
     margin-right:auto;
     z-index:0;
-    <?php 
+    <?php
         if (!$imgObj->imgRes) {
             echo 'visibility:hidden;' . $LINEBREAK;
         }

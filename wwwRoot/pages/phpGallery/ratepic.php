@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/ratepic.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/ratepic.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -30,7 +30,7 @@ if (!$superCage->get->keyExists('pic') || !$superCage->get->keyExists('rate')) {
         'status' => 'error',
         'msg'    => $lang_errors['param_missing'],
     );
-    
+
     echo json_encode($send_back);
     exit;
 }
@@ -54,7 +54,7 @@ if (!mysql_num_rows($result)) {
         'status' => 'error',
         'msg'    => $lang_errors['non_exist_ap'],
     );
-    
+
     echo json_encode($send_back);
     exit;
 }
@@ -65,7 +65,7 @@ if(!checkFormToken()){
         'status' => 'error',
         'msg'    => $lang_errors['invalid_form_token'],
     );
-    
+
     echo json_encode($send_back);
     exit;
 }
@@ -74,13 +74,13 @@ $row = mysql_fetch_assoc($result);
 mysql_free_result($result);
 
 if (!USER_CAN_RATE_PICTURES || $row['votes_allowed'] == 'NO') {
- 
+
     //send back voting failure to ajax request
     $send_back = array(
         'status' => 'error',
         'msg'    => $lang_errors['perm_denied'],
     );
-    
+
     echo json_encode($send_back);
     exit;
 }
@@ -95,7 +95,7 @@ $user_md5_id = USER_ID ? md5(USER_ID) : $USER['ID'];
 $sql = "SELECT null FROM {$CONFIG['TABLE_VOTES']} WHERE pic_id = $pic AND user_md5_id = '$user_md5_id'";
 $result = cpg_db_query($sql);
 
-if (mysql_num_rows($result)) { 
+if (mysql_num_rows($result)) {
 
     // user has already rated this file
     $send_back = array(
@@ -103,11 +103,25 @@ if (mysql_num_rows($result)) {
         'msg'    => $lang_rate_pic_php['already_rated'],
         'a'      => $USER,
     );
-    
+
     echo json_encode($send_back);
     exit;
 }
 
+mysql_free_result($result);
+
+// Check if user already rated this picture - vote stats table
+$sql = "SELECT null FROM {$CONFIG['TABLE_VOTE_STATS']} WHERE pid = $pic AND ip = '$raw_ip'";
+$result = cpg_db_query($sql);
+if (mysql_num_rows($result)) {
+    $send_back = array(
+        'status' => 'error',
+        'msg'    => $lang_rate_pic_php['already_rated'],
+        'a'      => $USER,
+    );
+    echo json_encode($send_back);
+    exit;
+}
 mysql_free_result($result);
 
 //Test for Self-Rating
@@ -117,7 +131,7 @@ if (!empty($user_id) && $user_id == $row['owner_id'] && ($CONFIG['rate_own_files
         'status' => 'error',
         'msg'    => $lang_rate_pic_php['forbidden'],
     );
-    
+
     echo json_encode($send_back);
     exit;
 }

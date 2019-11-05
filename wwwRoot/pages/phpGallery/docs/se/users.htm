@@ -11,9 +11,9 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <!--
   SVN version info:
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/se/users.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/se/users.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -56,7 +56,7 @@
         <a name="user_cp_search"></a><h3>Searching for user(s)<a href="#user_cp_search" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>You can use the wildcards:  <tt class="code">*</tt> (for any <em>string</em>) and <tt class="code">?</tt> (<em>any single character</em>) or even <tt class="code">%expression%</tt>.<br />Example: searching for <tt class="code">j*</tt> will return both <tt class="code">Jack</tt> and <tt class="code">Jill</tt></p>
         <a name="user_cp_search_end"></a>
-        
+
         <a name="user_cp_new"></a><h3>Creating new users<a href="#user_cp_new" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>To create a new user, simply click on the button &quot;Create new user&quot; at the bottom of the user manager and fill in the form that will come up.</p>
         <p>This does of course not apply if you have bridging enabled, as user management is being handled by the app you have bridged Coppermine with. In this case, the user management screen of your bridged app should show - create a new user there.</p>
@@ -108,7 +108,7 @@
                     Click on the table named <tt class="code">XXX_users</tt>, where XXX is the table prefix that you have chosen when installing Coppermine in the first place (out of the box, the prefix is <tt class="code">cpg15x_</tt>, so the default table name should be <tt class="code">cpg15x_users</tt>). You must click on the icon to the left of the text or you won't get the right screen.<br />
                     If you lost your admin password look under the column titled user_id. Look for the 1. That is admin account that you have created during initial install. To the left of that column is a pencil icon (that means edit). Click on it.<br />
                     You now should have fields you can write in.<br />
-                    To the right of the row called <tt class="code">user_pass</tt> is the encrypted password. Erase that and fill it with 
+                    To the right of the row called <tt class="code">user_pass</tt> is the encrypted password. Erase that and fill it with
                     <input type="text" readonly="readonly" name="admin_password" value="21232f297a57a5a743894a0e4a801fc3" size="32" maxlength="32" class="small" />.<br />
                     That will make the password <tt class="code">admin</tt>. Do not under any circumstances leave the password field blank. Go to the bottom of the page and just above the light bulb it should say <tt class="code">Save</tt>. If it does click the <tt class="code">go</tt> button. Exit out of phpMyAdmin by going to the exit icon at the upper left corner.<br />
                     Type in the URL of your Coppermine page. Login with your user name and the password <tt class="code">admin</tt>. Once you have successfully logged in, you should of course change the password to something else instead of the phrase <tt class="code">admin</tt>. Click on &quot;My Profile&quot;, scroll to the bottom of the page and click on &quot;Change my password&quot;. Enter the old password (<tt class="code">admin</tt>) and your new password (you need to enter that twice) and submit the form. If all went well you will see a message that says so.<br />
@@ -129,7 +129,7 @@ echo &lt;&lt;&lt; EOT    &lt;tr&gt;        &lt;td class="tableh2"&gt;           
         &lt;td class="tableb"&gt;
             test
         &lt;/td&gt;    &lt;/tr&gt;EOT;endtable();pagefooter();?&gt;</textarea>
-                        
+
                         </li>
                         <li>Name that file <tt class="code">adminpass.php</tt> and upload it to your webserver into the Coppermine root folder</tt></li>
                         <li>Run the file in your browser by entering the URL of the file you just uploaded (something like <tt class="code">http://yourdomain.tld/your_coppermine_folder/adminpass.php</tt>) into the address bar of your browser</li>
@@ -138,9 +138,9 @@ echo &lt;&lt;&lt; EOT    &lt;tr&gt;        &lt;td class="tableh2"&gt;           
                         <li>Immediately change the password of the user account once you have logged in.</li>
                     </ul>
             </li>
-        </ul>  
+        </ul>
         <a name="lost_password_cpg_user_account_bridged"></a><h4>Coppermine bridged<a href="#lost_password_cpg_user_account_bridged" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
-        When Coppermine is bridged, the user management of the other application that it's bridged with &quot;takes over&quot;, so if a visitor clicks on the login link within Coppermine he is being redirected to your bridging app's login screen. After a successfull login there, he/she might be sent back to your Coppermine-driven gallery (if your bridging app supports redirection after logging in). Coppermine is only &quot;aware&quot; that the user has been authentificated in your bridging app; Coppermine is not aware of the user's password. Subsequently, you can't use Coppermine mechanisms to retrieve lost user account passwords when you're bridged. If your bridging app provides mechanisms to recover from password-loss, then use those mechanisms. 
+        When Coppermine is bridged, the user management of the other application that it's bridged with &quot;takes over&quot;, so if a visitor clicks on the login link within Coppermine he is being redirected to your bridging app's login screen. After a successfull login there, he/she might be sent back to your Coppermine-driven gallery (if your bridging app supports redirection after logging in). Coppermine is only &quot;aware&quot; that the user has been authentificated in your bridging app; Coppermine is not aware of the user's password. Subsequently, you can't use Coppermine mechanisms to retrieve lost user account passwords when you're bridged. If your bridging app provides mechanisms to recover from password-loss, then use those mechanisms.
         </div>
         <a name="lost_password_cpg_mysql"></a><h3>mySQL account password<a href="#lost_password_cpg_user_account" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         If you (or your webhost) have changed your mySQL account details (e.g. if you have assigned a new password to your mySQL account) you can reflect your changes in Coppermine by editing the file <tt class="code">include/config.inc.php</tt>.<br />
@@ -149,8 +149,8 @@ echo &lt;&lt;&lt; EOT    &lt;tr&gt;        &lt;td class="tableh2"&gt;           
 </div>
 <div id="doc_footer">
     <div class="doc_info_wrapper">
-        <span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-        <span id="doc_revision">$Revision: 8304 $</span>
+        <span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+        <span id="doc_revision">$Revision: 8884 $</span>
     </div>
 </div>
 </body>

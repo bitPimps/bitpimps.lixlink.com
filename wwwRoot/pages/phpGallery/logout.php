@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/logout.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/logout.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -30,7 +30,7 @@ if (!USER_ID) {
 if (!checkFormToken()) {
     cpg_die(ERROR, $lang_errors['invalid_form_token'], __FILE__, __LINE__);
 }
-    
+
 if ($CONFIG['log_mode'] == CPG_LOG_ALL) {
     log_write('The user ' . $USER_DATA['user_name'] . ' (user ID ' . $USER_DATA['user_id'] . ") logged out.", CPG_ACCESS_LOG);
 }
@@ -39,6 +39,6 @@ if (defined('UDB_INTEGRATION')) {
     $cpg_udb->logout_page();
 }
 
-cpgRedirectPage('index.php', $lang_logout_php['logout'], sprintf($lang_logout_php['bye'], stripslashes(USER_NAME)), 3); // Replace 'index.php' with $CPG_REFERER to redirect the user to the page he came from, with the drawback that the visitor will get an error message if he came from a page that is not accesible for guests 
+cpgRedirectPage('index.php', $lang_logout_php['logout'], sprintf($lang_logout_php['bye'], stripslashes(USER_NAME)), 3); // Replace 'index.php' with $CPG_REFERER to redirect the user to the page he came from, with the drawback that the visitor will get an error message if he came from a page that is not accesible for guests
 
 ?>

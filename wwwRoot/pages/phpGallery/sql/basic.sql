@@ -1,7 +1,7 @@
 ##  ********************************************
 ##  Coppermine Photo Gallery
 ##  ************************
-##  Copyright (c) 2003-2012 Coppermine Dev Team
+##  Copyright (c) 2003-2019 Coppermine Dev Team
 ##  v1.0 originally written by Gregory Demar
 ##
 ##  This program is free software; you can redistribute it and/or modify
@@ -9,9 +9,9 @@
 ##  as published by the Free Software Foundation.
 ##
 ##  ********************************************
-##  Coppermine version: 1.5.18
-##  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/sql/basic.sql $
-##  $Revision: 8304 $
+##  Coppermine version: 1.5.48
+##  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/sql/basic.sql $
+##  $Revision: 8884 $
 ##  ********************************************
 
 #
@@ -22,6 +22,8 @@ INSERT INTO CPG_config VALUES ('admin_activation', '0');
 INSERT INTO CPG_config VALUES ('alb_desc_thumb', '1');
 INSERT INTO CPG_config VALUES ('alb_list_thumb_size', '50');
 INSERT INTO CPG_config VALUES ('album_list_cols', '2');
+INSERT INTO CPG_config VALUES ('album_sort_order', 'pa');
+INSERT INTO CPG_config VALUES ('album_uploads_default', 'NO');
 INSERT INTO CPG_config VALUES ('albums_per_page', '12');
 INSERT INTO CPG_config VALUES ('allow_duplicate_emails_addr', '0');
 INSERT INTO CPG_config VALUES ('allow_guests_enter_file_details', '0');
@@ -40,6 +42,7 @@ INSERT INTO CPG_config VALUES ('allow_user_move_album', '0');
 INSERT INTO CPG_config VALUES ('allow_user_registration', '0');
 INSERT INTO CPG_config VALUES ('allow_user_upload_choice', '1');
 INSERT INTO CPG_config VALUES ('auto_resize', '1');
+INSERT INTO CPG_config VALUES ('batch_add_hide_existing_files', '0');
 INSERT INTO CPG_config VALUES ('batch_proc_limit', '2');
 INSERT INTO CPG_config VALUES ('bridge_enable', '0');
 INSERT INTO CPG_config VALUES ('browse_batch_add', '1');
@@ -70,6 +73,7 @@ INSERT INTO CPG_config VALUES ('contact_form_subject_content', 'Coppermine galle
 INSERT INTO CPG_config VALUES ('contact_form_subject_field', '0');
 INSERT INTO CPG_config VALUES ('cookie_name', 'cpg15x');
 INSERT INTO CPG_config VALUES ('cookie_path', '/');
+INSERT INTO CPG_config VALUES ('cookies_need_consent', '0');
 INSERT INTO CPG_config VALUES ('count_admin_hits', '0');
 INSERT INTO CPG_config VALUES ('count_album_hits', '1');
 INSERT INTO CPG_config VALUES ('count_file_hits', '1');
@@ -77,6 +81,7 @@ INSERT INTO CPG_config VALUES ('custom_footer_path', '');
 INSERT INTO CPG_config VALUES ('custom_header_path', '');
 INSERT INTO CPG_config VALUES ('custom_lnk_name', '');
 INSERT INTO CPG_config VALUES ('custom_lnk_url', '');
+INSERT INTO CPG_config VALUES ('custom_sortorder_thumbs', '1');
 INSERT INTO CPG_config VALUES ('debug_mode', '0');
 INSERT INTO CPG_config VALUES ('debug_notice', '0');
 INSERT INTO CPG_config VALUES ('default_dir_mode', '0755');
@@ -101,6 +106,7 @@ INSERT INTO CPG_config VALUES ('display_uploader', '0');
 INSERT INTO CPG_config VALUES ('display_xp_publish_link', '0');
 INSERT INTO CPG_config VALUES ('ecard_flash', '0');
 INSERT INTO CPG_config VALUES ('ecards_more_pic_target', 'http://yoursite.tld/your_coppermine_folder/');
+INSERT INTO CPG_config VALUES ('editpics_ignore_newer_than', '0');
 INSERT INTO CPG_config VALUES ('email_comment_notification', '0');
 INSERT INTO CPG_config VALUES ('enable_encrypted_passwords', '1'); # Do not remove - this record IS needed to make sure that there is no double-encryption when updating
 INSERT INTO CPG_config VALUES ('enable_help', '1');
@@ -132,6 +138,7 @@ INSERT INTO CPG_config VALUES ('keyword_separator', ';');
 INSERT INTO CPG_config VALUES ('lang', 'english');
 INSERT INTO CPG_config VALUES ('language_autodetect', '1');
 INSERT INTO CPG_config VALUES ('link_pic_count', '1');
+INSERT INTO CPG_config VALUES ('link_last_upload', '0');
 INSERT INTO CPG_config VALUES ('log_ecards', '0');
 INSERT INTO CPG_config VALUES ('login_expiry', '10');
 INSERT INTO CPG_config VALUES ('login_method', 'username');
@@ -152,6 +159,7 @@ INSERT INTO CPG_config VALUES ('media_autostart', '1');
 INSERT INTO CPG_config VALUES ('min_votes_for_rating', '1');
 INSERT INTO CPG_config VALUES ('normal_pfx', 'normal_');
 INSERT INTO CPG_config VALUES ('offline', '0');
+INSERT INTO CPG_config VALUES ('only_empty_albums', '0');
 INSERT INTO CPG_config VALUES ('old_style_rating', '0');
 INSERT INTO CPG_config VALUES ('orig_pfx', 'orig_');
 INSERT INTO CPG_config VALUES ('performance_page_generation_time', '0');
@@ -204,11 +212,13 @@ INSERT INTO CPG_config VALUES ('unsharp_amount', '120');
 INSERT INTO CPG_config VALUES ('unsharp_radius', '0.5');
 INSERT INTO CPG_config VALUES ('unsharp_threshold', '3');
 INSERT INTO CPG_config VALUES ('upl_notify_admin_email', '0');
+INSERT INTO CPG_config VALUES ('upload_create_album_directory', '0');
 INSERT INTO CPG_config VALUES ('upload_mechanism', 'swfupload');
 INSERT INTO CPG_config VALUES ('user_field1_name', '');
 INSERT INTO CPG_config VALUES ('user_field2_name', '');
 INSERT INTO CPG_config VALUES ('user_field3_name', '');
 INSERT INTO CPG_config VALUES ('user_field4_name', '');
+INSERT INTO CPG_config VALUES ('user_manager_hide_file_stats', '0');
 INSERT INTO CPG_config VALUES ('userpics', 'userpics/');
 INSERT INTO CPG_config VALUES ('user_profile1_name', 'Location');
 INSERT INTO CPG_config VALUES ('user_profile2_name', 'Interests');
@@ -416,14 +426,14 @@ INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, avail
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('laothian', 'Laothian ','','la','', 'NO', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('latvian', 'Latvian','Latvian','lv','', 'NO', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('lithuanian', 'Lithuanian','Letzeburgisch','lu','', 'NO', 'NO', 'NO');
-INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('luxembourgish', 'Luxembourgish','Lietuvi&#0353;kai','lt','', 'YES', 'YES', 'NO');
+INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('luxembourgish', 'Luxembourgish','Lietuvi&#0353;kai','lu','', 'YES', 'YES', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('macedonian', 'Macedonian','&#1052;&#1072;&#1082;&#1077;&#1076;&#1086;&#1085;&#1089;&#1082;&#1080;','mk','', 'NO', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('malay', 'Malay','Bahasa Melayu','my','', 'NO', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('maltese', 'Maltese','','mt','', 'NO', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('mongolian', 'Mongolian','','mn','', 'NO', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('nepali', 'Nepali','','np','', 'NO', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('norwegian', 'Norwegian','Norsk','no','no', 'YES', 'YES', 'NO');
-INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('persian', 'Persian','&#1601;&#1575;&#1585;&#1587;&#1740;','ir','', 'NO', 'NO', 'NO');
+INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('persian', 'Persian','&#1601;&#1575;&#1585;&#1587;&#1740;','ir','', 'YES', 'YES', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('polish', 'Polish','Polski','pl','pl', 'YES', 'YES', 'YES');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('portuguese', 'Portuguese (Portugal)','Portugu&ecirc;s','pt','', 'YES', 'YES', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, enabled, complete) VALUES ('romanian', 'Romanian','Rom&acirc;n&atilde;','ro','', 'NO', 'NO', 'NO');

@@ -2,23 +2,20 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/include/select_lang.inc.php $
-  $Revision: 8304 $
-
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/select_lang.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) {
-    die('Not in Coppermine...');
-}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // Format: array(regex to find in lang or user agent header, lang filename minus .php)
 
@@ -82,7 +79,7 @@ function lang_detect_q($available_languages)
     // We can use the getRaw method here because the data is not used directly
     $HTTP_ACCEPT_LANGUAGE = $superCage->server->getRaw('HTTP_ACCEPT_LANGUAGE');
     $HTTP_USER_AGENT = $superCage->server->getRaw('HTTP_USER_AGENT');
-    
+
     if (!empty($HTTP_ACCEPT_LANGUAGE)) {
         $language_tokens = explode(',', $HTTP_ACCEPT_LANGUAGE);
         // loop through each Accept-Language token and find quality level (i.e. q=0.8)
@@ -101,7 +98,7 @@ function lang_detect_q($available_languages)
         arsort($quality_tag);
         // loop throuh every quality_tag array
         foreach ($quality_tag as $q_key => $q_val) {
-            // loop through each available_languages 
+            // loop through each available_languages
             foreach ($available_languages as $language) {
                 if (preg_match('#^(?:'. $language[0] .')#i', $lang_tag[$q_key])) {
                     // exit function on first match.
@@ -111,8 +108,8 @@ function lang_detect_q($available_languages)
         }
 
         // if Accept-Language not present in the client's http header, we try the User-Agent string
-    } elseif (!empty($HTTP_USER_AGENT)) {      
-        // once again, loop through each available_languages 
+    } elseif (!empty($HTTP_USER_AGENT)) {
+        // once again, loop through each available_languages
         foreach ($available_languages as $language) {
             if (preg_match('#[(,; [](?:'. $language[0] .')[]),;]#i', $HTTP_USER_AGENT)) {
                 // exit function on first match.

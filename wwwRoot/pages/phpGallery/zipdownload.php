@@ -2,17 +2,17 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/zipdownload.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/zipdownload.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -38,7 +38,7 @@ EOT;
 } else {
     // zipdownload allowed, go ahead...
     $filelist = array();
-    
+
     if (count($FAVPICS) > 0) {
         if ($CONFIG['enable_zipdownload'] == 2) {
             $params = array(
@@ -65,34 +65,34 @@ EOT;
                 // We'll continue anyway.
             }
         }
-                
+
         $favs = implode(', ', $FAVPICS);
 
         $result = cpg_db_query("SELECT filepath, filename FROM {$CONFIG['TABLE_PICTURES']} WHERE approved = 'YES' AND pid IN ($favs)");
         $rowset = cpg_db_fetch_rowset($result);
-        
+
         foreach ($rowset as $key => $row) {
                 $filelist[] = $rowset[$key]['filepath'].$rowset[$key]['filename'];
         }
     }
-    
+
     $zip = new zip_file('pictures.zip');
-    
+
     $options = array(
         'basedir'    => "./{$CONFIG['fullpath']}",
         'inmemory'   => 1,
         'recurse'    => 0,
         'storepaths' => 0,
     );
-        
+
     $zip->set_options($options);
     $zip->add_files($filelist);
     $zip->create_archive();
-    
+
     ob_end_clean();
-    
+
     $zip->download_file();
-    
+
     if ($CONFIG['enable_zipdownload'] == 2) {
         @unlink($CONFIG['fullpath'].'edit/'.$readme_filename);
     }

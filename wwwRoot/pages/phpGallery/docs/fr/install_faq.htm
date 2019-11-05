@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/install_faq.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/install_faq.htm $
+  $Revision: 8884 $
 
 
 -->
@@ -61,16 +61,16 @@
         <li>MySQL 3.23.23 ou supérieur (4.1 recommandé). Ne confondez pas la version de l'api client (qui est affichée dans le phpinfo) avec la version de MySQL !</li>
     </ul>
     <hr />
-    
+
 <a name="image_libraries"></a>
 <h2>Librairies graphique<a href="#image_libraries" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 
 <div class="indent">
-    
+
     <a name="WhatIsGD"></a>
     <h3>Qu'est ce que <strong>GD</strong> et comment puis-je me le procurer ?<a href="#WhatIsGD" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p><img src="../images/gd.png" border="0" alt="" width="148" height="93" title="GD" align="right" style="padding-left:20px" />GD est une librairie graphique qui permet à PHP de faire de la manipulation d'image. La bibliothèque a été initialement développée par <a href="http://www.boutell.com/" rel="external" class="external">Thomas Boutell</a> et est actuellement maintenu par <a href="http://blog.thepimp.net/" rel="external" class="external">Pierre-A. Joye</a> sous l'égide de <a href="http://www.php.net/" rel="external" class="phpnet">PHP.net</a>. Si vous tournez sur votre propre serveur vous pouvez la télécharger à l'adresse <a href="http://libgd.org/" class="external">libgd.org</a>. Vous devrez recompiler PHP sur les systèmes (L) Unix, en fonction de votre configuration Apache. Les versions les plus récentes de PHP intègrent GD dans leur package. Dans la plupart des systèmes Windows, vous pouvez l'activer dans le fichier php.ini. Si vous avez souscrit à un hébergement web, vérifiez auprès de votre hébergeur si GD/GD2 est disponibles pour votre site. Si ce n'est pas le cas, demandez à votre hébergeur si vous pouvez l'avoir ou cherchez un autre hébergeur. GD/GD2 est la fonction standard chez la plupart des hébergeurs.<br /></p><hr />
-    
+
     <a name="whatIsImageMagick"></a>
     <h3>Qu'est ce qu'ImageMagick et comment puis-je me le procurer ?<a href="#whatIsImageMagick" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p><img src="../images/imagemagick.png" border="0" alt="" width="130" height="54" title="ImageMagick" align="right" style="padding-left:20px" />ImageMagick est une autre librairie graphique comme GD/GD2 pour la manipulation d'images. Si vous tournez sur votre propre serveur, vous pouvez la télécharger à cette adresse <a href="http://www.imagemagick.org" class="external">imagemagick.org</a>. Il y a des sources exécutables disponibles pour Unix, Linux, Mac et Windows, tout comme des packages binaires pour plusieurs systèmes d'exploitation de serveurs. Vous ne pouvez pas installer ImageMagick si vous avez souscrit à un hébergement web.
@@ -91,14 +91,14 @@
     </table>
     <br /><br />Merci de noter: laisser le fichier info.php sur votre serveur peut présenter un risque en matière de sécurité; il vous faudra soit l'effacer soit le placer dans un dossier protégé par mot de passe !<br />&nbsp;<br />Si vous avez déjà installé Coppermine, vous trouverez un fichier phpinfo (phpinfo.php) dans le répertoire de Coppermine. Identifiez vous comme administrateur dans votre galerie Coppermine et pointez simplement (entrez l'URL) avec votre navigateur sur http://votresite.com/votre_repertoire_coppermine/phpinfo.php. Puis cherchez sur la page la section concernant GD.</p>
     <hr />
-    
+
     <a name="GD1vsGD2"></a>
     <h3>Quelle est la différence entre <strong>GD1 et GD2</strong> ?<a href="#GD1vsGD2" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>GD2 est une version plus récente que GD1 et, de ce fait, elle créera des images de meilleure qualité (images intermédiaires et vignettes). <table border="0" class="frame2"><tr><td colspan="2"><span class="winzig">Voici un exemple pris sur <a href="http://www.vddh.com/wnailer/index.php?pag=res&pic=1#comp" class="external">w-nailer: a propos du redimensionnement</a><br />(Taille de l'image originale: 1024 x 768 pixels):</span></td></tr><tr><td align="center"><img src="../images/128x96gd1.jpg" width="128" height="96" border="0" alt="" title="GD1"></td><td align="center"><img src="../images/128x96gd2.jpg" width="128" height="96" border="0" alt="" title="GD2"></td></tr><tr><td align="center"><span class="winzig">GD 1.8.4:<br />ImageCreate<br />ImageCopyResized<br />128 x 96 pixels</span></td><td align="center"><span class="winzig">GD 2.0.1:<br />ImageCreateTrueColor<br />ImageCopyResampled<br />128 x 96 pixels</span></td></tr></table>La mise à jour de la librairie graphique GD après l'installation de Coppermine n'affectera pas les images crées précédemment. Elle n'aura d'effets que sur celles crées après la mise à jour. <strong>Sauf si vous faite tourner votre propre serveur, vous ne pourrez pas mettre à jour ou installer la librairie graphique GD - Seul votre hébergeur le peut !</strong></p>
     <p>La différence essentielle entre GD 1 et GD 2 réside dans la profondeur des couleurs: GD1 ne supporte qu'une profondeur limité de couleurs de 256 couleurs par image. Il en résulte une qualité d'image très limité.</p>
     <p class="cpg_message_info">Actuellement, la librairie graphique GD1 est totalement dépassée et ne devrait se trouver que sur les très vielles installations. Si vous êtes hébergés, vous devriez avoir GD2. Si votre hébergeur ne vous offre que GD1, il est peut être temps d’en chercher un autre, qui soit un meilleur hébergeur.</p>
     <hr />
-    
+
     <a name="enableGD"></a>
     <h3>Comment <strong>activer GD</strong> sur mon serveur Windows ?<a href="#enableGD" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>GD 1.x 2.x font normalement partie intégrante de toute distribution standard de PHP sous Windows<br />
@@ -114,7 +114,7 @@
     <p>ImageMagick est beaucoup plus compliqué à configurer sur Windows. Il y a beaucoup de choses à prendre en compte. Le forum d'aide de Coppermine <strong>n'est pas</strong> le bon endroit pour demander de l'aide pour l'installer, puisque le forum concerne Coppermine et non &quot;Comment configurer un serveur&quot; (la plupart des personnes sur le forum de Coppermine ne font pas tourner leur propre serveur, mais ont un hébergement web chez un hébergeur). A la place, essayez de trouver un forum d'aide sur Internet qui traite de ce sujet particulier.</p>
     <p>Le chemin d'accès vers ImageMagick ne doit pas contenir d'espaces ou de caractère spéciaux. Vous devez vous assurer que l'utilisateur utilisé par le serveur a les droit nécessaires pour lancer les exécutables d'ImageMagick.</p>
     <hr />
-    
+
     <a name="installIMwhenHosted"></a>
     <h3>Comment puis-je <strong>installer ImageMagick ou GD</strong> ?<a href="#installIMwhenHosted" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>Vous ne pouvez <a href="#enableIMonWindows">installer ImageMagic ou GD que si vous faites tourner votre propre serveur</a> ou si vous avez au moins un accès Shell à votre serveur. Si votre site est hébergé chez un hébergeur vous pouvez uniquement contacter votre hébergeur et lui demander de l'installer pour vous. Si il refuse, choisissez un autre hébergeur ou utilisez GD à la place.<br /></p>
@@ -157,8 +157,8 @@ Pour plus de détails, lisez <a href="install_permissions.htm#permissions">la se
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

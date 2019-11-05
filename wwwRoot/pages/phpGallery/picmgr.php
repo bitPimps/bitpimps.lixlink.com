@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/picmgr.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/picmgr.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -41,13 +41,7 @@ set_js_var('change_album', $lang_picmgr_php['change_album']);
 set_js_var('confirm_modifs', $lang_picmgr_php['confirm_modifs']);
 
 if ($CONFIG['default_sort_order'] != 'pa' && $CONFIG['default_sort_order'] != 'pd') {
-    $help_picture_manager = <<< EOT
-            <ul>
-                <li>{$lang_picmgr_php['explanation1']}</li>
-                <li>{$lang_picmgr_php['explanation2']}</li>
-            </ul>
-EOT;
-    $help_picture_manager = '&nbsp;'. cpg_display_help('f=empty.html&amp;base=64&amp;h=' . urlencode(base64_encode(serialize($lang_picmgr_php['explanation_header'] . ':&nbsp;'))) . '&amp;t=' . urlencode(base64_encode(serialize($help_picture_manager))), 500, 300);
+    $help_picture_manager = '&nbsp;'. cpg_display_help('f=empty.html&amp;h=lang_picmgr_php[explanation_header]&amp;t=lang_tmp_picture_manager', 500, 300);
  } else {
     $help_picture_manager = '';
  }
@@ -93,14 +87,14 @@ echo <<< EOT
         <td class="tableh2" valign="top" >
            <input type="hidden" name="album_id" value="{$aid}" />
            <input type="hidden" id="sort_order" name="sort_order" value="{$sort_order}" />
-           <input type="hidden" id="picture_order" name="picture_order" value="" />  
+           <input type="hidden" id="picture_order" name="picture_order" value="" />
 
 EOT;
 
 if (GALLERY_ADMIN_MODE || USER_ADMIN_MODE) {
 
     $options = album_selection_options($aid);
-    
+
     echo <<<EOT
             <select name="aid" class="listbox">
                 <option value="0">{$lang_common['select_album']}</option>
@@ -111,11 +105,11 @@ if (GALLERY_ADMIN_MODE || USER_ADMIN_MODE) {
     </tr>
     <tr>
         <td>
-    
+
 EOT;
 }
 
-/** create a table to sort the picture*/  
+/** create a table to sort the picture*/
 echo <<< EOT
             <div id="sort">
                 <table id="pic_sort" cellspacing="0" cellpadding="0" border="0" width=100%>
@@ -191,7 +185,7 @@ EOT;
     </tr>
 EOT;
    endtable();
-   list($timestamp, $form_token) = getFormToken();  
+   list($timestamp, $form_token) = getFormToken();
    echo <<< EOT
 <input type="hidden" name="form_token" value="{$form_token}" />
 <input type="hidden" name="timestamp" value="{$timestamp}" />

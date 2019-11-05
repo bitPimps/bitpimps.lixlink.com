@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,22 +10,22 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/include/versioncheck.inc.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/versioncheck.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
 /*
-Dev note: I had to re-design the versioncheck page to make the code less cluttered. 
-As a result, the changes applied by Sander to make this page fit into the new installer 
-are gone. Please do not re-introduce those changes: they were bad in the first place. 
-Instead, the installer needs to be reviewed. I updated the installer a little bit to make 
-sure it doesn't break entirely, however I suggest re-designing the installer without the 
-OO-approach: only use OO where it makes sense and if you have no dependencies. 
-This is not the case: coppermine has been built the old-school way (without OO), and there 
-is little benefit in the OO-tech of the new installer. It doesn't have to be re-built from 
-scratch though. 
-Further discussion should be led on the dev board. 
+Dev note: I had to re-design the versioncheck page to make the code less cluttered.
+As a result, the changes applied by Sander to make this page fit into the new installer
+are gone. Please do not re-introduce those changes: they were bad in the first place.
+Instead, the installer needs to be reviewed. I updated the installer a little bit to make
+sure it doesn't break entirely, however I suggest re-designing the installer without the
+OO-approach: only use OO where it makes sense and if you have no dependencies.
+This is not the case: coppermine has been built the old-school way (without OO), and there
+is little benefit in the OO-tech of the new installer. It doesn't have to be re-built from
+scratch though.
+Further discussion should be led on the dev board.
 Joachim 2008-08-08
 */
 
@@ -243,7 +243,7 @@ function cpg_versioncheckPopulateArray($file_data_array) {
         if (!isset($file_data_array[$file_data_key]['txt_folderfile'])) {
             $file_data_array[$file_data_key]['txt_folderfile'] = '';
         }
-        
+
         // Replace the placeholders with actual content --- start
         $file_data_array[$file_data_key]['fullpath'] = str_replace('**fullpath**', rtrim($CONFIG['fullpath'], '/'), $file_data_array[$file_data_key]['fullpath']);
         $file_data_array[$file_data_key]['fullpath'] = str_replace('**userpics**', rtrim($CONFIG['userpics'], '/'), $file_data_array[$file_data_key]['fullpath']);
@@ -277,7 +277,7 @@ function cpg_versioncheckPopulateArray($file_data_array) {
             } else {
                 $file_data_array[$file_data_key]['icon'] = '<img src="'.$extensionMatrix_array['unknown'].'" border="0" width="16" height="16" alt="'.$file_data_array[$file_data_key]['extension'].'" style="margin-left:'. (16 * $file_data_array[$file_data_key]['folderDepth']) . 'px" />';
             }
-            // determine the icon representing the file -- end            
+            // determine the icon representing the file -- end
             // we have a file here --- end
         }
         // Determine the icon -- end
@@ -303,13 +303,13 @@ function cpg_versioncheckPopulateArray($file_data_array) {
               $maxLength_array['exist'] = strlen($file_data_array[$file_data_key]['txt_missing']);
             } // The folder/file is missing --- end
         } else { // The folder/file exists --- start
-            if ($file_data_array[$file_data_key]['file'] == '') { 
+            if ($file_data_array[$file_data_key]['file'] == '') {
               // we have a folder here --- start
               $file_data_array[$file_data_key]['txt_folderfile'] = $lang_versioncheck_php['folder'];
               // no version or revision number for folder names
               $file_data_array[$file_data_key]['txt_version'] = $lang_versioncheck_php['not_applicable'].' ('.$lang_common['ok'].')';
               $file_data_array[$file_data_key]['txt_revision'] = $lang_versioncheck_php['not_applicable'].' ('.$lang_common['ok'].')';
-              if ($displayOption_array['no_modification_check'] != 1) {
+              if (isset($displayOption_array['no_modification_check']) && $displayOption_array['no_modification_check'] != 1) {
                 $file_data_array[$file_data_key]['txt_modified'] = $lang_versioncheck_php['not_applicable'] . ' ('.$lang_common['ok'].')';
               }
               $file_data_array[$file_data_key]['local_version'] = '';
@@ -422,13 +422,13 @@ function cpg_versioncheckPopulateArray($file_data_array) {
                     // the file is binary, i.e. it's an image --- end
                 }
                 // check the md5 hashes --- start
-                if ($displayOption_array['no_modification_check'] != 1) {
+                if (isset($displayOption_array['no_modification_check']) && $displayOption_array['no_modification_check'] != 1) {
                     // Is the option "no_modification_check" not populated --- start
                     if(function_exists('md5_file')) { // the MD5-function may not exist
                         // Do we have an md5-hash that we could compare against? -- start
                         if ($file_data_array[$file_data_key]['hash'] != '') {
                             // only perform the md5-check if the versions and revisions match anyway - we'd be comparing apples with bananas if we checked the hashes otherwise -- start
-                            if ($file_data_array[$file_data_key]['version'] == $file_data_array[$file_data_key]['local_version'] && $file_data_array[$file_data_key]['revision'] == $file_data_array[$file_data_key]['local_revision']) { 
+                            if ($file_data_array[$file_data_key]['version'] == $file_data_array[$file_data_key]['local_version'] && $file_data_array[$file_data_key]['revision'] == $file_data_array[$file_data_key]['local_revision']) {
                                 $file_data_array[$file_data_key]['local_hash'] = md5_file($file_data_values['fullpath']);
                                 if ($file_data_array[$file_data_key]['local_hash'] == $file_data_array[$file_data_key]['hash']) {
                                     $file_data_array[$file_data_key]['unmodified'] = 1;
@@ -447,7 +447,7 @@ function cpg_versioncheckPopulateArray($file_data_array) {
                     }
                     // Is the option "no_modification_check" not populated --- end
                 }
-                // check the md5 hashes --- end                
+                // check the md5 hashes --- end
                 if ($file_data_array[$file_data_key]['status'] == 'remove') {
                     // should the file have been removed ? --- start
                         $file_data_array[$file_data_key]['txt_missing'] = $lang_versioncheck_php['existing'];
@@ -471,7 +471,7 @@ function cpg_versioncheckPopulateArray($file_data_array) {
             if ($file_data_array[$file_data_key]['txt_folderfile'] == '') {
                 $file_data_array[$file_data_key]['txt_folderfile'] = $lang_versioncheck_php['not_applicable'];
             }
-            if ($file_data_array[$file_data_key]['txt_modified'] == '' && $displayOption_array['no_modification_check'] != 1) {
+            if (isset($file_data_array[$file_data_key]['txt_modified']) && $file_data_array[$file_data_key]['txt_modified'] == '' && $displayOption_array['no_modification_check'] != 1) {
                 $file_data_array[$file_data_key]['txt_modified'] = $lang_versioncheck_php['not_applicable'] . ' ('.$lang_common['ok'].')';
             }
         }
@@ -485,16 +485,16 @@ function cpg_versioncheckPopulateArray($file_data_array) {
         }
         if (strlen($file_data_array[$file_data_key]['txt_revision']) > $maxLength_array['revision']) {
             $maxLength_array['revision'] = strlen($file_data_array[$file_data_key]['txt_revision']);
-        }  
+        }
         if (strlen($file_data_array[$file_data_key]['local_revision'] . $file_data_array[$file_data_key]['txt_revision']) > $maxLength_array['revision']) {
           $maxLength_array['revision'] = strlen($file_data_array[$file_data_key]['local_revision'] . $file_data_array[$file_data_key]['txt_revision']);
         }
         if (strlen($lang_versioncheck_php['warning']) > $maxLength_array['comment']) {
             $maxLength_array['comment'] = strlen($lang_versioncheck_php['warning']);
         }
-        if (strlen($file_data_array[$file_data_key]['txt_modified']) > $maxLength_array['modified']) {
+        if (isset($file_data_array[$file_data_key]['txt_modified']) && strlen($file_data_array[$file_data_key]['txt_modified']) > $maxLength_array['modified']) {
             $maxLength_array['modified'] = strlen($file_data_array[$file_data_key]['txt_modified']);
-        } 
+        }
         //  Adapt the maxLength array -- end
     } // end the foreach loop
     return $file_data_array;
@@ -612,7 +612,7 @@ function cpg_versioncheckCreateTextOnlyOutput($file_data_array) {
       <a href="javascript:HighlightAll('versioncheckdisplay.versioncheck_text')" class="admin_menu">
       {$lang_versioncheck_php['select_all']}
       </a><br />
-      
+
 EOT;
       print '<form name="versioncheckdisplay"><textarea name="versioncheck_text" rows="'.($file_data_count + 5).'" cols="60" class="textinput debug_text" style="width:98%;font-family:\'Courier New\',Courier,monospace;font-size:9px;">';
     }
@@ -727,7 +727,7 @@ function cpg_versioncheckCreateHTMLOutput($file_data_array) {
     <th class="tableh2" style="font-size:8px">{$lang_versioncheck_php['version']}</th>
     <th class="tableh2" style="font-size:8px">{$lang_versioncheck_php['revision']}</th>
 EOT;
-  if ($displayOption_array['no_modification_check'] != 1) {
+  if (isset($displayOption_array['no_modification_check']) && $displayOption_array['no_modification_check'] != 1) {
     print <<< EOT
     <th class="tableh2" style="font-size:8px">{$lang_versioncheck_php['modified']}</th>
 EOT;
@@ -738,7 +738,7 @@ EOT;
   </tr>
 EOT;
   foreach ($file_data_array as $file_data_values) {
-    if ($displayOption_array['hide_images'] && in_array($file_data_values['extension'],$imageFileExtensions_array) == TRUE) {// Only display image if corresponding option is not enabled --- start
+    if (isset($displayOption_array['hide_images']) && $displayOption_array['hide_images'] && in_array($file_data_values['extension'],$imageFileExtensions_array) == TRUE) {// Only display image if corresponding option is not enabled --- start
         // Do nothing
     } else {
         if (($loopCounter_array['display']/2) == floor($loopCounter_array['display']/2)) {
@@ -754,6 +754,8 @@ EOT;
               $file_data_values['link_start'] = '<a href="'.$file_data_values['fullpath'].'">';
               $file_data_values['link_end'] = '</a>';
             }
+        } else {
+            $file_data_values['link_start'] = $file_data_values['link_end'] = '';
         }
         $important['path'] = '';
         $important['missing'] = '';
@@ -774,7 +776,7 @@ EOT;
         }
         */
         // spice up the output by replacing plain text with icons --- start
-        $file_data_values['txt_missing'] = str_replace('('.$lang_common['ok'].')', $ok_icon, $file_data_values['txt_missing']);
+        $file_data_values['txt_missing'] = isset($file_data_values['txt_missing']) ? str_replace('('.$lang_common['ok'].')', $ok_icon, $file_data_values['txt_missing']) : '';
         $file_data_values['txt_version'] = str_replace('('.$lang_common['ok'].')', $ok_icon, $file_data_values['txt_version']);
         $file_data_values['txt_revision'] = str_replace('('.$lang_common['ok'].')', $ok_icon, $file_data_values['txt_revision']);
         $file_data_values['txt_version'] = str_replace('(?)', $cancel_icon, $file_data_values['txt_version']);
@@ -782,8 +784,8 @@ EOT;
         $file_data_values['txt_version'] = str_replace('(!)', $stop_icon, $file_data_values['txt_version']);
         $file_data_values['txt_revision'] = str_replace('(!)', $stop_icon, $file_data_values['txt_revision']);
         $file_data_values['txt_missing'] = str_replace($lang_versioncheck_php['mandatory'], $lang_versioncheck_php['mandatory'] . $stop_icon, $file_data_values['txt_missing']);
-        $file_data_values['txt_modified'] = str_replace('('.$lang_common['ok'].')', $ok_icon, $file_data_values['txt_modified']);
-        if ($displayOption_array['no_modification_check'] != 1) {
+        $file_data_values['txt_modified'] = isset($file_data_values['txt_modified']) ? str_replace('('.$lang_common['ok'].')', $ok_icon, $file_data_values['txt_modified']) : '';
+        if (isset($displayOption_array['no_modification_check']) && $displayOption_array['no_modification_check'] != 1) {
             $file_data_values['txt_modified'] = str_replace('(!)', $cancel_icon, $file_data_values['txt_modified']);
         }
         // spice up the output by replacing plain text with icons --- end
@@ -792,6 +794,8 @@ EOT;
           if ($file_data_values['comment'] != '') {
             $loopCounter_array['error']++;
           }
+          if (!isset($file_data_values['local_readwrite'])) $file_data_values['local_readwrite'] = '';
+          if (!isset($file_data_values['txt_readwrite'])) $file_data_values['txt_readwrite'] = '';
           print <<< EOT
         <tr>
           <td class="{$cellstyle}{$important['path']}" align="left" style="font-size:9px">{$file_data_values['icon']}{$file_data_values['link_start']}{$file_data_values['fullpath']}{$file_data_values['link_end']}</td>
@@ -800,7 +804,7 @@ EOT;
           <td class="{$cellstyle}{$important['version']}" align="left" style="font-size:9px">{$file_data_values['local_version']}{$file_data_values['txt_version']}</td>
           <td class="{$cellstyle}{$important['revision']}" align="left" style="font-size:9px">{$file_data_values['local_revision']}{$file_data_values['txt_revision']}</td>
 EOT;
-          if ($displayOption_array['no_modification_check'] != 1) {
+          if (isset($displayOption_array['no_modification_check']) && $displayOption_array['no_modification_check'] != 1) {
               print <<< EOT
           <td class="{$cellstyle}{$important['modified']}" align="left" style="font-size:9px">{$file_data_values['local_modified']}{$file_data_values['txt_modified']}</td>
 EOT;

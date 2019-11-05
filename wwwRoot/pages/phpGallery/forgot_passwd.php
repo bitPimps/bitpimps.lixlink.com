@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/forgot_passwd.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/forgot_passwd.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -34,12 +34,12 @@ if ($superCage->post->keyExists('email') && $superCage->post->testEmail('email')
     $CLEAN['email'] = $superCage->post->testEmail('email');
 }
 
-if ($superCage->get->keyExists('key')) {
-    $CLEAN['key'] = $superCage->get->getEscaped('key');
-}
+if ($matched = $superCage->get->getMatched('key', "/^[a-f0-9]{32}$/i")) {
+    $CLEAN['key'] = $matched[0];
+ }
 
 if ($superCage->get->keyExists('id')) {
-    $CLEAN['id'] = $superCage->get->getEscaped('id');
+    $CLEAN['id'] = $superCage->get->getInt('id');
 }
 
 //END CLEANUP
@@ -50,7 +50,7 @@ if (isset($CLEAN['email'])) {
     $sql = "SELECT user_id, user_group, user_active, user_name, user_password, user_email FROM {$CONFIG['TABLE_USERS']} WHERE user_email = '{$CLEAN['email']}' AND user_active = 'YES'";
 
     $results = cpg_db_query($sql);
-    
+
     if (mysql_num_rows($results)) { // something has been found start
 
         $USER_DATA = mysql_fetch_assoc($results);
@@ -118,7 +118,7 @@ EOT;
 
     mysql_free_result($result);
 
-    $sql = "SELECT {$cpg_udb->field['username']}, {$cpg_udb->field['email']} FROM {$cpg_udb->usertable} WHERE {$cpg_udb->field['user_id']} = {$CLEAN['id']}";
+    $sql = "SELECT {$cpg_udb->field['username']}, {$cpg_udb->field['email']} FROM {$cpg_udb->usertable} WHERE {$cpg_udb->field['user_id']} = '{$CLEAN['id']}'";
 
     $result = cpg_db_query($sql);
 

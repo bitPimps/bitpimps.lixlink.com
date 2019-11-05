@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/russian.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/russian.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'Russian';
@@ -115,6 +115,7 @@ $lang_common['keywords_insert1'] = 'Ключевые слова (раздели�
 $lang_common['keywords_insert2'] = 'Вставить из списка'; // cpg1.5
 $lang_common['keyword_separator'] = 'Разделитель ключевых слов'; //cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'пробел', ','=>'запятая', ';'=>'точка с запятой'); // cpg1.5
+$lang_common['owner_name'] = 'Имя владельца'; // cpg1.5
 $lang_common['filename'] = 'Имя файла'; // cpg1.5
 $lang_common['filesize'] = 'Размер файла'; // cpg1.5
 $lang_common['album'] = 'Альбом'; // cpg1.5
@@ -1128,7 +1129,7 @@ $lang_picinfo['WhiteBalance'] = 'Баланс белого';
 $lang_picinfo['DigitalZoomRatio'] = 'Коэффициент цифрового зума';
 $lang_picinfo['SceneCaptureMode'] = 'Режим сюжетной программы';
 $lang_picinfo['GainControl'] = 'Коэффициент усиления';
-$lang_picinfo['Contrast'] = 'Контраст'; 
+$lang_picinfo['Contrast'] = 'Контраст';
 $lang_picinfo['Sharpness'] = 'Резкость';
 $lang_picinfo['ManageExifDisplay'] = 'Настроить отображение EXIF';
 $lang_picinfo['success'] = 'Информация успешно обновлена.';
@@ -1617,7 +1618,7 @@ $lang_logout_php['err_not_logged_in'] = 'Вы не осуществили вхо
 }
 
 // ------------------------------------------------------------------------- //
-// File minibrowser.php 
+// File minibrowser.php
 // ------------------------------------------------------------------------- //
 if (defined('MINIBROWSER_PHP')) {
 $lang_minibrowser_php['up'] = 'на один уровень вверх';
@@ -1969,7 +1970,7 @@ if (defined('SEARCH_PHP')){
 $lang_search_php['title'] = 'Поиск';
 $lang_search_php['submit_search'] = 'поиск';
 $lang_search_php['keyword_list_title'] = 'Список ключевых слов';
-$lang_search_php['keyword_msg'] = 'Данный список не включает все слова. Он не включает слова из названий изображений и их описаний. Попробуйте использовать полноценный поиск.'; 
+$lang_search_php['keyword_msg'] = 'Данный список не включает все слова. Он не включает слова из названий изображений и их описаний. Попробуйте использовать полноценный поиск.';
 $lang_search_php['edit_keywords'] = 'Редактировать список ключевых слов';
 $lang_search_php['search in'] = 'Искать в:';
 $lang_search_php['ip_address'] = 'IP адрес';

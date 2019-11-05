@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/theme_theme_php.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/theme_theme_php.htm $
+  $Revision: 8884 $
 
 
 -->
@@ -31,7 +31,6 @@
 <div id="toc">
 <a href="toc.htm">Table des matières</a>
 </div>
-
 
 <a name="theme_php"></a><h1>Modifiez theme.php<a href="#theme_php" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h1>
 <p>Chaque thème contient un fichier theme.php. Toutefois, pour la plupart des thèmes, ce fichier est presque vide. La raison est que seules les choses qui <strong>diffèrent</strong> du comportement par défaut de Coppermine doivent être définis dans theme.php. Les éléments supposés fonctionner "de la manière normale à Coppermine" sont définis dans le code du noyau central de Coppermine - le fichier theme.php de votre thème personnalisé contient les définitions de variables et de fonctions qui forcent les éléments identiques du code général.</p>
@@ -82,23 +81,23 @@ ou le nom de la section (<tt class="code">section_name</tt> dans l'exemple ci-de
 <a name="theme_php_method"></a><h2>Méthode<a href="#theme_php_method" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <p>La méthode pour modifier tout fichier theme.php est réellement facile - suivez simplement ces simples étapes:</p>
 <ul>
-	<li><strong>Déterminez quelles sections doivent être modifiées</strong><br />
-		Il y a plusieurs différentes manières de le définir:
-		<ul>
-			<li>Vous avez trouvé un message correspondant sur le forum d'aide de Coppermine</li>
-			<li>Vous avez trouvé en regardant la table &quot;<a href="theme_php_list">Liste des éléments dans theme.php</a>&quot;</li>
-			<li>Une autre partie de la documentation vous l'indique</li>
-			<li>Un ami vous l'a indiqué</li>
-			<li>...</li>
-		</ul>
-	</li>
-	<li><strong>Trouvez quelles sections existent déjà dans votre thème personnalisé:</strong><br />
-		(Votre <a href="dev_tools.htm#dev_tools_editor">éditeur de texte</a> favori doit avoir une fonction de recherche. Notepad.exe en a une)
-		<ul>
-			<li>Si oui, modifiez themes/votretheme/theme.php. Il n'est pas nécessaire de copier depuis le thème sample</li>
-			<li>Si non, ouvrez themes/sample/theme.php avec un <a href="dev_tools.htm#dev_tools_editor">éditeur de texte</a>, trouvez la section que vous voulez modifier, sélectionnez là et copiez la, puis collez là dans une nouvelle ligne avant <tt class="code">?&gt;</tt> de <tt class="code">themes/votretheme/theme.php</tt>. Puis modifiez le contenu que vous avez collé et regardez si ça fonctionne.</li>
-		</ul>
-	</li>
+    <li><strong>Déterminez quelles sections doivent être modifiées</strong><br />
+        Il y a plusieurs différentes manières de le définir:
+        <ul>
+            <li>Vous avez trouvé un message correspondant sur le forum d'aide de Coppermine</li>
+            <li>Vous avez trouvé en regardant la table &quot;<a href="theme_php_list">Liste des éléments dans theme.php</a>&quot;</li>
+            <li>Une autre partie de la documentation vous l'indique</li>
+            <li>Un ami vous l'a indiqué</li>
+            <li>...</li>
+        </ul>
+    </li>
+    <li><strong>Trouvez quelles sections existent déjà dans votre thème personnalisé:</strong><br />
+        (Votre <a href="dev_tools.htm#dev_tools_editor">éditeur de texte</a> favori doit avoir une fonction de recherche. Notepad.exe en a une)
+        <ul>
+            <li>Si oui, modifiez themes/votretheme/theme.php. Il n'est pas nécessaire de copier depuis le thème sample</li>
+            <li>Si non, ouvrez themes/sample/theme.php avec un <a href="dev_tools.htm#dev_tools_editor">éditeur de texte</a>, trouvez la section que vous voulez modifier, sélectionnez là et copiez la, puis collez là dans une nouvelle ligne avant <tt class="code">?&gt;</tt> de <tt class="code">themes/votretheme/theme.php</tt>. Puis modifiez le contenu que vous avez collé et regardez si ça fonctionne.</li>
+        </ul>
+    </li>
 </ul>
 
 <a name="theme_php_scope"></a><h2>Champ d'application<a href="#theme_php_scope" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
@@ -124,9 +123,18 @@ ou le nom de la section (<tt class="code">section_name</tt> dans l'exemple ci-de
     <td valign="top">Constante</td>
     <td valign="top">L'emplacement des images d'évaluation. Si cette constante est définie, le script sera dirigé vers le répertoire images du thème (themes/votretheme/images/) et y cherchera les images d'évaluation. Si pas définie (défaut), les images d'évaluation seront prises dans le répertoire images qui se trouve dans le répertoire racine de Coppermine.</td>
     <td valign="top">
-		<a href="theme_graphics.htm#theme_graphics_rating">Ressources graphiques des thèmes &rarr; Images d'évaluation</a>    
+        <a href="theme_graphics.htm#theme_graphics_rating">Ressources graphiques des thèmes &rarr; Images d'évaluation</a>
     </td>
   </tr>
+  <tr>
+    <td valign="top"><a name="theme_create_theme_comment_graphic"></a>define('<strong>THEME_HAS_COMMENT_GRAPHICS</strong>',1);<a href="#theme_create_theme_comment_graphic" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">constant</td>
+    <td valign="top">The location for the comment management graphics. When the constant is set, the script will be directed to the theme's images folder, subfolder 'icons', i.e. <tt class="code">themes/yourtheme/images/icons/</tt> and look for the comment management images there. If not defined (default), the comment management images will be taken from <tt class="code">images/icons/</tt>.</td>
+    <td valign="top">
+        <a href="theme_graphics.htm#theme_graphics_comment">Graphic resources in themes &rarr; Comment management images</a>
+    </td>
+  </tr>
+
   <tr>
     <td valign="top"><a name="theme_create_theme_menu_icon"></a>define('<strong>THEME_HAS_MENU_ICONS</strong>',16);<a href="#theme_create_theme_menu_icon" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Constante</td>
@@ -138,7 +146,7 @@ ou le nom de la section (<tt class="code">section_name</tt> dans l'exemple ci-de
     <td valign="top">Constante</td>
     <td valign="top">L'emplacement des barres de navigations graphiques (&quot;ecard&quot;, &quot;slideshow&quot;, &quot;previous&quot;/&quot;next&quot;). Lorsque cette constante est définie, le script sera dirigé vers le répertoire images de votre thème (themes/votretheme/images/) et y cherchera les images de la barre de navigation. Si non définie (défaut) les images des barres graphiques seront prises dans le répertoire images à la racine de Coppermine.</td>
     <td valign="top">
-    	<a href="theme_graphics.htm#theme_graphics_nav_bar">Ressources graphiques des thèmes &rarr; Images de barre de navigation</a>        
+        <a href="theme_graphics.htm#theme_graphics_nav_bar">Ressources graphiques des thèmes &rarr; Images de barre de navigation</a>
     </td>
   </tr>
   <tr>
@@ -146,7 +154,7 @@ ou le nom de la section (<tt class="code">section_name</tt> dans l'exemple ci-de
     <td valign="top">Constante</td>
     <td valign="top">L'emplacement pour les images du négatif de film. Lorsque cette constante est définie, le script sera dirigé vers le répertoire images de votre thème (themes/votretheme/images/) et y cherchera les images du négatif de film. Si non définie (défaut) les images du négatif de film seront prises dans le répertoire images à la racine de Coppermine.</td>
     <td valign="top">
-    	Si définie, un fichier nommé <tt class="code">tile.gif</tt> doit se trouver dans le répertoire images du thème [<a href="theme_graphics.htm#theme_graphics_film_strip">Détails</a>]
+        Si définie, un fichier nommé <tt class="code">tile.gif</tt> doit se trouver dans le répertoire images du thème [<a href="theme_graphics.htm#theme_graphics_film_strip">Détails</a>]
     </td>
   </tr>
   <tr>
@@ -154,7 +162,7 @@ ou le nom de la section (<tt class="code">section_name</tt> dans l'exemple ci-de
     <td valign="top">Constante</td>
     <td valign="top">L'emplacement pour le graphisme du négatif de film. Lorsque cette constante est définie, le script sera dirigé vers le répertoire images du thème, à savoir themes/yourtheme/images/ et regardera les images de négatif de film (tile1.gif pour la partie supérieure et tile2.gif pour la partie inférieur). S'il n'est pas défini (par défaut), les images du négatif de film seront prises à partir du dossier images qui se trouve dans le dossier racine de Coppermine.</td>
     <td valign="top">
-    	Si définie, un fichier nommé <tt class="code">tile1.gif</tt> et un fichier nommé <tt class="code">tile2.gif</tt> doivent résider dans le dossier images du thème [<a href="theme_graphics.htm#theme_graphics_film_strip">Détails</a>]
+        Si définie, un fichier nommé <tt class="code">tile1.gif</tt> et un fichier nommé <tt class="code">tile2.gif</tt> doivent résider dans le dossier images du thème [<a href="theme_graphics.htm#theme_graphics_film_strip">Détails</a>]
     </td>
   </tr>
   <tr>
@@ -367,7 +375,7 @@ ou le nom de la section (<tt class="code">section_name</tt> dans l'exemple ci-de
     <td valign="top">Modifiez celle-ci pour ajouter/changer les classes CSS pour les liens du sys-menu.<br />
     Le contenu par défaut est<pre class="cpg_code code">  &lt;!-- BEGIN {BLOCK_ID} --&gt;
         &lt;a href=&quot;{HREF_TGT}&quot; title=&quot;{HREF_TITLE}&quot;&gt;{HREF_LNK}&lt;/a&gt;
-		{SPACER}
+        {SPACER}
   &lt;!-- END {BLOCK_ID} --&gt;</pre></td>
     <td valign="top"></td>
   </tr>
@@ -574,10 +582,10 @@ ou le nom de la section (<tt class="code">section_name</tt> dans l'exemple ci-de
 
 
 <div id="doc_footer">
-	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
-	</div>
+    <div class="doc_info_wrapper">
+        <span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+        <span id="doc_revision">$Revision: 8884 $</span>
+    </div>
 </div>
 </body>
 </html>

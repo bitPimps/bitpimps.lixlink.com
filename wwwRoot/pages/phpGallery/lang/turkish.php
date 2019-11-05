@@ -2,20 +2,20 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/turkish.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/turkish.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_turkish'] = 'Turkish';
@@ -98,7 +98,7 @@ $lang_errors['error'] = 'Hata'; //cpg1.5
 $lang_errors['critical_error'] = 'Kritik hata'; // cpg1.5
 $lang_errors['access_thumbnail_only'] = 'Yalnızca küçük resimleri görebilirsiniz.'; // cpg1.5
 $lang_errors['access_intermediate_only'] = 'Tam boy resimleri görmek için yetkili değilsiniz.'; // cpg1.5
-$lang_errors['access_none'] = 'Resim görüntülemek için yetkiniz yok.'; // cpg1.5  
+$lang_errors['access_none'] = 'Resim görüntülemek için yetkiniz yok.'; // cpg1.5
 $lang_errors['register_globals_title'] = 'Register Globals sind aktiviert!';// cpg1.5
 $lang_errors['register_globals_warning'] = 'PHP register_globals ayarı sunucunuzda etkindir. Güvenliğiniz için bu ayarı kuvvetle devre dışı bırakmanız önerilir.'; //cpg1.5
 
@@ -122,7 +122,7 @@ $lang_common['keywords_insert1'] = 'Anahtar kelimeler (%s ile ayırtmak)'; // cp
 $lang_common['keywords_insert2'] = 'Listeden eklemek'; // cpg1.5
 $lang_common['keyword_separator'] = 'Kelimeler ayırıcı'; //cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'space', ','=>'Virgül', ';'=>'Noktalı virgül'); // cpg1.5
-$lang_common['owner_name'] = 'Sahip'; // cpg1.5
+$lang_common['owner_name'] = 'Sahibinin adı'; // cpg1.5
 $lang_common['filename'] = 'Dosya adı'; // cpg1.5
 $lang_common['filesize'] = 'Dosya boyutu'; // cpg1.5
 $lang_common['album'] = 'Albüm'; // cpg1.5

@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/se/dev_plugin_hooks.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/se/dev_plugin_hooks.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -68,6 +68,13 @@
     <th valign="top" align="left" width="30%">Code</td>
   </tr>
   <tr>
+    <td valign="top">addpic.php</td>
+    <td valign="top"><a name="plugin_hooks_db_input_upload_file_name_addpic"></a><strong>upload_file_name</strong><a href="#plugin_hooks_db_input_upload_file_name_addpic" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">Filter</td>
+    <td valign="top">filters the file name before it will be processed by the replace_forbidden function during batch-add</td>
+    <td valign="top"><textarea class="samplecode" style="width:100%">$file_name = CPGPluginAPI::filter('upload_file_name', $file_name);</textarea></td>
+  </tr>
+  <tr>
     <td valign="top">banning.php</td>
     <td valign="top"><a name="plugin_hooks_banning_ip_information"></a><strong>ip_information</strong><a href="#plugin_hooks_banning_ip_information" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Filter</td>
@@ -97,16 +104,31 @@
   </tr>
   <tr>
     <td valign="top">db_input.php</td>
+    <td valign="top"><a name="plugin_hooks_comment_update"></a><strong>comment_update</strong><a href="#plugin_hooks_comment_update" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">Action</td>
+    <td valign="top">Plugin action to be called when comment is updated</td>
+    <td valign="top"><textarea class="samplecode" style="width:100%">CPGPluginAPI::action('comment_update', $msg_id);</textarea></td>
+  </tr>
+  <tr>
+    <td valign="top">db_input.php</td>
     <td valign="top"><a name="plugin_hooks_captcha_comment_validate"></a><strong>captcha_comment_validate</strong><a href="#plugin_hooks_captcha_comment_validate" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Action</td>
-    <td valign="top">action when CAPTCHA is enabled and allows you to override the standard CAPTCHA validation for comments</td>
+    <td valign="top">Plugin action to be called if CAPTCHA is enabled - allows you to override the standard CAPTCHA validation for comments</td>
     <td valign="top"><textarea class="samplecode" style="width:100%">CPGPluginAPI::action('captcha_comment_validate', null);</textarea></td>
   </tr>
   <tr>
     <td valign="top">db_input.php</td>
-    <td valign="top"><a name="plugin_hooks_db_input_upload_file_name"></a><strong>upload_file_name</strong><a href="#plugin_hooks_db_input_upload_file_name" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top"><a name="plugin_hooks_comment_add"></a><strong>comment_add</strong><a href="#plugin_hooks_comment_add" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">Action</td>
+    <td valign="top">Plugin action to be called when comment is added</td>
+    <td valign="top"><textarea class="samplecode" style="width:100%">CPGPluginAPI::action('comment_add', array('msg_id' => cpg_db_last_insert_id(), 'pid' => $pid, 'msg_author' => $msg_author, 'author_id' => '0', 'msg_body' => $msg_body, 'approval' => $app));
+    CPGPluginAPI::action('comment_add', array('msg_id' => cpg_db_last_insert_id(), 'pid' => $pid, 'msg_author' => $msg_author, 'author_id' => USER_ID, 'msg_body' => $msg_body, 'approval' => $app));</textarea></td>
+  </tr>
+  <tr>
+    <td valign="top">db_input.php</td>
+    <td valign="top"><a name="plugin_hooks_db_input_upload_file_name_db_input"></a><strong>upload_file_name</strong><a href="#plugin_hooks_db_input_upload_file_name_db_input" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Filter</td>
-    <td valign="top">filters the file name before it will be processed by the replace_forbidden function</td>
+    <td valign="top">filters the file name before it will be processed by the replace_forbidden function during HTTP flash upload</td>
     <td valign="top"><textarea class="samplecode" style="width:100%">$picture_name = CPGPluginAPI::filter('upload_file_name', $picture_name);</textarea></td>
   </tr>
   <tr>
@@ -198,7 +220,7 @@
     <td valign="top"><a name="plugin_hooks_filename_user_caption_params"></a><strong>user_caption_params</strong><a href="#plugin_hooks_filename_user_caption_params" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Filter</td>
     <td valign="top"></td>
-    <td valign="top"><textarea class="samplecode" style="width:100%">$params = CPGPluginAPI::filter('user_caption_params', 
+    <td valign="top"><textarea class="samplecode" style="width:100%">$params = CPGPluginAPI::filter('user_caption_params',
                                array('{USER_NAME}' => $user['user_name'],
                                      '{USER_ID}' => $user['user_id'],
                                      '{ALBUMS}' => $albums_txt,
@@ -285,6 +307,13 @@
   </tr>
   <tr>
     <td valign="top">reviewcom.php</td>
+    <td valign="top"><a name="plugin_hooks_reviewcom_comment_approve"></a><strong>comment_approve</strong><a href="#plugin_hooks_reviewcom_comment_approve" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">Action</td>
+    <td valign="top">Plugin action to be called when one or more comments are approved</td>
+    <td valign="top"><textarea class="samplecode" style="width:100%">CPGPluginAPI::action('comment_approve', array('approved_yes_set' => $approved_yes_set, 'approved_no_set' => $approved_no_set));</textarea></td>
+  </tr>
+  <tr>
+    <td valign="top">reviewcom.php</td>
     <td valign="top"><a name="plugin_hooks_reviewcom_ip_information"></a><strong>ip_information</strong><a href="#plugin_hooks_reviewcom_ip_information" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Filter</td>
     <td valign="top">Filters additional information to an IP address (empty out of the box). Use this hook to add information <em>after</em> the output of an IP address.</td>
@@ -334,9 +363,9 @@
   </tr>
   <tr>
     <td valign="top">upload.php</td>
-    <td valign="top"><a name="plugin_hooks_upload_upload_file_name"></a><strong>upload_file_name</strong><a href="#plugin_hooks_upload_upload_file_name" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top"><a name="plugin_hooks_upload_upload_file_name_upload"></a><strong>upload_file_name</strong><a href="#plugin_hooks_upload_upload_file_name_upload" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Filter</td>
-    <td valign="top">filters the file name before it will be processed by the replace_forbidden function</td>
+    <td valign="top">filters the file name before it will be processed by the replace_forbidden function during simple HTTP upload</td>
     <td valign="top"><textarea class="samplecode" style="width:100%">$picture_name = CPGPluginAPI::filter('upload_file_name', $picture_name);</textarea></td>
   </tr>
   <tr>
@@ -492,7 +521,7 @@
     <td valign="top">Filter</td>
     <td valign="top">executed after the more general "thumb_caption" plugin</td>
     <td valign="top"><textarea class="samplecode" style="width:100%">$rowset = CPGPluginAPI::filter('thumb_caption_favpics',$rowset);</textarea></td>
-  </tr>  
+  </tr>
   <tr>
     <td valign="top">include/functions.inc.php</td>
     <td valign="top"><a name="plugin_hooks_thumb_html_title"></a><strong>thumb_html_title</strong><a href="#plugin_hooks_thumb_html_title" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
@@ -740,16 +769,22 @@ $template_image_comments = CPGPluginAPI::filter('theme_edit_comment', $template_
     <td valign="top">include/themes.inc.php<br />themes/xxx/theme.php</td>
     <td valign="top"><a name="plugin_hooks_filename_theme_thumbnails_wrapper_start"></a><strong>theme_thumbnails_wrapper_start</strong><a href="#plugin_hooks_filename_theme_thumbnails_wrapper_start" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Action</td>
-    <td valign="top">Allows plugin authors to output content before the thumbnail table starts, which is particularly helpfull top start a &lt;form&gt;-tag.</td>
+    <td valign="top">Allows plugin authors to output content before the thumbnail table starts, which is particularly helpful top start a &lt;form&gt;-tag.</td>
     <td valign="top"><textarea class="samplecode" style="width:100%">CPGPluginAPI::action('theme_thumbnails_wrapper_start', null);</textarea></td>
+  </tr>
+  <tr>
+    <td valign="top">include/themes.inc.php<br />themes/xxx/theme.php</td>
+    <td valign="top"><a name="plugin_hooks_filename_theme_thumbnails_header"></a><strong>theme_thumbnails_header</strong><a href="#plugin_hooks_filename_theme_thumbnails_header" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">Filter</td>
+    <td valign="top">Allows plugin authors to output content before the first row of thumbnails, after the opening table tag. Can be used to add a header row to the table.</td>
+    <td valign="top"><textarea class="samplecode" style="width:100%">$header = CPGPluginAPI::filter('theme_thumbnails_header', $header);</textarea></td>
   </tr>
   <tr>
     <td valign="top">include/themes.inc.php<br />themes/xxx/theme.php</td>
     <td valign="top"><a name="plugin_hooks_filename_theme_thumbnails_footer"></a><strong>theme_thumbnails_footer</strong><a href="#plugin_hooks_filename_theme_thumbnails_footer" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Filter</td>
-    <td valign="top">Allows plugin authors to output content after the last row of thumbnails, before the closing table tag. Can be used to add a footer row of the table</td>
-    <td valign="top"><textarea class="samplecode" style="width:100%">$footer = CPGPluginAPI::filter('theme_thumbnails_footer', $footer);
-echo $footer;</textarea></td>
+    <td valign="top">Allows plugin authors to output content after the last row of thumbnails, before the closing table tag. Can be used to add a footer row to the table.</td>
+    <td valign="top"><textarea class="samplecode" style="width:100%">$footer = CPGPluginAPI::filter('theme_thumbnails_footer', $footer);</textarea></td>
   </tr>
   <tr>
     <td valign="top">include/themes.inc.php<br />themes/xxx/theme.php</td>
@@ -763,7 +798,14 @@ echo $footer;</textarea></td>
     <td valign="top"><a name="plugin_hooks_filename_theme_thumbnails_title"></a><strong>theme_thumbnails_title</strong><a href="#plugin_hooks_filename_theme_thumbnails_title" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">Filter</td>
     <td valign="top">filters the $param array which allows you to modify the title row of the thumbnails table.</td>
-    <td valign="top"><textarea class="samplecode" style="width:100%">$params = CPGPluginAPI::filter('theme_thumbnails_title', $param);</textarea></td>
+    <td valign="top"><textarea class="samplecode" style="width:100%">$param = CPGPluginAPI::filter('theme_thumbnails_title', $param);</textarea></td>
+  </tr>
+  <tr>
+    <td valign="top">include/themes.inc.php<br />themes/xxx/theme.php</td>
+    <td valign="top"><a name="plugin_hooks_theme_album_params"></a><strong>theme_album_params</strong><a href="#plugin_hooks_theme_album_params" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">Filter</td>
+    <td valign="top">filters the $params array which allows you to modify album cells in the index.php pages.</td>
+    <td valign="top"><textarea class="samplecode" style="width:100%">$params = CPGPluginAPI::filter('theme_album_params', $params);</textarea></td>
   </tr>
   <tr>
     <td valign="top">include/themes.inc.php<br />themes/xxx/theme.php</td>
@@ -835,6 +877,9 @@ echo $footer;</textarea></td>
                 <li class="floatleft"><a href="#plugin_hooks_captcha_ecard_validate">captcha_ecard_validate</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_captcha_register_print">captcha_register_print</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_captcha_register_validate">captcha_register_validate</a></li>
+                <li class="floatleft"><a href="#plugin_hooks_comment_add">comment_add</a></li>
+                <li class="floatleft"><a href="#plugin_hooks_reviewcom_comment_approve">comment_approve</a></li>
+                <li class="floatleft"><a href="#plugin_hooks_comment_update">comment_update</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_cpg_mail_sender_email">cpg_mail_sender_email</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_cpg_mail_to_email">cpg_mail_to_email</a></li>
             </ul>
@@ -974,11 +1019,13 @@ echo $footer;</textarea></td>
             <ul>
                 <li class="floatleft"><a href="#plugin_hooks_filename_template_html">template_html</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_theme_add_comment">theme_add_comment</a></li>
+                <li class="floatleft"><a href="#plugin_hooks_theme_album_params">theme_album_params</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_thumbnail_params">theme_display_thumbnails_params</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_theme_add_comment">theme_edit_comment</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_theme_pageheader_params">theme_pageheader_params</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_theme_thumbnails_album_types">theme_thumbnails_album_types</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_theme_thumbnails_footer">theme_thumbnails_footer</a></li>
+                <li class="floatleft"><a href="#plugin_hooks_filename_theme_thumbnails_header">theme_thumbnails_header</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_theme_thumbnails_title">theme_thumbnails_title</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_theme_thumbnails_wrapper_end">theme_thumbnails_wrapper_end</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_theme_thumbnails_wrapper_start">theme_thumbnails_wrapper_start</a></li>
@@ -1008,8 +1055,9 @@ echo $footer;</textarea></td>
         </td>
         <td>
             <ul>
-                <li class="floatleft"><a href="#plugin_hooks_db_input_upload_file_name">upload_file_name</a> (db_input.php)</li>
-                <li class="floatleft"><a href="#plugin_hooks_upload_upload_file_name">upload_file_name</a> (upload.php)</li>
+                <li class="floatleft"><a href="#plugin_hooks_db_input_upload_file_name_addpic">upload_file_name</a> (addpic.php)</li>
+                <li class="floatleft"><a href="#plugin_hooks_db_input_upload_file_name_db_input">upload_file_name</a> (db_input.php)</li>
+                <li class="floatleft"><a href="#plugin_hooks_upload_upload_file_name_upload">upload_file_name</a> (upload.php)</li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_upload_form">upload_form</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_upload_html_pre_move">upload_html_pre_move</a></li>
                 <li class="floatleft"><a href="#plugin_hooks_filename_upload_options">upload_options</a></li>
@@ -1072,6 +1120,7 @@ list($pic_title) = CPGPluginAPI::filter('<a href="#plugin_hooks_thumb_html_title
 list($pic_title) = CPGPluginAPI::filter('<a href="#plugin_hooks_thumb_strip_html_title">thumb_strip_html_title</a>', array($pic_title, $row));<br />
 $pic_row = CPGPluginAPI::filter('<a href="#plugin_hooks_filename_thumb_data">thumb_data</a>',$pic_row);<br />
 $params = CPGPluginAPI::filter('<a href="#plugin_hooks_filename_thumbnail_params">theme_display_thumbnails_params</a>', $params);<br />
+$header = CPGPluginAPI::filter('<a href="#plugin_hooks_filename_theme_thumbnails_header">theme_thumbnails_header</a>', $header);<br />
 $footer = CPGPluginAPI::filter('<a href="#plugin_hooks_filename_theme_thumbnails_footer">theme_thumbnails_footer</a>', $footer);<br />
 $params = CPGPluginAPI::filter('<a href="#plugin_hooks_filename_theme_thumbnails_title">theme_thumbnails_title</a>', $param);</div>
 <p>These two filters are used specifically to manipulate the data of a picture.</p>
@@ -1130,8 +1179,8 @@ $thisplugin-&gt;add_filter('<a href="#plugin_hooks_filename_admin_menu">admin_me
 function add_admin_button($admin_menu){
     $new_button = '&lt;div class="admin_menu admin_float"&gt;&lt;a href="./menu_link.php" title="menu link"&gt;MENU LINK&lt;/a&gt;&lt;/div&gt;';
     $look_for = '&lt;!-- END export --&gt;';
-    $admin_menu = str_replace($look_for, $look_for . $new_button, $admin_menu); 
-    
+    $admin_menu = str_replace($look_for, $look_for . $new_button, $admin_menu);
+
     return $admin_menu;
 }</pre><br />
 For the sys &amp; sub menus you have to take another approach:<br />
@@ -1194,7 +1243,7 @@ $upload_choices = CPGPluginAPI::filter('upload_options',$upload_choices);
 </pre>
 <p>The key for your upload method must be a simple key (with no spaces or special characters) that can be used as a GET parameter to select your upload form.  The value that corresponds to this key is the label shown on the dropdown list.  Here's an example of a plugin function that uses this hook to add an upload choice to the dropdown box:</p>
 <pre class="cpg_code">
-function myfunction_add_upload_option($upload_choices) 
+function myfunction_add_upload_option($upload_choices)
 {
     $more_upload_choices = array('alt_upload' => 'Alternate Upload Mechanism');
     return array_merge($upload_choices, $more_upload_choices);
@@ -1213,7 +1262,7 @@ function myfunction_add_upload_option($upload_choices)
 </pre>
 <p>Here is a complete example of a plugin function that displays an upload form:</p>
 <pre class="cpg_code">
-function myfunction_display_upload_form($upload_settings) 
+function myfunction_display_upload_form($upload_settings)
 {
     list($upload_form, $upload_select) = $upload_settings;
     if ($upload_form != 'alt_upload') {
@@ -1245,7 +1294,7 @@ EOT;
 </pre>
 <p>As with 'upload_form', $upload_form is the choice of upload method.  Check this for your upload method, then respond appropriately.  You should also exit once you have processed your upload form.  Here is an example plugin function:</p>
 <pre class="cpg_code">
-function myfunction_process_upload_form($upload_form) 
+function myfunction_process_upload_form($upload_form)
 {
     if ($upload_form != 'alt_upload') {
         return;
@@ -1276,7 +1325,7 @@ $params = CPGPluginAPI::filter('theme_display_thumbnails_params', $params);
 </pre>
 <p>Here's an example of a plugin function that adds more thumbnail information that can be tagged in $template_thumbnail_view:</p>
 <pre class="cpg_code">
-function myfunction_add_params($params) 
+function myfunction_add_params($params)
 {
     global $thumb;
     $more_params = array(
@@ -1300,8 +1349,8 @@ function myfunction_add_params($params)
 
 <div id="doc_footer">
     <div class="doc_info_wrapper">
-        <span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-        <span id="doc_revision">$Revision: 8304 $</span>
+        <span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+        <span id="doc_revision">$Revision: 8884 $</span>
     </div>
 </div>
 </body>

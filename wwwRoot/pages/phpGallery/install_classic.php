@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,17 +10,17 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/install_classic.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/install_classic.php $
+  $Revision: 8884 $
 **********************************************/
 
 // Check if standalone is installed in a portal like phpNuke
-if (is_dir('../../modules') && $_REQUEST['continue_anyway'] != 1) {
+if (is_dir('../../modules') && isset($_REQUEST['continue_anyway']) && $_REQUEST['continue_anyway'] != 1) {
     die(
         "<html><body><h1>ERROR</h1>You seem to be trying to install the standalone Coppermine into your Nuke portal.<br />
          This version can only be used as standalone!<br />
-         Some server setups might display this warning even though you don't have a nuke portal installed - if this is the case for you, <a href=\"" . $PHP_SELF . "?continue_anyway=1\">continue</a> with the install.
+         Some server setups might display this warning even though you don't have a nuke portal installed - if this is the case for you, <a href=\"" . $_SERVER['PHP_SELF'] . "?continue_anyway=1\">continue</a> with the install.
          If you are using a nuke portal, you might want to take a look into <a href=\"http://www.cpgnuke.com/\">CpgNuke</a> or use one of the (unsupported)
          <a href=\"http://sourceforge.net/project/showfiles.php?group_id=89658&amp;package_id=95984\">coppermine ports</a>
          - do not continue!</body></html>"
@@ -214,7 +214,7 @@ function html_installer_locked()
     global $DFLT;
 
     ?>
-      <form action="index_old.php" style="margin:0px;padding:0px" name="cpgform" id="cpgform">
+      <form action="index.php" style="margin:0px;padding:0px" name="cpgform" id="cpgform">
         <table width="100%" border="0" cellpadding="0" cellspacing="1" class="maintable">
          <tr>
           <td class="tableh1" colspan="2"><h2>The installer is locked</h2>

@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/translation.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/translation.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -49,7 +49,7 @@
 <p>Il y a déjà beaucoup de langues supportées par Coppermine; pour le nombre de fichiers de langues pour Coppermine augmente, il y a peut être  des traductions s qui ne sont pas inclues dans le paquet que vous avez téléchargé. Avant de commencer à travailler sur une traduction, regardez ici:
 <ul>
 <li>Est ce que la langue que vous cherchez est inclue dans le paquetage de Coppermine que vous avez téléchargé ?</li>
-<li>Est ce que le fichier langue existe déjà sur le SVN ? Regardez dans <a href="http://coppermine.svn.sourceforge.net/viewvc/coppermine/trunk/cpg1.5.x/lang/" rel="external" class="external">http://coppermine.svn.sourceforge.net/viewvc/coppermine/trunk/cpg1.5.x/lang/</a></li>
+<li>Est ce que le fichier langue existe déjà sur le SVN ? Regardez dans <a href="http://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/" rel="external" class="external">http://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/</a></li>
 <li>Ets ce que quelqu'un a récemment dit qu'il faisait cette traduction dans le sujet du forum &quot;<a href="http://coppermine-gallery.net/forum/index.php?topic=44308.0">[Help wanted]: Translations for CPG1.5.x</a>&quot;? Lisez ce sujet attentivement afin de vérifier que cette traduction n'a pas déjà été faite ou est en train d'être faite. Nous apprécions votre effort, et nous connaissons  également la valeur de votre temps, de sorte qu'il serait dommage que vous et un autre traducteur ayez passé du temps pour présenter deux versions de la même langue.
 Vous trouverez aussi des informations qui ne se trouvent pas dans cette documentation ...</li>
 </ul>
@@ -172,7 +172,7 @@ Merci de ne pas agresser le traducteur sur le forum, mais proposez une traductio
 </div>
 
 <a name="translation_work_in_progress"></a><h2>Travail en constante progression<a href="#translation_work_in_progress" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
-<p>Coppermine, comme tout le contenu sur la toile, est un travail en constante évolution. Votre copie du fichier english.php (qui doit toujours être utilisé comme fichier de référence pour votre traduction) est peut être dépassé. C'est la raison pour laquelle il est indispensable de toujours vous référer a la <a href="http://coppermine.svn.sourceforge.net/viewvc/coppermine/trunk/cpg1.5.x/lang/"> Section des langues sur le SVN</a> afin d'être sur de toujours avoir le plus récent fichier de langue anglaise (version traducteur) devant vous avant de commencer votre traduction (et bien sur la version la plus récente de ce document, parce qu'il peut ya avoir de nouvelles choses qui y ont été ajoutées depuis la publication initiale de celui-ci). Rappel: si une option/chaîne de remplacement n'est pas traduite, elle ne sera pas visible dans votre langue.</p>
+<p>Coppermine, comme tout le contenu sur la toile, est un travail en constante évolution. Votre copie du fichier english.php (qui doit toujours être utilisé comme fichier de référence pour votre traduction) est peut être dépassé. C'est la raison pour laquelle il est indispensable de toujours vous référer a la <a href="http://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/"> Section des langues sur le SVN</a> afin d'être sur de toujours avoir le plus récent fichier de langue anglaise (version traducteur) devant vous avant de commencer votre traduction (et bien sur la version la plus récente de ce document, parce qu'il peut ya avoir de nouvelles choses qui y ont été ajoutées depuis la publication initiale de celui-ci). Rappel: si une option/chaîne de remplacement n'est pas traduite, elle ne sera pas visible dans votre langue.</p>
 
 <a name="translation_initial_translation"></a><h2>Traduction initiale pour publication<a href="#translation_initial_translation" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <p>Lors de la préparation de la publication d'une version, l'équipe de développement gèle le travail de développement afin de permettre aux traducteurs de soumettre leurs traductions. Si vous souhaitez traduire, faites le, le plus rapidement possible et renvoyez votre traduction immédiatement pour être sur que la nouvelle version de Coppermine sera publiée <strong>avec</strong> votre fichier langue.</p>
@@ -232,7 +232,7 @@ $lang_meta_album_names['datebrowse'] = 'Naviguer par date'; //cpg1.5</pre></li>
         	<li>Modifiez la balise META de description (<tt class="">&lt;meta name="description" content="..."&gt;</tt>) de manière a avoir une description sommaire du contenu de la page (dans votre langue).</li>
         	<li>Laissez le nom de fichier intact: Ne traduisez pas les noms de fichiers!</li>
         	<li>Laissez le nom des ancres intact: le modifiez pas les noms d'ancres (comme <tt class="code">&lt;a name="copyright"&gt;&lt;/a&gt;</tt>), même si le mot "copyright" dans cet exemple ne veut pas dire la même chose (ou même si il ne veut rien dire) dans votre langue.<br />Cette disposition vise à faire en sorte que les supporters et les utilisateurs puissent facilement se référer aux sections de la doc qu'ils ne comprennent pas.</li>
-        	<li>Laissez les sections JavaScript-sections intactes: elles sont utilisées pour permettre la navigation par la suite - n'y touchez pas. Particulièrement la ligne <tt class="code">dateRevision(' $LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $ ', ' $Revision: 8304 $ ');</tt> ou similaire qui <strong>ne doit pas</strong> être modifiée par vous: elle sera mise à jour lorsque votre contribution sera ajoutée au pack de Coppermine.</li>
+        	<li>Laissez les sections JavaScript-sections intactes: elles sont utilisées pour permettre la navigation par la suite - n'y touchez pas. Particulièrement la ligne <tt class="code">dateRevision(' $LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $ ', ' $Revision: 8884 $ ');</tt> ou similaire qui <strong>ne doit pas</strong> être modifiée par vous: elle sera mise à jour lorsque votre contribution sera ajoutée au pack de Coppermine.</li>
         	<li>Ne modifiez <strong>pas</strong> la section infos de version SVN  en haut de page (qui sont commentées) - elle doit être utilisée pour des besoins internes par la suite.</li>
         	<li>N'améliorez pas votre version de la doc (celle que vous avez traduite): vous pouvez trouver qu'il manque des choses importantes dans la documentation en Anglais ou qu'il y a des choses inappropriées ou manquantes, n'ajoutez pas de sections dans votre traduction de la doc qui n'existerait pas dans la doc originale en Anglais. Malgré tout, nous ne pensons pas que ce soit une bonne idée: si vous avez une suggestion pour améliorer la documentation, nous aimerions pouvoir en faire profiter l'ensemble de la communauté. Ceci dit: merci de ne pas juste ajouter des sections dans vote copie locale de votre traduction - Postez vos suggestions publiquement afin que vos améliorations puissent aller aussi bien dans votre traduction que dans le fichier Anglais.</li>
         	<li>Traduisez les exemples si c'est possible: Il est conseillé de traduite les exemples dans votre langue: l'exemple de nom d'utilisateur Anglais "John Doe" peut bien entendu être changé dans un nom d'exemple typiquement Français comme "Jean Dupont" par exemple. L'exemple d'URL <tt class="code">http://yoursite.tld/your_coppermine_folder/</tt> peut être traduit en <tt class="code">http://votre_site.com/votre_repertoire_coppermine/</tt> dans la partie Française de la doc.</li>
@@ -268,8 +268,8 @@ $lang_meta_album_names['datebrowse'] = 'Naviguer par date'; //cpg1.5</pre></li>
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,18 +10,15 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/plugins/visiblehookpoints/index.php $
-  $Revision: 8304 $
-  
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/plugins/visiblehookpoints/index.php $
+  $Revision: 8884 $
 **********************************************/
 
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // Call basic functions, etc.
 require_once('include/init.inc.php');
-
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
-
 
 //####################################################################################################
 //#############################  INIT OF SCRIPT VARIABLES  ###########################################
@@ -31,9 +28,9 @@ if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
 //$action = isset($_POST['action']) ? $_POST['action']: $_GET['action'];
 //$superCage->get->getInt('hookpoints'){gaugau}
 if($superCage->post->keyExists('action')){
-	$action = $superCage->post->getAlpha('action');
+    $action = $superCage->post->getAlpha('action');
 }else{
-	$action = $superCage->get->getAlpha('action');
+    $action = $superCage->get->getAlpha('action');
 }
 
 
@@ -53,8 +50,8 @@ if (!GALLERY_ADMIN_MODE) {
 
 switch ($action) {
   case 'config':
-	if ($superCage->post->keyExists('visiblehookpoints_display')) {
-	  if ($superCage->post->getInt('visiblehookpoints_display') == 1) {
+    if ($superCage->post->keyExists('visiblehookpoints_display')) {
+      if ($superCage->post->getInt('visiblehookpoints_display') == 1) {
         $value = 1;
       } elseif ($superCage->post->getInt('visiblehookpoints_display') == 0) {
           $value = 0;
@@ -68,22 +65,22 @@ switch ($action) {
             $redirect = "index.php?file=visiblehookpoints/index&action=config";
             header($header_location . $redirect);
             pageheader('Information', "<meta http-equiv=\"refresh\" content=\"0;url=$redirect\" />");
-            msg_box('Information', 'Settings changed for Visible Hookpoints Plugin', 'continue', $redirect);
+            msg_box('Information', $lang_plugin_php['visiblehookpoints_settings_saved'], 'continue', $redirect);
             pagefooter();
             ob_end_flush();
             exit;
         } else {
-            cpgRedirectPage('index.php?file=visiblehookpoints/index&action=config', $lang_common['information'], 'Settings changed for Visible Hookpoints Plugin', 1);
+            cpgRedirectPage('index.php?file=visiblehookpoints/index&action=config', $lang_common['information'], $lang_plugin_php['visiblehookpoints_settings_saved'], 1);
         }
       }
     } else {
       $message_id = '';
     }
-    pageheader('Configuration of plugin &quot;Visible HookPoints&quot;');
+    pageheader($lang_plugin_php['visiblehookpoints_config_name'] . ' - ' . $lang_plugin_php['visiblehookpoints_plugin_config']);
     visiblehookpoints_configure();
           break;
   default:
-          cpg_die (ERROR, 'Plugin &quot;Visible HookPoints&quot;: Unknown action value', __FILE__, __LINE__);
+          cpg_die (ERROR, $lang_plugin_php['visiblehookpoints_error'], __FILE__, __LINE__);
 }
 
 pagefooter();

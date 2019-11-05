@@ -9,11 +9,9 @@
 <link rel="shortcut icon" href="../../favicon.ico" />
 <!--
   SVN version info:
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/albums/userpics/index.php $
-  $Revision: 8304 $
-  $LastChangedBy: eenemeenemuu $
-  $Date: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/albums/userpics/index.php $
+  $Revision: 8884 $
 -->
 </head>
 <body>

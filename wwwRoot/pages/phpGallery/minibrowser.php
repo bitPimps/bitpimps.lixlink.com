@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/minibrowser.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/minibrowser.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -32,7 +32,7 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
     $folder_regex = '/^([A-Za-z]:){0,1}[0-9A-Za-z\\.\\\\_\\-,&\' ]+$/';
 } else {
     // *nix server
-    $folder_prefix = '/';
+    $folder_prefix = '';
     $folder_sep = '/';
     $folder_regex = '/^[0-9A-Za-z\\.\\/_\\-,&\' ]+$/';
 }
@@ -47,16 +47,8 @@ if ($superCage->get->keyExists('folder') && ($matches = $superCage->get->getMatc
     $folder = '';
 }
 
-if ($superCage->get->keyExists('startfolder') && ($matches = $superCage->get->getMatched('startfolder', $folder_regex))) {
-    $startfolder = rawurldecode($mq ? stripslashes($matches[0]) : $matches[0]);
-} elseif ($superCage->post->keyExists('folder') && ($matches = $superCage->post->getMatched('startfolder', $folder_regex))) {
-    $startfolder = rawurldecode($mq ? stripslashes($matches[0]) : $matches[0]);
-} else {
-    $startfolder = '';
-}
-
-if (($folder == '') && ($startfolder != '')) {
-    $folder = $startfolder;
+if (strpos(cpg_normalize_path($folder), rtrim($CONFIG['fullpath'], '/')) !== 0) {
+    $folder = rtrim($CONFIG['fullpath'], '/').$folder_sep;
 }
 
 if ($superCage->get->keyExists('hidefolders') && ($matches = $superCage->get->getMatched('hidefolders', $folder_regex))) {
@@ -76,6 +68,10 @@ if ($superCage->get->keyExists('limitfolder') && $matches = $superCage->get->get
     $limitfolder = rawurldecode($mq ? stripslashes($matches[0]) : $matches[0]);
 } else {
     $limitfolder = '';
+}
+
+if (strpos(cpg_normalize_path($limitfolder), rtrim($CONFIG['fullpath'], '/')) !== 0) {
+    $limitfolder = rtrim($CONFIG['fullpath'], '/').$folder_sep;
 }
 
 if ($superCage->get->keyExists('linktarget') && ($matches = $superCage->get->getMatched('linktarget', $folder_regex))) {
@@ -161,7 +157,7 @@ EOT;
 
 starttable(-2, $lang_minibrowser_php['select_directory'], 2);
 if (!GALLERY_ADMIN_MODE) {
-    cpg_die(ERROR, $lang_errors['access_denied'], __FILE__, __LINE__); 
+    cpg_die(ERROR, $lang_errors['access_denied'], __FILE__, __LINE__);
 }
 
 // Remove $base_folder because it doesn't appear necessary and breaks on Windows servers
@@ -224,7 +220,7 @@ if ($linktarget != '') {
         } // end foreach
     } // end is_array
     if ($allowed_file_counter!=0) {
-        echo '<a href="'.$linktarget.'?startdir='.rtrim(str_replace($limitfolder, '',$folder), $folder_sep).'" class="admin_menu" target="_parent">'.cpg_fetch_icon('ok', 2) . $lang_common['ok'].'</a>' . $newline;
+        echo '<a href="'.$linktarget.'?startdir='.rtrim(substr($folder, strlen($limitfolder)), $folder_sep).'" class="admin_menu" target="_parent">'.cpg_fetch_icon('ok', 2) . $lang_common['ok'].'</a>' . $newline;
     } // determine if we should display a submit button - END BLOCK
 } else {
     echo '<input type="submit" name="submit" value="'.$lang_common['ok'].'" class="button" />' . $newline;

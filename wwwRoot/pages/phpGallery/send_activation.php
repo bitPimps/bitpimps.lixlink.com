@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/send_activation.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/send_activation.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -39,9 +39,9 @@ if ($superCage->post->KeyExists('email') && $superCage->post->testEmail('email')
 
     $sql = "SELECT user_id, user_group, user_active, user_name, user_email, user_actkey FROM {$CONFIG['TABLE_USERS']} WHERE user_email = '$emailaddress' AND user_active = 'NO'";
     $results = cpg_db_query($sql);
-    
+
     if (mysql_num_rows($results)) { // something has been found start
-    
+
         $USER_DATA = mysql_fetch_assoc($results);
 
         $act_link = rtrim($CONFIG['site_url'], '/') . '/register.php?activate=' . $USER_DATA['user_actkey'];
@@ -51,7 +51,7 @@ if ($superCage->post->KeyExists('email') && $superCage->post->testEmail('email')
             '{USER_NAME}' => $USER_DATA['user_name'],
             '{ACT_LINK}' => $act_link,
         );
-        
+
         if (!cpg_mail($USER_DATA['user_email'], sprintf($lang_register_php['confirm_email_subject'], $CONFIG['gallery_name']), nl2br(strtr($lang_register_php['confirm_email'], $template_vars)))) {
             cpg_die(CRITICAL_ERROR, $lang_register_php['failed_sending_email'], __FILE__, __LINE__);
         }

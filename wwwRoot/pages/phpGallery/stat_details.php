@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/stat_details.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/stat_details.php $
+  $Revision: 8884 $
 **********************************************/
 
 // Todo list (stuff the hasn't been implemented yet):
@@ -275,7 +275,7 @@ if ($type == 'vote' && $pid != '') { // type == vote start
           $totalVotesSum = $totalVotesSum + $row['totalVotes'];
           $loopCounter = 0;
     }
-    
+
     if (defined('THEME_HAS_RATING_GRAPHICS')) {
         $prefix = $THEME_DIR;
     } else {
@@ -391,7 +391,7 @@ EOT;
       mysql_free_result($result);
 
       // Calculation for pagination tabs and query limit
-      $numPages = ceil($count/$amount);
+      $numPages = max(1, ceil($count/$amount));
       $start = ($page - 1) * $amount;
       if ($start < 0) {
           $start = 0;

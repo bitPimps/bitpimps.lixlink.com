@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/thumbnails.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/thumbnails.php $
+  $Revision: 8884 $
 **********************************************/
 
 /**
@@ -52,7 +52,7 @@ if ($superCage->get->keyExists('sort')) {
     $USER['sort'] = $superCage->get->getAlpha('sort');
 }
 
-if ($superCage->get->keyExists('cat')) {
+if ($superCage->get->testInt('cat')) {
     $cat = $superCage->get->getInt('cat');
 }
 
@@ -71,7 +71,7 @@ if ($superCage->get->keyExists('album')) {
 if ($superCage->get->keyExists('search')) {
 
     // find out if a parameter has been submitted at all
-    $allowed = array('title', 'caption', 'keywords', 'filename', 'pic_raw_ip', 'pic_hdr_ip', 'user1', 'user2', 'user3', 'user4', 'type');
+    $allowed = array('title', 'caption', 'keywords', 'filename', 'pic_raw_ip', 'pic_hdr_ip', 'user1', 'user2', 'user3', 'user4', 'type', 'owner_name', 'newer_than', 'older_than');
 
     foreach ($allowed as $key) {
         if ($superCage->get->keyExists($key)) {
@@ -80,18 +80,14 @@ if ($superCage->get->keyExists('search')) {
             unset($USER['search']['params'][$key]);
         }
     }
-    
+
     //here again the use of getRaw, but it will be sanitized in search.inc.php
     $USER['search']['search'] = utf_replace($superCage->get->getRaw('search'));
     $USER['search']['search'] = str_replace('&quot;', '\'', $USER['search']['search']);
     $album = 'search';
 }
 
-if ($superCage->get->keyExists('page')) {
-    $page = max($superCage->get->getInt('page'), 1);
-} else {
-    $page = 1;
-}
+$page = $superCage->get->testInt('page') ? max($superCage->get->getInt('page'), 1) : 1;
 
 $breadcrumb = '';
 $breadcrumb_text = '';
@@ -112,31 +108,33 @@ if (isset($album) && is_numeric($album)) {
     }
 
     mysql_free_result($result);
-    
-    //show sort options only when not a meta album
-    $js_sort_vars = array(
-        'aid'           => $album,
-        'page'          => $page,
-        'sort_name'     => $lang_thumb_view['name'],
-        'sort_title'    => $lang_common['title'],
-        'sort_date'     => $lang_thumb_view['date'],
-        'sort_position' => $lang_thumb_view['position'],
-        'sort_ta'       => $lang_thumb_view['sort_ta'],
-        'sort_td'       => $lang_thumb_view['sort_td'],
-        'sort_na'       => $lang_thumb_view['sort_na'],
-        'sort_nd'       => $lang_thumb_view['sort_nd'],
-        'sort_da'       => $lang_thumb_view['sort_da'],
-        'sort_dd'       => $lang_thumb_view['sort_dd'],
-        'sort_pa'       => $lang_thumb_view['sort_pa'],
-        'sort_pd'       => $lang_thumb_view['sort_pd']
-    );
-    
-    set_js_var('sort_vars', $js_sort_vars);
-    js_include('js/thumbnails.js');
+
+    if ($CONFIG['custom_sortorder_thumbs']) {
+        //show sort options only when not a meta album
+        $js_sort_vars = array(
+            'aid'           => $album,
+            'page'          => $page,
+            'sort_name'     => $lang_thumb_view['name'],
+            'sort_title'    => $lang_common['title'],
+            'sort_date'     => $lang_thumb_view['date'],
+            'sort_position' => $lang_thumb_view['position'],
+            'sort_ta'       => $lang_thumb_view['sort_ta'],
+            'sort_td'       => $lang_thumb_view['sort_td'],
+            'sort_na'       => $lang_thumb_view['sort_na'],
+            'sort_nd'       => $lang_thumb_view['sort_nd'],
+            'sort_da'       => $lang_thumb_view['sort_da'],
+            'sort_dd'       => $lang_thumb_view['sort_dd'],
+            'sort_pa'       => $lang_thumb_view['sort_pa'],
+            'sort_pd'       => $lang_thumb_view['sort_pd']
+        );
+
+        set_js_var('sort_vars', $js_sort_vars);
+        js_include('js/thumbnails.js');
+    }
 
     // Meta albums, we need to restrict the albums to the current category
     // except lastupby and lastcomby as CPG currently restricts these to the user's albums
-} elseif (isset($cat) && $album != 'lastupby' && $album != 'lastcomby') { 
+} elseif (isset($cat) && $album != 'lastupby' && $album != 'lastcomby') {
 
     if ($cat < 0) {
         $result = cpg_db_query("SELECT category, title, aid, keyword, description, alb_password_hint FROM {$CONFIG['TABLE_ALBUMS']} WHERE aid = " . (- $cat));
@@ -147,11 +145,11 @@ if (isset($album) && is_numeric($album)) {
         }
         mysql_free_result($result);
         get_meta_album_set($cat);
-        
+
         breadcrumb($actual_cat, $breadcrumb, $breadcrumb_text);
         $CURRENT_CAT_NAME = $CURRENT_ALBUM_DATA['title'];
         $CURRENT_ALBUM_KEYWORD = $CURRENT_ALBUM_DATA['keyword'];
-        
+
     } elseif ($cat == 0) {
         get_meta_album_set(0);
     } else {
@@ -224,7 +222,7 @@ function form_albpw()
     $superCage = Inspekt::makeSuperCage();
 
     starttable('-1', $lang_thumb_view['enter_alb_pass'], 2);
-    
+
     if ($superCage->post->keyExists('validate_album')) {
         $login_failed = "<tr><td class='tableh2' colspan='2' align='center'>
                                <span style='color:red'>{$lang_thumb_view['invalid_pass']}</span></td></tr>

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/displayreport.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/displayreport.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -48,7 +48,7 @@ if (is_array($data)) {
 
     // Load template parameters
     if ($data['t'] == 'comment') {
-    
+
         $params = array(
             '{LANG_DIR}'         => $lang_text_dir,
             '{TITLE}'            => sprintf($lang_report_php['report_subject'], $data['sn'], $data['t']),
@@ -70,12 +70,12 @@ if (is_array($data)) {
             '{COMMENT_TGT}'      => "{$CONFIG['ecards_more_pic_target']}displayimage.php?pid=" . $data['pid'] . "#comment" . $data['cid'],
             '{PID}'              => $data['pid'],
         );
-        
+
         // Parse template if report is on a comment
         echo template_eval($template_report_comment, $params);
 
     } else {
-        
+
         $params = array(
             '{LANG_DIR}'        => $lang_text_dir,
             '{TITLE}'           => sprintf($lang_report_php['report_subject'], $data['sn'], $data['t']),
@@ -94,7 +94,7 @@ if (is_array($data)) {
             '{REASON}'          => $data['r'],
             '{PID}'             => $data['pid'],
         );
-        
+
         // Parse template
         echo template_eval($template_report, $params);
     }

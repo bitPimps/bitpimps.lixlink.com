@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,10 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/plugins/sample/codebase.php $
-  $Revision: 8304 $
-  
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/plugins/sample/codebase.php $
+  $Revision: 8884 $
 **********************************************/
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
@@ -48,7 +47,7 @@ function sample_block_mgr($block) {
 // Install function
 // Checks if uid is 'foo' and pwd is 'bar'; If so, then install the plugin
 function sample_install() {
-    
+
     // Create the super cage
     $superCage = Inspekt::makeSuperCage();
     // Install

@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/upload_troubleshooting.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/upload_troubleshooting.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -252,7 +252,7 @@ Pour être très clair: les étapes décrites ci-dessus sont absolument <strong>
     	</li>
     </ul>
     <a name="upload_support_step-by-step_end"></a>
-    
+
     <a name="upload_support_example"></a><h3>Exemple de demande d'aide<a href="#upload_support_example" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <div class="cpg_example">
     	<p>Voici comment votre demande d'aide devrait se présenter (assurez-vous de bien compléter les données en rouge avec vos données à vous):</p>
@@ -351,7 +351,7 @@ Warning: move_uploaded_file(/tmp/<span style="color:blue;">phpezCYKr</span>)
     Il n'y a pas (en tout cas en théorie) de limites <em>dans Coppermine</em> en ce qui concerne le poids ou les dimensions des fichiers que le script peut gérer. Il y a néanmoins une limite existante sur votre serveur: le redimensionnement d'images (pour créer les images intermédiaires et /ou les vignettes) consomme de la mémoire et des ressources processeur. Pour éviter le crash du serveur, l'administrateur a restreint le volume de mémoire que le script est autorisé à utiliser. Le message d'erreur mentionné plus haut indique que les limites imposées par l'administrateur du serveur sont atteintes, c'est à dire que l'image que le script essaye de traiter consomme trop de mémoire.
     <ul>
         <li><strong>Alternative 1 (idéale):</strong><br />
-        Augmentez la limite de l'allocation de mémoire dans le php.ini comme expliqué dans <a href="upload_troubleshooting.htm#upload_trouble_memory_usage">Utilisation de la mémoire pendant le redimensionnement</a>. 
+        Augmentez la limite de l'allocation de mémoire dans le php.ini comme expliqué dans <a href="upload_troubleshooting.htm#upload_trouble_memory_usage">Utilisation de la mémoire pendant le redimensionnement</a>.
         Si vous ne pouvez pas modifier le php.ini, vous devriez lire les alternatives 2 et 3.</li>
          <li><strong>Alternative 2 (sensible):</strong><br />
          Redimensionnez vos images avant de les télécharger si vous n'avez pas besoin d'images en haute résolution. Cela vous fera gagner de la bande passante en téléchargement et du temps.</li>
@@ -445,9 +445,9 @@ Warning: move_uploaded_file(/tmp/<span style="color:blue;">phpezCYKr</span>)
     <a name="upload_trouble_server-sided_restrictions_php_ini"></a><h3>Le fichier de configuration de PHP  php.ini<a href="#upload_trouble_server-sided_restrictions_php_ini" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <div class="cpg_message_info">
     Comprenez bien que les paramètres dans le php.ini ne peuvent être modifiés que si vous êtes l'administrateur du serveur (si vous utilisez votre propre serveur). Si vous êtes hébergés, vous devrez demander à votre hébergeur s’il veut bien changer ces paramètres pour vous, ce qui revient en général à vous autoriser à utiliser plus de ressources sur le serveur. Généralement votre hébergeur n'acceptera <strong>pas</strong> cela pour des raisons économiques évidentes: accepter que vous utilisez plus de ressources l'obligera à héberger moins de sites sur son serveur mutualisé.</div>
-    
+
     <div class="cpg_message_error">Merci de ne pas poser de questions concernant les réglages supposés du serveur, ni comment les changer, sur le forum de Coppermine - comme expliqué ci-dessus: vous n'êtes généralement pas en mesure de les changer si vous êtes hébergés.<br />Si vous êtes <a href="requirements.htm#what_minimum_self-hosting">auto-hébergé</a> (ce que nous ne pouvons pas recommander car faire tourner un serveur demande une attention constante pour le fonctionnement et la maintenance de celui-ci ainsi qu'une grande expérience et de bonnes connaissances), n'essayez pas de poser des questions idiotes comme &quot;Ou est ce que je peux trouver mon fichier php.ini&quot; - Si vous ne connaissez pas la réponse à cette question, vous entrez dans la catégorie &quot;auto-hébergement non recommandé à cause du manque de connaissances&quot; et serez ignoré sur le forum de Coppermine.</div>
-    
+
     <a name="upload_trouble_server-sided_restrictions_check"></a><h3>Les choses à vérifer<a href="#upload_trouble_server-sided_restrictions_check" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>Si vous êtes hébergés, vous devrez consulter votre hébergeur à propos des paramètres suivants. Vous pouvez voir (mais pas modifier) ces paramètres sur votre page <a href="admin_menu.htm#phpinfo">phpinfo</a>.</p>
     <ol>
@@ -481,8 +481,8 @@ Warning: move_uploaded_file(/tmp/<span style="color:blue;">phpezCYKr</span>)
           Le problème le plus commun causé pas ce paramètre est une alerte open_basedir. Dans ce cas, l'administrateur de votre serveur a restreint les fichiers utilisables par PHP à un répertoire précis. S’il ne crée pas de répertoire temporaire spécifique dans la restriction open_basedir, PHP va essayer d'utiliser le répertoire temporaire de l'OS, et il sera rejeté par la restriction open_basedir.
       </li>
     </ol>
-    
-    
+
+
     <a name="upload_trouble_methods"></a><h3>Mécanismes/méthodes de téléchargement<a href="#upload_trouble_methods" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p><strong>Quelques notes à propos des différents types de mécanismes de téléchargement disponibles depuis  cpg1.3.x (ou plus récent):</strong></p>
     <p>Les téléchargements multiples par HTTP sont prévus pour gérer un petit nombre de fichiers. Par conséquent, ils ne sont pas bien adaptés pour le téléchargement d'un grand nombre de fichiers, sauf si vous utilisez votre propre serveur web ou exercer un contrôle sur la configuration php.ini.</p>
@@ -490,7 +490,7 @@ Warning: move_uploaded_file(/tmp/<span style="color:blue;">phpezCYKr</span>)
     <p>Le processus d'ajout par lot est rapide, mais il crée une assez grosse charge sur le serveur, avec pour conséquence, d'éventuels timeouts qui termineront vos téléchargements prématurément. XP Publisher, de l'autre côté, est sensiblement plus lent, mais limite la charge du serveur. Elle contourne également bon nombre des écueils causés par les restrictions énoncées dans la configuration php.ini en téléchargeant chaque fichier du lot en cours de téléchargement comme une requête individuelle.</p>
     <p>D'autres méthodes de téléchargement (comme JUpload ou autres) peuvent être proposées par des contributions tierces - Nous vous encourageons à y jeter un œil, mais gardez en mémoire que les développeurs de Coppermine ne peuvent apporter qu'une aide limitée aux contributions tierces.</p>
     <p>N'oubliez pas non plus qu'avant d'utiliser une méthode de téléchargement alternative, vous devez vous assurer que la méthode initiale de téléchargement par &quot;http&quot; fonctionne correctement - si ce n'est pas le cas, vous devez corriger cela d'abord; cela n'a pas de sens d'essayer une méthode alternative si la méthode originelle ne fonctionne pas.</p>
-    
+
     <a name="upload_trouble_memory_usage"></a><h3>Utilisation de la mémoire pendant le redimensionnement<a href="#upload_trouble_memory_usage" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>Il n'y a (en principe) aucune limite dans Coppermine concernant la taille ou le poids des fichiers que le script peut gérer. Toutefois, il y a au moins une limite existante sur le serveur: le redimensionnement d'images (pour créer des images intermédiaires et/ou les vignettes) utiliser de la mémoire et des ressources processeur.</p>
     <p>Si le processus de redimensionnement utilise trop de mémoire, vous aurez généralement un message d'erreur du type <a href="upload_troubleshooting.htm#ErrorAllowedMemorySize"><tt class="code">Fatal error: Allowed memory size of XXXXXXX bytes exhausted at (null):0 (tried to allocate XXXX bytes) in /var/www/html/include/picmgmt.inc.php</tt></a> ou similaire.</p>
@@ -647,10 +647,10 @@ Warning: move_uploaded_file(/tmp/<span style="color:blue;">phpezCYKr</span>)
 max_execution_time = 30     ; Maximum execution time of each script, in seconds
 max_input_time = 60        ; Maximum amount of time each script may spend parsing request data
 memory_limit = 8M      ; Maximum amount of memory a script may consume (8MB)</pre>
-    
+
     <p>Maintenant augmentez la limite de mémoire en fonction de vos besoins. Une valeur entre 9 et 16 MB devrait convenir à la plupart des besoins.</p>
     <p></p>Si vous n'êtes pas en mesure de modifier le fichier php.ini vous même, vous pouvez toujours demander à l'administrateur de votre serveur de le faire pour vous. Toutefois, la plupart des administrateurs de serveurs (en particulier sur les hébergements mutualisés), sont réticents à le faire, du fait que ces modifications s'appliqueront à tous les utilisateurs du serveur. Une limite de mémoire plus grande réduit le nombre de personnes pouvant être hébergées sur le serveur afin de maintenir la stabilité de celui-ci. Cela réduit aussi les profits etc...</p>
-    
+
     <div class="cpg_message_error">Ne posez <strong>pas</strong> de questions sur la manière de configurer le serveur sur le forum de Coppermine; ce n'est pas dans les attributions du forum de Coppermine d'expliquer les paramétrages des serveurs. Généralement (si vous êtes hébergés sur un serveur mutualisé, ce qui est le cas de la grande majorité des utilisateurs de Coppermine), vous ne pourrez de toute manière pas changer les paramètres de configuration du serveur. Seule la personne qui administre le serveur (l'administrateur du serveur) peut changer les paramètres de configuration du serveur.<br />
     C'est la raison pour laquelle il vaut mieux demander de l'aide à <strong>votre hébergeur</strong> si vous avez des problèmes avec les limitations en ressources ou avec toute question relative au paramétrage du serveur. Si vous êtes auto-hébergés (ce que l'équipe de développement de Coppermine de recommande pas), vous devrez chercher dans la documentation de votre serveur.</div>
 
@@ -660,8 +660,8 @@ memory_limit = 8M      ; Maximum amount of memory a script may consume (8MB)</pr
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

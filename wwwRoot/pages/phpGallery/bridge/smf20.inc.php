@@ -2,17 +2,17 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/bridge/smf20.inc.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/bridge/smf20.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
@@ -119,9 +119,9 @@ if (isset($bridge_lookup)) {
             $superCage = Inspekt::makeSuperCage();
 
             if ($superCage->cookie->keyExists($this->cookie_name)) {
-                
+
                 $data = unserialize($superCage->cookie->getRaw($this->cookie_name));
-                
+
                 if (is_numeric($data[0]) && preg_match('/^[A-F0-9]{40}$/i', $data[1])) {
                     return $data;
                 } else {
@@ -129,7 +129,7 @@ if (isset($bridge_lookup)) {
                 }
             }
         }
-        
+
         // definition of how to extract an id and password hash from a cookie
         function cookie_extraction()
         {
@@ -149,38 +149,38 @@ if (isset($bridge_lookup)) {
 
             $sql = "SELECT id_group, {$this->field['additionals']} AS additionals FROM {$this->usertable} WHERE {$this->field['user_id']} = {$row['id']}";
             $result = cpg_db_query($sql, $this->link_id);
-            
+
             $groupdata = mysql_fetch_assoc($result);
-                
+
             if ($this->use_post_based_groups) {
-                
+
                 // the group is used as master group
                 if ($groupdata['id_group']) {
                     $data[] = $groupdata['id_group'] + 100;
                 }
-                
+
                 // add in post based group as first additional group
                 if ($row['group_id']) {
                     $data[] = $row['group_id'] + 100;
                 }
-                                
+
                 //  add in any additional groups
                 if ($groupdata['additionals']) {
-                
+
                     $additionals = explode(',', $groupdata['additionals']);
-                    
+
                     foreach ($additionals as $group) {
                         $data[] = $group + 100;
                     }
                 }
-                
+
             } else {
                 $data[0] = in_array($groupdata['id_group'] , $this->admingroups) ? 1 : 2;
             }
-            
+
             return $data;
         }
-                
+
         function collect_groups()
         {
             // Use this version to exclude true post based groups
@@ -206,7 +206,7 @@ if (isset($bridge_lookup)) {
 
             if ($session = $this->_session_load()) {
                 $session['old_url'] = $CONFIG['site_url'] . '?board=redirect';
-                $this->_session_save($session);                         
+                $this->_session_save($session);
             }
 
             $this->redirect('/index.php?action=login');
@@ -217,17 +217,17 @@ if (isset($bridge_lookup)) {
             $superCage = Inspekt::makeSuperCage();
 
             if ($superCage->cookie->keyExists('PHPSESSID')) {
-        
+
                 $session_id = $superCage->cookie->getEscaped('PHPSESSID');
-            
+
                 $sql = "SELECT data FROM {$this->sessionstable} WHERE session_id = '$session_id'";
 
                 $result = cpg_db_query($sql, $this->link_id);
 
                 if (mysql_num_rows($result)) {
-                
+
                     list($data) = mysql_fetch_row($result);
-        
+
                     session_name('CPG');
                     session_start();
 
@@ -238,16 +238,16 @@ if (isset($bridge_lookup)) {
                     return $session;
                 }
             }
-                
+
             return false;
         }
-            
+
         function _session_save($session)
         {
             $superCage = Inspekt::makeSuperCage();
 
             if ($superCage->cookie->keyExists('PHPSESSID')) {
-        
+
                 $session_id = $superCage->cookie->getEscaped('PHPSESSID');
 
                 $_SESSION = $session;
@@ -257,13 +257,13 @@ if (isset($bridge_lookup)) {
                 $sql = "UPDATE {$this->sessionstable} SET data = '$data' WHERE session_id = '$session_id'";
 
                 cpg_db_query($sql, $this->link_id);
-            }               
+            }
         }
 
         function logout_page()
         {
             global $CONFIG;
-            
+
             if ($session = $this->_session_load()) {
                 $session['logout_url'] = $CONFIG['site_url'];
                 $this->_session_save($session);
@@ -276,7 +276,7 @@ if (isset($bridge_lookup)) {
         function view_users()
         {
         }
-        
+
         function view_profile()
         {
         }

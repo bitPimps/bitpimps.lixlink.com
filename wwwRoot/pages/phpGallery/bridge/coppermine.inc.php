@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,11 +10,10 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/bridge/coppermine.inc.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/bridge/coppermine.inc.php $
+  $Revision: 8884 $
 **********************************************/
-
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
@@ -131,7 +130,7 @@ if (isset($bridge_lookup)) {
                             $sql .= "user_name = '$username' AND BINARY user_password = '$encpassword' AND user_active = 'YES'";
                             break;
                     }
-                   
+
                     $results = cpg_db_query($sql);
 
                     // If exists update lastvisit value, session, and login
@@ -161,11 +160,15 @@ if (isset($bridge_lookup)) {
                             if ($remember) {
                                     $remember_sql = ",remember = '1' ";
                                     // Change cookie life time to 2 weeks
-                                    setcookie( $this->client_id, $this->session_id, time() + (CPG_WEEK*2), $CONFIG['cookie_path'] );
+                                    if (CPG_COOKIES_ALLOWED) {
+                                        setcookie( $this->client_id, $this->session_id, time() + (CPG_WEEK*2), $CONFIG['cookie_path'] );
+                                    }
                             } else {
                                     $remember_sql = '';
                                     // Kill the cookie when closing the browser
-                                    setcookie( $this->client_id, $this->session_id, 0, $CONFIG['cookie_path'] );
+                                    if (CPG_COOKIES_ALLOWED) {
+                                        setcookie( $this->client_id, $this->session_id, 0, $CONFIG['cookie_path'] );
+                                    }
                             }
 
                             // Update guest session with user's information
@@ -250,7 +253,7 @@ if (isset($bridge_lookup)) {
                     // Delete stale 'remember me' sessions
                     $sql = "DELETE FROM {$this->sessionstable} WHERE time < $rememberme_life_time";
                     cpg_db_query($sql, $this->link_id);
-                    
+
                     // Update database entry
                     $sql = "UPDATE {$CONFIG['TABLE_CONFIG']} SET value = ".time()." WHERE name = 'session_cleanup'";
                     cpg_db_query($sql, $this->link_id);
@@ -348,7 +351,9 @@ if (isset($bridge_lookup)) {
                     cpg_db_query($sql, $this->link_id);
 
                     // set the session cookie
-                    setcookie( $this->client_id, $this->session_id, time() + (CPG_WEEK*2), $CONFIG['cookie_path'] );
+                    if (CPG_COOKIES_ALLOWED) {
+                        setcookie( $this->client_id, $this->session_id, time() + (CPG_WEEK*2), $CONFIG['cookie_path'] );
+                    }
             }
 
 

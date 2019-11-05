@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/login.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/login.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -28,7 +28,7 @@ if (defined('UDB_INTEGRATION')) {
     $cpg_udb->login_page();
 }
 
-if (strpos($CPG_REFERER, "logout.php") !== false) {
+if (strpos($CPG_REFERER, "logout.php") !== false || strpos($CPG_REFERER, "register.php") !== false) {
     $CPG_REFERER = "index.php";
 }
 
@@ -36,7 +36,7 @@ $login_failed   = '';
 $cookie_warning = '';
 
 if ($superCage->post->keyExists('submitted')) {
-    
+
     if ($USER_DATA = $cpg_udb->login($superCage->post->getEscaped('username'), $superCage->post->getEscaped('password'), $superCage->post->getInt('remember_me'))) {
         //$referer=preg_replace("'&amp;'","&",$referer);
 
@@ -44,7 +44,7 @@ if ($superCage->post->keyExists('submitted')) {
         if ($CONFIG['log_mode'] == CPG_LOG_ALL) {
             log_write('The user ' . $USER_DATA['user_name'] . ' (user ID ' . $USER_DATA['user_id'] . ") logged in.", CPG_ACCESS_LOG);
         }
-        
+
         // Set the language preference
         $sql = "UPDATE {$CONFIG['TABLE_USERS']} SET user_language = '{$USER['lang']}' WHERE user_id = {$USER_DATA['user_id']}";
         $result = cpg_db_query($sql);
@@ -62,7 +62,7 @@ if ($superCage->post->keyExists('submitted')) {
 
     } else {
         // Write the log entry
-        log_write("Failed login attempt with Username: " . $superCage->post->getEscaped('username'), CPG_SECURITY_LOG);
+        log_write("Failed login attempt at IP $hdr_ip with Username: " . $superCage->post->getEscaped('username'), CPG_SECURITY_LOG);
 
         $login_failed = <<<EOT
                   <tr>

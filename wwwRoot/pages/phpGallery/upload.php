@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/upload.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/upload.php $
+  $Revision: 8884 $
 **********************************************/
 
 // Confirm we are in Coppermine and set the language blocks.
@@ -87,12 +87,16 @@ if ('swfupload' == $upload_form) {
     js_include('js/swfupload/fileprogress.js');
     js_include('js/swfupload/handlers.js');
     js_include('js/setup_swf_upload.js');
-    
+
     // Set the lang_upload_swf_php language array for use in js
     set_js_var('lang_upload_swf_php', $lang_upload_swf_php);
-    
+
     set_js_var('notify_admin', $CONFIG['upl_notify_admin_email']);
     set_js_var('max_upl_size', $CONFIG['max_upl_size']);
+
+    list($timestamp, $form_token) = getFormToken();
+    set_js_var('timestamp', $timestamp);
+    set_js_var('form_token', $form_token);
 }
 js_include('js/upload.js');
 
@@ -215,23 +219,24 @@ EOT;
 // Creates the album list drop down
 function form_alb_list_box($text, $name)
 {
+    global $lang_common;
+
     $superCage = Inspekt::makeSuperCage();
-    // Pull the $CONFIG array and the GET array into the function
-    global $CONFIG, $lang_upload_php, $lang_common, $LINEBREAK;
 
-    // Also pull the album lists into the function
-    global $user_albums_list, $public_albums_list;
-
-    // Check to see if an album has been preselected by URL addition or the last selected album. If so, make $sel_album the album number. Otherwise, make $sel_album 0.
     if ($superCage->get->keyExists('album')) {
-      $sel_album = $superCage->get->getInt('album');
+        $sel_album = $superCage->get->getInt('album');
     } elseif ($superCage->post->keyExists('album')) {
-      $sel_album = $superCage->post->getInt('album');
+        $sel_album = $superCage->post->getInt('album');
     } else {
-      $sel_album = 0;
+        $sel_album = 0;
+    }
+    $options = album_selection_options($sel_album);
+    if (function_exists('hidden_features_only_empty_albums_button')) {
+        $only_empty_albums = hidden_features_only_empty_albums_button();
+    } else {
+        $only_empty_albums = '';
     }
 
-    // Create the opening of the drop down box
     echo <<<EOT
     <tr>
         <td class="tableb tableb_alternate" width="50">
@@ -239,88 +244,10 @@ function form_alb_list_box($text, $name)
         </td>
         <td class="tableb tableb_alternate" valign="top">
             <select name="$name" class="listbox">
-
-EOT;
-
-    // Get the ancestry of the categories
-    $vQuery = "SELECT cid, parent, name FROM {$CONFIG['TABLE_CATEGORIES']} WHERE 1";
-    $vResult = cpg_db_query($vQuery);
-    $vRes = cpg_db_fetch_rowset($vResult);
-    mysql_free_result($vResult);
-    foreach ($vRes as $vResI => $vResV) {
-        $vResRow = $vRes[$vResI];
-        $catParent[$vResRow['cid']] = $vResRow['parent'];
-        $catName[$vResRow['cid']] = $vResRow['name'];
-    }
-    $catAnces = array();
-    foreach ($catParent as $cid => $cid_parent) {
-        $catAnces[$cid] = '';
-        while ($cid_parent != 0) {
-            $catAnces[$cid] = $catName[$cid_parent] . ($catAnces[$cid]?' - '.$catAnces[$cid]:'');
-            $cid_parent = $catParent[$cid_parent];
-        }
-    }
-
-    // Reset counter
-    $list_count = 0;
-
-    // Cycle through the User albums
-    foreach($user_albums_list as $album) {
-
-        // Add to multi-dim array for later sorting
-        $listArray[$list_count]['cat'] = $lang_common['personal_albums'];
-        $listArray[$list_count]['aid'] = $album['aid'];
-        $listArray[$list_count]['title'] = $album['title'];
-        $listArray[$list_count]['cid'] = -1;
-        $list_count++;
-    }
-
-    // Cycle through the public albums
-    foreach($public_albums_list as $album) {
-
-        // Set $album_id to the actual album ID
-        $album_id = $album['aid'];
-
-        // Add to multi-dim array for sorting later
-        if (isset($album['name']) && $album['name']) {
-            $listArray[$list_count]['cat'] = $catAnces[$album['cid']] . ($catAnces[$album['cid']]?' - ':'') . $album['name'];
-            $listArray[$list_count]['cid'] = $album['cid'];
-        } else {
-            $listArray[$list_count]['cat'] = $lang_common['albums_no_category'];
-            $listArray[$list_count]['cid'] = 0;
-        }
-        $listArray[$list_count]['aid'] = $album['aid'];
-        $listArray[$list_count]['title'] = $album['title'];
-        $list_count++;
-    }
-
-    // Sort the pulldown options by category and album name
-    $listArray = array_csort($listArray,'cat','title');     // alphabetically by category name
-    // $listArray = array_csort($listArray,'cid','title');  // numerically by category ID
-    // print_r($listArray); exit;
-
-    // Finally, print out the nicely sorted and formatted drop down list
-    // $alb_cat = '';
-    $alb_cid = '';
-    echo '                <option value="">' . $lang_common['select_album'] . '</option>' . $LINEBREAK;
-    foreach ($listArray as $val) {
-        //if ($val['cat'] != $alb_cat) {  // old method compared names which might not be unique
-        if ($val['cid'] !== $alb_cid) {
-            if ($alb_cid) {
-                echo '                </optgroup>' . $LINEBREAK;
-            }
-            echo '                <optgroup label="' . $val['cat'] . '">' . $LINEBREAK;
-            $alb_cid = $val['cid'];
-        }
-        echo '                <option value="' . $val['aid'] . '"' . ($val['aid'] == $sel_album ? ' selected' : '') . '>   ' . $val['title'] . '</option>' . $LINEBREAK;
-    }
-    if ($alb_cid) {
-        echo '                </optgroup>' . $LINEBREAK;
-    }
-
-    // Close the drop down
-    echo <<<EOT
+            <option value="">{$lang_common['select_album']}</option>
+            $options
             </select>
+            $only_empty_albums
         </td>
     </tr>
 
@@ -330,11 +257,13 @@ EOT;
 
 function form_instructions()
 {
-    global $CONFIG, $lang_upload_php, $upload_form, $max_file_size, $LINEBREAK;
+    global $lang_upload_php, $max_file_size;
+
+    $max_fsize = sprintf($lang_upload_php['max_fsize'], cpg_format_bytes($max_file_size));
 
     echo <<< EOT
     <tr>
-        <td colspan="2" class="tableb">
+        <td colspan="2" class="tableh2">
             <noscript>
                     <div class="cpg_message_error">{$lang_upload_php['err_js_disabled']}<br />
                     {$lang_upload_php['err_alternate_method']}</div>
@@ -342,6 +271,7 @@ function form_instructions()
             <div id="divLoadingContent" class="cpg_message_info" style="display: none;">{$lang_upload_php['flash_loading']}</div>
             <div id="divLongLoading" class="cpg_message_warning" style="display: none;">{$lang_upload_php['err_flash_disabled']}<br />{$lang_upload_php['err_alternate_method']}</div>
             <div id="divAlternateContent" class="cpg_message_error" style="display: none;">{$lang_upload_php['err_flash_version']}<br />{$lang_upload_php['err_alternate_method']}</div>
+            <div id="divMaxFilesize" style="display: none;"><strong>{$max_fsize}</strong></div>
            </td>
        </tr>
 EOT;
@@ -473,12 +403,12 @@ EOT;
 function open_form($path)
 {
     global $upload_form;
-    
+
     $on_submit = '';
     if ('swfupload' == $upload_form) {
         $on_submit = 'onsubmit="cpgUploadToggleProgressBar();"';
     }
-    
+
     echo <<<EOT
     <script language="javascript" type="text/javascript">
     function textCounter(field, maxlimit) {
@@ -665,54 +595,9 @@ if (!$superCage->post->keyExists('process') && !$superCage->post->keyExists('plu
             echo '</div>';
         }
 
-        $restriction_filesize = sprintf($lang_upload_php['restriction_filesize'], '<strong>' . cpg_format_bytes($CONFIG['max_upl_size'] * 1024) . '</strong>');
-        if ($CONFIG['allowed_img_types'] != '') {
-            $allowed_img_types = '<li>' . sprintf ($lang_upload_php['allowed_img_types'], $CONFIG['allowed_img_types']) . '</li>';
-        } else {
-            $allowed_img_types = '';
-        }
-        if ($CONFIG['allowed_mov_types'] != '') {
-            $allowed_mov_types = '<li>' . sprintf ($lang_upload_php['allowed_mov_types'], $CONFIG['allowed_mov_types']) . '</li>';
-        } else {
-            $allowed_mov_types = '';
-        }
-        if ($CONFIG['allowed_snd_types'] != '') {
-            $allowed_snd_types = '<li>' . sprintf ($lang_upload_php['allowed_snd_types'], $CONFIG['allowed_snd_types']) . '</li>';
-        } else {
-            $allowed_snd_types = '';
-        }
-        if ($CONFIG['allowed_doc_types'] != '') {
-            $allowed_doc_types = '<li>' . sprintf ($lang_upload_php['allowed_doc_types'], $CONFIG['allowed_doc_types']) . '</li>';
-        } else {
-            $allowed_doc_types = '';
-        }
-    
-        $help_page = <<< EOT
-<ul>
-    <li>{$lang_upload_php['up_instr_1']}</li>
-    <li>{$lang_upload_php['up_instr_2']}</li>
-    <li>{$lang_upload_php['up_instr_3']}</li>
-    <li>{$lang_upload_php['up_instr_4']}</li>
-    <li>{$lang_upload_php['up_instr_5']}</li>
-</ul>
-
-<h2>{$lang_upload_php['restrictions']}</h2>
-<ul>
-    <li>{$restriction_filesize}</li>
-    <li>{$lang_upload_php['restriction_zip']}</li>
-    <li>{$lang_upload_php['allowed_types']}
-        <ul>
-            {$allowed_img_types}
-            {$allowed_mov_types}
-            {$allowed_snd_types}
-            {$allowed_doc_types}
-        </ul>
-    </li>
-</ul>
-EOT;
-        $upload_help = cpg_display_help('f=empty.htm&amp;base=64&amp;h='.urlencode(base64_encode(serialize($lang_upload_php['title']))).'&amp;t='.urlencode(base64_encode(serialize($help_page))),470,245);
+        $upload_help = cpg_display_help('f=empty.htm&amp;h=lang_upload_php[title]&amp;t=lang_tmp_upload',470,245);
     }
-    
+
     $upload_table_header = <<< EOT
     <table border="0" cellspacing="0" cellpadding="0" width="100%">
         <tr>
@@ -736,9 +621,9 @@ EOT;
         $captionLabel = $lang_upload_php['description'];
         $keywordLabel = sprintf($lang_common['keywords_insert1'],$lang_common['keyword_separators'][$CONFIG['keyword_separator']])
             . '<br /><a href="keyword_select.php" class="greybox">' . $lang_common['keywords_insert2'] .'</a>';
-        if ($CONFIG['show_bbcode_help']) {$captionLabel .= '&nbsp;'. cpg_display_help('f=empty.htm&amp;base=64&amp;h='.urlencode(base64_encode(serialize($lang_bbcode_help_title))).'&amp;t='.urlencode(base64_encode(serialize($lang_bbcode_help))),470,245);}
+        if ($CONFIG['show_bbcode_help']) {$captionLabel .= '&nbsp;'. cpg_display_help('f=empty.htm&amp;h=lang_bbcode_help_title&amp;t=lang_bbcode_help',470,245);}
         $form_array = array(
-            sprintf($lang_upload_php['max_fsize'], cpg_format_bytes($CONFIG['max_upl_size'] * 1024)),
+            sprintf($lang_upload_php['max_fsize'], cpg_format_bytes($max_file_size)),
             array($lang_common['album'], 'album', 2),
             //array('MAX_FILE_SIZE', $max_file_size, 4), // removed to avoid misleading error message (thread ID 61711)
             array($lang_upload_php['picture'], 'userpicture', 1, 1)
@@ -765,7 +650,7 @@ EOT;
         create_form_simple($form_array);
         // Close the form with an submit button
         close_form($lang_upload_php['title'],1, 'ok');
-        list($timestamp, $form_token) = getFormToken(); 
+        list($timestamp, $form_token) = getFormToken();
         echo <<< EOT
         <input type="hidden" name="form_token" value="{$form_token}" />
         <input type="hidden" name="timestamp" value="{$timestamp}" />
@@ -812,11 +697,16 @@ EOT;
 
 // Process the SWF upload form submission
 } elseif ($superCage->post->keyExists('process')) {
-    
+
     // Make sure there is no output yet
     ob_clean();
-    
+
     header("Content-Type: text/plain");
+
+    if (!checkFormToken()) {
+        echo "error|{$lang_errors['invalid_form_token']}|1";
+        exit;
+    }
 
     $error_code = $superCage->files->getInt("/Filedata/error");
 
@@ -858,7 +748,7 @@ EOT;
         echo "error|{$lang_upload_php['no_post']}|0";
         exit;
     }
-    
+
     // Check the size of the file if $max_file_size is set to greater than 0
     if ($max_file_size && filesize($superCage->files->getRaw('/Filedata/tmp_name')) > $max_file_size) {
         // We reject this files as file size exceeds the value set in config
@@ -937,7 +827,7 @@ EOT;
     // Create a testing alias.
     $picture_alias = $matches[1].".".$matches[2];
 
-    
+
 
     // Check if user selected an album to upload picture to. If not, die with error.
     // added by frogfoot
@@ -951,7 +841,7 @@ EOT;
 
     // Check if the album id provided is valid
     if (!GALLERY_ADMIN_MODE) {
-        $result = cpg_db_query("SELECT category FROM {$CONFIG['TABLE_ALBUMS']} WHERE aid='$album' and (uploads = 'YES' OR category = '" . (USER_ID + FIRST_USER_CAT) . "' OR owner = '" . USER_ID . "')");
+        $result = cpg_db_query("SELECT category FROM {$CONFIG['TABLE_ALBUMS']} WHERE aid = $album AND (owner = " . USER_ID . " OR category = " . (USER_ID + FIRST_USER_CAT) . (USER_CAN_UPLOAD_PICTURES  ? ' OR uploads = "YES"' : '') . ")");
         if (mysql_num_rows($result) == 0) {
             echo "error|{$lang_db_input_php['unknown_album']}|1";
             exit;
@@ -1069,7 +959,7 @@ EOT;
         if (isset($result['error'])) {
             if (isset($result['halt_upload'])) {
                 echo "error|{$result['error']}|{$result['halt_upload']}";
-        } else {
+            } else {
                 echo "error|{$result['error']}|0";
             }
         } else {

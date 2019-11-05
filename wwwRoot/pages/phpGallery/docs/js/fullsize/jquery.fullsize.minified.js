@@ -1,7 +1,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -9,10 +9,10 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/js/fullsize/jquery.fullsize.minified.js $
-  $Revision: 8304 $
-  $Date: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/js/fullsize/jquery.fullsize.minified.js $
+  $Revision: 8884 $
+  $Date: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $
 **********************************************/
 
  /*

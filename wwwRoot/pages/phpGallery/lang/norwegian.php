@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/norwegian.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/norwegian.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'Norwegian';
@@ -115,6 +115,7 @@ $lang_common['keywords_insert1'] = 'Nøkkelord (avdelt med %s)'; // cpg1.5
 $lang_common['keywords_insert2'] = 'Innfør fra liste'; // cpg1.5
 $lang_common['keyword_separator'] = 'Nøkkelordsdeler'; //cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'mellomrom', ','=>'komma', ';'=>'semikolon'); // cpg1.5
+$lang_common['owner_name'] = 'Navn på eier'; // cpg1.5
 $lang_common['filename'] = 'Filnavn'; // cpg1.5
 $lang_common['filesize'] = 'Filstørrelse'; // cpg1.5
 $lang_common['album'] = 'Album'; // cpg1.5

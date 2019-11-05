@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/include/picmgmt.inc.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/picmgmt.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 if($CONFIG['read_iptc_data'] ){
     include("include/iptc.inc.php");
@@ -45,13 +45,13 @@ function add_picture($aid, $filepath, $filename, $position = 0, $title = '', $ca
             // read IPTC data
             $iptc = get_IPTC($image);
             if (is_array($iptc) && !$title && !$caption && !$keywords) {  //if any of those 3 are filled out we don't want to override them, they may be blank on purpose.
-                $title = (isset($iptc['Headline'])) ? $iptc['Headline'] : $title;
-                $caption = (isset($iptc['Caption'])) ? $iptc['Caption'] : $caption;
+                $title = (isset($iptc['Headline'])) ? trim($iptc['Headline']) : $title;
+                $caption = (isset($iptc['Caption'])) ? trim($iptc['Caption']) : $caption;
                 $keywords = (isset($iptc['Keywords'])) ? implode($CONFIG['keyword_separator'], $iptc['Keywords']) : $keywords;
             }
         }
 
-        // resize picture if it's bigger than the max width or height for uploaded pictures 
+        // resize picture if it's bigger than the max width or height for uploaded pictures
         if (max($imagesize[0], $imagesize[1]) > $CONFIG['max_upl_width_height']) {
             if ((USER_IS_ADMIN && $CONFIG['auto_resize'] == 1) || (!USER_IS_ADMIN && $CONFIG['auto_resize'] > 0)) {
                 $resize_method = $CONFIG['picture_use'] == "thumb" ? ($CONFIG['thumb_use'] == "ex" ? "any" : $CONFIG['thumb_use']) : $CONFIG['picture_use'];
@@ -83,7 +83,7 @@ function add_picture($aid, $filepath, $filename, $position = 0, $title = '', $ca
             }
         }
 
-        if (max($imagesize[0], $imagesize[1]) > $CONFIG['picture_width'] && $CONFIG['make_intermediate'] && !file_exists($normal)) {
+        if ($CONFIG['make_intermediate'] && cpg_picture_dimension_exceeds_intermediate_limit($imagesize[0], $imagesize[1]) && !file_exists($normal)) {
             // create intermediate sized picture
             $resize_method = $CONFIG['picture_use'] == "thumb" ? ($CONFIG['thumb_use'] == "ex" ? "any" : $CONFIG['thumb_use']) : $CONFIG['picture_use'];
             $watermark = ($CONFIG['enable_watermark'] == '1' && ($CONFIG['which_files_to_watermark'] == 'both' || $CONFIG['which_files_to_watermark'] == 'resized')) ? 'true' : 'false';
@@ -105,7 +105,7 @@ function add_picture($aid, $filepath, $filename, $position = 0, $title = '', $ca
     }
 
     clearstatcache();
-    
+
     $image_filesize = filesize($image);
     $total_filesize = is_image($filename) ? ($image_filesize + (file_exists($normal) ? filesize($normal) : 0) + filesize($thumb)) : ($image_filesize);
 
@@ -138,7 +138,7 @@ function add_picture($aid, $filepath, $filename, $position = 0, $title = '', $ca
         $approved = 'NO';
     }
     $PIC_NEED_APPROVAL = ($approved == 'NO');
-    
+
     // User ID is recorded when in admin mode
     $user_id  = USER_ID;
 
@@ -168,14 +168,14 @@ function add_picture($aid, $filepath, $filename, $position = 0, $title = '', $ca
     if (USER_ID > 0 || $CONFIG['allow_guests_enter_file_details'] == 1) {
         $query = "INSERT INTO {$CONFIG['TABLE_PICTURES']} (aid, filepath, filename, filesize, total_filesize, pwidth, pheight, ctime, owner_id, title, caption, keywords, approved, user1, user2, user3, user4, pic_raw_ip, pic_hdr_ip, position, guest_token) VALUES ('{$CURRENT_PIC_DATA['aid']}', '" . addslashes($CURRENT_PIC_DATA['filepath']) . "', '" . addslashes($CURRENT_PIC_DATA['filename']) . "', '{$CURRENT_PIC_DATA['filesize']}', '{$CURRENT_PIC_DATA['total_filesize']}', '{$CURRENT_PIC_DATA['pwidth']}', '{$CURRENT_PIC_DATA['pheight']}', '" . time() . "', '{$CURRENT_PIC_DATA['owner_id']}', '{$CURRENT_PIC_DATA['title']}', '{$CURRENT_PIC_DATA['caption']}', '{$CURRENT_PIC_DATA['keywords']}', '{$CURRENT_PIC_DATA['approved']}', '{$CURRENT_PIC_DATA['user1']}', '{$CURRENT_PIC_DATA['user2']}', '{$CURRENT_PIC_DATA['user3']}', '{$CURRENT_PIC_DATA['user4']}', '{$CURRENT_PIC_DATA['pic_raw_ip']}', '{$CURRENT_PIC_DATA['pic_hdr_ip']}', '{$CURRENT_PIC_DATA['position']}', '{$CURRENT_PIC_DATA['guest_token']}')";
     } else  {
-        $query = "INSERT INTO {$CONFIG['TABLE_PICTURES']} (aid, filepath, filename, filesize, total_filesize, pwidth, pheight, ctime, owner_id, approved, pic_raw_ip, pic_hdr_ip, position, guest_token) VALUES ('{$CURRENT_PIC_DATA['aid']}', '" . addslashes($CURRENT_PIC_DATA['filepath']) . "', '" . addslashes($CURRENT_PIC_DATA['filename']) . "', '{$CURRENT_PIC_DATA['filesize']}', '{$CURRENT_PIC_DATA['total_filesize']}', '{$CURRENT_PIC_DATA['pwidth']}', '{$CURRENT_PIC_DATA['pheight']}', '" . time() . "', '{$CURRENT_PIC_DATA['owner_id']}', '{$CURRENT_PIC_DATA['approved']}', '{$CURRENT_PIC_DATA['pic_raw_ip']}', '{$CURRENT_PIC_DATA['pic_hdr_ip']}', '{$CURRENT_PIC_DATA['position']}', '{$CURRENT_PIC_DATA['guest_token']}')";
+        $query = "INSERT INTO {$CONFIG['TABLE_PICTURES']} (aid, filepath, filename, filesize, total_filesize, pwidth, pheight, ctime, owner_id, title, caption, keywords, approved, user1, user2, user3, user4, pic_raw_ip, pic_hdr_ip, position, guest_token) VALUES ('{$CURRENT_PIC_DATA['aid']}', '" . addslashes($CURRENT_PIC_DATA['filepath']) . "', '" . addslashes($CURRENT_PIC_DATA['filename']) . "', '{$CURRENT_PIC_DATA['filesize']}', '{$CURRENT_PIC_DATA['total_filesize']}', '{$CURRENT_PIC_DATA['pwidth']}', '{$CURRENT_PIC_DATA['pheight']}', '" . time() . "', '{$CURRENT_PIC_DATA['owner_id']}', '', '', '', '{$CURRENT_PIC_DATA['approved']}', '{$CURRENT_PIC_DATA['user1']}', '{$CURRENT_PIC_DATA['user2']}', '{$CURRENT_PIC_DATA['user3']}', '{$CURRENT_PIC_DATA['user4']}', '{$CURRENT_PIC_DATA['pic_raw_ip']}', '{$CURRENT_PIC_DATA['pic_hdr_ip']}', '{$CURRENT_PIC_DATA['position']}', '{$CURRENT_PIC_DATA['guest_token']}')";
     }
     $result = cpg_db_query($query);
-    
+
     // Put the pid in current_pic_data and call the plugin filter for file data success
     $CURRENT_PIC_DATA['pid'] = mysql_insert_id($CONFIG['LINK_ID']);
     CPGPluginAPI::action('add_file_data_success', $CURRENT_PIC_DATA);
-    
+
     //return $result;
     return true;
 }
@@ -219,7 +219,7 @@ function resize_image($src_file, $dest_file, $new_size, $method, $thumb_use, $wa
         return false;
     }
     // GD can only handle JPG & PNG images
-    if ($imginfo[2] != GIS_JPG && $imageinfo[2] != GIS_PNG && $CONFIG['GIF_support'] == 0) {
+    if ($imginfo[2] != GIS_JPG && $imginfo[2] != GIS_PNG && $CONFIG['GIF_support'] == 0) {
         $ERROR = $lang_errors['gd_file_type_err'];
         //return false;
         return array('error' => $ERROR);
@@ -295,10 +295,10 @@ function resize_image($src_file, $dest_file, $new_size, $method, $thumb_use, $wa
             $ratio = max($srcWidth, $srcHeight) / $new_size;
         }
 
-    } elseif ($thumb_use == 'wd') { 
+    } elseif ($thumb_use == 'wd') {
         // resize method width
         $ratio = $srcWidth / $new_size;
-    } elseif ($thumb_use == 'ht') { 
+    } elseif ($thumb_use == 'ht') {
         // resize method height
         $ratio = $srcHeight / $new_size;
     } else { // resize method any
@@ -567,7 +567,8 @@ function UnsharpMask($img, $amount, $radius, $threshold)        {
 
         $radius = abs(round($radius));         // Only integers make sense.
         if ($radius == 0) {
-                return $img; imagedestroy($img); break;                }
+                return $img;
+                }
         $w = imagesx($img); $h = imagesy($img);
         $imgCanvas = imagecreatetruecolor($w, $h);
         $imgCanvas2 = imagecreatetruecolor($w, $h);

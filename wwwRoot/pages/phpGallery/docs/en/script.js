@@ -1,7 +1,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -9,9 +9,9 @@
   as published by the Free Software Foundation.
   
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/en/script.js $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/en/script.js $
+  $Revision: 8884 $
 **********************************************/
 
 var linebreak = '\n';
@@ -1174,31 +1174,22 @@ doc_toc += '          <li><a href="dev_package.htm#packaging_subversion">Subvers
 doc_toc += '          <li><a href="dev_package.htm#packaging_steps">Steps</a>\n';
 doc_toc += '            <ul>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_checkout">Check out</a></li>\n';
-doc_toc += '              <li><a href="dev_package.htm#packaging_steps_loop_through_files"></a></li>\n';
-doc_toc += '              <li><a href="dev_package.htm#">Replace version number in all files</a>\n';
+doc_toc += '              <li><a href="dev_package.htm#packaging_steps_version_number">Edit the version number</a></li>\n';
+doc_toc += '              <li><a href="dev_package.htm#packaging_steps_loop_through_files">Replace version number in all files</a>\n';
 doc_toc += '                <ul>\n';
 doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_loop_through_files_linux">Linux</a></li>\n';
 doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_loop_through_files_windows">Windows</a></li>\n';
 doc_toc += '                </ul>\n';
 doc_toc += '              </li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_bom">Remove Byte Order Marks</a></li>\n';
-doc_toc += '              <li><a href="dev_package.htm#">Prepare an announcement thread</a></li>\n';
-doc_toc += '              <li><a href="dev_package.htm#packaging_steps_write_announcement_thread"></a></li>\n';
+doc_toc += '              <li><a href="dev_package.htm#packaging_steps_write_announcement_thread">Prepare an announcement thread</a></li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_docs_upgrade">Edit the upgrade section of the docs</a></li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_changelog">Edit the changelog</a></li>\n';
-doc_toc += '              <li><a href="dev_package.htm#packaging_steps_version_number">Edit the version number</a></li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_svn_commit">Commit your changes</a></li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_versioncheck">Update the versioncheck data</a>\n';
 doc_toc += '                <ul>\n';
 doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_versioncheck_complete">Completeness</a></li>\n';
 doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_versioncheck_update">Update revision numbers and hashes</a></li>\n';
-doc_toc += '                </ul>\n';
-doc_toc += '              </li>\n';
-doc_toc += '              <li><a href="dev_package.htm#packaging_steps_xml_webspace">Update cpg15x.files.xml on the Coppermine home page</a></li>\n';
-doc_toc += '              <li><a href="dev_package.htm#packaging_steps_svn_export">Export from subversion</a>\n';
-doc_toc += '                <ul>\n';
-doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_rapidsvn">RapidSVN</a></li>\n';
-doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_tortoisesvn">Tortoise SVN</a></li>\n';
 doc_toc += '                </ul>\n';
 doc_toc += '              </li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_create_tag">Create a tag in subversion</a>\n';
@@ -1207,9 +1198,17 @@ doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_creat
 doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_create_tag_tortoisesvn">Tortoise SVN</a></li>\n';
 doc_toc += '                </ul>\n';
 doc_toc += '              </li>\n';
+doc_toc += '              <li><a href="dev_package.htm#packaging_steps_svn_export">Export from subversion</a>\n';
+doc_toc += '                <ul>\n';
+doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_rapidsvn">RapidSVN</a></li>\n';
+doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_tortoisesvn">Tortoise SVN</a></li>\n';
+doc_toc += '                </ul>\n';
+doc_toc += '              </li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_create_zip">Create the archive</a></li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_upload_zip">Upload the archive</a></li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_move_announcement">Publish announcement thread</a></li>\n';
+doc_toc += '              <li><a href="dev_package.htm#packaging_steps_xml_webspace">Update cpg15x.files.xml on the Coppermine home page</a></li>\n';
+doc_toc += '              <li><a href="dev_package.htm#packaging_steps_download_button">Update the download button on the Coppermine home page</a></li>\n';
 doc_toc += '              <li><a href="dev_package.htm#packaging_steps_news">Create news items</a>\n';
 doc_toc += '                <ul>\n';
 doc_toc += '                  <li><a href="dev_package.htm#packaging_steps_news_sf">News item on sf.net</a></li>\n';
@@ -1524,7 +1523,7 @@ function cpgDocHeader() {
     if (getUrlParameters('hide_nav') == 1) {
         return;
     }
-    $('#docheader').text('Coppermine Photo Gallery v1.5.18: Documentation and Manual');
+    $('#docheader').text('Coppermine Photo Gallery v1.5.48: Documentation and Manual');
     $('#docheader').after('<br clear="all" />\n<a name="top"></a>');
     $('#docheader').before('<img src="../images/coppermine-logo.png" alt="Coppermine Photo Gallery - Your Online Photo Gallery" align="left" />\n');
 }

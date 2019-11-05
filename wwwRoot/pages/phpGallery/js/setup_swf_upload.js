@@ -1,7 +1,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -9,9 +9,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/js/setup_swf_upload.js $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/js/setup_swf_upload.js $
+  $Revision: 8884 $
 **********************************************/
 
 var swfu;
@@ -23,7 +23,7 @@ SWFUpload.onload = function () {
     var settings = {
         flash_url : "js/swfupload/swfupload.swf",
         upload_url: "upload.php",    // Relative to current script
-        post_params: {"process" : "1", "user" : js_vars.user},
+        post_params: {"process" : "1", "user" : js_vars.user, "timestamp" : js_vars.timestamp, "form_token" : js_vars.form_token },
         file_size_limit : js_vars.max_upl_size + " KB",
         file_types : "*.*", //js_vars.allowed_file_types,
         file_types_description : js_vars.lang_upload_swf_php.all_files,
@@ -39,7 +39,7 @@ SWFUpload.onload = function () {
         button_height: "20",
         button_image_url: "images/browse_swf.png",
         button_placeholder_id: "browse_button_place_holder",
-        button_text: '<span id="browse_button" class="browse">' + js_vars.lang_upload_swf_php.browse + '</span>',
+        button_text: js_vars.lang_upload_swf_php.browse,
         button_text_style: button_disabled_style,
         button_text_left_padding: 30,
         // By default browse button will be disabled. It will get enabled when some album is chosen
@@ -83,7 +83,7 @@ SWFUpload.onload = function () {
 
 function continue_upload() {
     if (js_vars.user_id > 0 || js_vars.allow_guests_enter_file_details == 1) {
-        window.location = js_vars.site_url + '/editpics.php?album=' + $("select[name='album']").val();
+        window.location = js_vars.site_url + '/editpics.php?album=' + $("select[name='album']").val() + '&newer_than=' + js_vars.timestamp;
     } else {
         window.location = js_vars.site_url + '/thumbnails.php?album=' + $("select[name='album']").val();
     }

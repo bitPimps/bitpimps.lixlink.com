@@ -2,20 +2,20 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/german_formal.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/german_formal.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'German (formal)';
@@ -98,7 +98,7 @@ $lang_errors['error'] = 'Fehler'; //cpg1.5
 $lang_errors['critical_error'] = 'Kritischer Fehler'; // cpg1.5
 $lang_errors['access_thumbnail_only'] = 'Sie dürfen nur Thumbnail-Bilder ansehen.'; // cpg1.5
 $lang_errors['access_intermediate_only'] = 'Sie sind nicht berechtigt, Bilder in voller Größe anzusehen.'; // cpg1.5
-$lang_errors['access_none'] = 'Sie sind nicht berechtigt, Bilder anzusehen.'; // cpg1.5  
+$lang_errors['access_none'] = 'Sie sind nicht berechtigt, Bilder anzusehen.'; // cpg1.5
 $lang_errors['register_globals_title'] = 'Register Globals sind aktiviert!';// cpg1.5
 $lang_errors['register_globals_warning'] = 'Die PHP-Einstellung register_globals ist auf Ihrem Server aktiviert. Dies ist bezüglich der Sicherheit keine gute Idee. Es wird dringend empfohlen, diese Einstellung zu deaktivieren.'; //cpg1.5
 
@@ -1640,7 +1640,7 @@ $lang_logout_php['err_not_loged_in'] = 'Sie sind nicht angemeldet!';
 }
 
 // ------------------------------------------------------------------------- //
-// File minibrowser.php 
+// File minibrowser.php
 // ------------------------------------------------------------------------- //
 if (defined('MINIBROWSER_PHP')) {
 $lang_minibrowser_php['up'] = 'eine Ebene höher';
@@ -2504,7 +2504,7 @@ $lang_versioncheck_php['not_applicable'] = 'n.z.'; // cpg1.5
 }
 
 // ------------------------------------------------------------------------- //
-// File view_log.php 
+// File view_log.php
 // ------------------------------------------------------------------------- //
 if (defined('VIEWLOG_PHP')) {
 $lang_viewlog_php['delete_all'] = 'Alle Logs löschen';

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/spanish_mx.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/spanish_mx.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'Mexican Spanish';
@@ -111,6 +111,7 @@ $lang_common['keywords_insert1'] = 'Palabras Clave (separadas por %s)'; // cpg1.
 $lang_common['keywords_insert2'] = 'Inserta desde la lista'; // cpg1.5
 $lang_common['keyword_separator'] = 'Separador de Palabras Clave'; //cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'Espacio', ','=>'Coma', ';'=>'Punto y Coma'); // cpg1.5
+$lang_common['owner_name'] = 'Nombre del Propietario'; // cpg1.5
 $lang_common['filename'] = 'Nombre de foto'; // cpg1.5
 $lang_common['filesize'] = 'Tamaño de foto'; // cpg1.5
 $lang_common['album'] = 'Álbum'; // cpg1.5
@@ -668,7 +669,7 @@ $lang_admin_php['batch_proc_limit'] = 'Process concurrency for batch-add interfa
 $lang_admin_php['display_thumbs_batch_add'] = 'Display preview thumbnails on batch-add interface'; // cpg1.5
 $lang_admin_php['lang'] = 'Default language'; // cpg1.5
 $lang_admin_php['language_autodetect'] = 'Autodetect language'; // cpg1.5
-$lang_admin_php['charset'] = 'Character encoding'; // cpg1.5 
+$lang_admin_php['charset'] = 'Character encoding'; // cpg1.5
 // 'previous_next_tab'] = 'Display previous/next on tabbed pages'; // cpg1.5
 $lang_admin_php['theme'] = 'Theme'; // cpg1.5
 $lang_admin_php['custom_lnk_name'] = 'Custom menu link name'; // cpg1.5
@@ -1294,7 +1295,7 @@ $lang_forgot_passwd_php['err_unk_user'] = 'Selected user does not exist!';
 $lang_forgot_passwd_php['account_verify_subject'] = '%s - New password request';
 $lang_forgot_passwd_php['passwd_reset_subject'] = '%s - Your new password';
 $lang_forgot_passwd_php['account_verify_email'] = <<< EOT
-You have requested a new password. 
+You have requested a new password.
 If you would like to proceed with having a new password sent to you, click on the following link:
 <a href="{VERIFY_LINK}">{VERIFY_LINK}</a>
 Regards,

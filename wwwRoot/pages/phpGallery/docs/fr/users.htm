@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/users.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/users.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -40,9 +40,9 @@
     <p class="cpg_message_info">Si vous avez activé l'intégration (une passerelle) de Coppermine avec une autre application (par exemple, votre application favorite BBS), Coppermine utilise la table membre de l'application que vous utilisez avec (votre BBS), de sorte que la fonction de gestion d'utilisateur de Coppermine sera désactivée en faveur de la gestion des utilisateurs de l'application qui sert de passerelle. Cela a été fait pour éliminer les redondances et faciliter une intégration sans heurt.<br />
     Par conséquent, vous n'aurez pas ce panneau de gestion d’utilisateurs en cliquant sur "utilisateurs" Le lien vous enverra à la place à la gestion des utilisateurs de l’application qui vous sert de passerelle.</p>
     <img src="images/usermgr.png" width="600" height="200"border="0" alt="" title="Panneau de gestion des utilisateurs" /><br />
-    
+
     <div class="indent">
-    
+
         <a name="user_cp_page"></a><h3>Gestion d’utilisateurs<a href="#user_cp_page" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <ul>
         <li>Vous pouvez trier l'affichage dans la gestion des utilisateurs soit en cliquant sur les flèches (<img src="../../images/ascending.png" width="9" height="9" border="0" alt="" title="ascending" /><img src="../../images/descending.png" width="9" height="9" border="0" alt="" title="descending" />) à côté de chaque entête de colonne ou en choisissant l'ordre de tri dans la liste déroulante en haut à droite.</li>
@@ -61,24 +61,24 @@
         <a name="user_cp_search"></a><h3>Chercher un utilisateur(s)<a href="#user_cp_search" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Vous pouvez utiliser les astérisques: <tt class="code">*</tt> (pour toute <em>les chaînes de caractères</em>) et le point d’interrogation <tt class="code">?</tt> (<em>un seul caractère</em>) ou même une expression via l’utilisation du symbole % (<tt class="code">%expression%</tt>).<br />Exemple: la recherche de <tt class="code">j*</tt> aura comme retour <tt class="code">Jack</tt> et <tt class="code">Jill</tt></p>
         <a name="user_cp_search_end"></a>
-        
+
         <a name="user_cp_new"></a><h3>Créer de nouveaux utilisateurs<a href="#user_cp_new" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Pour créer un nouvel utilisateur, cliquez simplement sur le bouton "Créer un nouvel utilisateur" au bas du gestionnaire d’utilisateur et remplissez le formulaire qui apparaîtra.</p>
         <p>Cela n'est évidemment pas si fonctionnel si vous avez activé l’intégration d’une passerelle, car la gestion des utilisateurs est assurée par l'application qui vous sert de passerelle Coppermine. Dans ce cas, l'écran de gestion des utilisateurs de l’application de votre passerelle devrait montrer - créer un nouvel utilisateur.</p>
         <a name="user_cp_new_end"></a>
-        
+
         <a name="user_cp_edit"></a><h3>Modification d'un utilisateur<a href="#user_cp_edit" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p><img src="images/usermgr_edit.png" width="300" height="382" border="0" alt="" align="right" />Pour modifier les propriétés d'un utilisateur, cliquez sur le bouton <img src="../../images/icons/edit.png" width="16" height="16" border="0" alt="" title="edit" /> à côté du nom d'utilisateur. Vous trouverez ensuite une page où vous pouvez modifier toutes les informations contenue dans le profil de l'utilisateur. Cela inclut la possibilité de changer le mot de passe de cet utilisateur. Si vous ne voulez pas changer le mot de passe de l'utilisateur, laissez le champ mot de passe vide.<br />
         La liste déroulante indique le groupe principal dans lequel l'utilisateur se trouve, les cases en dessous indiquent les groupes secondaires existants.</p>
         <p>S'il vous plaît, notez que cet écran (ainsi que le reste de la gestion des utilisateurs de Coppermine) ne sera pas disponible si vous avez activé une <a href="bridging.htm#integrating">passerelle</a>, car alors la gestion des utilisateurs de l'application que vous avez comme passerelle (par exemple, votre BBS) intervient et traite tout ce qui concerne la gestion des utilisateurs.</p>
-        
+
         <div class="indent">
             <a name="user_cp_edit_permission_by_group"></a><h4>Droits sur les albums pour le groupe<a href="#user_cp_edit_permission_by_group" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
             <p>Le lien "Droits sur les albums pour le groupe" vous permettra d'<em>afficher</em> les albums qui sont affectés exclusivement aux membres d'un groupe en particulier. Pour être tout à fait clair: cette fonctionnalité ne vous permet effectivement <strong>pas</strong> d'attribuer des albums à des groupes, il ne fait qu'<strong>afficher</strong> ces assignations. Pour attribuer des albums à des groupes en particuliers, utilisez la boîte de dialogue <a href="albums.htm#album_prop">propriétés de l'album</a> des albums individuels.</p>
             <a name="user_cp_edit_permission_by_group_end"></a>
         </div>
         <a name="user_cp_edit_end"></a>
-        
+
         <a name="user_cp_group"></a><h3>Groupe d’appartenance<a href="#user_cp_group" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         <p>Lorsque vous créez un nouvel utilisateur ou modifiez un utilisateur existant, vous verrez une ligne nommée &quot;Groupe de l'utilisateur&quot; - elle détermine de quel(s) groupe(s) l'utilisateur est membre.<br />
         Le premier champ (un champ déroulant) détermine le groupe d'utilisateurs principal. Il détermine le statut d'un utilisateur. Vous devez le régler à &quot;Administrateur&quot; (pour les utilisateurs à qui vous souhaitez attribuer des pouvoirs d’administrateur) ou &quot;Enregistré / Anonymes&quot; pour les autres.<br />
@@ -87,12 +87,12 @@
         <p class="cpg_message_info">Note: Le bouton "Droits sur les albums pour le groupe" sous les cases à cocher n'est <strong>pas</strong> destiné à <strong>attribuer</strong> des autorisations d'albums, mais seulement pour <strong>vérifier</strong> les permissions. Vous ne pouvez donner des autorisations sur l'album que par les <em>assign</em> particular album permissions on the <a href="albums.htm#album_prop">propriétés de l’album</a>.<br clear="all" /></p>
         <a name="user_cp_group_end"></a>
         <a name="user_cp_end"></a>
-    
+
     </div>
-    
+
     <a name="lost_password"></a><h2>Mot de passe perdu<a href="#lost_password" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     Il y a de nombreux mots de passe que vous devez mémoriser, et il y a de nombreuses questions qui sont liées aux mots de passe. Toutes ne s'appliquent pas à Coppermine, nous n'en parlerons donc que brièvement ici. Si vous avez besoin de plus de détails sur les questions de mots de passe qui ne sont pas liés à Coppermine, c'est une bonne idée d'utiliser un moteur de recherche et / ou l’aide à votre hébergeur.
-    
+
     <div class="indent">
         <a name="lost_password_cpg_user_account"></a><h3>Mot de passe de compte d'utilisateur de Coppermine<a href="#lost_password_cpg_user_account" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
         Il n'y a pas de différence entre un administrateur et un compte d'utilisateur non-administrateur: ils fonctionnent tous les deux de la même façon: vous devez vous connecter en fournissant un nom d'utilisateur (ou une adresse courriel si vous avez activé l'option correspondante dans la <a href="configuration.htm#admin_user_login_method_start">configuration de Coppermine</a>) et un mot de passe. Si cette authentification a été réussie, c'est à dire si Coppermine vous "connait", cela lui permettra de déterminer si votre compte d'utilisateur appartient au <a href="groups.htm#group_cp_administrators">groupe administrateur</a> ou non. Sur la base de cette appartenance à un groupe, vous aurez différents privilèges.<br />
@@ -119,7 +119,7 @@
                     Cliquez sur la table nommée <tt class="code">XXX_users</tt>, où XXX est le préfixe de table que vous avez choisi lors de l'installation de Coppermine initiale (d’origine, le préfixe est <tt class="code">cpg15x_</tt>, de sorte que le nom de la table par défaut doit être <tt class="code">cpg15x_users</tt>). Puis cliquez sur l'icône à gauche du texte sinon vous ne verrez pas le contenu de la table à droite de l'écran.<br />
                     Si vous avez perdu votre mot de passe d’administrateur regardez la colonne intitulée user_id. Recherchez le 1. C'est compte administrateur que vous avez créé lors de l'installation initiale. A la gauche de cette colonne il y a une icône représentant crayon (c'est à dire modifier). Cliquez sur ce lien.<br />
                     Vous devriez avoir maintenant des champs, dans lesquels vous pouvez écrire.<br />
-                    A la droite de la ligne <tt class="code">user_pass</tt> se trouve le mot de passe crypté. Effacer le et remplacer par  
+                    A la droite de la ligne <tt class="code">user_pass</tt> se trouve le mot de passe crypté. Effacer le et remplacer par
                     <input type="text" readonly="readonly" name="admin_password" value="21232f297a57a5a743894a0e4a801fc3" size="32" maxlength="32" class="small" />.<br />
                     Que fera le mot de passe <tt class="code">admin</tt>. Ne laissez en aucun cas le champ mot de passe vide. Allez au bas de la page et cliquez sur <tt class="code">Exécuter</tt> en <tt class="code">sauvegardant</tt>. Vous pouvez maintenant sortir de phpMyAdmin en allant à l'icône de la sortie dans le coin supérieur gauche.<br />
                     Tapez l'URL de votre page de Coppermine. Connectez-vous avec votre nom d'utilisateur et le mot de passe <tt class="code">admin</tt>. Une fois que vous êtes connecté avec succès, vous devez bien entendu modifier le mot de passe pour mettre autre chose que <tt class="code">admin</tt>. Cliquez sur "Mon profil", allez vers le bas de la page et cliquez sur "Changer mon mot de passe". Entrez dans "Mot de passe actuel" (<tt class="code">admin</tt>) puis votre nouveau mot de passe (vous devez l’entrer deux fois) et validez le formulaire. Si tout va bien, vous verrez un message qui le dit: "Votre mot de passe a été modifié".<br />
@@ -160,7 +160,7 @@ EOT;
 endtable();
 pagefooter();
 ?&gt;</textarea>
-                        
+
                         </li>
                         <li>Nommez le fichier <tt class="code">adminpass.php</tt> et téléchargez-le sur votre serveur web à la racine du dossier de Coppermine</tt></li>
                         <li>Exécutez le fichier dans votre navigateur en entrant l'URL du fichier que vous venez de télécharger (quelque chose <tt class="code">http://votredomaine.fr/le_dossier_de_coppermine/adminpass.php</tt>) into the address bar of your browser</li>
@@ -169,7 +169,7 @@ pagefooter();
                         <li>Changer immédiatement le mot de passe du compte d'utilisateur lorsque vous êtes connecté.</li>
                     </ul>
             </li>
-        </ul>  
+        </ul>
         <a name="lost_password_cpg_user_account_bridged"></a><h4>Coppermine et les passerelles<a href="#lost_password_cpg_user_account_bridged" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
         Lorsque Coppermine fonctionne avec une passerelle (bridge), la gestion des utilisateurs de l'application de la passerelle "prend le relais", donc si un visiteur clique sur le lien Connexion dans Coppermine, il est redirigé vers l’écran de connexion de transition de l’application de la passerelle. Après une connexion réussie, il / elle risque d'être renvoyé dans votre galerie Coppermine (si votre application prend en charge la redirection de transition après la connexion). Coppermine est seulement «conscient» que l'utilisateur a été authentifié dans votre application de transition; Coppermine n'est pas au courant du mot de passe de l'utilisateur. Par la suite, vous ne pouvez pas utiliser les mécanismes de Coppermine pour récupérer les mots de passe perdus pour les comptes d'utilisateurs lorsque vous êtes avec une passerelle. Si votre application fournit des mécanismes permettant de retrouver votre mot de passe, utiliser ses mécanismes.
         </div>
@@ -181,8 +181,8 @@ pagefooter();
 
 <div id="doc_footer">
     <div class="doc_info_wrapper">
-        <span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-        <span id="doc_revision">$Revision: 8304 $</span>
+        <span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+        <span id="doc_revision">$Revision: 8884 $</span>
     </div>
 </div>
 </body>

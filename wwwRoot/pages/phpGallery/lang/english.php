@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/english.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/english.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'English (US)';
@@ -115,6 +115,7 @@ $lang_common['keywords_insert1'] = 'Keywords (separate with %s)'; // cpg1.5
 $lang_common['keywords_insert2'] = 'Insert from list'; // cpg1.5
 $lang_common['keyword_separator'] = 'Keyword separator'; //cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'space', ','=>'comma', ';'=>'semicolon'); // cpg1.5
+$lang_common['owner_name'] = 'Owner name'; // cpg1.5
 $lang_common['filename'] = 'Filename'; // cpg1.5
 $lang_common['filesize'] = 'Filesize'; // cpg1.5
 $lang_common['album'] = 'Album'; // cpg1.5
@@ -846,7 +847,7 @@ $lang_admin_php['upl_notify_admin_email'] = 'Notify admin of user upload awaitin
 $lang_admin_php['allow_memberlist'] = 'Allow logged in users to view the memberlist'; // cpg1.5
 $lang_admin_php['allow_email_change'] = 'Allow users to change email address in their profile'; // cpg1.5
 $lang_admin_php['allow_user_account_delete'] = 'Allow users to delete their own user account'; // cpg1.5
-$lang_admin_php['users_can_edit_pics'] = 'Allow users to retain control over their pics in public galleries'; // cpg1.5
+$lang_admin_php['users_can_edit_pics'] = 'Allow users to retain control over their files in public galleries'; // cpg1.5
 $lang_admin_php['allow_user_move_album'] = 'Allow users to move their albums from/to allowed categories'; // cpg1.5
 $lang_admin_php['allow_user_album_keyword'] = 'Allow users to assign album keywords'; // cpg1.5
 $lang_admin_php['allow_user_edit_after_cat_close'] = 'Allow users to edit their albums when in a locked category'; // cpg1.5
@@ -2584,6 +2585,24 @@ $lang_plugin_php['link_target_name'] = 'Link target';
 $lang_plugin_php['link_target_description'] = 'Changes the way external links are being opened: when this plugin is enabled, all links that contain the attribute rel="external" will open in a new window (instead of the same window).';
 $lang_plugin_php['link_target_extra'] = 'This plugin has an impact mostly on the "Powered by Coppermine" link at the bottom of the gallery output.';
 $lang_plugin_php['link_target_recommendation'] = 'It is recommended not to use this plugin to avoid bossing your users around: opening links in a new window means bossing around your site visitors.';
+$lang_plugin_php['visiblehookpoints_config_name'] = 'Visible HookPoints';
+$lang_plugin_php['visiblehookpoints_config_description'] = 'Tool for plugin developers to locate plugin entry points (plugin hooks) and array information. Do not enable this plugin unless you want to start developing your own plugin.';
+$lang_plugin_php['visiblehookpoints_config_install'] = 'Plugin comes with a configuration page (accessible via the config manager) that will allow you to specify if the hookpoints should be displayed only if the parameter &quot;hookpoints&quot; is set in the URL or if they are supposed to be display always to every visitor. Second option is only meant for plugin development on testbeds - do not use on production sites, as this plugin will output information about the hookpoints directly on all pages.';
+$lang_plugin_php['visiblehookpoints_plugin_support'] = 'Plugin support';
+$lang_plugin_php['visiblehookpoints_plugin_config'] = 'Plugin configuration';
+$lang_plugin_php['visiblehookpoints_help_invisible_header'] = 'Adding the hookpoint parameter manually';
+$lang_plugin_php['visiblehookpoints_help_invisible_text'] = 'Manually add the parameter &quot;hookpoint&quot; to the URL in the address bar of your browser (e.g. <tt class="code">'.$CONFIG['ecards_more_pic_target'].'index.php?hookpoint</tt>) to see the hookpoints. This option is meant for live, production galleries, where you wouldn\'t want to display the hookpoints to every site visitor.';
+$lang_plugin_php['visiblehookpoints_help_visible_header'] = 'Displaying the hookpoints for everyone';
+$lang_plugin_php['visiblehookpoints_help_visible_text'] = 'Only choose this option on your testbed server, i.e. for galleries that don\'t run in a production environment, as the hookpoints will be displayed for all gallery visitors.';
+$lang_plugin_php['visiblehookpoints_visibility_choose'] = 'Choose visibility option of hooks';
+$lang_plugin_php['visiblehookpoints_visibility_parameter'] = 'Only visible with URL-parameter &quot;hookpoints&quot;';
+$lang_plugin_php['visiblehookpoints_visibility_permanent'] = 'Visible permanently for everyone';
+$lang_plugin_php['visiblehookpoints_visibility_admin'] = 'Only visible for the admin';
+$lang_plugin_php['visiblehookpoints_save'] = 'Save settings';
+$lang_plugin_php['visiblehookpoints_settings_saved'] = 'Settings saved for Visible HookPoints plugin';
+$lang_plugin_php['visiblehookpoints_usage_stats'] = 'Visible HookPoints marker usage stats';
+$lang_plugin_php['visiblehookpoints_time_chart'] = 'Visible HookPoints time chart in seconds from CPG_TIME_START';
+$lang_plugin_php['visiblehookpoints_error'] = 'Plugin &quot;Visible HookPoints&quot;: Unknown action value';
 }
 
 ?>

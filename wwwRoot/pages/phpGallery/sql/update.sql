@@ -1,7 +1,7 @@
 ##  ********************************************
 ##  Coppermine Photo Gallery
 ##  ************************
-##  Copyright (c) 2003-2012 Coppermine Dev Team
+##  Copyright (c) 2003-2019 Coppermine Dev Team
 ##  v1.0 originally written by Gregory Demar
 ##
 ##  This program is free software; you can redistribute it and/or modify
@@ -9,9 +9,9 @@
 ##  as published by the Free Software Foundation.
 ##
 ##  ********************************************
-##  Coppermine version: 1.5.18
-##  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/sql/update.sql $
-##  $Revision: 8304 $
+##  Coppermine version: 1.5.48
+##  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/sql/update.sql $
+##  $Revision: 8884 $
 ##  ********************************************
 
 
@@ -360,14 +360,14 @@ INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, avail
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('laothian', 'Laothian ','','la','', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('latvian', 'Latvian','Latvian','lv','', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('lithuanian', 'Lithuanian','Letzeburgisch','lu','', 'NO', 'NO');
-INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('luxembourgish', 'Luxembourgish','Lietuvi&#0353;kai','lt','', 'YES', 'NO');
+INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('luxembourgish', 'Luxembourgish','Lietuvi&#0353;kai','lu','', 'YES', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('macedonian', 'Macedonian','&#1052;&#1072;&#1082;&#1077;&#1076;&#1086;&#1085;&#1089;&#1082;&#1080;','mk','', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('malay', 'Malay','Bahasa Melayu','my','', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('maltese', 'Maltese','','mt','', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('mongolian', 'Mongolian','','mn','', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('nepali', 'Nepali','','np','', 'NO', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('norwegian', 'Norwegian','Norsk','no','no', 'YES', 'NO');
-INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('persian', 'Persian','&#1601;&#1575;&#1585;&#1587;&#1740;','ir','', 'NO', 'NO');
+INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('persian', 'Persian','&#1601;&#1575;&#1585;&#1587;&#1740;','ir','', 'YES', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('polish', 'Polish','Polski','pl','pl', 'YES', 'YES');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('portuguese', 'Portuguese (Portugal)','Portugu&ecirc;s','pt','', 'YES', 'NO');
 INSERT INTO CPG_languages (lang_id, english_name, native_name, flag, abbr, available, complete) VALUES ('romanian', 'Romanian','Rom&acirc;n&atilde;','ro','', 'NO', 'NO');
@@ -415,6 +415,7 @@ UPDATE CPG_languages SET `available` = 'YES' WHERE `lang_id`='japanese';
 UPDATE CPG_languages SET `complete` = 'YES' WHERE `lang_id`='japanese';
 UPDATE CPG_languages SET `available` = 'YES' WHERE `lang_id`='luxembourgish';
 UPDATE CPG_languages SET `available` = 'YES' WHERE `lang_id`='norwegian';
+UPDATE CPG_languages SET `available` = 'YES' WHERE `lang_id`='persian';
 UPDATE CPG_languages SET `available` = 'YES' WHERE `lang_id`='polish';
 UPDATE CPG_languages SET `available` = 'YES' WHERE `lang_id`='portuguese';
 UPDATE CPG_languages SET `available` = 'YES' WHERE `lang_id`='russian';
@@ -513,7 +514,7 @@ INSERT INTO CPG_config VALUES ('picture_use', 'thumb');
 ALTER TABLE CPG_comments ADD INDEX author_id (author_id);
 ALTER TABLE CPG_users ADD INDEX user_group (user_group);
 
-UPDATE CPG_albums SET owner = category - 10000 WHERE category > 10000;
+UPDATE CPG_albums SET owner = category - {FIRST_USER_CAT} WHERE category > {FIRST_USER_CAT};
 
 # Fulltext index is no longer used when searching
 ALTER TABLE CPG_pictures DROP INDEX `search`;
@@ -533,3 +534,22 @@ ALTER TABLE CPG_users ADD user_email_valid enum('YES','') NOT NULL default '';
 INSERT INTO CPG_usergroups VALUES (3, 'Anonymous', 0, 0, 1, 0, 0, 0, 0, 1, 1, 3);
 
 UPDATE CPG_users SET user_actkey = '' WHERE user_active = 'YES';
+
+INSERT INTO CPG_config VALUES ('cookies_need_consent', '0');
+INSERT INTO CPG_config VALUES ('album_sort_order', 'pa');
+
+UPDATE CPG_languages SET `flag` = 'lu' WHERE `lang_id`='luxembourgish';
+INSERT INTO CPG_config VALUES ('custom_sortorder_thumbs', '1');
+INSERT INTO CPG_config VALUES ('link_last_upload', '0');
+INSERT INTO CPG_config VALUES ('editpics_ignore_newer_than', '0');
+INSERT INTO CPG_config VALUES ('upload_create_album_directory', '0');
+
+ALTER TABLE CPG_comments CHANGE `msg_date` `msg_date` datetime NOT NULL default '1000-01-01 00:00:00';
+ALTER TABLE CPG_pictures CHANGE `mtime` `mtime` datetime NOT NULL default '1000-01-01 00:00:00';
+ALTER TABLE CPG_users CHANGE `user_lastvisit` `user_lastvisit` datetime NOT NULL default '1000-01-01 00:00:00';
+ALTER TABLE CPG_users CHANGE `user_regdate` `user_regdate` datetime NOT NULL default '1000-01-01 00:00:00';
+
+INSERT INTO CPG_config VALUES ('batch_add_hide_existing_files', '0');
+INSERT INTO CPG_config VALUES ('only_empty_albums', '0');
+INSERT INTO CPG_config VALUES ('user_manager_hide_file_stats', '0');
+INSERT INTO CPG_config VALUES ('album_uploads_default', 'NO');

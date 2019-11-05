@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/sidebar.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/sidebar.php $
+  $Revision: 8884 $
 **********************************************/
 
 // ------------------------------------------------------------------------- //
@@ -302,7 +302,7 @@ function get_tree_subcat_data($parent, $dtree_parent = 0) {
                 if ($parent == 0) {
                         get_tree_album_data($parent,0);
                 }
-                
+
         }
 }
 
@@ -316,7 +316,7 @@ function get_tree_album_data($category,$dtree_parent) {
                 $pic_filter = ' '.str_replace('p.',$CONFIG['TABLE_PICTURES'].'.',$FORBIDDEN_SET);
         }
         if ($category == USER_GAL_CAT) {
-                $sql = "SELECT DISTINCT user_id, user_name FROM {$CONFIG['TABLE_USERS']}, {$CONFIG['TABLE_ALBUMS']} WHERE  10000 + {$CONFIG['TABLE_USERS']}.user_id = {$CONFIG['TABLE_ALBUMS']}.category ORDER BY user_name ASC";
+                $sql = "SELECT DISTINCT user_id, user_name FROM {$CONFIG['TABLE_USERS']}, {$CONFIG['TABLE_ALBUMS']} WHERE  ".FIRST_USER_CAT." + {$CONFIG['TABLE_USERS']}.user_id = {$CONFIG['TABLE_ALBUMS']}.category ORDER BY user_name ASC";
                 $result = cpg_db_query($sql);
                 if (($cat_count = mysql_num_rows($result)) > 0) {
                         $rowset = cpg_db_fetch_rowset($result);

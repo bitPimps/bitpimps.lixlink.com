@@ -1,17 +1,17 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
-  v1.1 originaly written by Gregory DEMAR
+  Copyright (c) 2003-2019 Coppermine Dev Team
+  v1.0 originally written by Gregory DEMAR
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/js/searchnew.js $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/js/searchnew.js $
+  $Revision: 8884 $
 **********************************************/
 
 var error_occured = false;
@@ -133,19 +133,16 @@ function job_done(response) {
         }
     }
 
-    var img = document.createElement('img');
-    img.setAttribute('src', src);
-    img.setAttribute('title', title);
-    
-    this.obj.appendChild(img);
+    $(this.obj).append($('<img />').attr('src', src).attr('title', title));
     
     // Notify the queue manager
     qm.notifydone();
 }
 
 // Job has failed (http request failed)
-function job_failed() {
-    job_done('PB');
+function job_failed(request) {
+    error_occured = true;
+    job_done(request.statusText);
 }
 
 // Sends the http request

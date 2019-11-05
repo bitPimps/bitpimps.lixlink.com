@@ -13,9 +13,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/de/install_faq.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/de/install_faq.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -62,16 +62,16 @@
         <li>mySQL 3.23.23 or better (4.1 recommended). Don't confuse the client api version (which is shown in phpinfo) with the mySQL version!</li>
     </ul>
     <hr />
-    
+
 <a name="image_libraries"></a>
 <h2>Image libraries<a href="#image_libraries" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 
 <div class="indent">
-    
+
     <a name="WhatIsGD"></a>
     <h3>What's <strong>GD</strong> and how can I get it?<a href="#WhatIsGD" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p><img src="../images/gd.png" border="0" alt="" width="148" height="93" title="GD" align="right" style="padding-left:20px" />GD is a graphical library which enables PHP to do image manipulation. The library was originally developped by <a href="http://www.boutell.com/" rel="external" class="external">Thomas Boutell</a> and is now maintained by <a href="http://blog.thepimp.net/" rel="external" class="external">Pierre-A. Joye</a> under the umbrella of <a href="http://www.php.net/" rel="external" class="phpnet">PHP.net</a>. If you are running your own webservem you can download it at <a href="http://libgd.org/" class="external">libgd.org</a>. You will need to recompile PHP on (L)Unix systems, depending on your setup Apache as well. Most recent versions of PHP come with GD - go for a package. On most windows systems, you can just enable it in the php.ini file. If you are subscribing to a webhost: find out through your webhost if GD/GD2 support is available on your site. If not, ask your webhost if you can have it or find yourself another webhost. GD/GD2 are pretty much a standard feature at most webhosting services.<br /></p><hr />
-    
+
     <a name="whatIsImageMagick"></a>
     <h3>What's ImageMagick and how can I get it?<a href="#whatIsImageMagick" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p><img src="../images/imagemagick.png" border="0" alt="" width="130" height="54" title="ImageMagick" align="right" style="padding-left:20px" />ImageMagick is another graphical library like GD/GD2 for image manipulation. If you are running your own webserver, you can download it at <a href="http://www.imagemagick.org" class="external">imagemagick.org</a>. There are sources available for Unix, Linux, Mac and Windows executables, as well as binary packages for various server operating systems. You cannot install ImageMagick if you are subscribing to a webhost.
@@ -92,14 +92,14 @@
     </table>
     <br /><br />Please note: leaving info.php on your server could be a security risk; either delete it after use or move it into a password protected directory!<br />&nbsp;<br />If you have already installed Coppermine, you will find a phpinfo file (phpinfo.php) within the coppermine folder. Log in to your Coppermine setup as the admin and simply point (type in the URL) your browser to http://yourdomain.tld/your_coppermine_folder/phpinfo.php. Then scoll down to the GD section of the display.</p>
     <hr />
-    
+
     <a name="GD1vsGD2"></a>
     <h3>What's the difference between <strong>GD1 and GD2</strong>?<a href="#GD1vsGD2" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>GD2 is an updated version of GD1 and, as such, will create pictures with better quality (intermediate and thumbnails). <table border="0" class="frame2"><tr><td colspan="2"><span class="winzig">Here's an example taken from <a href="http://www.vddh.com/wnailer/index.php?pag=res&pic=1#comp" class="external">w-nailer: about resizing</a><br />(Original pic size: 1024 x 768 pixels):</span></td></tr><tr><td align="center"><img src="../images/128x96gd1.jpg" width="128" height="96" border="0" alt="" title="GD1"></td><td align="center"><img src="../images/128x96gd2.jpg" width="128" height="96" border="0" alt="" title="GD2"></td></tr><tr><td align="center"><span class="winzig">GD 1.8.4:<br />ImageCreate<br />ImageCopyResized<br />128 x 96 pixels</span></td><td align="center"><span class="winzig">GD 2.0.1:<br />ImageCreateTrueColor<br />ImageCopyResampled<br />128 x 96 pixels</span></td></tr></table>Upgrades of the GD lib after coppermine has already installed will not affect pictures that were previously created. It will only affect those created after the upgrade. <strong>Unless you are running your own webserver, you cannot upgrade nor install GD lib  - only your webhost can!</strong></p>
     <p>The main difference between GD 1 and GD 2 lies in the color depth: GD1 only supported a limited color depth of 256 colors per image. This lead to very poor quality.</p>
     <p class="cpg_message_info">By now, the GD1 library is totally outdated and should only be found on very old hardware. If you're webhosted, you should have GD2. If your webhost is still only offering GD1, it's probably time to look for another, better webhost.</p>
     <hr />
-    
+
     <a name="enableGD"></a>
     <h3>How do I <strong>enable GD</strong> on my Windows server?<a href="#enableGD" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>GD 1.x 2.x are normally part of all standard PHP distributions under Windows<br />
@@ -115,7 +115,7 @@
     <p>ImageMagick is quite complicated to set up on Windows. There are several things to be taken into account. The Coppermine support board is <strong>not</strong> the right place to ask for help on installing it, as it deals with Coppermine, not &quot;How to set up a server&quot; (most people on the Coppermine boards don't run their own webserver, but they have webspace by a webhost). Instead, try to find support boards on the internet that deal with this special topic.</p>
     <p>The path to ImageMagick mustn't contain spaces or special characters. You have to make sure that the user the webserver runs under actually has the needed permissions to run the ImageMagick executables.</p>
     <hr />
-    
+
     <a name="installIMwhenHosted"></a>
     <h3>How can I <strong>install ImageMagick or GD</strong>?<a href="#installIMwhenHosted" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>You can only <a href="#enableIMonWindows">install ImageMagic or GD if you're running your own server</a> or if you have at least shell access to your webserver. If your site is being hosted by a webhost you can only contact your webhost and ask them to install it for you. If they refuse choose another webhost or use GD instead.<br /></p>
@@ -158,8 +158,8 @@ For details, read the <a href="install_permissions.htm#permissions">permission s
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

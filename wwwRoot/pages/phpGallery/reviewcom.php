@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/reviewcom.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/reviewcom.php $
+  $Revision: 8884 $
 **********************************************/
 
 // todo: search option.
@@ -86,7 +86,7 @@ if ($get_data_rejected==0) { // individual approval start
     if (!checkFormToken()) {
         cpg_die(ERROR, $lang_errors['invalid_form_token'], __FILE__, __LINE__);
     }
-    
+
     pageheader($lang_reviewcom_php['title']);
 
     // Normally, we could trust this input, as only the admin should have gotten that far.
@@ -150,11 +150,18 @@ if ($get_data_rejected==0) { // individual approval start
         if ($single_approval_array['what'] == 'approve') {
             $query_approval = 'YES';
             $title = $lang_reviewcom_php['comment_approved'];
+            $approved_yes_set = $single_approval_array['msg_id'];
+            $approved_no_set = '';
         } else {
             $query_approval = 'NO';
             $title = $lang_reviewcom_php['comment_unapproved'];
+            $approved_no_set = $single_approval_array['msg_id'];
+            $approved_yes_set = '';
         }
         cpg_db_query("UPDATE {$CONFIG['TABLE_COMMENTS']} SET `approval` = '{$query_approval}' WHERE msg_id = {$single_approval_array['msg_id']}");
+
+        CPGPluginAPI::action('comment_approve', array('approved_yes_set' => $approved_yes_set, 'approved_no_set' => $approved_no_set));
+
         starttable('-2', $title, 2);
         print <<< EOT
         <tr>
@@ -224,6 +231,8 @@ if ($superCage->post->keyExists('total_message_id_collector')) {
         cpg_db_query("UPDATE {$CONFIG['TABLE_COMMENTS']} SET `approval` = 'NO' WHERE msg_id IN ($approved_no_set)");
         $nb_com_no = mysql_affected_rows();
     }
+
+    CPGPluginAPI::action('comment_approve', array('approved_yes_set' => $approved_yes_set, 'approved_no_set' => $approved_no_set));
 }
 
 $nb_com_del = 0;
@@ -232,13 +241,14 @@ if ($superCage->post->keyExists('cid_array')) {
     $cid_array = $superCage->post->getEscaped('cid_array');
     $cid_set = '';
     foreach ($cid_array as $cid) {
-        $cid_set .= ($cid_set == '') ? '(' . $cid : ', ' . $cid;
+        $cid_quoted = "'".$cid."'";
+        $cid_set .= ($cid_set == '') ? '(' . $cid_quoted : ', ' . $cid_quoted;
         if ($superCage->post->getAlpha('with_selected') == 'approve' && $superCage->post->getInt('spam'.$cid) == 'YES') {
             $akismet_ham_array[] = $cid;
         }
     }
     $cid_set .= ')';
-    
+
     //Check if the form token is valid
     if(!checkFormToken()){
         cpg_die(ERROR, $lang_errors['invalid_form_token'], __FILE__, __LINE__);
@@ -626,8 +636,8 @@ echo <<<EOT
                 <input type="checkbox" name="checkAll2" onclick="selectAll('cpgform2');" class="checkbox" title="{$lang_common['check_uncheck_all']}" />
             </td>
             <td class="tablef" valign="middle" align="left">
-                {$lang_reviewcom_php['with_selected']}:</td> 
-            <td colspan="4" class="tablef" valign="middle" align="left"> 
+                {$lang_reviewcom_php['with_selected']}:</td>
+            <td colspan="4" class="tablef" valign="middle" align="left">
               <input name="with_selected" id="do_nothing" type="radio" value="do_nothing" {$default_action_with_selected['do_nothing']} />
               <label for="do_nothing">{$lang_reviewcom_php['do_nothing']}</label>
                 &nbsp;
@@ -648,9 +658,9 @@ echo <<<EOT
 
 EOT;
 endtable();
-list($timestamp, $form_token) = getFormToken();	
+list($timestamp, $form_token) = getFormToken();
 echo "<input type=\"hidden\" name=\"form_token\" value=\"{$form_token}\" />
-     <input type=\"hidden\" name=\"timestamp\" value=\"{$timestamp}\" /></form>";    
+     <input type=\"hidden\" name=\"timestamp\" value=\"{$timestamp}\" /></form>";
 
 if ($CONFIG['comment_akismet_api_key'] != '') {
     print '<br /><a name="akismet"></a>';

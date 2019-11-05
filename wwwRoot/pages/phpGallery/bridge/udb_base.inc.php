@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/bridge/udb_base.inc.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/bridge/udb_base.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
@@ -27,8 +27,8 @@ class core_udb {
     {
         global $CONFIG;
 
-        // Define whether we can join tables or not in SQL queries (same host & same db or user)
-        $this->can_join_tables = ($this->db['host'] == $CONFIG['dbserver'] && ($this->db['name'] == $CONFIG['dbname'] || $this->db['user'] == $CONFIG['dbuser']));
+        // Define whether we can join tables or not in SQL queries (same host & same db or user or positive check)
+        $this->can_join_tables = ($this->db['host'] == $CONFIG['dbserver'] && ($this->db['name'] == $CONFIG['dbname'] || $this->db['user'] == $CONFIG['dbuser'] || mysql_query("SELECT NULL FROM ".$this->usertable." LIMIT 1")));
 
         if ($id){
             $this->link_id = $id;
@@ -97,7 +97,7 @@ class core_udb {
         $USER_DATA['can_see_all_albums'] = $USER_DATA['has_admin_access'];
 
         // avoids a template error
-        if (!$USER_DATA['user_id']) { 
+        if (!$USER_DATA['user_id']) {
             $USER_DATA['can_create_albums'] = 0;
         }
 
@@ -218,7 +218,16 @@ class core_udb {
         }
 
         // Build SQL table, should work with all bridges
-        $sql = "SELECT {$f['user_id']} AS user_id, {$f['username']} AS user_name, {$f['email']} AS user_email, {$f['regdate']} AS user_regdate, {$f['lastvisit']} AS user_lastvisit, {$f['active']} AS user_active, "
+        if ($CONFIG['user_manager_hide_file_stats']) {
+            $sql = "SELECT {$f['user_id']} AS user_id, {$f['username']} AS user_name, {$f['email']} AS user_email, {$f['regdate']} AS user_regdate, {$f['lastvisit']} AS user_lastvisit, {$f['active']} AS user_active, "
+               . "'0' AS pic_count, '0' AS disk_usage, group_name, group_quota "
+               . "FROM {$this->usertable} AS u "
+               . "INNER JOIN `{$C['dbname']}`.{$C['TABLE_USERGROUPS']} AS g ON u.{$f['usertbl_group_id']} = g.group_id "
+               . $options['search']
+               . "GROUP BY user_id " . "ORDER BY " . $sort_codes[$options['sort']] . " "
+               . "LIMIT {$options['lower_limit']}, {$options['users_per_page']};";
+        } else {
+            $sql = "SELECT {$f['user_id']} AS user_id, {$f['username']} AS user_name, {$f['email']} AS user_email, {$f['regdate']} AS user_regdate, {$f['lastvisit']} AS user_lastvisit, {$f['active']} AS user_active, "
                . "COUNT(pid) AS pic_count, ROUND(SUM(total_filesize)/1024) AS disk_usage, group_name, group_quota "
                . "FROM {$this->usertable} AS u "
                . "INNER JOIN `{$C['dbname']}`.{$C['TABLE_USERGROUPS']} AS g ON u.{$f['usertbl_group_id']} = g.group_id "
@@ -226,6 +235,7 @@ class core_udb {
                . $options['search']
                . "GROUP BY user_id " . "ORDER BY " . $sort_codes[$options['sort']] . " "
                . "LIMIT {$options['lower_limit']}, {$options['users_per_page']};";
+        }
 
         $result = cpg_db_query($sql, $this->link_id);
 
@@ -249,9 +259,9 @@ class core_udb {
     function get_user_name($uid)
     {
         static $cache = array();
-        
+
         if (!isset($cache[$uid])) {
-        
+
             $sql = "SELECT {$this->field['username']} as user_name FROM {$this->usertable} WHERE {$this->field['user_id']} = '$uid'";
             $result = cpg_db_query($sql, $this->link_id);
 
@@ -261,7 +271,7 @@ class core_udb {
                 $cache[$uid] = $row['user_name'];
             } else {
                 $cache[$uid] = '';
-            }           
+            }
         }
 
         return $cache[$uid];
@@ -315,8 +325,8 @@ class core_udb {
 
         $result = cpg_db_query("SELECT MAX(group_quota) AS disk_max, MIN(group_quota) AS disk_min, "
                         . "MAX(can_rate_pictures) AS can_rate_pictures, MAX(can_send_ecards) AS can_send_ecards, "
-                        . "MAX(can_post_comments) AS can_post_comments, MAX(can_upload_pictures) AS can_upload_pictures, " 
-                        . "MAX(can_create_albums) AS can_create_albums, " 
+                        . "MAX(can_post_comments) AS can_post_comments, MAX(can_upload_pictures) AS can_upload_pictures, "
+                        . "MAX(can_create_albums) AS can_create_albums, "
                         . "MAX(has_admin_access) AS has_admin_access, "
                         . "MAX(access_level) AS access_level, "
                         . "MIN(pub_upl_need_approval) AS pub_upl_need_approval, MIN( priv_upl_need_approval) AS  priv_upl_need_approval "
@@ -445,33 +455,21 @@ class core_udb {
     // Query used to list users
     function list_users_query(&$user_count)
     {
-        global $CONFIG, $FORBIDDEN_SET, $PAGE, $cpg_show_private_album;
-
-        $f =& $this->field;
-
-        if (!$cpg_show_private_album && $FORBIDDEN_SET != "") {
-            // $forbidden_with_icon = "$FORBIDDEN_SET or p.galleryicon=p.pid";
-            $forbidden_with_icon = "$FORBIDDEN_SET";
-            $forbidden = "$FORBIDDEN_SET";
-        } else {
-            $forbidden_with_icon = '';
-            $forbidden = '';
-        }
+        global $CONFIG, $FORBIDDEN_SET, $PAGE;
 
         // Get the total number of users with albums
         $sql  = "SELECT NULL "
                 . "FROM {$CONFIG['TABLE_ALBUMS']} AS p "
                 . " INNER JOIN {$CONFIG['TABLE_PICTURES']} AS pics ON pics.aid = p.aid "
-                . "WHERE ( category > " . FIRST_USER_CAT . " $forbidden) "
+                . "WHERE ( category > " . FIRST_USER_CAT . " $FORBIDDEN_SET) "
                 . "GROUP BY category;";
         $result = cpg_db_query($sql);
         $user_count = mysql_num_rows($result);
+        mysql_free_result($result);
 
         if ($user_count == 0) {
             return false;
         }
-
-        mysql_free_result($result);
 
         $users_per_page = $CONFIG['thumbcols'] * $CONFIG['thumbrows'];
         $totalPages = ceil($user_count / $users_per_page);
@@ -479,6 +477,7 @@ class core_udb {
         $lower_limit = ($PAGE-1) * $users_per_page;
 
         if ($this->can_join_tables) {
+            $f =& $this->field;
             $sql  = "SELECT {$f['user_id']} AS user_id,"
                         . "{$f['username']} AS user_name,"
                         . "COUNT(DISTINCT a.aid) AS alb_count,"
@@ -488,7 +487,7 @@ class core_udb {
                     . "FROM {$CONFIG['TABLE_ALBUMS']} AS a "
                         . "INNER JOIN {$this->usertable} AS u ON u.{$f['user_id']} = a.category - " . FIRST_USER_CAT . " "
                         . "INNER JOIN {$CONFIG['TABLE_PICTURES']} AS p ON p.aid = a.aid "
-                    . "WHERE ((isnull(approved) or approved='YES') AND category > " . FIRST_USER_CAT . ") $forbidden_with_icon GROUP BY user_id "
+                    . "WHERE ((ISNULL(approved) OR approved='YES') AND category > " . FIRST_USER_CAT . ") $FORBIDDEN_SET GROUP BY user_id "
                     . "ORDER BY category "
                     . "LIMIT $lower_limit, $users_per_page ";
             $result = cpg_db_query($sql);
@@ -501,11 +500,11 @@ class core_udb {
             // This is the way we collect the data without a direct join to the forum's user table
             // This query determines which users we need to collect usernames of - ie just those which have albums with pics
             // and are on the page we are looking at
-            $sql  = "SELECT category - 10000 AS user_id "
+            $sql  = "SELECT category - ".FIRST_USER_CAT." AS user_id "
                     . "FROM {$CONFIG['TABLE_ALBUMS']} AS a "
                         . "INNER JOIN {$CONFIG['TABLE_PICTURES']} AS p ON p.aid = a.aid "
                     . "WHERE ((ISNULL(approved) OR approved='YES') "
-                        . "AND category > " . FIRST_USER_CAT . ") $forbidden_with_icon "
+                        . "AND category > " . FIRST_USER_CAT . ") $FORBIDDEN_SET "
                     . "GROUP BY category "
                     . "LIMIT $lower_limit, $users_per_page ";
             $result = cpg_db_query($sql);
@@ -536,7 +535,7 @@ class core_udb {
                         . "MAX(galleryicon) AS gallery_pid "
                     . "FROM {$CONFIG['TABLE_ALBUMS']} AS a "
                         . "INNER JOIN {$CONFIG['TABLE_PICTURES']} AS p ON p.aid = a.aid "
-                    . "WHERE ((ISNULL(approved) OR approved='YES') AND category > " . FIRST_USER_CAT . ") $forbidden_with_icon "
+                    . "WHERE ((ISNULL(approved) OR approved='YES') AND category > " . FIRST_USER_CAT . ") $FORBIDDEN_SET "
                     . "GROUP BY user_id "
                     . "ORDER BY category "
                     . "LIMIT $lower_limit, $users_per_page ";
@@ -683,7 +682,7 @@ class core_udb {
      * This is a special case used only on upload page (swfupload)
      * @return mixed Array with id and pass hash or false
      */
-    function post_extraction() 
+    function post_extraction()
     {
         // Get the super cage instance
         $superCage = Inspekt::makeSuperCage();
@@ -702,7 +701,7 @@ class core_udb {
     // Simple login by specified username and pass.
     // Used for xp publisher login
     // Needs override for any BBS that is more complex than straight md5(password)
-    function login( $username = null, $password = null, $remember = false ) 
+    function login( $username = null, $password = null, $remember = false )
     {
 
         $encpassword = md5($password);
@@ -732,7 +731,7 @@ class core_udb {
     }
     // end function adv_sort
 
-    function get_user_pass($user_id) 
+    function get_user_pass($user_id)
     {
         $sql =  "SELECT {$this->field['user_id']} AS user_id, {$this->field['password']} AS pass_hash "
             . "FROM {$this->usertable} "

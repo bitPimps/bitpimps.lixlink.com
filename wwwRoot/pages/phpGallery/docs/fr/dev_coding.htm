@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/dev_coding.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/dev_coding.htm $
+  $Revision: 8884 $
 
 
   -->
@@ -110,7 +110,7 @@ $bar = array(
         'two'   => 2,
         'three' => 3,
        );
-       
+
 $multi = array(
           'first'  => 'one',
           'second' => array('2'), // Comme il n'y a qu'une valeur dans le tableau, il peut être déclaré dans la même ligne
@@ -137,7 +137,7 @@ $multi = array(
     		<pre class="cpg_code code">$bla_array['foo Bar'] = 'some string';</pre>
     		Bon:
     		<pre class="cpg_code code">$bla_array['foo_bar'] = 'some string';</pre>
-    	</div>    
+    	</div>
     </li>
 </ul>
 
@@ -147,12 +147,12 @@ $multi = array(
     <li>Les éléments de contrôle doivent avoir un espace entre le mot-clé de contrôle et l'ouverture de la parenthèse, pour les distinguer des appels de fonctions</li>
     <li>Toujours utiliser les accolades, même dans les cas ou elles sont techniquement optionnelles - cela augmente la lisibilité et diminue le risque d'erreur lors de l'ajout de lignes</li>
     <li>Toujours commencer une nouvelle ligne pour l'ouverture ou la fermeture des accolades<br />
-    <div class="cpg_example">Mauvais exemple:<pre class="cpg_code code">if ($foo = 'bar') { echo 'Hello world'; }</pre>Mauvais exemple:<pre class="cpg_code code">if ($foo = 'bar') 
-{ echo 'Hello world'; }</pre>Bon exemple:<pre class="cpg_code code">if ($foo = 'bar') { 
-    echo 'Hello world'; 
+    <div class="cpg_example">Mauvais exemple:<pre class="cpg_code code">if ($foo = 'bar') { echo 'Hello world'; }</pre>Mauvais exemple:<pre class="cpg_code code">if ($foo = 'bar')
+{ echo 'Hello world'; }</pre>Bon exemple:<pre class="cpg_code code">if ($foo = 'bar') {
+    echo 'Hello world';
 }</pre>Bon exemple:<pre class="cpg_code code">if ($foo = 'bar')
-{ 
-    echo 'Hello world'; 
+{
+    echo 'Hello world';
 }</pre></div></li>
 </ul>
 
@@ -165,8 +165,8 @@ $multi = array(
 <a name="dev_coding_function_definitions"></a><h3>Définition des fonctions<a href="#dev_coding_function_definitions" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
 <ul>
     <li>La définition des fonctions suit le modèle d'indentation 1TBC:<pre class="cpg_code code">&lt;?php
-    
-    
+
+
 function fooFunction($arg1, $arg2 = '')
 {
     if (condition) {
@@ -219,7 +219,7 @@ echo '&lt;p&gt;foo bar&lt;/p&gt;';
 <pre class="cpg_code code">echo "&lt;h1&gt;Hello world&lt;/h1&gt;\n";
 echo '&lt;p&gt;foo bar&lt;/p&gt;';
 }</pre>
-</div> 
+</div>
 
 <hr />
 
@@ -256,7 +256,7 @@ echo '&lt;p&gt;foo bar&lt;/p&gt;';
 <ul>
     <li>Laissez la documentation correctement intégrée en haut des fichiers</li>
     <li>Laissez la documentation/les commentaires en tête de fichier avec une limite de 80 caractères</li>
-    <li>Commencez chaque ligne avec une majuscule, et utilisez une grammaire correcte. (temps et le reste!)</li> 
+    <li>Commencez chaque ligne avec une majuscule, et utilisez une grammaire correcte. (temps et le reste!)</li>
     <li>Il y a un sous-chapitre de la documentation du développeur qui traite de <a href="dev_documentation.htm">modifier la documentation</a> - Merci d'en tenir compte</li>
     <li>Il y a des étapes particulières lors de <a href="dev_config.htm">l'ajout d'une option de configuration</a> - Merci de vous référer au chapitre correspondant de la documentation.</li>
 </ul>
@@ -318,7 +318,7 @@ Avoir de bonnes connaissances en programmation est important, mais il est tout a
 
 <a name="dev_coding_usability_forms"></a><h3>Formulaires<a href="#dev_coding_usability_forms" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
 <a name="dev_coding_usability_forms_less_clicks"></a><h4>Moins il y a de clics, mieux c'est<a href="#dev_coding_usability_forms_less_clicks" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
-Les listes déroulantes sont géniales s'il y a beaucoup d'options de choix, mais elles sont moins bonnes si il n'y a que deux ou trois options: l'utilisateur doit cliquer sur la liste pour voir quelles options existent. 
+Les listes déroulantes sont géniales s'il y a beaucoup d'options de choix, mais elles sont moins bonnes si il n'y a que deux ou trois options: l'utilisateur doit cliquer sur la liste pour voir quelles options existent.
 <div class="cpg_example">
     Au lieu de venir avec un liste de sélection comme
     <div class="border1">
@@ -342,7 +342,7 @@ Les listes déroulantes sont géniales s'il y a beaucoup d'options de choix, mai
     </div>
     au lieu de
     <div class="border1">
-       Afficher le graphique: 
+       Afficher le graphique:
         <input type="radio" name="option_display_graph" id="option_display_graph0" value="0" class="radio" checked="checked" /><label for="option_display_graph0" class="clickable_option">Oui</label>
         <input type="radio" name="option_display_graph" id="option_display_graph1" value="1" class="radio" /><label for="option_display_graph1" class="clickable_option">Non</label>
     </div>
@@ -429,8 +429,8 @@ Il peut être difficile de cliquer sur une simple case à cocher ou un bouton ra
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

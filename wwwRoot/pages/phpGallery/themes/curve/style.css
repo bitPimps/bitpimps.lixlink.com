@@ -1,7 +1,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -9,9 +9,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/themes/curve/style.css $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/themes/curve/style.css $
+  $Revision: 8884 $
 **********************************************/
 
 
@@ -25,6 +25,10 @@ body {
     padding-right: 5%;
     padding-bottom: 15px;
     padding-left: 5%;
+}
+
+body.nobgimage {
+    background: none;
 }
 
 #cpg_logo_block_outer  {
@@ -263,7 +267,7 @@ a:active {
 .button, .admin_menu {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     color: white;
-    background-color:#5A6C85;    
+    background-color:#5A6C85;
     border: 1px solid #5A6C85;
     cursor:pointer;
     padding-left:0px;
@@ -271,6 +275,7 @@ a:active {
     margin-right:2px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 .button {
@@ -487,6 +492,7 @@ a:hover.button, a:hover.admin_menu {
     margin:2px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 /* pseudo-classes for image links */
@@ -860,7 +866,7 @@ a.progressCancel:hover {
 }
 
 /**styles for photo manager*/
-table#pic_sort tr td { 
+table#pic_sort tr td {
     padding: 4px;
     border-bottom: 1px solid #CCCCCC;
 }
@@ -889,6 +895,7 @@ table#album_sort tr td span.editAlbum {
     background-position: 10px center;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 .cpg_message_info {
@@ -1020,6 +1027,20 @@ main_menu {
 .dropmenu li li a span {
     display: block;
     padding: 8px;
+}
+
+.dropmenu li li a.firstlevel span.firstlevel {
+    left: 0 !important;
+}
+
+.dropmenu li li a.firstlevel {
+    margin-right: 0 !important;
+}
+
+.dropmenu li li a.firstlevel:hover span.firstlevel {
+    background: #D4DBE4 !important;
+    color: #000 !important;
+    text-decoration: none !important;
 }
 
 .dropmenu li ul ul {

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/themes/eyeball/theme.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/themes/eyeball/theme.php $
+  $Revision: 8884 $
   ********************************************
   This theme has had redundant CORE items removed
 **********************************************/
@@ -107,7 +107,7 @@ EOT;
 
     // Check if we have any js includes
     if (isset($JS['includes']) && count($JS['includes'])) {
-    	// Bring the jquery core library to the very top of the list 
+    	// Bring the jquery core library to the very top of the list
     	if (in_array('js/jquery-1.3.2.js', $JS['includes']) == TRUE) {
     		$key = array_search('js/jquery-1.3.2.js', $JS['includes']);
     		unset($JS['includes'][$key]);
@@ -186,7 +186,7 @@ EOT;
 function theme_display_image($nav_menu, $picture, $votes, $pic_info, $comments, $film_strip)
 {
     global $CONFIG, $LINEBREAK;
-    
+
     $superCage = Inspekt::makeSuperCage();
 
     $spacer = <<<EOT

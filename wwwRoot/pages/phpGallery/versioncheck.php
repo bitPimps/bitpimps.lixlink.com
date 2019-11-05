@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/versioncheck.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/versioncheck.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -83,7 +83,7 @@ if ($superCage->get->getInt('no_modification_check') == '1') {
   $displayOption_array['no_modification_check'] = 0;
 }
 // Sanitize the GET vars and populate the optionsArray --- end
-  
+
 
 // Connect to the repository
 if ($displayOption_array['output'] != 'options') {
@@ -114,7 +114,7 @@ EOT;
 
 if ($displayOption_array['output'] == 'create') {
 
-    // create data 
+    // create data
     $file_data_count = cpg_versioncheckCreateXml($file_data_array);
 
 } else if ($displayOption_array['output'] == 'textarea') {
@@ -151,7 +151,7 @@ EOT;
         </td>
     </tr>
 EOT;
-   
+
 }
 
 endtable();

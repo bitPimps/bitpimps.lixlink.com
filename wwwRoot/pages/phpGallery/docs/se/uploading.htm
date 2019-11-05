@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/se/uploading.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/se/uploading.htm $
+  $Revision: 8884 $
 
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
@@ -53,15 +53,15 @@
 <p>Det enda undantaget mot regeln är vid användning av safe_mode: om din webbserver körs i safe_mode och du har satt på <a href="configuration.htm#admin_picture_thumb_advanced_silly_safe_mode_start">silly safe_mode</a> i konfigurationen, så kan PHP scriptet vanligtvis inte skapa undermappar. Det är därför alla uppladdningar som alla användare gör hamnar i mappen &quot;userpics&quot; utan att en undermapp skapas för varje användare.</p>
 <a name="uploading_structure_edit"></a><h3>Den temporära mappen &quot;edit&quot;<a href="#uploading_structure_edit" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
 <p>I mappen &quot;albums&quot;, så hittar du en undermapp som heter &quot;edit&quot; - det är den enda temporära mapp som Coppermine använder. Den används för interna ändamål endast: om du använder http uppladdningar och användaren redan har laddat upp åtskilliga bilder, så hamnar de i denna mapp först. Användaren måste därefter tilldela filer till ett album och det är då som de uppladdade filerna flyttas från den temporära mappen till undermappen i mappen &quot;userpics&quot;. Om inget album tilldelas filerna (eller om något går på tok), stannar de temporära filerna kvar i mappen &quot;edit&quot;, där skräpsamlaren tar hand om dem av och till och raderar dem. Denna mekanism är nödvändig eftersom http uppladdningar kan vara knepiga att hantera från en programmerares synvinkel: alla möjliga saker kan hända (filerna kan vara för stora, det kan vara slut på webbutrymme, mål-mappen kan sakna rätt behörigheter för scriptet osv.). Att använda en temporär mapp för http-uppladdningar göra bara Coppermines http-uppladdningsmekanism mer pålitligt, vilket är anledningen till att det gjorts på detta sätt. Rör inte mappen <tt class="code">edit</tt> alls manuellt: döp inte om den, radera den inte, ladda inte upp filer hit - låt den bara vara och låt Coppermine använda den för sina egna syften.</p>
-<a name="uploading_structure_ftp"></a><h3>FTP-uppladdningar<a href="#uploading_structure_ftp" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3> 
+<a name="uploading_structure_ftp"></a><h3>FTP-uppladdningar<a href="#uploading_structure_ftp" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
 <p>FTP uppladdningar är en helt annorlunda sak: eftersom den ursprungliga FTP uppladdningen inte utförs av Coppermine, utan av administratöranvändaren själv (med hans/hennes FTP klient), så är det <em>hans/hennes</em> uppgift att ta reda på att de filer han/hon försökt ladda upp verkligen är där som det förväntas att de ska vara. Vad batch-uppladdningsprocessen gör är att lägga till filer som redan fysiskt befinner sig där du vill till databasen. För att försäkra oss om att du förstår konceptet: databasen i sig självt innehåller inga filer - tänk på den som en logisk struktur bara, som håller koll på filernas fysiska plats och några andra parametrar (som dimensioner, vilket album filerna är tilldelade till etc.). Tänkt på databasen som en telefonbok som inte håller personer, kablar eller telefoner: allt en telefonbok innehåller är poster som pekar på något i verkliga livet (en persons namn &amp; adress &amp; telefonnummer).</p>
 <p>Din FTP.uppladdning bör gå till en mappstruktur inom mappen &quot;albums&quot;. De får inte gå till en mapp i mappen &quot;userpics&quot;, utan i en egen mappstruktur. De mappar du skapar med din FTP applikation är inte temporära mappar, utan permanenta: Coppermine flyttar inte runt dessa filer, utan lämnar kvar dem dit du först laddade upp dem.</p>
 <a name="uploading_structure_xppublish"></a><h3>XP Publisher uppladdningar<a href="#uploading_structure_xppublish" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-<p>När du använder <a href="uploading_xp-publisher.htm">XP Publisher</a> för att ladda upp, så är det ett annat lagringsmönster som tillämpas: filerna går till en undermapp i mappen &quot;albums&quot; som heter wpw-yyyymmdd, där &quot;wpw&quot; står för &quot;Windows Publishing Wizard&quot; och yyyy för år, mm för månad och dd för dag för uppladdningen. Coppermine flyttar inte runt dessa filer - de stannar kvar där de är.</p> 
+<p>När du använder <a href="uploading_xp-publisher.htm">XP Publisher</a> för att ladda upp, så är det ett annat lagringsmönster som tillämpas: filerna går till en undermapp i mappen &quot;albums&quot; som heter wpw-yyyymmdd, där &quot;wpw&quot; står för &quot;Windows Publishing Wizard&quot; och yyyy för år, mm för månad och dd för dag för uppladdningen. Coppermine flyttar inte runt dessa filer - de stannar kvar där de är.</p>
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/japanese.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/japanese.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'Japanese';
@@ -74,7 +74,7 @@ $lang_errors['quota_exceeded'] = 'ディスク容量を超過しました。';
 $lang_errors['quota_exceeded_details'] = 'あなたが使用できるディスク容量は [quota]Kです。現在、[space]Kを使用しています。このファイルを追加することで、ディスク容量をオーバーしてしまいます。。';
 $lang_errors['gd_file_type_err'] = 'GDイメージライブラリを使用する場合、JPEGおよびPNG形式のファイルのみ許可されます。';
 $lang_errors['invalid_image'] = 'あなたがアップロードしたイメージが破損している、またはGDライブラリで処理することができません。';
-$lang_errors['resize_failed'] = 'イメージサイズが小さいため、サムネイルを作成できません。';
+$lang_errors['resize_failed'] = 'サムネイル又は縮小画像を作成できません。';
 $lang_errors['no_img_to_display'] = '表示するイメージがありません。';
 $lang_errors['non_exist_cat'] = '選択したカテゴリは存在しません。';
 $lang_errors['directory_ro'] = 'ディレクトリ「 %s 」に書込み権がありません。ファイルを削除することはできません。';
@@ -115,6 +115,7 @@ $lang_common['keywords_insert1'] = 'キーワード (セパレータ: %s)';
 $lang_common['keywords_insert2'] = 'リストから追加する';
 $lang_common['keyword_separator'] = 'キーワードセパレータ';
 $lang_common['keyword_separators'] = array(' '=>'スペース', ','=>'カンマ', ';'=>'セミコロン');
+$lang_common['owner_name'] = '所有者名';
 $lang_common['filename'] = 'ファイル名';
 $lang_common['filesize'] = 'ファイルサイズ';
 $lang_common['album'] = 'アルバム';
@@ -397,7 +398,7 @@ $lang_smilies_inc_php['Twisted Evil'] = '意地悪い';
 $lang_smilies_inc_php['Rolling Eyes'] = '転がる目';
 $lang_smilies_inc_php['Wink'] = 'ウインク';
 $lang_smilies_inc_php['Idea'] = 'アイディア';
-$lang_smilies_inc_php['Arrow'] = '許可';
+$lang_smilies_inc_php['Arrow'] = '矢印';
 $lang_smilies_inc_php['Neutral'] = '中立';
 $lang_smilies_inc_php['Mr. Green'] = 'Mr. グリーン';
 }
@@ -445,7 +446,7 @@ $lang_banning_php['error_specify'] = 'あなたは、ユーザ名またはIPア�
 $lang_banning_php['error_ban_id'] = '無効なアクセス禁止ユーザIDです!';
 $lang_banning_php['error_admin_ban'] = 'あなた自身をアクセス禁止にできません!';
 $lang_banning_php['error_server_ban'] = 'あなたは、自分のサーバをアクセス禁止にしようとしています? それはできません ...';
-$lang_banning_php['skipping'] = 'コメントをスキップしています。';
+$lang_banning_php['skipping'] = 'コマンドをスキップしています。';
 $lang_banning_php['lookup_ip'] = 'IPアドレスルックアップ';
 $lang_banning_php['select_date'] = '日付を選択する';
 $lang_banning_php['delete_comments'] = 'コメントを削除する';
@@ -487,7 +488,7 @@ $lang_bridgemgr_php['reset_to_default'] = 'デフォルト値にリセットす�
 $lang_bridgemgr_php['choose_bbs_app'] = 'coppermineとブリッジするアプリケーションを選択する';
 $lang_bridgemgr_php['support_url'] = 'このアプリケーションのサポートには、ここをクリックしてください。';
 $lang_bridgemgr_php['settings_path'] = 'ブリッジアプリケーションに使用されるパス';
-$lang_bridgemgr_php['full_forum_url'] = 'ブリッジアプリケーションのURI';
+$lang_bridgemgr_php['full_forum_url'] = 'ブリッジアプリケーションのURL';
 $lang_bridgemgr_php['relative_path_of_forum_from_webroot'] = 'ブリッジアプリケーションの絶対パス';
 $lang_bridgemgr_php['relative_path_to_config_file'] = 'あなたのブリッジアプリケーション設定ファイルへの相対パス';
 $lang_bridgemgr_php['cookie_prefix'] = 'クッキー接頭辞';
@@ -594,7 +595,7 @@ if (defined('ADMIN_PHP')) {
 $lang_admin_php['title'] = 'ギャラリー設定';
 $lang_admin_php['general_settings'] = '一般設定';
 $lang_admin_php['language_charset_settings'] = '言語および文字コード設定';
-$lang_admin_php['themes_settings'] = 'サムネイル設定';
+$lang_admin_php['themes_settings'] = 'テーマ設定';
 $lang_admin_php['album_list_view'] = 'アルバムリストビュー';
 $lang_admin_php['thumbnail_view'] = 'サムネイルビュー';
 $lang_admin_php['image_view'] = 'イメージビュー';
@@ -953,7 +954,7 @@ $lang_db_ecard_php['uncheck_all'] = 'すべての選択を解除する ';
 $lang_db_ecard_php['ecards_delete_selected'] = '選択したeカードを削除する';
 $lang_db_ecard_php['ecards_delete_confirm'] = '本当にレコードを削除してもよろしいですか? チェックボックスをチェックしてください!';
 $lang_db_ecard_php['ecards_delete_sure'] = '削除確認';
-$lang_db_ecard_php['invalid_data'] = 'アクセスしようとしているeカードデータは、あなたのメールクライアントで破損しました。もう一度、リンクを確認してください。'; 
+$lang_db_ecard_php['invalid_data'] = 'アクセスしようとしているeカードデータは、あなたのメールクライアントで破損しました。もう一度、リンクを確認してください。';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1224,7 +1225,7 @@ $lang_report_php['go_comment'] = 'コメントへ移動する';
 $lang_report_php['view_comment'] = 'コメントのフルレポートを表示する';
 $lang_report_php['type_file'] = 'ファイル';
 $lang_report_php['type_comment'] = 'コメント';
-$lang_report_php['invalid_data'] = 'アクセスしようとしているレポートデータは、あなたのメールクライアントで破損しました。もう一度、リンクを確認してください。'; 
+$lang_report_php['invalid_data'] = 'アクセスしようとしているレポートデータは、あなたのメールクライアントで破損しました。もう一度、リンクを確認してください。';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1759,7 +1760,7 @@ $lang_register_disclamer = <<<EOT
 あなたは、{SITE_NAME} サイト管理者、ウェブマスタ、モデレータがいかなる時も投稿内容を編集および削除する権利を有することに同意します。あなたは、ユーザとして投稿した情報がデータベースに保存されることに同意します。この情報は、あなたの同意なしに管理者、ウェブマスタより第三者に開示されることはありませんが、データ流出の恐れのあるハッキング等の行為に対して、管理者、ウェブマスタが責任を負うことはありません。
 <br />
 <br />
-このサイトでは、あなたのコンピュータに情報を保存するため、クッキーを使用します。クッキーは、あなたの閲覧を快適にするためだけに使用されます。メールアドレスは、あなたの登録に関する詳細およびパスワード認証のためだけに使用されます。 
+このサイトでは、あなたのコンピュータに情報を保存するため、クッキーを使用します。クッキーは、あなたの閲覧を快適にするためだけに使用されます。メールアドレスは、あなたの登録に関する詳細およびパスワード認証のためだけに使用されます。
 <br />
 <br />
 「同意します」をクリックすることで、あなたは上記利用規約に同意します。
@@ -1962,7 +1963,7 @@ if (defined('SEARCH_PHP')){
 $lang_search_php['title'] = '検索';
 $lang_search_php['submit_search'] = '検索';
 $lang_search_php['keyword_list_title'] = 'キーワードリスト';
-$lang_search_php['keyword_msg'] = '上記のリストは、すべてを含んでいるわけではありません。ファイルのタイトルまたは説明を含んでいません。フルテキスト検索をお試しください。'; 
+$lang_search_php['keyword_msg'] = '上記のリストは、すべてを含んでいるわけではありません。ファイルのタイトルまたは説明を含んでいません。フルテキスト検索をお試しください。';
 $lang_search_php['edit_keywords'] = 'キーワードを編集する';
 $lang_search_php['search in'] = '検索対象:';
 $lang_search_php['ip_address'] = 'IPアドレス';
@@ -2002,7 +2003,7 @@ $lang_search_new_php['insert_selected'] = '選択されたファイルを追加�
 $lang_search_new_php['no_pic_found'] = '新しいファイルは見つかりませんでした。';
 $lang_search_new_php['be_patient'] = 'スクリプトがファイルを追加しています。しばらくお待ちください。';
 $lang_search_new_php['no_album'] = 'アルバムが選択されていません';
-$lang_search_new_php['result_icon'] = '詳細表示またはリロードをするには、ここをクリックしてください。'; 
+$lang_search_new_php['result_icon'] = '詳細表示またはリロードをするには、ここをクリックしてください。';
 $lang_search_new_php['notes'] = <<< EOT
     <ul>
         <li>%s: 正常にファイルが追加されました。</li>

@@ -12,10 +12,10 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/dev_package.htm $
-  $Revision: 8304 $
-  $Date: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/dev_package.htm $
+  $Revision: 8884 $
+  $Date: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -39,12 +39,12 @@
 
 <div class="indent">
     <a name="packaging_target_audience"></a><h2>Target audience<a href="#packaging_target_audience" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
-    <p>This part of the documentation is not meant for end users of Coppermine, but <strong>only</strong> for developers. There is absolutely no support for this section, it comes as-is. If you're not a member of the coppermine dev team, then the contents of this page are not meant for you; go away.</p>
+    <p>This part of the documentation is not meant for end users of Coppermine, but <strong>only</strong> for developers. There is absolutely no support for this section, it comes as-is. If you're not a member of the Coppermine dev team, then the contents of this page are not meant for you.</p>
     <a name="packaging_target_audience_end"></a>
-    
+
     <a name="packaging_subversion"></a><h2>Subversion repository<a href="#packaging_subversion" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     <p>In the first place you need to perform core actions on the <a href="dev_subversion.htm#subversion">subversion</a> repository level of Coppermine. For this purpose, you need to have write access to the subversion repository, which is something you can not make up. A dev team member with project admin status needs to have granted you write access to the subversion repository that is hosted at sourceforge.net. You need to have some experience in using your subversion client before trying to accomplish the actions described here.</p>
-    
+
     <a name="packaging_steps"></a><h2>Steps<a href="#packaging_steps" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
     These steps need to be taken to package a new release.
     <ul>
@@ -54,14 +54,14 @@
         </li>
         <li>
             <a name="packaging_steps_loop_through_files"></a><h3>Replace version number in all files<a href="#packaging_steps_loop_through_files" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-            You need to loop through all text files (file extensions <tt class="code">.php</tt>, <tt class="code">.css</tt>, <tt class="code">.js</tt>, <tt class="code">.txt</tt>, <tt class="code">.sql</tt>, <tt class="code">.htm</tt>) and replace the version number in the header with the version number of the new release. Prior, you have to replace the version number of the next release with that version number plus 1 in <tt class="code">dev_package.htm</tt>, to keep <a href="#packaging_steps_loop_through_files_linux">that example</a> intact.<br />
+            You need to loop through all text files (file extensions <tt class="code">.php</tt>, <tt class="code">.css</tt>, <tt class="code">.js</tt>, <tt class="code">.txt</tt>, <tt class="code">.sql</tt>, <tt class="code">.htm</tt>) and replace the version number in the header with the version number of the new release.<br />
             <div class="cpg_example">You will have to find <input type="text" readonly="readonly" value="Coppermine version: 1.5.X" size="25" maxlength="25" class="code smaller" /> and replace with <input type="text" readonly="readonly" value="Coppermine version: 1.5.Y" size="25" maxlength="25" class="code smaller" /></div>
             To accomplish this, you will need a tool that can batch-replace in files:
             <ul>
                 <li>
                     <a name="packaging_steps_loop_through_files_linux"></a><h4>Linux<a href="#packaging_steps_loop_through_files_linux" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
                     On most posix-compliant operating systems (like Unix, Linux, BSD etc.) you should have all needed tools at hand already. Basically you loop through all files with a given extension, search for the string inside it and replace it. The command that can be run in a console could look like this:
-                    <textarea class="code smaller" style="width:100%" rows="1">find /path/on/filesystem/level/to/your/working/copy/ -maxdepth 4 -name "*.php" | xargs sed -i 's/Coppermine version: 1.5.18/Coppermine version: 1.5.19/g'</textarea>
+                    <textarea class="code smaller" style="width:100%" rows="1">find /path/on/filesystem/level/to/your/working/copy/ -maxdepth 4 -name "*.php" -o -name "*.css" -o -name "*.js" -o -name "*.txt" -o -name "*.sql" -o -name "*.htm" | xargs sed -i 's/Coppermine version: 1.5.X/Coppermine version: 1.5.Y/g'</textarea>
                     If you want to turn this into a shell script, don't forget the shebang at the start of the file (usually something like <tt class="code">#!/bin/sh</tt>).
                 </li>
                 <li>
@@ -79,7 +79,7 @@
         </li>
         <li>
             <a name="packaging_steps_write_announcement_thread"></a><h3>Prepare an announcement thread<a href="#packaging_steps_write_announcement_thread" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-            Prepare an announcement thread in advance (before you actually release) inside the dev-only sub-board of the coppermine forum. This thread can be empty - you can fill it later, or have another dev team member fill it. You need to create it in advance in order to be able to refer to the thread from within the documentation that will ship with the release.
+            Prepare an announcement thread in advance (before you actually release) inside the dev-only sub-board of the Coppermine forum. This thread can be empty - you can fill it later, or have another dev team member fill it. You need to create it in advance in order to be able to refer to the thread from within the documentation that will ship with the release.
         </li>
         <li>
             <a name="packaging_steps_docs_upgrade"></a><h3>Edit the upgrade section of the docs<a href="#packaging_steps_docs_upgrade" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
@@ -163,7 +163,7 @@
         </li>
         <li>
             <a name="packaging_steps_create_tag"></a><h3>Create a tag in subversion<a href="#packaging_steps_create_tag" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-            Create a tag using your svn application. The target directory name will be the abbreviation <tt class="code">cpg</tt> followed by the exact version number. So the target URL will be <tt class="code">https://coppermine.svn.sourceforge.net/svnroot/coppermine/tags/cpg1.5.X</tt>, where X represents the minor version number that you're about to tag.
+            Create a tag using your svn application. The target directory name will be the abbreviation <tt class="code">cpg</tt> followed by the exact version number. So the target URL will be <tt class="code">https://svn.code.sf.net/p/coppermine/code/tags/cpg1.5.X</tt>, where X represents the minor version number that you're about to tag.
             <ul>
                 <li>
                     <a name="packaging_steps_create_tag_rapidsvn"></a><h4>RapidSVN<a href="#packaging_steps_create_tag_rapidsvn" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
@@ -186,7 +186,7 @@
         </li>
         <li>
             <a name="packaging_steps_upload_zip"></a><h3>Upload the archive<a href="#packaging_steps_upload_zip" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-            The archive(s) created in the previous step are meant to go into the download repository at <a href="https://sourceforge.net/projects/coppermine/files/" rel="external" class="external">https://sourceforge.net/projects/coppermine/files/</a>. You will need packager privileges on the Coppermine project pages that reside on the sourceforge.net webspace. 
+            The archive(s) created in the previous step are meant to go into the download repository at <a href="https://sourceforge.net/projects/coppermine/files/" rel="external" class="external">https://sourceforge.net/projects/coppermine/files/</a>. You will need packager privileges on the Coppermine project pages that reside on the sourceforge.net webspace.
             <ul>
                 <li><a href="https://sourceforge.net/account/login.php" rel="external" class="external">Log in</a> into your account on sf.net</li>
                 <li>go to the <a href="https://sourceforge.net/project/admin/explorer.php?group_id=89658" rel="external" class="external">File Manager</a></li>
@@ -220,13 +220,13 @@
                 </li>
                 <li>
                     <a name="packaging_steps_news_embedded"></a><h4>News embedded into existing galleries<a href="#packaging_steps_news_embedded" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
-                    To make users of existing galleries aware of the new release, edit <a href="http://coppermine-gallery.net/cpg15x_news.htm" rel="external" class="external">http://coppermine-gallery.net/cpg15x_news.htm</a>. This file is the source for the news item that is displayed for Coppermine admins on their galleries if the option <a href="configuration.htm#admin_general_coppermine_news">Display news from coppermine-gallery.net</a> is enabled.
-                </li>            
+                    To make users of existing galleries aware of the new release, edit <a href="http://coppermine-gallery.net/cpg15x_news.htm" rel="external" class="external">http://coppermine-gallery.net/cpg15x_news.htm</a>. This file is the source for the news item that is displayed for Coppermine admins on their galleries if the option <a href="configuration.htm#admin_general_coppermine_news">Display news from Coppermine-gallery.net</a> is enabled.
+                </li>
             </ul>
         </li>
         <li>
             <a name="packaging_steps_demo"></a><h3>Update the demo<a href="#packaging_steps_demo" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-            Use your favorite FTP app to update the demo on the coppermine home page. You will of course need FTP access to the corresponding web space.<br />
+            Use your favorite FTP app to update the demo on the Coppermine home page. You will of course need FTP access to the corresponding web space.<br />
             Make sure not to overwrite the custom anycontent.<br />
             Keep in mind that you need to apply changes to the JavaScript file <tt class="code">script.js</tt> inside the localizations of the docs folder - they compose the site navigation.
         </li>
@@ -235,8 +235,8 @@
 <a name="packaging_end"></a>
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/albmgr.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/albmgr.php $
+  $Revision: 8884 $
 **********************************************/
 
 // TODO: title tags contain hardcoded English instead of lang vars.
@@ -81,11 +81,11 @@ function alb_get_subcat_data($parent, $ident = '')
 }
 
 
-list($timestamp, $form_token) = getFormToken(); 
+list($timestamp, $form_token) = getFormToken();
 
 // Set the message variables for the javascript file
 // confirm album modifications
-set_js_var('confirm_modifs', $lang_albmgr_php['confirm_modifs']);  
+set_js_var('confirm_modifs', $lang_albmgr_php['confirm_modifs']);
 // confirm album delete
 set_js_var("confirm_delete", $lang_albmgr_php['confirm_delete1'] . "\n" . $lang_albmgr_php['confirm_delete2']);
 // alert when try to delete album without an album selected
@@ -146,7 +146,7 @@ starttable('100%', cpg_fetch_icon('alb_mgr', 2).$lang_albmgr_php['title'].'&nbsp
     <tr>
         <td>
 EOT;
-    
+
 if (GALLERY_ADMIN_MODE) {
     $result = cpg_db_query("SELECT aid, title FROM {$CONFIG['TABLE_ALBUMS']} WHERE category = $cat ORDER BY pos ASC");
 } elseif (USER_ADMIN_MODE) {
@@ -205,11 +205,11 @@ EOT;
         </td>
     </tr>
     <tr>
-        <td class="tableb"> 
+        <td class="tableb">
             <div id="sort">
 EOT;
 
-if (count($rowset) > 0) { 
+if (count($rowset) > 0) {
 
     echo '              <table id="album_sort" cellspacing="0" cellpadding="0" border="0">';
 
@@ -218,7 +218,7 @@ if (count($rowset) > 0) {
         echo <<< EOT
                 <tr id="sort-{$album['aid']}">
                     <td class="dragHandle"></td>
-                    <td class="album_text" width="96%"><span class="albumName">{$title}&nbsp;<a href="upload.php?album={$album['aid']}"><img src="images/icons/upload.png" title="{$lang_main_menu['upload_pic_lnk']}" /></a><span class="editAlbum">{$icon_array['edit']}{$lang_common['edit']}</span></td>
+                    <td class="album_text" width="96%"><span class="albumName">{$title}</span>&nbsp;<a href="upload.php?album={$album['aid']}"><img src="images/icons/upload.png" title="{$lang_main_menu['upload_pic_lnk']}" /></a><span class="editAlbum">{$icon_array['edit']}{$lang_common['edit']}</span></td>
                 </tr>
 EOT;
     }
@@ -235,18 +235,18 @@ EOT;
             <table class="tableb album_operate" cellspacing="0" cellpadding="0" border="0" width="100%">
                 <tr>
                     <td id="control">
-      
+
 EOT;
 // Only show move-buttons when admin or in user's private category.
 // Sorting is also prevented in delete.php when user doesn't have the rights.
 if (GALLERY_ADMIN_MODE || ($cat == USER_ID + FIRST_USER_CAT)) {
-    
+
     if (defined('THEME_HAS_PROGRESS_GRAPHICS')) {
         $prefix = $THEME_DIR;
     } else {
         $prefix = '';
-    }   
-    
+    }
+
     echo <<< EOT
                         <button type="button" id="upup_click" name="upup_click" class="button" value="{$lang_common['move_top']}" disabled="disabled" title="{$lang_common['move_top']}">{$icon_array['upup']}</button>
                         <button type="button" id="up_click" name="up_click" class="button" value="{$lang_common['move_up']}" disabled="disabled" title="{$lang_common['move_up']}">{$icon_array['up']}</button>
@@ -254,7 +254,7 @@ if (GALLERY_ADMIN_MODE || ($cat == USER_ID + FIRST_USER_CAT)) {
                         <button type="button" id="downdown_click" name="downdown_click" class="button" value="{$lang_common['move_bottom']}" disabled="disabled" title="{$lang_common['move_bottom']}">{$icon_array['downdown']}</button>
 EOT;
 
-} 
+}
     //we still need to show buttons to add/edit albums
     echo <<< EOT
                         <button type="button" id="delete_album" name="delete_album" class="button" value="{$lang_albmgr_php['delete_album']}" disabled="disabled" title="{$lang_albmgr_php['delete_album']}">{$icon_array['delete']}</button>
@@ -287,7 +287,7 @@ EOT;
     </tr>
 
 EOT;
-    
+
 endtable();
 echo '</form>';
 pagefooter();

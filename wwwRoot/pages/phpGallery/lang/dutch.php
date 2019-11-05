@@ -2,20 +2,20 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/dutch.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/dutch.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Niet in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language
 $lang_translation_info['lang_name_english'] = 'Dutch';
@@ -45,22 +45,22 @@ $lang_date['lastcom'] = '%d-%m-%y om %H:%M';
 $lang_date['lastup'] = '%d %B %Y';
 $lang_date['register'] = '%d %B %Y';
 $lang_date['lasthit'] = '%d %B %Y om %H:%M ';
-$lang_date['comment'] = '%d %B %Y om %H:%M '; 
+$lang_date['comment'] = '%d %B %Y om %H:%M ';
 $lang_date['log'] = '%d-%m-%y om %H:%M';
 $lang_date['scientific'] = '%Y-%m-%d %H:%M:%S';
 
 // For the word censor
 $lang_bad_words = array('*fuck*', 'asshole', 'assramer', 'assrammer', 'bitch*', 'c0ck', 'clits', 'Cock', 'cum', 'cunt*', 'dago', 'daygo', 'dego', 'dick*', 'dildo', 'fanculo', 'feces', 'foreskin', 'Fu\(*', 'fuk*', 'honkey', 'hore', 'injun', 'kike', 'lesbo', 'masturbat*', 'motherfucker', 'nazis', 'nigger*', 'nutsack','penis', 'phuck', 'poop', 'pussy', 'scrotum', 'shit', 'slut', 'titties', 'titty', 'twaty', 'wank*', 'whore', 'wop*');
 
-$lang_meta_album_names['random'] = 'Willekeurige bestanden'; 
-$lang_meta_album_names['lastup'] = 'Laatste toevoegingen'; 
-$lang_meta_album_names['lastalb'] = 'Laatste gewijzigde albums'; 
-$lang_meta_album_names['lastcom'] = 'Laatste commentaren'; 
-$lang_meta_album_names['topn'] = 'Meest bekeken'; 
-$lang_meta_album_names['toprated'] = 'Best beoordeeld'; 
-$lang_meta_album_names['lasthits'] = 'Laatst bekeken'; 
+$lang_meta_album_names['random'] = 'Willekeurige bestanden';
+$lang_meta_album_names['lastup'] = 'Laatste toevoegingen';
+$lang_meta_album_names['lastalb'] = 'Laatste gewijzigde albums';
+$lang_meta_album_names['lastcom'] = 'Laatste commentaren';
+$lang_meta_album_names['topn'] = 'Meest bekeken';
+$lang_meta_album_names['toprated'] = 'Best beoordeeld';
+$lang_meta_album_names['lasthits'] = 'Laatst bekeken';
 $lang_meta_album_names['search'] = 'Zoekresultaten';
-$lang_meta_album_names['album_search'] = 'Album zoekresultaten'; 
+$lang_meta_album_names['album_search'] = 'Album zoekresultaten';
 $lang_meta_album_names['category_search'] = 'Categorie zoekresultaten';
 $lang_meta_album_names['favpics'] = 'Favoriete bestanden';
 $lang_meta_album_names['datebrowse'] = 'Kijk op datum';
@@ -78,7 +78,7 @@ $lang_errors['resize_failed'] = 'Niet in staat de verkleinde afbeelding of de af
 $lang_errors['no_img_to_display'] = 'Geen afbeelding om te laten zien.';
 $lang_errors['non_exist_cat'] = 'De geselecteerde categorie bestaat niet.';
 $lang_errors['directory_ro'] = 'Map \'%s\' is niet beschrijfbaar, bestand kan niet verwijderd worden.';
-$lang_errors['pic_in_invalid_album'] = 'Bestand is in een niet bestaand album (%s)!?'; 
+$lang_errors['pic_in_invalid_album'] = 'Bestand is in een niet bestaand album (%s)!?';
 $lang_errors['banned'] = 'Je bent op dit moment uitgesloten van het gebruik van deze site.';
 $lang_errors['offline_title'] = 'Offline';
 $lang_errors['offline_text'] = 'Galerij is op dit moment offline - controleer later nog eens';
@@ -103,7 +103,7 @@ $lang_common['no'] = 'Nee';
 $lang_common['back'] = 'TERUG';
 $lang_common['continue'] = 'DOORGAAN';
 $lang_common['information'] = 'Informatie';
-$lang_common['error'] = 'Fout'; 
+$lang_common['error'] = 'Fout';
 $lang_common['check_uncheck_all'] = 'selecteer/deselecteer alles';
 $lang_common['confirm'] = 'Bevestiging'; // cpg1.5
 $lang_common['captcha_help_title'] = 'Visuele bevestiging (captcha)'; // cpg1.5
@@ -115,6 +115,7 @@ $lang_common['keywords_insert1'] = 'Trefwoorden (gescheiden door %s)'; // cpg1.5
 $lang_common['keywords_insert2'] = 'Kies uit een lijst'; // cpg1.5
 $lang_common['keyword_separator'] = 'Scheidingsteken van trefwoorden'; //cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'spatie', ','=>'komma', ';'=>'puntkomma'); // cpg1.5
+$lang_common['owner_name'] = 'Eigenaar'; // cpg1.5
 $lang_common['filename'] = 'Bestandsnaam'; // cpg1.5
 $lang_common['filesize'] = 'Bestandsgrootte'; // cpg1.5
 $lang_common['album'] = 'Album'; // cpg1.5
@@ -168,9 +169,9 @@ $lang_main_menu['register_lnk'] = 'Registreer';
 $lang_main_menu['login_title'] = 'Log mij in';
 $lang_main_menu['login_lnk'] = 'Inloggen';
 $lang_main_menu['logout_title'] = 'Log mij uit';
-$lang_main_menu['logout_lnk'] = 'Uitloggen'; 
+$lang_main_menu['logout_lnk'] = 'Uitloggen';
 $lang_main_menu['lastup_title'] = 'Laat me de laatste uploads zien';
-$lang_main_menu['lastup_lnk'] = 'Laatste upload'; 
+$lang_main_menu['lastup_lnk'] = 'Laatste upload';
 $lang_main_menu['lastcom_title'] = 'Laat me het laatste commentaar zien';
 $lang_main_menu['lastcom_lnk'] = 'Laatste commentaar';
 $lang_main_menu['topn_title'] = 'Laat me de meest bekeken bestanden zien';
@@ -180,7 +181,7 @@ $lang_main_menu['toprated_lnk'] = 'Best beoordeeld';
 $lang_main_menu['search_title'] = 'Zoek naar bestanden';
 $lang_main_menu['search_lnk'] = 'Zoek';
 $lang_main_menu['fav_title'] = 'Ga naar mijn favorieten';
-$lang_main_menu['fav_lnk'] = 'Mijn favorieten'; 
+$lang_main_menu['fav_lnk'] = 'Mijn favorieten';
 $lang_main_menu['memberlist_title'] = 'Laat gebruikerslijst zien';
 $lang_main_menu['memberlist_lnk'] = 'Gebruikerslijst';
 $lang_main_menu['browse_by_date_lnk'] = 'Op datum';
@@ -239,9 +240,9 @@ $lang_gallery_admin_menu['shownews_lnk'] = 'Toon Nieuws'; // cpg1.5
 $lang_gallery_admin_menu['shownews_title'] = 'Toon het nieuws van coppermine-gallery.net'; // cpg1.5
 
 $lang_user_admin_menu['albmgr_title'] = 'Ga naar Creëer/sorteer albums'; //cpg1.4
-$lang_user_admin_menu['albmgr_lnk'] = 'Creëer/sorteer albums'; 
+$lang_user_admin_menu['albmgr_lnk'] = 'Creëer/sorteer albums';
 $lang_user_admin_menu['modifyalb_title'] = 'Ga naar wijzig mijn albums';  //cpg1.4
-$lang_user_admin_menu['modifyalb_lnk'] = 'Wijzig mijn albums'; 
+$lang_user_admin_menu['modifyalb_lnk'] = 'Wijzig mijn albums';
 $lang_user_admin_menu['my_prof_title'] = 'Ga naar mijn profiel'; //cpg1.4
 $lang_user_admin_menu['my_prof_lnk'] = 'Mijn profiel';
 
@@ -262,7 +263,7 @@ $lang_thumb_view['sort_ta'] = 'Sorteer op titel oplopend';
 $lang_thumb_view['sort_td'] = 'Sorteer op titel aflopend';
 $lang_thumb_view['position'] = 'Positie';
 $lang_thumb_view['sort_pa'] = 'Sorteer op positie oplopend';
-$lang_thumb_view['sort_pd'] = 'Sorteer op positie aflopend'; 
+$lang_thumb_view['sort_pd'] = 'Sorteer op positie aflopend';
 $lang_thumb_view['download_zip'] = 'Download als Zipbestand';
 $lang_thumb_view['pic_on_page'] = '%d bestanden op %d pagina(s)';
 $lang_thumb_view['user_on_page'] = '%d gebruikers op %d pagina(s)';
@@ -483,50 +484,50 @@ $lang_bridgemgr_php['next'] = 'volgende';
 $lang_bridgemgr_php['start_wizard'] = 'Start integratie wizard';
 $lang_bridgemgr_php['finish'] = 'Klaar';
 $lang_bridgemgr_php['no_action_needed'] = 'In deze stap is geen actie nodig. Druk op \'volgende\' om door te gaan.';
-$lang_bridgemgr_php['reset_to_default'] = 'Terugzetten naar de standaard waarde'; 
+$lang_bridgemgr_php['reset_to_default'] = 'Terugzetten naar de standaard waarde';
 $lang_bridgemgr_php['choose_bbs_app'] = 'kies een programma uit om Coppermine mee te laten integreren';
 $lang_bridgemgr_php['support_url'] = 'Klik hier voor ondersteuning bij dit programma';
 $lang_bridgemgr_php['settings_path'] = 'pad(en) gebruikt bij jouw BBS programma';
 $lang_bridgemgr_php['full_forum_url'] = 'Forum URL';
 $lang_bridgemgr_php['relative_path_of_forum_from_webroot'] = 'Relatief pad naar je BBS programma';
 $lang_bridgemgr_php['relative_path_to_config_file'] = 'Relatief pad naar het BBS programma configuratie bestand';
-$lang_bridgemgr_php['cookie_prefix'] = 'Cookie prefix'; 
+$lang_bridgemgr_php['cookie_prefix'] = 'Cookie prefix';
 $lang_bridgemgr_php['special_settings'] = 'specifieke instellingen van de integratie applicatie';
 $lang_bridgemgr_php['use_post_based_groups'] = 'Gebruik bericht gebaseerde groepen?';
 $lang_bridgemgr_php['use_post_based_groups_yes'] = 'ja';
 $lang_bridgemgr_php['use_post_based_groups_no'] = 'nee';
 $lang_bridgemgr_php['error_title'] = 'Je moet de fouten herstellen om door te gaan. Ga naar het vorige scherm.';
 $lang_bridgemgr_php['error_specify_bbs'] = 'Je moet het programma opgeven welke je met Coppermine wilt integreren.';
-$lang_bridgemgr_php['finalize'] = 'Zet BBS integratie aan/uit'; 
+$lang_bridgemgr_php['finalize'] = 'Zet BBS integratie aan/uit';
 $lang_bridgemgr_php['finalize_explanation'] = 'Tot nu toe zijn de instellingen opgeslagen in de database, maar de BBS integratioe in nog niet aangezet. Je kan de integratie op ieder moment aan of uitzetten. Onthoud de beheerders naam van de standalone Coppermine installatie goed, deze heb je later weer nodig om wijzigingen aan te brengen. Als er iets verkeerd gaat, ga naar %s en zet de BBS integratie weer uit met behulp van je standalone Coppermine gebruikersnaam en wachtwoord (die je hebt ingegeven tijdens de installatie van Coppermine).'; //cpg1.4
 $lang_bridgemgr_php['your_bridge_settings'] = 'De integratie instellingen';
-$lang_bridgemgr_php['title_enable'] = 'Zet integratie aan met %s'; 
+$lang_bridgemgr_php['title_enable'] = 'Zet integratie aan met %s';
 $lang_bridgemgr_php['bridge_enable_yes'] = 'zet aan';
 $lang_bridgemgr_php['bridge_enable_no'] = 'zet uit';
 $lang_bridgemgr_php['error_must_not_be_empty'] = 'mag niet leeg zijn';
 $lang_bridgemgr_php['error_either_be'] = 'moet of %s of %s zijn';
 $lang_bridgemgr_php['error_folder_not_exist'] = '%s bestaat niet. Corrigeer de ingegeven waarde %s';
-$lang_bridgemgr_php['error_cookie_not_readible'] = 'Coppermine kan de cookie met de naam %s niet lezen. Herstel de waarde die je hebt ingevoerd voor %s, of ga naar het BBS installatiescherm en zorg ervoor dat de cookie-map leesbaar is voor Coppermine.'; 
+$lang_bridgemgr_php['error_cookie_not_readible'] = 'Coppermine kan de cookie met de naam %s niet lezen. Herstel de waarde die je hebt ingevoerd voor %s, of ga naar het BBS installatiescherm en zorg ervoor dat de cookie-map leesbaar is voor Coppermine.';
 $lang_bridgemgr_php['error_mandatory_field_empty'] = 'Je kunt het veld %s niet leeglaten. Vul een goede waarde in.';
 $lang_bridgemgr_php['error_no_trailing_slash'] = 'Er mag geen slash (\\) aan het einde van het veld %s staan.';
 $lang_bridgemgr_php['error_trailing_slash'] = 'Er moet een slash (\\) aan het einde van het veld %s staan.';
 $lang_bridgemgr_php['error_prefix_and_table'] = '%s en ';
 $lang_bridgemgr_php['recovery_title'] = 'Integratiebeheer: noodreparatie';
 $lang_bridgemgr_php['recovery_explanation'] = 'Als je hier kwam als beheerder van de BBS integratie van Coppermine, moet je eerst als beheerder inloggen. Als je niet kan inloggen omdat er een fout zit in de integratie, kan je deze uitzetten op deze pagina. Na opgave van je gebruikersnaam en wachtwoord laat je niet inloggen, maar zal de BBS integratie uitzetten. Kijk in de documentatie voor meer informatie.';
-$lang_bridgemgr_php['username'] = 'Gebruikersnaam'; 
+$lang_bridgemgr_php['username'] = 'Gebruikersnaam';
 $lang_bridgemgr_php['password'] = 'Wachtwoord';
 $lang_bridgemgr_php['disable_submit'] = 'Verzenden';
 $lang_bridgemgr_php['recovery_success_title'] = 'Inloggen gelukt';
-$lang_bridgemgr_php['recovery_success_content'] = 'Het is gelukt om de BBS integratie uit te zetten. Coppermine draait nu weer standalone.'; 
-$lang_bridgemgr_php['recovery_success_advice_login'] = 'Log in als beheerder om de instellingen van de BBS integratie te wijzigen of om de integratie aan of uit te zetten.'; 
+$lang_bridgemgr_php['recovery_success_content'] = 'Het is gelukt om de BBS integratie uit te zetten. Coppermine draait nu weer standalone.';
+$lang_bridgemgr_php['recovery_success_advice_login'] = 'Log in als beheerder om de instellingen van de BBS integratie te wijzigen of om de integratie aan of uit te zetten.';
 $lang_bridgemgr_php['goto_login'] = 'Ga naar de login pagina';
 $lang_bridgemgr_php['goto_bridgemgr'] = 'Ga naar integratiebeheer';
 $lang_bridgemgr_php['recovery_failure_title'] = 'Inloggen mislukt';
-$lang_bridgemgr_php['recovery_failure_content'] = 'Je hebt de verkeerde inloggegevens opgegeven. Je moet een beheerdersnaam en wachtwoord opgeven van de standalone Coppermine (die is ingesteld tijdens de installatie).'; 
-$lang_bridgemgr_php['try_again'] = 'probeer opnieuw'; 
-$lang_bridgemgr_php['recovery_wait_title'] = 'De wachtijd is niet verstreken'; 
-$lang_bridgemgr_php['recovery_wait_content'] = 'Om veiligheidsredenen is het script niet bevoegd om zo vaak achter elkaar in te loggen, je moet nu eerst wachten om het later nog eens te kunnen proberen.'; 
-$lang_bridgemgr_php['wait'] = 'wacht'; 
+$lang_bridgemgr_php['recovery_failure_content'] = 'Je hebt de verkeerde inloggegevens opgegeven. Je moet een beheerdersnaam en wachtwoord opgeven van de standalone Coppermine (die is ingesteld tijdens de installatie).';
+$lang_bridgemgr_php['try_again'] = 'probeer opnieuw';
+$lang_bridgemgr_php['recovery_wait_title'] = 'De wachtijd is niet verstreken';
+$lang_bridgemgr_php['recovery_wait_content'] = 'Om veiligheidsredenen is het script niet bevoegd om zo vaak achter elkaar in te loggen, je moet nu eerst wachten om het later nog eens te kunnen proberen.';
+$lang_bridgemgr_php['wait'] = 'wacht';
 $lang_bridgemgr_php['browse'] = 'blader';
 }
 
@@ -555,9 +556,9 @@ $lang_catmgr_php['update_create'] = 'Aanpassen/Creëer categorie';
 $lang_catmgr_php['parent_cat'] = 'Hoofdcategorie';
 $lang_catmgr_php['cat_title'] = 'Categorie titel';
 $lang_catmgr_php['cat_thumb'] = 'Categorie verkleinde afbeelding';
-$lang_catmgr_php['cat_desc'] = 'Categorie-omschrijving'; 
+$lang_catmgr_php['cat_desc'] = 'Categorie-omschrijving';
 $lang_catmgr_php['categories_alpha_sort'] = 'Sorteer categorieën alfabetisch (in plaats van willekeurig)';
-$lang_catmgr_php['save_cfg'] = 'Bewaar instellingen'; 
+$lang_catmgr_php['save_cfg'] = 'Bewaar instellingen';
 $lang_catmgr_php['no_category'] = '* Geen categorie *'; // cpg1.5
 $lang_catmgr_php['group_create_alb'] = 'Groepen die albums mogen creëren in deze categorie'; // cpg1.5
 }
@@ -611,17 +612,17 @@ $lang_admin_php['email_settings'] = 'E-mail instellingen (gewoonlijk moet hier n
 $lang_admin_php['logging_stats'] = 'Logging en statistieken'; // cpg1.5
 $lang_admin_php['maintenance_settings'] = 'Onderhoudsinstellingen'; // cpg1.5
 $lang_admin_php['manage_exif'] = 'Beheer exif weergave';
-$lang_admin_php['manage_plugins'] = 'Beheer plugins'; 
+$lang_admin_php['manage_plugins'] = 'Beheer plugins';
 $lang_admin_php['manage_keyword'] = 'Beheer trefwoorden';
 $lang_admin_php['restore_cfg'] = 'Standaard instellingen terugzetten';
 $lang_admin_php['restore_cfg_confirm'] = 'Wil je echt de volledige configuratie terugzetten op de standaard fabrieksinstellingen? Dit kan niet meer ongedaan worden!'; // cpg1.5 // js-alert	
 $lang_admin_php['save_cfg'] = 'Bewaar nieuwe instellingen';
-$lang_admin_php['notes'] = 'Notities'; 
+$lang_admin_php['notes'] = 'Notities';
 $lang_admin_php['info'] = 'Informatie';
 $lang_admin_php['upd_success'] = 'Coppermine instellingen zijn opgeslagen';
 $lang_admin_php['restore_success'] = 'Coppermine standaard instellingen zijn teruggezet';
 $lang_admin_php['name_a'] = 'Naam oplopend';
-$lang_admin_php['name_d'] = 'Naam aflopend'; 
+$lang_admin_php['name_d'] = 'Naam aflopend';
 $lang_admin_php['title_a'] = 'Titel oplopend';
 $lang_admin_php['title_d'] = 'Titel aflopend';
 $lang_admin_php['date_a'] = 'Datum oplopend';
@@ -637,7 +638,7 @@ $lang_admin_php['debug_admin'] = ' Alleen beheerders';
 $lang_admin_php['no_logs'] = 'Uit';
 $lang_admin_php['log_normal'] = 'Normaal';
 $lang_admin_php['log_all'] = 'Alles';
-$lang_admin_php['view_logs'] = 'Bekijk logging'; 
+$lang_admin_php['view_logs'] = 'Bekijk logging';
 $lang_admin_php['click_expand'] = 'klik op de sectienaam om deze open te klappen';
 $lang_admin_php['click_collapse'] = 'klik op de sectienaam om deze dicht te klappen'; // cpg1.5
 $lang_admin_php['expand_all'] = 'Alles openklappen';
@@ -646,9 +647,9 @@ $lang_admin_php['notice1'] = '(*) Deze instellingen mogen niet worden aangepast 
 $lang_admin_php['notice2'] = '(**) Als deze waarde wordt aangepast zullen alleen bestanden vanaf dit moment beÃ¯nvloed worden. Het is aanbevolen deze waarden niet aan te passen als er al bestanden in de database zitten. Je kunt waardes aanpassen via het &quot;<a href="util.php">beheerdersinstrumenten</a> menu (afbeeldingen herschalen)&quot;.';
 $lang_admin_php['notice3'] = '(***) Alle loggings zijn in het Engels.';
 $lang_admin_php['bbs_disabled'] = 'Deze functie is uitgeschakeld als het bbs is geintegreerd';
-$lang_admin_php['auto_resize_everyone'] = ' Iedereen'; 
-$lang_admin_php['auto_resize_user'] = ' Alleen leden'; 
-$lang_admin_php['ascending'] = 'aflopend'; 
+$lang_admin_php['auto_resize_everyone'] = ' Iedereen';
+$lang_admin_php['auto_resize_user'] = ' Alleen leden';
+$lang_admin_php['ascending'] = 'aflopend';
 $lang_admin_php['descending'] = 'oplopend';
 $lang_admin_php['collapse_all'] = 'Alles dichtklappen'; // cpg1.5
 $lang_admin_php['separate_page'] = 'op een aparte pagina';
@@ -990,7 +991,7 @@ $lang_db_input_php['no_flood'] = 'Sorry, maar je bent de auteur van het laatste 
 $lang_db_input_php['redirect_msg'] = 'je wordt doorgestuurd.<br/><br/><br/>Klik \'Doorgaan\' indien de pagina niet automatisch ververst wordt';
 $lang_db_input_php['upl_success'] = 'Je bestand is met succes toegevoegd.';
 $lang_db_input_php['email_comment_subject'] = 'Commentaar toegevoegd op \'Coppermine Photo Gallery\'';
-$lang_db_input_php['email_comment_body'] = 'Er heeft iemand commentaar toegevoegd in je galerij. Bekijk het op'; 
+$lang_db_input_php['email_comment_body'] = 'Er heeft iemand commentaar toegevoegd in je galerij. Bekijk het op';
 $lang_db_input_php['album_not_selected'] = 'Album is niet geselecteerd'; //cpg1.4
 $lang_db_input_php['com_author_error'] = 'Een gegeristeerde gebruiker gebruikt deze inlognaam al, kies een andere naam'; //cpg1.4
 }
@@ -1017,7 +1018,7 @@ $lang_delete_php['del_alb'] = 'Verwijder album';
 $lang_delete_php['del_user'] = 'Verwijder gebruiker';
 $lang_delete_php['err_unknown_user'] = 'De geselecteerde gebruiker bestaat niet !';
 $lang_delete_php['err_empty_groups'] = 'Er is geen groepen tabel, of de tabel is nog leeg!'; //cpg1.4
-$lang_delete_php['comment_deleted'] = 'Commentaar met succes verwijderd'; 
+$lang_delete_php['comment_deleted'] = 'Commentaar met succes verwijderd';
 $lang_delete_php['npic'] = 'Afbeelding'; //cpg1.4
 $lang_delete_php['pic_mgr'] = 'Afbeeldingsbeheer'; //cpg1.4
 $lang_delete_php['update_pic'] = 'Aanpassen afbeelding \'%s\' met bestandsnaam \'%s\' en index \'%s\''; //cpg1.4
@@ -1056,7 +1057,7 @@ $lang_display_image_php['slideshow'] = 'Diashow';
 $lang_display_image_php['stop_slideshow'] = 'Stop Diashow';
 $lang_display_image_php['view_fs'] = 'Klik op de foto om originele grootte te bekijken';
 $lang_display_image_php['edit_pic'] = 'Wijzig omschrijving';  //cpg1.4
-$lang_display_image_php['crop_pic'] = 'Snijden en draaien'; 
+$lang_display_image_php['crop_pic'] = 'Snijden en draaien';
 $lang_display_image_php['set_player'] = 'Verander standaard afspeelprogramma';
 
 $lang_picinfo['title'] = 'Bestandsinformatie';
@@ -1145,8 +1146,8 @@ $lang_display_comments['delete_title'] = 'Wis deze commentaar'; // cpg1.5
 $lang_display_comments['confirm_delete'] = 'Weet je zeker dat je deze commentaar wilt verwijderen ?'; //js-alert
 $lang_display_comments['add_your_comment'] = 'Voeg je commentaar toe.';
 $lang_display_comments['name'] = 'Naam';
-$lang_display_comments['comment'] = 'Commentaar'; 
-$lang_display_comments['your_name'] = 'Je naam'; 
+$lang_display_comments['comment'] = 'Commentaar';
+$lang_display_comments['your_name'] = 'Je naam';
 $lang_display_comments['report_comment_title'] = 'Dien een klacht over dit commentaar in bij de beheerder'; //cpg1.4
 $lang_display_comments['pending_approval'] = 'Commentaar wordt zichtbaar na goedkeuring van beheerder'; // cpg1.5
 $lang_display_comments['unapproved_comment'] = 'Niet goedgekeurde commentaar'; // cpg1.5
@@ -1157,7 +1158,7 @@ $lang_display_comments['log_in_to_comment'] = 'Anonieme commentaren zijn hier ni
 $lang_display_comments['default_username_message'] = 'Maak je naam bekend voor commentaar a.u.b.'; // cpg1.5
 $lang_display_comments['comment_rejected'] = 'Jouw commentaar is verworpen'; // cpg1.5
 
-$lang_fullsize_popup['click_to_close'] = 'Klik op de foto om dit venster te sluiten'; 
+$lang_fullsize_popup['click_to_close'] = 'Klik op de foto om dit venster te sluiten';
 $lang_fullsize_popup['close_window'] = 'sluit venster'; // cpg1.5
 }
 
@@ -1166,11 +1167,11 @@ $lang_fullsize_popup['close_window'] = 'sluit venster'; // cpg1.5
 // ------------------------------------------------------------------------- //
 
 if (defined('ECARDS_PHP')) {
-$lang_ecard_php['title'] = 'Stuur een e-kaart'; 
+$lang_ecard_php['title'] = 'Stuur een e-kaart';
 $lang_ecard_php['invalid_email'] = '<font color="red"><b>Waarschuwing</b></font>: ongeldig e-mailadres:'; //cpg1.4
 $lang_ecard_php['ecard_title'] = 'Een e-kaart van %s voor jou';
 $lang_ecard_php['error_not_image'] = 'Alleen foto\'s kunnen als een e-kaart verzonden worden.';
-$lang_ecard_php['error_not_image_flash'] = 'Alleen afbeeldingen en flashbestanden kunnen als e-kaart verzonden worden.'; 
+$lang_ecard_php['error_not_image_flash'] = 'Alleen afbeeldingen en flashbestanden kunnen als e-kaart verzonden worden.';
 $lang_ecard_php['view_ecard'] = 'Indien de e-kaart niet juist wordt weergegeven, klik dan op deze link'; //cpg1.4
 $lang_ecard_php['view_ecard_plaintext'] = 'Om de e-kaart te zien, kopiëer en plak deze link in het adresvak van je browser:'; //cpg1.4
 $lang_ecard_php['view_more_pics'] = 'Klik op deze link om meer foto\'s te bekijken !'; //cpg1.4
@@ -1246,14 +1247,14 @@ $lang_editpics_php['existing_keyword'] = 'Bestaand trefwoord'; //cpg1.4
 $lang_editpics_php['pic_info_str'] = '%s &times; %s - %s KB - %s bekeken - %s stemmen';
 $lang_editpics_php['approve'] = 'Laat bestand toe';
 $lang_editpics_php['postpone_app'] = 'Stel toelating uit';
-$lang_editpics_php['del_pic'] = 'Verwijder bestand'; 
+$lang_editpics_php['del_pic'] = 'Verwijder bestand';
 $lang_editpics_php['del_all'] = 'Verwijder ALLE bestanden'; //cpg1.4
 $lang_editpics_php['read_exif'] = 'Lees EXIF-info opnieuw';
-$lang_editpics_php['reset_view_count'] = 'Reset bekeken teller'; 
+$lang_editpics_php['reset_view_count'] = 'Reset bekeken teller';
 $lang_editpics_php['reset_all_view_count'] = 'Reset ALLE tellers'; //cpg1.4
-$lang_editpics_php['reset_votes'] = 'Reset stemmen'; 
+$lang_editpics_php['reset_votes'] = 'Reset stemmen';
 $lang_editpics_php['reset_all_votes'] = 'Reset ALLE stemmen'; //cpg1.4
-$lang_editpics_php['del_comm'] = 'verwijder commentaar'; 
+$lang_editpics_php['del_comm'] = 'verwijder commentaar';
 $lang_editpics_php['del_all_comm'] = 'Verwijder ALLE commentaarregels'; //cpg1.4
 $lang_editpics_php['upl_approval'] = 'Upload-toestemming'; //cpg1.4
 $lang_editpics_php['edit_pics'] = 'Wijzig bestanden';
@@ -1307,7 +1308,7 @@ $lang_editpics_php['success_changes'] = 'Wijzigingen zijn met succes opgeslagen'
 
 if (defined('FORGOT_PASSWD_PHP')) {
 $lang_forgot_passwd_php['forgot_passwd'] = 'Wachtwoordherinnering';
-$lang_forgot_passwd_php['err_already_logged_in'] = 'Je bent al ingelogd !'; 
+$lang_forgot_passwd_php['err_already_logged_in'] = 'Je bent al ingelogd !';
 $lang_forgot_passwd_php['enter_email'] = 'Geef je e-mailadres';
 $lang_forgot_passwd_php['submit'] = 'gaan';
 $lang_forgot_passwd_php['illegal_session'] = 'Wachtwoord vergeten, de sessie is ongeldig of de tijd is verlopen.';
@@ -1348,7 +1349,7 @@ EOT;
 // ------------------------------------------------------------------------- //
 // File groupmgr.php
 // ------------------------------------------------------------------------- //
-if (defined('GROUPMGR_PHP')) { 
+if (defined('GROUPMGR_PHP')) {
 $lang_groupmgr_php['group_manager'] = 'Groep manager'; // cpg1.5.x
 $lang_groupmgr_php['group_name'] = 'Groep';
 $lang_groupmgr_php['permissions'] = 'Rechten';
@@ -1400,7 +1401,7 @@ $lang_list_users['n_albums'] = '%s album(s)';
 $lang_list_users['n_pics'] = '%s bestand(en)';
 
 $lang_list_albums['n_pictures'] = '%s bestanden';
-$lang_list_albums['last_added'] = '; laatste toegevoegd op %s'; 
+$lang_list_albums['last_added'] = '; laatste toegevoegd op %s';
 $lang_list_albums['n_link_pictures'] = '%s gelinkte bestanden';
 $lang_list_albums['total_pictures'] = '%s totaal aantal bestanden';
 $lang_list_albums['alb_hits'] = 'Album %s keer bekeken'; // cpg1.5
@@ -1600,7 +1601,7 @@ $lang_login_php['remember_me'] = 'Onthoud mij';
 $lang_login_php['welcome'] = 'Welkom %s ...';
 $lang_login_php['err_login'] = '*** Kan niet inloggen. Probeer het nogmaals ***';
 $lang_login_php['err_already_logged_in'] = 'Je bent al ingelogd !';
-$lang_login_php['forgot_password_link'] = 'Wachtwoord vergeten'; 
+$lang_login_php['forgot_password_link'] = 'Wachtwoord vergeten';
 $lang_login_php['cookie_warning'] = 'Waarschuwing: je browser ondersteunt geen cookies';
 $lang_login_php['send_activation_link'] = 'Heb je de activatielink gemist?';
 $lang_login_php['force_login'] = 'Je moet inloggen om deze pagina te bekijken'; // cpg1.5
@@ -1624,7 +1625,7 @@ if (defined('MINIBROWSER_PHP')) {
 $lang_minibrowser_php['up'] = 'een niveau omhoog';
 $lang_minibrowser_php['current_path'] = 'huidig pad';
 $lang_minibrowser_php['select_directory'] = 'selecteer een nieuwe map';
-$lang_minibrowser_php['click_to_close'] = 'Klik op de afbeelding om het venster te sluiten'; 
+$lang_minibrowser_php['click_to_close'] = 'Klik op de afbeelding om het venster te sluiten';
 $lang_minibrowser_php['folder'] = 'Folder'; // cpg1.5
 }
 
@@ -1648,7 +1649,7 @@ $lang_modifyalb_php['choose_album'] = 'Kies een album'; // cpg1.5
 $lang_modifyalb_php['general_settings'] = 'Algemene instellingen';
 $lang_modifyalb_php['alb_title'] = 'Albumtitel';
 $lang_modifyalb_php['alb_cat'] = 'Albumcategorie';
-$lang_modifyalb_php['alb_desc'] = 'Albumomschrijving'; 
+$lang_modifyalb_php['alb_desc'] = 'Albumomschrijving';
 $lang_modifyalb_php['alb_keyword'] = 'Album trefwoord'; //cpg1.4
 $lang_modifyalb_php['alb_thumb'] = 'Album verkleinde afbeelding';
 $lang_modifyalb_php['alb_perm'] = 'Permissies voor dit album';
@@ -1671,24 +1672,24 @@ $lang_modifyalb_php['reset_album'] = 'Reset album';
 $lang_modifyalb_php['reset_views'] = 'Reset bekeken teller naar &quot;0&quot; voor %s';
 $lang_modifyalb_php['reset_rating'] = 'Reset stemmen van alle bestanden voor %s';
 $lang_modifyalb_php['delete_comments'] = 'Verwijder alle commentaarregels gemaakt in %s';
-$lang_modifyalb_php['delete_files'] = '%sIrreversibly%s verwijder alle bestanden in %s'; 
-$lang_modifyalb_php['views'] = 'bekeken'; 
+$lang_modifyalb_php['delete_files'] = '%sIrreversibly%s verwijder alle bestanden in %s';
+$lang_modifyalb_php['views'] = 'bekeken';
 $lang_modifyalb_php['votes'] = 'stemmen';
 $lang_modifyalb_php['comments'] = 'commentaar';
-$lang_modifyalb_php['files'] = 'bestanden'; 
+$lang_modifyalb_php['files'] = 'bestanden';
 $lang_modifyalb_php['submit_reset'] = 'verstuur wijzigingen';
-$lang_modifyalb_php['reset_views_confirm'] = 'Ik weet het zeker'; 
-$lang_modifyalb_php['notice1'] = '(*) afhankelijk van de %sgroeps%sinstellingen'; 
+$lang_modifyalb_php['reset_views_confirm'] = 'Ik weet het zeker';
+$lang_modifyalb_php['notice1'] = '(*) afhankelijk van de %sgroeps%sinstellingen';
 $lang_modifyalb_php['can_moderate'] = 'Album kan gemodereerd worden door'; // cpg 1.5
 $lang_modifyalb_php['admins_only'] = 'Alleen beheerders'; // cpg 1.5
 $lang_modifyalb_php['alb_password'] = 'Album wachtwoord (Nieuw wachtwoord)';
 $lang_modifyalb_php['alb_password_hint'] = 'Album wachtwoord suggestie';
 $lang_modifyalb_php['edit_files'] = 'Wijzig bestanden';
-$lang_modifyalb_php['parent_category'] = 'Hoofd categorie'; 
-$lang_modifyalb_php['thumbnail_view'] = 'Thumbnails'; 
+$lang_modifyalb_php['parent_category'] = 'Hoofd categorie';
+$lang_modifyalb_php['thumbnail_view'] = 'Thumbnails';
 $lang_modifyalb_php['random_image'] = 'Random afbeelding'; // cpg 1.5
 $lang_modifyalb_php['password_protect'] = 'Wachtwoord beschermt dit album (Vink aan voor ja)'; //cpg1.5
-} 
+}
 
 // ------------------------------------------------------------------------- //
 // File phpinfo.php
@@ -1697,18 +1698,18 @@ if (defined('PHPINFO_PHP')) {
 $lang_phpinfo_php['php_info'] = 'PHP info';
 $lang_phpinfo_php['explanation'] = 'Dit is de uitvoer gegenereerd door de PHP-functie <a href="http://www.php.net/phpinfo">phpinfo()</a>, getoond binnen Coppermine (de uitvoer is weergegeven aan de rechter kant).';
 $lang_phpinfo_php['no_link'] = 'Het laten zien van je phpinfo kan een veiligheidsrisico betekenen, daarom is deze pagina alleen maar zichtbaar wanneer je ingelogd bent als beheerder. Je kunt geen link publiceren naar deze pagina aan anderen, hen wordt de toegang geweigerd.';
-} 
+}
 
 // ------------------------------------------------------------------------- //
 // File picmgr.php
 // ------------------------------------------------------------------------- //
 if (defined('PICMGR_PHP')) {
-$lang_picmgr_php['pic_mgr'] = 'Afbeeldingsbeheer'; 
+$lang_picmgr_php['pic_mgr'] = 'Afbeeldingsbeheer';
 $lang_picmgr_php['confirm_modifs'] = 'Bevestig wijzigingen'; // cpg1.5 // js-alert
-$lang_picmgr_php['no_change'] = 'Je hebt geen enkele wijziging doorgevoerd!'; 
-$lang_picmgr_php['no_album'] = '* Geen album *'; 
-$lang_picmgr_php['explanation_header'] = 'De eigen sorteervolgorde op deze pagina zal alleen worden gebruikt indien'; 
-$lang_picmgr_php['explanation1'] = 'de beheerder heeft ingesteld dat de "Standaard sorteervolgorder voor bestanden" in de instellingen is gezet op "Positie oplopend" of "Positie aflopend" (algemene instelling voor alle gebruikers die geen andere sortering hebben ingesteld)'; 
+$lang_picmgr_php['no_change'] = 'Je hebt geen enkele wijziging doorgevoerd!';
+$lang_picmgr_php['no_album'] = '* Geen album *';
+$lang_picmgr_php['explanation_header'] = 'De eigen sorteervolgorde op deze pagina zal alleen worden gebruikt indien';
+$lang_picmgr_php['explanation1'] = 'de beheerder heeft ingesteld dat de "Standaard sorteervolgorder voor bestanden" in de instellingen is gezet op "Positie oplopend" of "Positie aflopend" (algemene instelling voor alle gebruikers die geen andere sortering hebben ingesteld)';
 $lang_picmgr_php['explanation2'] = 'de gebruiker heeft gekozen voor "Positie oplopend" of "Positie aflopend" op the thumbnails pagina (gebruikersinstelling)';
 $lang_picmgr_php['change_album'] = 'Als je dit album wijzigt, gaan jouw veranderingen verloren!'; // cpg1.5 // js-alert
 $lang_picmgr_php['submit_reminder'] = 'De sorteeraanpassingen worden niet opgeslagen voordat je klikt op &quot;Bevestigen&quot;.'; // cpg1.5
@@ -1716,28 +1717,28 @@ $lang_picmgr_php['submit_reminder'] = 'De sorteeraanpassingen worden niet opgesl
 
 
 // ------------------------------------------------------------------------- //
-// File pluginmgr.php 
+// File pluginmgr.php
 // ------------------------------------------------------------------------- //
 if (defined('PLUGINMGR_PHP')){
-$lang_pluginmgr_php['confirm_uninstall'] = 'Weet je zeker dat je deze plugin wilt DEINSTALLEREN'; 
+$lang_pluginmgr_php['confirm_uninstall'] = 'Weet je zeker dat je deze plugin wilt DEINSTALLEREN';
 $lang_pluginmgr_php['confirm_remove'] = 'NOTA: Plugin API is uitgeschakeld. Wil je deze plugin MANUEEL VERWIJDEREN, en iedere opruimactie negeren?'; // cpg1.5
-$lang_pluginmgr_php['confirm_delete'] = 'Weet je zeker dat je deze plugin wilt VERWIJDEREN'; 
+$lang_pluginmgr_php['confirm_delete'] = 'Weet je zeker dat je deze plugin wilt VERWIJDEREN';
 $lang_pluginmgr_php['pmgr'] = 'Plugin beheer';
 $lang_pluginmgr_php['explanation'] = 'Installeren / de-installeren / beheer plugins via deze pagina.'; // cpg1.5		
 $lang_pluginmgr_php['plugin_enabled'] = 'Plugin API ingeschakeld'; // cpg1.5
-$lang_pluginmgr_php['name'] = 'Naam'; 
-$lang_pluginmgr_php['author'] = 'Programmeur'; 
-$lang_pluginmgr_php['desc'] = 'Omschrijving'; 
-$lang_pluginmgr_php['vers'] = 'v'; 
+$lang_pluginmgr_php['name'] = 'Naam';
+$lang_pluginmgr_php['author'] = 'Programmeur';
+$lang_pluginmgr_php['desc'] = 'Omschrijving';
+$lang_pluginmgr_php['vers'] = 'v';
 $lang_pluginmgr_php['i_plugins'] = 'Geïnstalleerde Plugins';
 $lang_pluginmgr_php['n_plugins'] = 'Niet geïnstalleerde Plugins';
-$lang_pluginmgr_php['none_installed'] = 'Geen enkele plugin geïnstalleerd'; 
+$lang_pluginmgr_php['none_installed'] = 'Geen enkele plugin geïnstalleerd';
 $lang_pluginmgr_php['operation'] = 'operation';
 $lang_pluginmgr_php['not_plugin_package'] = 'Het geüploade bestand is geen plugin voor Coppermine.';
-$lang_pluginmgr_php['copy_error'] = 'Er is een fout opgetreden met het kopiÃ«ren van het bestand naar de plugins map.'; 
-$lang_pluginmgr_php['upload'] = 'Upload'; 
+$lang_pluginmgr_php['copy_error'] = 'Er is een fout opgetreden met het kopiÃ«ren van het bestand naar de plugins map.';
+$lang_pluginmgr_php['upload'] = 'Upload';
 $lang_pluginmgr_php['configure_plugin'] = 'Stel plugin in';
-$lang_pluginmgr_php['cleanup_plugin'] = 'Opschonen plugin'; 
+$lang_pluginmgr_php['cleanup_plugin'] = 'Opschonen plugin';
 $lang_pluginmgr_php['extra'] = 'Extra'; // cpg1.5
 $lang_pluginmgr_php['install_info'] = 'Installatie informatie'; // cpg1.5
 $lang_pluginmgr_php['plugin_disabled_note'] = 'Plugin API is uitgeschakeld, dus is deze operatie niet toegestaan.'; // cpg1.5
@@ -1759,7 +1760,7 @@ $lang_rate_pic_php['forbidden'] = 'Je kunt je eigen bestanden niet beoordelen.';
 // ------------------------------------------------------------------------- //
 // File register.php & profile.php
 // ------------------------------------------------------------------------- //
-if (defined('REGISTER_PHP') || defined('PROFILE_PHP')) { 
+if (defined('REGISTER_PHP') || defined('PROFILE_PHP')) {
 $lang_register_php['disclamer'] = <<<EOT
 Hoewel de beheerders van {SITE_NAME} zullen proberen al het aanstootgevende materiaal op de site zo snel mogelijk te verwijderen, is het echter onmogelijk elk bestand te bekijken. Daarom ga je er mee akkoord, dat alle op deze site geüploade bestanden en weergegeven commentaren de gezichtspunten en opinies zijn van de respectievelijke auteurs en niet van de beheerder of webmaster (behalve hun eigen postings) en deze zullen daarvoor niet aansprakelijk gesteld kunnen worden.<br/>
 <br/>
@@ -1819,12 +1820,12 @@ $lang_register_php['last_uploads_detail'] = 'Klik om alle bestanden te zien die 
 $lang_register_php['last_comments'] = 'Laatste commentaar.'; // cpg1.5
 $lang_register_php['you'] = 'jij'; // cpg1.5
 $lang_register_php['last_comments_detail'] = 'Klik om alle commentaarregels te zien die zijn gedaan door %s'; // cpg1.5
-$lang_register_php['notify_admin_email_body'] = 'Een nieuwe gebruiker met gebruikersnaam \'%s\' heeft zich voor je galerij geregistreerd'; 
-$lang_register_php['pic_count'] = 'Bestanden geüpload'; 
-$lang_register_php['notify_admin_request_email_subject'] = '%s - Registratie verzoek'; 
-$lang_register_php['thank_you_admin_activation'] = 'Bedankt.<br/><br/>Je verzoek tot toegang is verzonden aan de beheerder. Zodra jouw gebruikersnaam geaccepteerd is, ontvang je een e-mail.'; 
+$lang_register_php['notify_admin_email_body'] = 'Een nieuwe gebruiker met gebruikersnaam \'%s\' heeft zich voor je galerij geregistreerd';
+$lang_register_php['pic_count'] = 'Bestanden geüpload';
+$lang_register_php['notify_admin_request_email_subject'] = '%s - Registratie verzoek';
+$lang_register_php['thank_you_admin_activation'] = 'Bedankt.<br/><br/>Je verzoek tot toegang is verzonden aan de beheerder. Zodra jouw gebruikersnaam geaccepteerd is, ontvang je een e-mail.';
 $lang_register_php['acct_active_admin_activation'] = 'De gebruikersnaam is nu geactiveerd en de gebruiker krijgt daarvan een bevestiging over de e-mail.';
-$lang_register_php['notify_user_email_subject'] = '%s - Activatie bevestiging'; 
+$lang_register_php['notify_user_email_subject'] = '%s - Activatie bevestiging';
 $lang_register_php['delete_my_account'] = 'Verwijder mijn gebruikersaccount'; // cpg1.5
 $lang_register_php['warning_delete'] = 'Waarschuwing: jouw account verwijderen is onomkeerbaar. De %sbestanden die je uploadde%s in de publieke albums en %sjouw commentaren%s worden niet gewist bij het verwijderen van je account! Daarentegen worden de bestanden die je uploadde in jouw persoonlijke galerij wel gewist.'; // cpg1.5 // The %s-placeholders mustn't be removed, they will later be replaced by the wrappers for the links
 $lang_register_php['i_am_sure'] = 'Ik ben zeker dat ik mijn gebruikersaccount wil verwijderen'; // cpg1.5
@@ -1850,7 +1851,7 @@ Dank je voor het registreren bij {SITE_NAME}
 Om je account "{USER_NAME}" te kunnen activeren moet je op de link hieronder klikken of kopieer en plak het in je webbrowser.
 <a href="{ACT_LINK}">{ACT_LINK}</a>
 
-Hartelijke groet, 
+Hartelijke groet,
 
 De beheerder van {SITE_NAME}
 
@@ -1870,12 +1871,12 @@ Je account is geaccepteerd en geactiveerd.
 Je kan nu inloggen op <a href="{SITE_LINK}">{SITE_LINK}</a> met de gebruikersnaam "{USER_NAME}"
 
 
-Hartelijke groet, 
+Hartelijke groet,
 
 De beheerder van {SITE_NAME}
 
 EOT;
-} 
+}
 
 // ------------------------------------------------------------------------- //
 // File reviewcom.php
@@ -1887,18 +1888,18 @@ $lang_reviewcom_php['n_comm_del'] = '%s commentaren verwijderd';
 $lang_reviewcom_php['n_comm_disp'] = 'Aantal commentaren';
 $lang_reviewcom_php['see_prev'] = 'Bekijk voorgaande';
 $lang_reviewcom_php['see_next'] = 'Bekijk volgende';
-$lang_reviewcom_php['del_comm'] = 'Verwijder geselecteerd commentaar'; 
+$lang_reviewcom_php['del_comm'] = 'Verwijder geselecteerd commentaar';
 $lang_reviewcom_php['user_name'] = 'Naam';
 $lang_reviewcom_php['date'] = 'Datum';
 $lang_reviewcom_php['comment'] = 'Commentaar';
-$lang_reviewcom_php['file'] = 'Bestand'; 
-$lang_reviewcom_php['name_a'] = 'Gebruikersnaam oplopend'; 
+$lang_reviewcom_php['file'] = 'Bestand';
+$lang_reviewcom_php['name_a'] = 'Gebruikersnaam oplopend';
 $lang_reviewcom_php['name_d'] = 'Gebruikersnaam aflopend';
-$lang_reviewcom_php['date_a'] = 'Datum oplopend'; 
-$lang_reviewcom_php['date_d'] = 'Datum aflopend'; 
-$lang_reviewcom_php['comment_a'] = 'Commentaar oplopend'; 
-$lang_reviewcom_php['comment_d'] = 'Commentaar aflopend'; 
-$lang_reviewcom_php['file_a'] = 'Bestand oplopend'; 
+$lang_reviewcom_php['date_a'] = 'Datum oplopend';
+$lang_reviewcom_php['date_d'] = 'Datum aflopend';
+$lang_reviewcom_php['comment_a'] = 'Commentaar oplopend';
+$lang_reviewcom_php['comment_d'] = 'Commentaar aflopend';
+$lang_reviewcom_php['file_a'] = 'Bestand oplopend';
 $lang_reviewcom_php['file_d'] = 'Bestand aflopend';
 $lang_reviewcom_php['approval_a'] = 'Goedkeuring oplopend'; // cpg1.5
 $lang_reviewcom_php['approval_d'] = 'Goedkeuring aflopend'; // cpg1.5
@@ -1964,24 +1965,24 @@ $lang_sidebar_php['reload'] = 'Actualiseren'; // cpg1.5
 
 
 // ------------------------------------------------------------------------- //
-// File search.php 
+// File search.php
 // ------------------------------------------------------------------------- //
 if (defined('SEARCH_PHP')){
 $lang_search_php['title'] = 'Bestanden zoeken';
-$lang_search_php['submit_search'] = 'zoeken'; 
-$lang_search_php['keyword_list_title'] = 'Zoeksleutels'; 
+$lang_search_php['submit_search'] = 'zoeken';
+$lang_search_php['keyword_list_title'] = 'Zoeksleutels';
 $lang_search_php['keyword_msg'] = 'De lijst hierboven bevat niet alles. Bijvoorbeeld de titels en omschrijvingen zijn niet opgenomen. Probeer een uitgebreide zoeksleutel te kiezen.';
 $lang_search_php['edit_keywords'] = 'Wijzig trefwoorden';
 $lang_search_php['search in'] = 'Zoeken in:';
-$lang_search_php['ip_address'] = 'IP adres'; 
-$lang_search_php['imgfields'] = 'Zoeken in'; 
+$lang_search_php['ip_address'] = 'IP adres';
+$lang_search_php['imgfields'] = 'Zoeken in';
 $lang_search_php['albcatfields'] = 'Zoek albums en categorieën';
 $lang_search_php['age'] = 'Tijdschaal';
 $lang_search_php['newer_than'] = 'Nieuwer dan';
-$lang_search_php['older_than'] = 'Ouder dan'; 
-$lang_search_php['days'] = 'dagen'; 
-$lang_search_php['all_words'] = 'Vergelijk ALLE woorden (AND)'; 
-$lang_search_php['any_words'] = 'Vergelijk minstens één woord (OR)'; 
+$lang_search_php['older_than'] = 'Ouder dan';
+$lang_search_php['days'] = 'dagen';
+$lang_search_php['all_words'] = 'Vergelijk ALLE woorden (AND)';
+$lang_search_php['any_words'] = 'Vergelijk minstens één woord (OR)';
 $lang_search_php['regex'] = 'Vergelijk met regular expressions';
 $lang_search_php['album_title'] = 'Album titels';
 $lang_search_php['category_title'] = 'Categorie titels';	
@@ -2009,8 +2010,8 @@ $lang_search_new_php['list_new_pic'] = 'Lijst van nieuwe bestanden';
 $lang_search_new_php['insert_selected'] = 'Invoegen van geselecteerde bestanden';
 $lang_search_new_php['no_pic_found'] = 'Er is GEEN nieuw bestand gevonden';
 $lang_search_new_php['be_patient'] = 'Heb geduld, het script heeft enige tijd nodig om de bestanden aan het album toe te voegen';
-$lang_search_new_php['no_album'] = 'geen album geselecteerd'; 
-$lang_search_new_php['result_icon'] = 'klik voor meer gegevens of om opniuew te laden'; 
+$lang_search_new_php['no_album'] = 'geen album geselecteerd';
+$lang_search_new_php['result_icon'] = 'klik voor meer gegevens of om opniuew te laden';
 $lang_search_new_php['notes'] = <<< EOT
 <ul>
 	<li>%s: betekent dat het bestand met succes is toegevoegd.</li>
@@ -2026,7 +2027,7 @@ $lang_search_new_php['notes'] = <<< EOT
 EOT;
 
 $lang_search_new_php['check_all'] = 'Selecteer alles';
-$lang_search_new_php['uncheck_all'] = 'de-selecteer alles'; 
+$lang_search_new_php['uncheck_all'] = 'de-selecteer alles';
 $lang_search_new_php['no_folders'] = 'Er bevinden zich geen submappen in de "albums". Zorg ervoor dat minstens een submap opgenomen is in deze "albums"-map en upload uw bestanden daarin met een FTP-programma. Je mag geen bestanden uploaden naar de "userpics"- of de "edit"-mappen, deze zijn gereserveerd voor Coppermine.';
 $lang_search_new_php['browse_batch_add'] = 'Explorer interface (aanbevolen)'; // cpg1.5
 $lang_search_new_php['display_thumbs_batch_add'] = 'Toon preview thumbnails'; // cpg1.5
@@ -2055,7 +2056,7 @@ $lang_send_activation_php['activation_email_sent'] = 'Een e-mail met activatieli
 // ------------------------------------------------------------------------- //
 
 if (defined('STAT_DETAILS_PHP')) {
-$lang_stat_details_php['show_hide'] = 'laat zien/verberg deze kolom'; 
+$lang_stat_details_php['show_hide'] = 'laat zien/verberg deze kolom';
 $lang_stat_details_php['title'] = 'Statistische details'; // cpg1.5
 $lang_stat_details_php['vote'] = 'Stemmen Details';
 $lang_stat_details_php['hits'] = 'Hit Details';
@@ -2063,17 +2064,17 @@ $lang_stat_details_php['stats'] = 'Stemstatistieken';
 $lang_stat_details_php['users'] = 'Gebruikerstatistieken';
 $lang_stat_details_php['sdate'] = 'Datum';
 $lang_stat_details_php['rating'] = 'Beoordeling';
-$lang_stat_details_php['search_phrase'] = 'Zoektekst'; 
+$lang_stat_details_php['search_phrase'] = 'Zoektekst';
 $lang_stat_details_php['referer'] = 'Referer';
-$lang_stat_details_php['browser'] = 'Browser'; 
+$lang_stat_details_php['browser'] = 'Browser';
 $lang_stat_details_php['os'] = 'Operating System';
-$lang_stat_details_php['ip'] = 'IP'; 
+$lang_stat_details_php['ip'] = 'IP';
 $lang_stat_details_php['uid'] = 'Gebruiker'; // cpg1.5
 $lang_stat_details_php['sort_by_xxx'] = 'Sorteer op %s';
 $lang_stat_details_php['ascending'] = 'oplopend';
-$lang_stat_details_php['descending'] = 'aflopend'; 
+$lang_stat_details_php['descending'] = 'aflopend';
 $lang_stat_details_php['internal'] = 'intern';
-$lang_stat_details_php['close'] = 'sluiten'; 
+$lang_stat_details_php['close'] = 'sluiten';
 $lang_stat_details_php['hide_internal_referers'] = 'verberg interne referers';
 $lang_stat_details_php['date_display'] = 'Datum weergave';
 $lang_stat_details_php['records_per_page'] = 'inzendingen per pagina';
@@ -2143,8 +2144,8 @@ $lang_upload_php['description'] = 'Bestandsomschrijving';
 $lang_upload_php['keywords_sel'] = 'Selecteer een trefwoord'; //cpg1.4
 $lang_upload_php['err_no_alb_uploadables'] = 'Sorry, er is geen album waar het je toegestaan is bestanden naar te uploaden';
 $lang_upload_php['close'] = 'Sluiten';
-$lang_upload_php['no_keywords'] = 'Sorry, er zijn geen trefwoorden!'; 
-$lang_upload_php['regenerate_dictionary'] = 'Herindexeren Bibliotheek'; 
+$lang_upload_php['no_keywords'] = 'Sorry, er zijn geen trefwoorden!';
+$lang_upload_php['regenerate_dictionary'] = 'Herindexeren Bibliotheek';
 $lang_upload_php['allowed_types'] = 'Toegelaten extensies zijn:'; // cpg1.5
 $lang_upload_php['allowed_img_types'] = 'Image extensies: %s'; // cpg1.5
 $lang_upload_php['allowed_mov_types'] = 'Video extensies: %s'; // cpg1.5
@@ -2219,7 +2220,7 @@ $lang_usermgr_php['name'] = 'Gebruikersnaam';
 $lang_usermgr_php['group'] = 'Groep';
 $lang_usermgr_php['inactive'] = 'Inactief';
 $lang_usermgr_php['operations'] = 'Bewerkingen';
-$lang_usermgr_php['pictures'] = 'Bestanden'; 
+$lang_usermgr_php['pictures'] = 'Bestanden';
 $lang_usermgr_php['disk_space_used'] = 'Disk gebruik'; //cpg1.4
 $lang_usermgr_php['disk_space_quota'] = 'Disk Quota'; //cpg1.4
 $lang_usermgr_php['registered_on'] = 'Registratie'; //cpg1.4
@@ -2239,7 +2240,7 @@ $lang_usermgr_php['user_web_site'] = 'Website van gebruiker';
 $lang_usermgr_php['create_new_user'] = 'Creëer nieuwe gebruiker';
 $lang_usermgr_php['user_location'] = 'Locatie van gebruiker';
 $lang_usermgr_php['user_interests'] = 'Interesse van gebruiker';
-$lang_usermgr_php['user_occupation']  = 'Beroep van gebruiker'; 
+$lang_usermgr_php['user_occupation']  = 'Beroep van gebruiker';
 $lang_usermgr_php['user_profile1'] = '$user_profile1';
 $lang_usermgr_php['user_profile2'] = '$user_profile2';
 $lang_usermgr_php['user_profile3'] = '$user_profile3';
@@ -2251,18 +2252,18 @@ $lang_usermgr_php['no_latest_upload'] = 'Heeft geen bestanden geüpload'; // cpg
 $lang_usermgr_php['last_comments'] = 'Laatste commentaren'; // cpg1.5
 $lang_usermgr_php['no_last_comments'] = 'Heeft geen commentaren gemaakt'; // cpg1.5
 $lang_usermgr_php['comments'] = 'Commentaren'; // cpg1.5
-$lang_usermgr_php['never'] = 'nooit'; 
+$lang_usermgr_php['never'] = 'nooit';
 $lang_usermgr_php['search'] = 'Zoek gebruiker';
 $lang_usermgr_php['submit'] = 'Verzenden';
-$lang_usermgr_php['search_submit'] = 'Start!'; 
+$lang_usermgr_php['search_submit'] = 'Start!';
 $lang_usermgr_php['search_result'] = 'Zoekresultaten voor: ';
 $lang_usermgr_php['alert_no_selection'] = 'Je moet eerst een gebruiker selecteren!'; //js-alert
-$lang_usermgr_php['select_group'] = 'Selecteer groep'; 
+$lang_usermgr_php['select_group'] = 'Selecteer groep';
 $lang_usermgr_php['groups_alb_access'] = 'Album rechten per groep';
 $lang_usermgr_php['category'] = 'Categorie';
 $lang_usermgr_php['modify'] = 'Wijzig?';
-$lang_usermgr_php['group_no_access'] = 'Deze groep heeft geen speciale toegangsrechten'; 
-$lang_usermgr_php['notice'] = 'Let Op'; 
+$lang_usermgr_php['group_no_access'] = 'Deze groep heeft geen speciale toegangsrechten';
+$lang_usermgr_php['notice'] = 'Let Op';
 $lang_usermgr_php['group_can_access'] = 'Album(s) die alleen door "%s" bekeken mogen worden';
 $lang_usermgr_php['send_login_data'] = 'Zend logingegevens naar deze gebruiker (Wachtwoord wordt verstuurd via e-mail)'; // cpg1.5
 $lang_usermgr_php['send_login_email_subject'] = 'Jouw nieuwe accountinformatie'; // cpg1.5
@@ -2326,7 +2327,7 @@ $lang_update_php['could_not_rename'] = 'Kon niet hernoemen wegens gebrek aan rec
 if (defined('UTIL_PHP')) {
 $lang_util_php['title'] = 'Beheerdersinstrumenten (Pas formaat afbeeldingen aan)';
 $lang_util_php['file'] = 'Bestand';
-$lang_util_php['problem'] = 'Probleem'; 
+$lang_util_php['problem'] = 'Probleem';
 $lang_util_php['status'] = 'Status';
 $lang_util_php['title_set_to'] = 'titel instellen op';
 $lang_util_php['submit_form'] = 'Voer uit';
@@ -2360,9 +2361,9 @@ $lang_util_php['filename_time'] = 'Wijzig 2010_11_23_13_20_20.jpg in 13:20';
 $lang_util_php['notitle'] = 'Pas alleen toe op bestanden zonder titels'; // cpg1.5
 $lang_util_php['delete_title'] = 'Verwijder bestandsnamen';
 $lang_util_php['delete_title_explanation'] = 'Deze optie zal alle titels uit het opgegeven album verwijderen.';
-$lang_util_php['delete_original'] = 'Verwijder de orginele afbeeldingen'; 
-$lang_util_php['delete_original_explanation'] = 'Deze optie zal alle orginelen verwijderen van de webserver.'; 
-$lang_util_php['delete_intermediate'] = 'Verwijder de middelgrote afbeeldingen'; 
+$lang_util_php['delete_original'] = 'Verwijder de orginele afbeeldingen';
+$lang_util_php['delete_original_explanation'] = 'Deze optie zal alle orginelen verwijderen van de webserver.';
+$lang_util_php['delete_intermediate'] = 'Verwijder de middelgrote afbeeldingen';
 $lang_util_php['delete_intermediate_explanation1'] = 'Deze optie zal alle middelgrote afbeeldingen (normal_) verwijderen.'; // cpg1.5
 $lang_util_php['delete_intermediate_explanation2'] = 'Gebruik deze optie om schijfruimte te besparen als de optie \'Maak middelgrote afbeeldingen\' ingesteld staat.'; // cpg1.5
 $lang_util_php['delete_intermediate_check'] = 'De configuratie-optie \'Maak middelgrote afbeeldingen\' is momenteel %s.'; // cpg1.5
@@ -2370,9 +2371,9 @@ $lang_util_php['no_image'] = '%s is overgeslagen omdat het geen afbeelding is.';
 $lang_util_php['enabled'] = 'ingeschakeld'; // cpg1.5
 $lang_util_php['disabled'] = 'uitgeschakeld'; // cpg1.5
 $lang_util_php['delete_replace'] = 'Verwijder de orginele afbeeldingen en vervang deze door de aangepaste afbeeldingen';
-$lang_util_php['titles_deleted'] = 'Alle titels uit het geselecteerde album worden verwijderd'; 
-$lang_util_php['deleting_intermediates'] = 'Bezig met het verwijderen van de middelgrote afbeeldingen, momentje...'; 
-$lang_util_php['searching_orphans'] = 'Zoeken naar wezen, momentje...'; 
+$lang_util_php['titles_deleted'] = 'Alle titels uit het geselecteerde album worden verwijderd';
+$lang_util_php['deleting_intermediates'] = 'Bezig met het verwijderen van de middelgrote afbeeldingen, momentje...';
+$lang_util_php['searching_orphans'] = 'Zoeken naar wezen, momentje...';
 $lang_util_php['delete_orphans'] = 'Verwijder commentaar van niet aanwezige bestanden.';
 $lang_util_php['delete_orphans_explanation'] = 'Deze optie zorgt ervoor dat alle commentaarregels van bestanden die niet meer bestaan worden verwijderd.<br/>Kies \'Alle albums\'.'; //cpg1.4
 $lang_util_php['update_full_normal_thumb'] = 'Alles: full-sized, herschaald en thumbs'; // cpg1.5
@@ -2382,9 +2383,9 @@ $lang_util_php['delete_back'] = 'Verwijder de backup van de originele afbeelding
 $lang_util_php['delete_back_explanation'] = 'Dit zal de backup afbeelding verwijderen. Je zal wat schijfruimte sparen maar het watermerk niet meer kunnen verwijderen!!! Hierna is het watermerk permanent.'; // cpg1.5
 $lang_util_php['finished'] = '<br />Klaar met updaten van de thumbs en afbeeldingen!<br />'; // cpg1.5
 $lang_util_php['autorefresh'] = 'Automatisch verversen (niet meer nodig om nog op de \'Ga verder\' knop te klikken)'; // cpg1.5
-$lang_util_php['refresh_db'] = 'Ververs afmetingen en informatie van bestanden.'; 
+$lang_util_php['refresh_db'] = 'Ververs afmetingen en informatie van bestanden.';
 $lang_util_php['refresh_db_explanation'] = 'Deze optie zal de informatie over de bestanden updaten in de database. Gebruik deze optie als je de bestanden handmatig hebt aangepast.';
-$lang_util_php['reset_views'] = 'Reset bekeken teller'; 
+$lang_util_php['reset_views'] = 'Reset bekeken teller';
 $lang_util_php['reset_views_explanation'] = 'Deze optie reset alle bekeken tellers in het geselecteerde album.';
 $lang_util_php['reset_success'] = 'Reset is gelukt'; // cpg1.5
 $lang_util_php['orphan_comment'] = 'wezen commmentaar gevonden';

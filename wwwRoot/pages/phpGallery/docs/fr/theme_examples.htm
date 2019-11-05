@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/theme_examples.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/theme_examples.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -74,7 +74,7 @@
 <div class="indent">
 
 <a name="theme_examples_content_thumbnail"></a><h3>Contenu additionnel dans la page des vignettes<a href="#theme_examples_content_thumbnail" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
-<p>Modifications qui auront un impact sur l'affichage de la page des vignettes.</p> 
+<p>Modifications qui auront un impact sur l'affichage de la page des vignettes.</p>
 
 <div class="indent">
     <a name="theme_examples_content_thumbnail_extra_row"></a><h4>Nouvelle ligne entre les lignes de vignettes<a href="#theme_examples_content_thumbnail_extra_row" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
@@ -95,7 +95,7 @@
             &lt;/tr&gt;
             &lt;tr&gt;
     &lt;!-- END row_separator --&gt;</pre>
-    
+
     <a name="theme_examples_content_thumbnail_cell"></a><h4>Nouvelle cellule de table sur chaque page de vignettes<a href="#theme_examples_content_thumbnail_cell" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h4>
     <p>C'est un Mod plus avancé qui requière plus de modifications. Ce qu'il fait est plus subtil: il n'ajoute pas une ligne ou une colonne entière à la page des vignettes, mais remplace une des vignettes sur chaque page de vignettes par une cellule avec votre contenu personnalisé (votre publicité).</p>
     Ouvrez <tt class="filename">themes/votretheme/theme.php</tt> utilisez un <a href="dev_tools.htm#dev_tools_editor">éditeur de texte</a>, trouvez <tt class="code">$template_thumbnail_view</tt> puis modifiez comme expliqué ci-dessous. Si <tt class="code">$template_thumbnail_view</tt> n'existe pas dans votre thème, il vous faudra copier la section d'abord depuis le thème sample.<br />
@@ -143,7 +143,7 @@
     Descendez et trouvez
     <pre class="cpg_code">        echo template_eval($thumb_cell, $params);</pre>
     et <strong>remplacez</strong> cette ligne par
-    <pre class="cpg_code">        // Add the advert cell 
+    <pre class="cpg_code">        // Add the advert cell
             if (defined('DISPLAY_ADS_FOR_META_ALBUMS') || is_numeric($aid) == TRUE) {
             	$display_advert = 1;
             } else {
@@ -155,9 +155,9 @@
     	        	//print_r($thumb_list);
     	        	$thumb_list[($number_of_thumbs+1)] = $thumb;
     	        	echo template_eval($advert, $params);
-    		    } else { // We do not have room for the extra advert cell, 
-    		             // so we'll have to replace one (i.e. drop the 
-    		             // content of the thumb that should usually reside 
+    		    } else { // We do not have room for the extra advert cell,
+    		             // so we'll have to replace one (i.e. drop the
+    		             // content of the thumb that should usually reside
     		             // here without the ad)
     		    	echo template_eval($advert, $params);
     		    }
@@ -226,7 +226,7 @@ EOT;
     echo template_eval($template, $params);
     endtable();
     echo '&lt;/div&gt;';</pre>
-    
+
 </div>
 
 <hr />
@@ -255,7 +255,7 @@ Modifiez comme vous le souhaitez - vous devrez augmenter la valeur des variables
 en
 <pre class="cpg_code">            $winsizeX = $CURRENT_PIC_DATA['pwidth'] + $CONFIG['fullsize_padding_x'];  //the +'s are the mysterious FF and IE paddings
             $winsizeY = $CURRENT_PIC_DATA['pheight'] + $CONFIG['fullsize_padding_y'] + 200; //the +'s are the mysterious FF and IE paddings</pre>
-            
+
     <a name="theme_examples_content_menu"></a><h3>Éléments de menu supplémentaires<a href="#theme_examples_content_menu" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     Cette section explique comment ajouter des éléments de menu à votre menu personnalisé. Si vous besoin d'un seul élément de menu supplémentaire (non pas deux ou trois en plus), votre meilleure option est d'utiliser les options de configuration &quot;<a href="configuration.htm#admin_theme_custom_lnk_name">nom du lien du menu personnalisé</a>&quot;/&quot;<a href="configuration.htm#admin_language_custom_lnk_url">URL du menu personnalisé</a>&quot;, car cette méthode ne vous obligent pas à modifier fichiers et est donc moins compliquée. Si <em>un</em> seul élément de menu supplémentaire vous suffit, il n'y a pas besoin de lire cette page – à la place, suivez les liens ci-dessus qui expliquent les options de configuration. Si vous <a href="dev_plugins.htm">écrivez un plugin</a> et non pas un thème personnalisé, regradez la section &quot;<a href="dev_plugin_api.htm#plugin_api_tutorial_button">ajout d'un bouton à Coppermine</a>&quot;, puisque la méthode pour ajouter un élément de menu en utilisant un plugin diffère de la méthode pour ajouter un menu lors de la conception un thème de votre choix.<br />
     Vous continuez à lire, alors cela signifie que vous avez besoin de plus d’éléments de menu personnalisé ou que vous ayez besoin d'un contrôle plus fin sur les éléments de menu.<br />
@@ -466,19 +466,19 @@ EOT;</textarea>
                             &lt;li&gt;
                                     &lt;a href="../forum/" title="go to the forum"&gt;Forum&lt;/a&gt;
                             &lt;/li&gt;
-    &lt;!-- END custom_forum_link --&gt;</pre> 
+    &lt;!-- END custom_forum_link --&gt;</pre>
         Enregistrez vos modifications et téléchargez-les à partir de votre copie locale sur votre serveur web le cas échéant - vous devriez voir les changements immédiatement. Si vous êtes satisfait de ce que vous avez, vous pouvez arrêter de lire - vous venez de comprendre comment ajouter un élément de menu personnalisé à votre thème.<br />
         Si vous voulez plus de fonctionnalités (ex: si le lien n'est pas destiné à fonctionner tout le temps, mais seulement si une certaine condition s'applique, par exemple, si le visiteur est connecté) ou si vous voulez pleinement internationaliser le lien afin de répondre aux besoins des visiteurs de différents les pays avec des langues différentes, lisez la suite - nous allons essayer de vous expliquer comment réaliser tout cela.<br />
         Afin de comprendre ce qui se passe, nous allons devoir regarder ailleurs &quot;sous le capot&quot; de Coppermine pour voir comment cela fonctionne: les éléments de menu "régulier" contiennent (comme expliqué ci-dessus) un espace réservé pour les symboles qui se remplissent ailleurs.
         <br /><abbr title="à suivre">à suivre</abbr>...
-    </div> 
-            
+    </div>
+
 </div>
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

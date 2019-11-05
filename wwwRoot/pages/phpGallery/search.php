@@ -2,17 +2,17 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/search.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/search.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -50,10 +50,21 @@ $ip = GALLERY_ADMIN_MODE ? '
 
 $customs = '';
 
+if ($cpg_udb->can_join_tables) {
+    $owner_name = <<<EOT
+        <tr>
+                <td><input type="checkbox" name="owner_name" id="owner_name" class="checkbox" /><label for="owner_name" class="clickable_option">{$lang_common['owner_name']}</label></td>
+                <td>&nbsp;</td>
+        </tr>
+EOT;
+} else {
+    $owner_name = '';
+}
+
 foreach (range(1, 4) as $i) {
 
     $value = $CONFIG["user_field{$i}_name"];
-    
+
     if (!$value) {
         continue;
     }
@@ -72,7 +83,7 @@ $text .= <<< EOT
         <tr>
             <td class="tableb" align="center">
                 <input type="text" style="width: 80%" name="search" maxlength="255" value="" class="textinput" />
-				<button type="submit" class="button" name="submit" id="submit" value="{$lang_search_php['submit_search']}">{$icon_array['search']}{$lang_search_php['submit_search']}</button>
+                <button type="submit" class="button" name="submit" id="submit" value="{$lang_search_php['submit_search']}">{$icon_array['search']}{$lang_search_php['submit_search']}</button>
                 <input type="hidden" name="album" value="search" />
             </td>
         </tr>
@@ -106,6 +117,7 @@ $text .= <<< EOT
                                                                     </select>
                                                 </td>
                                         </tr>
+$owner_name
 $customs
 $ip
                                         <tr>

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,11 +10,10 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/bridgemgr.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/bridgemgr.php $
+  $Revision: 8884 $
 **********************************************/
-
 
 define('IN_COPPERMINE', true);
 define('BRIDGEMGR_PHP', true);
@@ -126,9 +125,9 @@ function write_to_db($step) {
     if ($value != '0' && $value != '1') {
         $value = $CONFIG['bridge_enable'];
     }
-    
+
     cpg_config_set('bridge_enable', $value);
-    
+
     if ($posted_var['clear_unused_db_fields'] == 1) {
         // clear all database entries that aren't actually used with the current bridge file
         // not implemented yet (not sure if necessary after all)
@@ -754,13 +753,13 @@ print '<br />' . $LINEBREAK;
 pagefooter();
 } // gallery admin mode --- end
 else { // not in gallery admin mode --- start
-    if ($CONFIG['bridge_enable'] != 1) {    
-    cpg_die(ERROR, $lang_errors['access_denied'], __FILE__, __LINE__); 
+    if ($CONFIG['bridge_enable'] != 1) {
+    cpg_die(ERROR, $lang_errors['access_denied'], __FILE__, __LINE__);
     }
 
     // initialize vars
     $step = $posted_var['step'];
-    
+
     pageheader($lang_bridgemgr_php['title']);
     switch ($step) {
     case "attempt_to_disable":
@@ -800,9 +799,9 @@ else { // not in gallery admin mode --- start
         }
         if ($retrieved_data['user_name'] == $posted_var['username'] && $retrieved_data['user_password'] == $encpassword && $retrieved_data['user_name'] != '' ) {
             // authentication successful
-            
+
             cpg_config_set('bridge_enable', '0');
-            
+
             cpg_db_query("UPDATE {$CONFIG['TABLE_BRIDGE']} SET value = '0' WHERE name = 'recovery_logon_failures'");
             cpg_db_query("UPDATE {$CONFIG['TABLE_BRIDGE']} SET value = NOW() WHERE name = 'recovery_logon_timestamp'");
 

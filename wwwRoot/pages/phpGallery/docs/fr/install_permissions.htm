@@ -12,9 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/fr/install_permissions.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/fr/install_permissions.htm $
+  $Revision: 8884 $
 
 
 -->
@@ -213,17 +213,17 @@ En outre, Coppermine a besoins <em>d'accès en écriture</em> sur un certain nom
         </li>
     </ul>
     <a name="chmod_end"></a>
-    
-    
-    
+
+
+
     <a name="apache_windows"></a><h3>Apache on Windows<a href="#apache_windows" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>Vous devez comprendre qu'il n'y a pas de commandes comme CHMOD sur les systèmes d'exploitations Windows - Cette commande est uniquement disponible sur Unix/Linux, même si votre application FTP affiche des options CHMOD. Si vous essayez d'appliquer des commandes CHMOD sur Windows, la commande sera simplement ignorée et rien ne sera fait. Malgré tout il y a aussi des permissions sur Windows.</p>
     <p>Les services des serveurs web apache utilisent un utilisateur particulier - si vous avez un accès total au serveur, vérifiez dans le contrôle des services lequel est utilisé. Si vous ne pouvez pas, demandez votre hébergeur.</p>
     <p>Pour un fonctionnement temporaire, paramétrez les permissions au niveau répertoires et les fichiers comme expliqué dans la section <a href="#iis">IIS sur Windows</a>, mais pas pour le IUSR (qui n'existe que sur IIS), mais pour "everyone". Comme autoriser "everyone" à avoir la permission de lecture, d'écriture et d'exécution peut présenter un risque de sécurité, ce n'est pas recommandé du tout.</p>
     <a name="apache_windows_end"></a>
-    
-    
-    
+
+
+
     <a name="iis"></a><h3>IIS sur Windows<a href="#iis" title="Lien vers cette section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h3>
     <p>Pré-requis: vous aurez besoin d'un accès administrateur total sur votre serveur pour pouvoir exécuter ce processus. Si vous ne faites pas tourner vous même votre serveur, votre hébergeur à probablement configuré une interface web pour vous permettre de modifier les permissions. Si vous n'êtes pas sur, contactez votre hébergeur.</p>
     <p>Les dialogues peuvent être différents en fonction de la version de Windows utilisée:</p>
@@ -276,8 +276,8 @@ tbc
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

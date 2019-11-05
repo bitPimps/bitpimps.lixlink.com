@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,13 +10,17 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/help.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/help.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
 define('HELP_PHP', true);
+define('ADMIN_PHP', true);
+define('PICMGR_PHP', true);
+define('GROUPMGR_PHP', true);
+define('UPLOAD_PHP', true);
 require('include/init.inc.php');
 
 // set charset
@@ -48,23 +52,72 @@ if ($superCage->get->keyExists('close')) {
 } else {
     $close = '0';
 }
-if ($superCage->get->keyExists('base')) {
-    $base = $superCage->get->getInt('base');
-    if ($CONFIG['charset'] == 'language file') {
-        $meta_charset = '<meta http-equiv="Content-Type" content="text/html; charset='.$lang_charset.'" />';
-    } else {
-        $meta_charset = '<meta http-equiv="Content-Type" content="text/html; charset='.$CONFIG['charset'].'" />';
-    }
-} else {
-    $base = '';
-}
-if ($superCage->get->keyExists('h')) {
-    $header = $superCage->get->getEscaped('h');
+if ($superCage->get->keyExists('h') && preg_match('/^(lang_[a-z0-9_]+)(\[([a-z0-9_]+)\])?$/', $superCage->get->getEscaped('h'), $matches)) {
+    $header = !isset($matches[2]) ? ${$matches[1]} : ${$matches[1]}[$matches[3]];
 } else {
     $header = '';
 }
-if ($superCage->get->keyExists('t')) {
-    $text = $superCage->get->getEscaped('t');
+if ($superCage->get->keyExists('t') && preg_match('/^(lang_[a-z0-9_]+)(\[([a-z0-9_]+)\])?$/', $superCage->get->getEscaped('t'), $matches)) {
+    if ($matches[1] == 'lang_tmp_picture_manager') {
+        $text = <<< EOT
+            <ul>
+                <li>{$lang_picmgr_php['explanation1']}</li>
+                <li>{$lang_picmgr_php['explanation2']}</li>
+            </ul>
+EOT;
+    } elseif ($matches[1] == 'lang_tmp_upload') {
+        $restriction_filesize = sprintf($lang_upload_php['restriction_filesize'], '<strong>' . cpg_format_bytes($CONFIG['max_upl_size'] * 1024) . '</strong>');
+        if ($CONFIG['allowed_img_types'] != '') {
+            $allowed_img_types = '<li>' . sprintf ($lang_upload_php['allowed_img_types'], $CONFIG['allowed_img_types']) . '</li>';
+        } else {
+            $allowed_img_types = '';
+        }
+        if ($CONFIG['allowed_mov_types'] != '') {
+            $allowed_mov_types = '<li>' . sprintf ($lang_upload_php['allowed_mov_types'], $CONFIG['allowed_mov_types']) . '</li>';
+        } else {
+            $allowed_mov_types = '';
+        }
+        if ($CONFIG['allowed_snd_types'] != '') {
+            $allowed_snd_types = '<li>' . sprintf ($lang_upload_php['allowed_snd_types'], $CONFIG['allowed_snd_types']) . '</li>';
+        } else {
+            $allowed_snd_types = '';
+        }
+        if ($CONFIG['allowed_doc_types'] != '') {
+            $allowed_doc_types = '<li>' . sprintf ($lang_upload_php['allowed_doc_types'], $CONFIG['allowed_doc_types']) . '</li>';
+        } else {
+            $allowed_doc_types = '';
+        }
+        $text = <<< EOT
+<ul>
+    <li>{$lang_upload_php['up_instr_1']}</li>
+    <li>{$lang_upload_php['up_instr_2']}</li>
+    <li>{$lang_upload_php['up_instr_3']}</li>
+    <li>{$lang_upload_php['up_instr_4']}</li>
+    <li>{$lang_upload_php['up_instr_5']}</li>
+</ul>
+
+<h2>{$lang_upload_php['restrictions']}</h2>
+<ul>
+    <li>{$restriction_filesize}</li>
+    <li>{$lang_upload_php['restriction_zip']}</li>
+    <li>{$lang_upload_php['allowed_types']}
+        <ul>
+            {$allowed_img_types}
+            {$allowed_mov_types}
+            {$allowed_snd_types}
+            {$allowed_doc_types}
+        </ul>
+    </li>
+</ul>
+EOT;
+    } elseif (!isset($matches[2])) {
+        $text = ${$matches[1]};
+    } elseif($matches[1] == 'lang_groupmgr_php' && $matches[3] == 'explain_guests_greyed_out_text') {
+        $group_name = mysql_result(cpg_db_query("SELECT group_name FROM {$CONFIG['TABLE_USERGROUPS']} WHERE group_id = 3"), 0);
+        $text = sprintf($text, '<em>'.$group_name.'</em>');
+    } else {
+        $text = ${$matches[1]}[$matches[3]];
+    }
 } else {
     $text = '';
 }
@@ -96,17 +149,11 @@ if (strrpos($file, '.') != FALSE) {
 $file = preg_replace('/[^0-9a-zA-Z_-]/', '', $file);
 $file = $file . '.htm';
 
-if ($base != '') {
-    // content of header and text have been base64-encoded - decode it now
-    $header = @unserialize(@base64_decode($header));
-    $text = @unserialize(@base64_decode($text));
-}
-
 if ($close != 1) {
     //$close_link = '<br />&nbsp;<br /><div align="center"><a href="#" class="admin_menu" onclick="window.close();">'.$lang_common['close'].'</a><br />&nbsp;</div>';
 }
 
-// Determine the language of the user and display the help file in his language if available. 
+// Determine the language of the user and display the help file in his language if available.
 // Fall back to English if the file is not available in his/her language.
 // This should be done at a later stage in an i18n table. For now, let's do a straightforward if/then.
 
@@ -176,9 +223,13 @@ $string = str_replace('<a internalAnchorLinkTempReplacement', '<a href="' . 'doc
 
 
 if ($header != '') {
-    $content = '<h1>'.strip_tags($header).'</h1>';
-    $content .= strip_tags($text);
-    $content = str_replace(strip_tags($lang_bbcode_help), $lang_bbcode_help, $content);
+    if ($CONFIG['charset'] == 'language file') {
+        $meta_charset = '<meta http-equiv="Content-Type" content="text/html; charset='.$lang_charset.'" />';
+    } else {
+        $meta_charset = '<meta http-equiv="Content-Type" content="text/html; charset='.$CONFIG['charset'].'" />';
+    }
+    $content = '<h1>'.$header.'</h1>';
+    $content .= $text;
 } else {
     $content = '';
 }
@@ -195,7 +246,7 @@ echo <<< EOT
         <script src="docs/js/jquery.js" type="text/javascript"></script>
         <script src="docs/js/help.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body class="nobgimage">
         <div id="cpg_main_block">
             $string
             $content

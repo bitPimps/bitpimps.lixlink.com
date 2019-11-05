@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/usermgr.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/usermgr.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -140,7 +140,7 @@ function list_users($search = '')
     global $USER_DATA;
 
     $superCage = Inspekt::makeSuperCage();
-    
+
     list($timestamp, $form_token) = getFormToken();
 
     $number_of_columns_minus_one = $number_of_columns - 1;
@@ -177,13 +177,9 @@ function list_users($search = '')
     }
 
     $user_per_page = 25;
-    if ($superCage->get->keyExists('page')) {
-        $page = $superCage->get->getInt('page');
-    } else {
-        $page = 1;
-    }
+    $page = $superCage->get->testInt('page') ? $superCage->get->getInt('page') : 1;    $lower_limit = ($page-1) * $user_per_page;
     $lower_limit = ($page-1) * $user_per_page;
-    
+
     if ($search) {
         $username = '&amp;username='.$search;
 
@@ -200,7 +196,7 @@ function list_users($search = '')
 
     $tab_tmpl = $template_tab_display;
     $tab_tmpl['page_link'] = strtr($tab_tmpl['page_link'], array('{LINK}' => 'usermgr.php?sort=' . $sort . '&amp;page=%d'.$username));
-    $tab_tmpl['left_text'] = strtr($tab_tmpl['left_text'], array('{LEFT_TEXT}' => $lang_usermgr_php['u_user_on_p_pages']));  
+    $tab_tmpl['left_text'] = strtr($tab_tmpl['left_text'], array('{LEFT_TEXT}' => $lang_usermgr_php['u_user_on_p_pages']));
 
     $users = $cpg_udb->get_users(
                                   array(
@@ -334,8 +330,25 @@ EOT;
     // Accept header addons
     echo CPGPluginAPI::filter('usermgr_header','');
 
+    if ($CONFIG['user_manager_hide_file_stats']) {
+        $pictures_quota_header = '';
+    } else {
+        $pictures_quota_header = <<< EOT
+                <td class="tableh1" align="center">
+                    <span class="statlink">{$lang_usermgr_php['pictures']}</span>
+                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=pic_a$username"><img src="images/ascending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['pic_a']}" /></a>
+                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=pic_d$username"><img src="images/descending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['pic_d']}" /></a>
+                </td>
+                <td class="tableh1" align="center">
+                    <span class="statlink">{$lang_usermgr_php['disk_space_used']}/{$lang_usermgr_php['disk_space_quota']}</span>
+                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=disku_a$username"><img src="images/ascending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['disku_a']}" /></a>
+                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=disku_d$username"><img src="images/descending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['disku_d']}" /></a>
+                </td>
+EOT;
+    }
+
     if (!$lim_user) {
-     echo <<< EOT
+        echo <<< EOT
 
         <tr>
                 <td class="tableh1" align="center">
@@ -367,21 +380,11 @@ EOT;
                 <td class="tableh1" align="center">
                     <span class="statlink">{$lang_usermgr_php['comments']}</span>
                 </td>
-                <td class="tableh1" align="center">
-                    <span class="statlink">{$lang_usermgr_php['pictures']}</span>
-                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=pic_a$username"><img src="images/ascending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['pic_a']}" /></a>
-                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=pic_d$username"><img src="images/descending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['pic_d']}" /></a>
-                </td>
-                <td class="tableh1" align="center">
-                    <span class="statlink">{$lang_usermgr_php['disk_space_used']}/{$lang_usermgr_php['disk_space_quota']}</span>
-                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=disku_a$username"><img src="images/ascending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['disku_a']}" /></a>
-                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=disku_d$username"><img src="images/descending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['disku_d']}" /></a>
-                </td>
+                $pictures_quota_header
         </tr>
 EOT;
-    }
-    else {
-     echo <<< EOT
+    } else {
+        echo <<< EOT
 
         <tr>
                 <td class="tableh1" colspan="2">
@@ -409,22 +412,13 @@ EOT;
                 <td class="tableh1" align="center">
                     <span class="statlink">{$lang_usermgr_php['comments']}</span>
                 </td>
-                <td class="tableh1" align="center">
-                    <span class="statlink">{$lang_usermgr_php['pictures']}</span>
-                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=pic_a$username"><img src="images/ascending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['pic_a']}" /></a>
-                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=pic_d$username"><img src="images/descending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['pic_d']}" /></a>
-                </td>
-                <td class="tableh1" align="center">
-                    <span class="statlink">{$lang_usermgr_php['disk_space_used']}/{$lang_usermgr_php['disk_space_quota']}</span>
-                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=disku_a$username"><img src="images/ascending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['disku_a']}" /></a>
-                    <a href="{$CPG_PHP_SELF}?page=$page&amp;sort=disku_d$username"><img src="images/descending.png" width="9" height="9" border="0" alt="" title="{$lang_usermgr_php['disku_d']}" /></a>
-                </td>
+                $pictures_quota_header
         </tr>
 EOT;
     }
 
     $loop_counter = 0;
-    
+
     // query total number of files uploaded
     $result = cpg_db_query("SELECT COUNT(*) FROM {$CONFIG['TABLE_PICTURES']} LIMIT 1");
     $tempPicCount = mysql_fetch_array($result);
@@ -432,7 +426,7 @@ EOT;
     $totalPictureCount_fmt = cpg_float2decimal($totalPictureCount);
     mysql_free_result($result);
     unset($tempPicCount);
-    
+
     // query total space used
     $result = cpg_db_query("SELECT SUM(total_filesize) FROM {$CONFIG['TABLE_PICTURES']} LIMIT 1");
     $tempSpaceCount = mysql_fetch_array($result);
@@ -440,7 +434,7 @@ EOT;
     $totalSpaceCount_fmt = cpg_format_bytes($totalSpaceCount);
     mysql_free_result($result);
     unset($tempSpaceCount);
-    
+
     // query total number of comments posted
     $result = cpg_db_query("SELECT COUNT(*) FROM {$CONFIG['TABLE_COMMENTS']} LIMIT 1");
     $tempCommentCount = mysql_fetch_array($result);
@@ -463,6 +457,11 @@ EOT;
             $user['disk_usage'] = 0;
         }
         $group_quota_separator = '/';
+        // Determine actual quota if user belongs to more than one user group
+        if ($user_groups = cpg_get_groups($user['user_id'])) {
+            $quota = mysql_fetch_assoc(cpg_db_query("SELECT MAX(group_quota) AS disk_max, MIN(group_quota) AS disk_min FROM {$CONFIG['TABLE_USERGROUPS']} WHERE group_quota >= 0 AND group_id IN (".implode(", ", $user_groups).")"));
+            $user['group_quota'] = $quota["disk_min"] ? $quota["disk_max"] : 0;
+        }
         if ($user['group_quota']) {
             $disk_usage_output = theme_display_bar($user['disk_usage'],$user['group_quota'],150,'', '', $group_quota_separator.$user['group_quota'].'&nbsp;'.$lang_byte_units[1],'red','green');
         } else {
@@ -535,6 +534,14 @@ EOT;
                     $checkbox_html = '<input name="u'.$user['user_id'].'" '.$makereadonly.'type="checkbox" value="" class="checkbox" />';
                 }
                 $profile_link = '<a href="' . $profile_link . '">' . cpg_fetch_icon('edit', 0, $lang_usermgr_php['edit_profile']) . '</a>';
+                if ($CONFIG['user_manager_hide_file_stats']) {
+                    $pictures_quota_data = '';
+                } else {
+                    $pictures_quota_data = <<< EOT
+                <td class="{$row_style_class}" align="right">{$file_quota_output}</td>
+                <td class="{$row_style_class}" align="center">{$disk_usage_output}</td>
+EOT;
+                }
                 echo <<< EOT
         <tr>
                 <td class="{$row_style_class}" align="center">{$checkbox_html}</td>
@@ -551,12 +558,20 @@ EOT;
                 <td class="{$row_style_class}">{$user['user_regdate']}</td>
                 <td class="{$row_style_class}">{$user['user_lastvisit']}</td>
                 <td class="{$row_style_class}" align="right">{$comment_quota_output}</td>
-                <td class="{$row_style_class}" align="right">{$file_quota_output}</td>
-                <td class="{$row_style_class}" align="center">{$disk_usage_output}</td>
+                $pictures_quota_data
         </tr>
 
 EOT;
         } else {
+                if ($CONFIG['user_manager_hide_file_stats']) {
+                    $pictures_quota_data = '';
+                } else {
+                    $pictures_quota_data = <<< EOT
+                <td class="{$row_style_class}" align="right">{$user['pic_count']}</td>
+                <td class="{$row_style_class}" align="center">{$disk_usage_output}</td>
+EOT;
+                }
+
                   echo <<< EOT
         <tr>
                 <td class="{$row_style_class}">{$user['user_name']}</td>
@@ -566,8 +581,7 @@ EOT;
                 <td class="{$row_style_class}">{$user['user_regdate']}</td>
                 <td class="{$row_style_class}">{$user['user_lastvisit']}</td>
                 <td class="{$row_style_class}" align="right">{$user['comment_num']}</td>
-                <td class="{$row_style_class}" align="right">{$user['pic_count']}</td>
-                <td class="{$row_style_class}" align="center">{$disk_usage_output}</td>
+                $pictures_quota_data
         </tr>
 
 EOT;
@@ -575,6 +589,15 @@ EOT;
 
     } // while
     //mysql_free_result($result);
+
+    if ($CONFIG['user_manager_hide_file_stats']) {
+        $pictures_quota_footer = '';
+    } else {
+        $pictures_quota_footer = <<< EOT
+            <td align="right" class="tablef">$totalPictureCount_fmt</td>
+            <td align="right" class="tablef">$totalSpaceCount_fmt</td>
+EOT;
+    }
 
     if (!$lim_user) {
         if ($search) {
@@ -626,7 +649,7 @@ EOT;
 
         $create_new_user_icon = cpg_fetch_icon('add_user', 2);
         list($timestamp, $form_token) = getFormToken();	
-        
+
         echo <<<EOT
                               </select>
                             <select name="delete_files" size="1" class="listbox" style="display:none">
@@ -645,17 +668,16 @@ EOT;
                 <input type="hidden" name="timestamp" value="{$timestamp}" />
                 </td>
                 <td align="right" class="tablef">$totalCommentCount_fmt</td>
-                <td align="right" class="tablef">$totalPictureCount_fmt</td>
-                <td align="right" class="tablef">$totalSpaceCount_fmt</td>
+                $pictures_quota_footer
         </tr>
 EOT;
 
         endtable();
-    
+
         echo '</form>';
-    
+
         starttable('100%');
-    
+
 echo <<< EOT
 
         <tr>
@@ -687,12 +709,7 @@ EOT;
             <td class="tablef" align="right" valign="middle">
                 $totalCommentCount_fmt
             </td>
-            <td class="tablef" align="right" valign="middle">
-                $totalPictureCount_fmt
-            </td>
-            <td class="tablef" align="right" valign="middle">
-                {$totalSpaceCount_fmt}
-            </td>
+            $pictures_quota_footer
         </tr>
 EOT;
     }
@@ -701,7 +718,7 @@ EOT;
     echo CPGPluginAPI::filter('usermgr_footer','');
 
     if ($tabs) {
-        
+
         echo <<<EOT
         <tr>
                 <td colspan="$number_of_columns" style="padding: 0px;">
@@ -715,7 +732,7 @@ EOT;
 
 EOT;
     }
-    
+
     endtable();
 }
 
@@ -815,15 +832,15 @@ EOT;
                     <input type="text" style="width: 100%" name="{$element[1]}" maxlength="{$element[3]}" value="{$user_data[$element[1]]}" class="textinput" />
                     </td>
             </tr>
-    
-    
+
+
 EOT;
                 break;
-    
+
             case 'textarea' :
-    
+
                $value = $user_data[$element[1]];
-    
+
                if ($element[2]) echo <<<EOT
             <tr>
                 <td width="40%" class="{$row_style_class}" height="25" valign="top">
@@ -833,11 +850,11 @@ EOT;
                     <textarea name="{$element[1]}" rows="7" cols="40" class="textinput" style="width: 100%">$value</textarea>
                     </td>
             </tr>
-    
-    
+
+
 EOT;
                 break;
-    
+
             case 'password' :
                 echo <<<EOT
             <tr>
@@ -848,10 +865,10 @@ EOT;
                     <input type="password" style="width: 100%" name="{$element[1]}" maxlength="{$element[3]}" value="" class="textinput" />
                     </td>
             </tr>
-    
+
 EOT;
                 break;
-    
+
             case 'yesno' :
                 $value = $user_data[$element[1]];
                 $yes_selected = ($value == 'YES' || $op == 'new_user') ? 'checked="checked"' : '';
@@ -868,19 +885,19 @@ EOT;
                         <input type="radio" id="no" name="{$element[1]}" value="NO" $no_selected /><label for="no" class="clickable_option">{$lang_common['no']}</label>
                     </td>
             </tr>
-    
+
 EOT;
                 break;
-    
+
             case 'group_list' :
                 $sql = "SELECT group_id, group_name FROM {$CONFIG['TABLE_USERGROUPS']} ORDER BY group_name";
                 $result = cpg_db_query($sql);
                 $group_list = cpg_db_fetch_rowset($result);
                 mysql_free_result($result);
-    
+
                 $sel_group = $user_data[$element[1]];
                 $user_group_list = ($user_data['user_group_list'] == '') ? ',' . $sel_group . ',' : ',' . $user_data['user_group_list'] . ',' . $sel_group . ',';
-    
+
                 echo <<<EOT
             <tr>
                 <td class="{$row_style_class}" valign="top">
@@ -888,16 +905,12 @@ EOT;
             </td>
             <td class="{$row_style_class}" valign="top">
                     <select name="{$element[1]}" class="listbox">
-    
+
 EOT;
                 $group_cb = '';
                 foreach($group_list as $group) {
                     echo '                        <option value="' . $group['group_id'] . '"' . ($group['group_id'] == $sel_group || ($op == 'new_user' && $group['group_id'] == 2) ? ' selected="selected"' : '') . '>' . $group['group_name'] . '</option>' . $LINEBREAK;
-    
-                    /**
-                     * Only show 'real' groups; skip admin, registered, anonymous
-                     */
-                    if ($group['group_id'] > 3) {
+                    if ($group['group_id'] != 3) {
                       $checked = strpos(' ' . $user_group_list, ',' . $group['group_id'] . ',') ? 'checked="checked"' : '';
                       $group_cb .= '<input name="group_list[]" type="checkbox" value="' . $group['group_id'] . '" ' . $checked . ' />' . $group['group_name'] . '<br />' . $LINEBREAK;
                     }
@@ -909,13 +922,13 @@ EOT;
                             <br />
                             <a href="usermgr.php?op=groups_alb_access&amp;form_token={$form_token}&amp;timestamp={$timestamp}" class="admin_menu">{$lang_usermgr_php['groups_alb_access']}</a>
                             {$assignedGroupsHelp}
-    
+
               </td>
             </tr>
-    
+
 EOT;
                 break;
-    
+
             case 'checkbox':
                 echo <<< EOT
             <tr>
@@ -926,10 +939,10 @@ EOT;
                         <input type="checkbox" id="send_login_data" name="{$element[1]}" value="YES" />
                     </td>
             </tr>
-    
+
 EOT;
                 break;
-    
+
             default:
                 cpg_die(CRITICAL_ERROR, 'Invalid action for form creation ' . $element[0], __FILE__, __LINE__);
         }
@@ -971,7 +984,7 @@ EOT;
 EOT;
     }
     endtable();
-    
+
     echo '</form>';
 }
 
@@ -1003,7 +1016,7 @@ function update_user($user_id)
         // Create a personal album if corresponding option is enabled
         if ($CONFIG['personal_album_on_registration'] == 1) {
             $catid = $user_id + FIRST_USER_CAT;
-            cpg_db_query("INSERT INTO {$CONFIG['TABLE_ALBUMS']} (`title`, `category`) VALUES ('$user_name', $catid)");
+            cpg_db_query("INSERT INTO {$CONFIG['TABLE_ALBUMS']} (`title`, `category`, `owner`) VALUES ('$user_name', $catid, $user_id)");
         }
     }
 
@@ -1050,7 +1063,7 @@ function update_user($user_id)
     cpg_db_query($sql_update);
 
     // Update comments' author name
-    cpg_db_query("UPDATE {$CONFIG['TABLE_COMMENTS']} SET msg_author = '$user_name' WHERE author_id = $user_id");    
+    cpg_db_query("UPDATE {$CONFIG['TABLE_COMMENTS']} SET msg_author = '$user_name' WHERE author_id = $user_id");
 
     // If send login data checkbox is checked then send the username and password to the user in an email
     if ($superCage->post->keyExists('send_login_data') && trim($user_email)) {
@@ -1068,13 +1081,13 @@ function update_user($user_id)
     } elseif ($user_data['user_actkey'] && $user_data['user_active'] == 'NO' && $user_active == 'YES') {
         // send activation confirmation email (only once)
         require('include/mailer.inc.php');
-        
+
         $template_vars = array(
             '{SITE_LINK}' => $CONFIG['site_url'],
             '{USER_NAME}' => $user_data['user_name'],
             '{SITE_NAME}' => $CONFIG['gallery_name'],
         );
-        
+
         cpg_mail($user_data['user_email'], sprintf($lang_register_php['notify_user_email_subject'], $CONFIG['gallery_name']), nl2br(strtr($lang_register_php['activated_email'], $template_vars)));
     }
 }

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/mode.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/mode.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -25,7 +25,7 @@ if ($superCage->get->getAlpha('what') == 'news') {
     if (!GALLERY_ADMIN_MODE) {
         cpg_die(ERROR, $lang_errors['access_denied'], __FILE__, __LINE__);
     }
-    
+
     if ($CONFIG['display_coppermine_news'] == 0) {
         $value = 1;
         $message = $lang_mode_php['news_show'];
@@ -51,7 +51,7 @@ if ($superCage->get->getAlpha('what') == 'news') {
     $admin_mode = $superCage->get->getInt('admin_mode')? 1 : 0;
 
     $USER['am'] = $admin_mode;
-    
+
     if (!$admin_mode) {
         $CPG_REFERER = 'index.php';
     }

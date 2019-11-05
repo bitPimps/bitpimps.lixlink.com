@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/pluginmgr.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/pluginmgr.php $
+  $Revision: 8884 $
 **********************************************/
 
 // ------------------------------------------------------------------------- //
@@ -41,9 +41,9 @@ if ($superCage->post->keyExists('update_config')) {
     }
 
     $value = $superCage->post->getInt('enable_plugins');
-    
+
     cpg_config_set('enable_plugins', $value);
-    
+
     header('Location: pluginmgr.php');
 }
 
@@ -168,7 +168,7 @@ EOT;
             echo <<<EOT
         <tr>
             <td width="90%" class="{$row_style_class}">
-                <a name="{$pluginPath}" />
+                <a name="{$pluginPath}"></a>
                 <table border="0" width="100%" cellspacing="0" cellpadding="0" class="maintable">
                     <tr>
                         <td colspan="2" class="tableh1">{$name} ({$pluginPath}): {$lang_pluginmgr_php['vers']}$version</td>
@@ -209,7 +209,7 @@ EOT;
             }
 
             if ($thisplugin['index'] < ($plugins_count - 1)) {
-                $down = cpg_fetch_icon('down', 0); 
+                $down = cpg_fetch_icon('down', 0);
                 echo <<<EOT
             <td width="3%" align="center" valign="middle">
                 <a href="pluginmgr.php?op=moved&amp;p={$thisplugin['plugin_id']}&amp;form_token={$form_token}&amp;timestamp={$timestamp}#{$pluginPath}">{$down}</a>
@@ -368,7 +368,7 @@ EOT;
                 <table border="0" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
                     <td width="5%" align="center" valign="top">
-                        
+
                     </td>
                     <td width="5%" align="center" valign="top">
                         {$install_button}

@@ -12,10 +12,9 @@
 <!--
   SVN version info:
 
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/se/theme_theme_php.htm $
-  $Revision: 8304 $
-
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/se/theme_theme_php.htm $
+  $Revision: 8884 $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -30,10 +29,13 @@
 <div id="toc">
 <a href="toc.htm">Table of Contents</a>
 </div>
+
 <div id="doc_en_only">No translation available</div>
+
 <a name="theme_php"></a><h1>Editing theme.php<a href="#theme_php" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h1>
 <p>Every theme comes with the file theme.php. However, for most themes, the file is nearly empty. The reason for that is that only things that <strong>differ</strong> from Coppermine's default behaviour needs to be described in theme.php. Things that are suppossed to work "the usual Coppermine way" are being defined in the core code - your custom theme's theme.php contains the variables and function definitions that override the identical items in the default core.</p>
 <p>The &quot;<strong>theme.php</strong>&quot; file contains all the HTML templates used by the script. You can edit them, as well. When making modifications to these templates, be careful that you do not alter the lines that start with <tt class="code">&lt;!-- BEGIN xxx --&gt;</tt> and <tt class="code">&lt;!-- END xxx --&gt;</tt>. These lines are often used to identify the start and end of specific code blocks that the script will use to display your gallery.</p>
+
 <a name="theme_php_types"></a><h2>Item types<a href="#theme_php_types" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <p>Basically, there can be three types of content in theme.php (from a PHP-coder's point of view). Don't worry though - you don't have to be a coder to be capable to change your theme</p>
 <ul>
@@ -59,6 +61,7 @@ EOT;<br />
 }</tt></div></li>
 </ul>
 <a name="theme_php_types_end"></a>
+
 <a name="theme_sample"></a><h2>The sample theme - a template to copy from<a href="#theme_sample" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <p>Your Coppermine installation also includes a &quot;sample&quot; theme directory. The &quot;sample&quot; theme includes each of these files but does not show up in the user selectable list of themes in your Coppermine display. Sample's theme.php also holds a copy of every themeable function and template for your reference. If you opt to use the &quot;sample&quot; theme to begin creating your own theme, you should follow the theme.php instructions in the &quot;<a href="theme_upgrade_14x-15x.htm">theme upgrade documentation</a>&quot; and begin with a blank theme.php.</p>
 <p class="cpg_message_error">To clarify: you <strong>mustn't</strong> edit the sample theme (as it will not be displayed), but copy the sections you want to see changed from it into your custom theme. Do <strong>not</strong> copy the whole content from themes/sample/theme.php into your custom theme, as this will only clutter your custom theme and will make upgrading very hard in the future. Instead, only copy the sections you want to modify from <tt class="code">themes/sample/theme.php</tt> into <tt class="code">themes/yourtheme/theme.php</tt>.</p>
@@ -74,30 +77,33 @@ and ends with
 where the name of the section (<tt class="code">section_name</tt> in above example) is identical both in the start-block as well as the end-block.</p>
 <p>The place where you insert the section you copied from the sample theme in your custom theme doesn't matter as long as you take care not to paste it within another section, but before or after a section that exists in your custom theme. As a rule of thumb, you can savely paste a section into a new line before <tt class="code">?&gt;</tt> in your custom theme (<tt class="code">themes/yourtheme/theme.php</tt>)</p>
 <a name="theme_sample_end"></a>
+
 <a name="theme_php_method"></a><h2>Method<a href="#theme_php_method" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <p>The method behind all theme.php editing is really quite easy - just follow these simple steps:</p>
 <ul>
-	<li><strong>Determine what section needs to be edited</strong><br />
-		There are many different ways how to find that out:
-		<ul>
-			<li>You found a corresponding posting on the Coppermine support board</li>
-			<li>You figured out by looking at the table &quot;<a href="theme_php_list">List of items in theme.php</a>&quot;</li>
-			<li>Another part of this documentation says so</li>
-			<li>A friend told you so</li>
-			<li>...</li>
-		</ul>
-	</li>
-	<li><strong>Find out if that section already exists in your custom theme:</strong><br />
-		(Your favorite <a href="dev_tools.htm#dev_tools_editor">plain-text editor</a> should have a search function. Notepad.exe has got one as well)
-		<ul>
-			<li>If yes, edit themes/yourtheme/theme.php. No copying from the sample theme needed</li>
-			<li>If no, open themes/sample/theme.php with a <a href="dev_tools.htm#dev_tools_editor">plain-text editor</a>, find the section that needs editing, highlight and copy it, then paste it into a new line before <tt class="code">?&gt;</tt> of <tt class="code">themes/yourtheme/theme.php</tt>. Then edit the stuff you pasted in as you see fit.</li>
-		</ul>
-	</li>
+    <li><strong>Determine what section needs to be edited</strong><br />
+        There are many different ways how to find that out:
+        <ul>
+            <li>You found a corresponding posting on the Coppermine support board</li>
+            <li>You figured out by looking at the table &quot;<a href="theme_php_list">List of items in theme.php</a>&quot;</li>
+            <li>Another part of this documentation says so</li>
+            <li>A friend told you so</li>
+            <li>...</li>
+        </ul>
+    </li>
+    <li><strong>Find out if that section already exists in your custom theme:</strong><br />
+        (Your favorite <a href="dev_tools.htm#dev_tools_editor">plain-text editor</a> should have a search function. Notepad.exe has got one as well)
+        <ul>
+            <li>If yes, edit themes/yourtheme/theme.php. No copying from the sample theme needed</li>
+            <li>If no, open themes/sample/theme.php with a <a href="dev_tools.htm#dev_tools_editor">plain-text editor</a>, find the section that needs editing, highlight and copy it, then paste it into a new line before <tt class="code">?&gt;</tt> of <tt class="code">themes/yourtheme/theme.php</tt>. Then edit the stuff you pasted in as you see fit.</li>
+        </ul>
+    </li>
 </ul>
+
 <a name="theme_php_scope"></a><h2>Scope<a href="#theme_php_scope" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <p>So, what can actually be accomplished by editing theme.php? Well, the sky is the limit: only your imagination can be limited, but the scope of possible edits in theme.php is endless. However, users usually ask for the same five or six features or changes all the time. That's why we have created a page with <a href="theme_examples.htm#theme_examples">theme examples</a> where the most common edits to theme.php are being explained - make sure to have read those examples thoroughly before starting another request on the coppermine support board where you might just be told that you should read the docs...</p>
 <p class="cpg_message_success">We're really trying to focus your attention to this block: please read the <a href="theme_examples.htm#theme_examples">theme examples</a> page after having read this page.</p>
+
 <a name="theme_php_list"></a><h2>List of items in theme.php<a href="#theme_php_list" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <table border="0" cellspacing="0" cellpadding="0" class="cpg_zebra">
   <tr>
@@ -115,9 +121,17 @@ where the name of the section (<tt class="code">section_name</tt> in above examp
   <tr>
     <td valign="top"><a name="theme_create_theme_rating_graphic"></a>define('<strong>THEME_HAS_RATING_GRAPHICS</strong>',1);<a href="#theme_create_theme_rating_graphic" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
     <td valign="top">constant</td>
-    <td valign="top">The location for the ratings graphics. When the constant is set, the script will be directed to the theme's images folder, i.e. themes/yourtheme/images/ and look for the rating images there. If not defined (default), the rating images will be taken from the images-folder that resides in Coppermine's root folder.</td>
+    <td valign="top">The location for the ratings graphics. When the constant is set, the script will be directed to the theme's images folder, i.e. <tt class="code">themes/yourtheme/images/</tt>and look for the rating images there. If not defined (default), the rating images will be taken from the images-folder that resides in Coppermine's root folder.</td>
     <td valign="top">
-		<a href="theme_graphics.htm#theme_graphics_rating">Graphic resources in themes &rarr; Rating images</a>    
+        <a href="theme_graphics.htm#theme_graphics_rating">Graphic resources in themes &rarr; Rating images</a>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><a name="theme_create_theme_comment_graphic"></a>define('<strong>THEME_HAS_COMMENT_GRAPHICS</strong>',1);<a href="#theme_create_theme_comment_graphic" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></td>
+    <td valign="top">constant</td>
+    <td valign="top">The location for the comment management graphics. When the constant is set, the script will be directed to the theme's images folder, subfolder 'icons', i.e. <tt class="code">themes/yourtheme/images/icons/</tt> and look for the comment management images there. If not defined (default), the comment management images will be taken from <tt class="code">images/icons/</tt>.</td>
+    <td valign="top">
+        <a href="theme_graphics.htm#theme_graphics_comment">Graphic resources in themes &rarr; Comment management images</a>
     </td>
   </tr>
   <tr>
@@ -131,7 +145,7 @@ where the name of the section (<tt class="code">section_name</tt> in above examp
     <td valign="top">constant</td>
     <td valign="top">The location for the navbar graphics (&quot;ecard&quot;, &quot;slideshow&quot;, &quot;previous&quot;/&quot;next&quot;). When the constant is set, the script will be directed to the theme's images folder, i.e. themes/yourtheme/images/ and look for the navbar images there. If not defined (default), the navbar images will be taken from the images-folder that resides in Coppermine's root folder.</td>
     <td valign="top">
-    	<a href="theme_graphics.htm#theme_graphics_nav_bar">Graphic resources in themes &rarr; Image Navigation bar</a>        
+        <a href="theme_graphics.htm#theme_graphics_nav_bar">Graphic resources in themes &rarr; Image Navigation bar</a>
     </td>
   </tr>
   <tr>
@@ -139,7 +153,7 @@ where the name of the section (<tt class="code">section_name</tt> in above examp
     <td valign="top">constant</td>
     <td valign="top">The location for the film strip graphics. When the constant is set, the script will be directed to the theme's images folder, i.e. themes/yourtheme/images/ and look for the film strip images (tile.gif) there. If not defined (default), the film strip images will be taken from the images-folder that resides in Coppermine's root folder.</td>
     <td valign="top">
-    	If defined, a file named <tt class="code">tile.gif</tt> needs to reside in the theme's images folder. [<a href="theme_graphics.htm#theme_graphics_film_strip">Details</a>]
+        If defined, a file named <tt class="code">tile.gif</tt> needs to reside in the theme's images folder. [<a href="theme_graphics.htm#theme_graphics_film_strip">Details</a>]
     </td>
   </tr>
   <tr>
@@ -147,7 +161,7 @@ where the name of the section (<tt class="code">section_name</tt> in above examp
     <td valign="top">constant</td>
     <td valign="top">The location for the film strip graphics. When the constant is set, the script will be directed to the theme's images folder, i.e. themes/yourtheme/images/ and look for the film strip images (tile1.gif for the top tile and tile2.gif for the bottom tile) there. If not defined (default), the film strip images will be taken from the images-folder that resides in Coppermine's root folder.</td>
     <td valign="top">
-    	If defined, a file named <tt class="code">tile1.gif</tt> and a file named <tt class="code">tile2.gif</tt> need to reside in the theme's images folder. [<a href="theme_graphics.htm#theme_graphics_film_strip">Details</a>]
+        If defined, a file named <tt class="code">tile1.gif</tt> and a file named <tt class="code">tile2.gif</tt> need to reside in the theme's images folder. [<a href="theme_graphics.htm#theme_graphics_film_strip">Details</a>]
     </td>
   </tr>
   <tr>
@@ -360,7 +374,7 @@ where the name of the section (<tt class="code">section_name</tt> in above examp
     <td valign="top">Edit this to add/change CSS classes for the sys-menu links.<br />
     Default content is<pre class="cpg_code code">  &lt;!-- BEGIN {BLOCK_ID} --&gt;
         &lt;a href=&quot;{HREF_TGT}&quot; title=&quot;{HREF_TITLE}&quot;&gt;{HREF_LNK}&lt;/a&gt;
-		{SPACER}
+        {SPACER}
   &lt;!-- END {BLOCK_ID} --&gt;</pre></td>
     <td valign="top"></td>
   </tr>
@@ -557,16 +571,20 @@ where the name of the section (<tt class="code">section_name</tt> in above examp
     <td valign="top"></td>
   </tr>
 </table>
+
 <a name="theme_php_examples"></a><h2>Examples<a href="#theme_php_examples" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <p>A list of modification examples that are often requested can be found in the section <a href="theme_examples.htm#theme_examples">theme examples</a>.</p>
+
 <a name="theme_php_summary"></a><h2>Summary<a href="#theme_php_summary" title="Link to this section"><img src="images/anchor.gif" width="15" height="9" border="0" alt="" /></a></h2>
 <p>Understanding the process to edit theme.php is really important if you want to create a custom theme, so it's mandatory to be familar with what has been explained on this page:</p>
 <p class="cpg_message_success">To edit a particular functionality of a theme, take a look at <tt class="code">themes/yourtheme/theme.php</tt> and search for the section that you want to see changed. If that section exists, edit it as you see fit. If that section does not exist in your custom theme, copy the corresponding section (and only that section) from <tt class="code">themes/sample/theme.php</tt> into a new line before <tt class="code">?&gt;</tt> of the file <tt class="code">themes/yourtheme/theme.php</tt>. Then start editing the code you just pasted in.</p>
+
+
 <div id="doc_footer">
-	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
-	</div>
+    <div class="doc_info_wrapper">
+        <span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+        <span id="doc_revision">$Revision: 8884 $</span>
+    </div>
 </div>
 </body>
 </html>

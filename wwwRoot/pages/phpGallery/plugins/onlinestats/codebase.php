@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/plugins/onlinestats/codebase.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/plugins/onlinestats/codebase.php $
+  $Revision: 8884 $
 **********************************************/
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
@@ -60,7 +60,7 @@ function online_configure() {
     if (in_array('onlinestats', $contentOfTheMainpage_array) == TRUE) {
         // We have a winner
     }
-    
+
     $icon_array['ok']  = cpg_fetch_icon('ok', 2);
     $icon_array['config']  = cpg_fetch_icon('config', 2);
     if (isset($CONFIG['mod_updates_duration']) != TRUE) {
@@ -121,22 +121,7 @@ function online_page_start() {
 
     cpg_db_query("DELETE FROM {$CONFIG['TABLE_ONLINE']} WHERE last_action < NOW() - INTERVAL {$CONFIG['mod_updates_duration']} MINUTE");
 
-    if ($user_id) {
-        cpg_db_query("REPLACE INTO {$CONFIG['TABLE_ONLINE']} (user_id, user_name, user_ip, last_action) VALUES ('$user_id', '$user_name', '$raw_ip', NOW())");
-
-    } else{
-        $testarray = explode('.',$raw_ip);
-        $teststr = $testarray[0] . '.' . $testarray[1];
-        $sel = cpg_db_query("SELECT user_ip FROM {$CONFIG['TABLE_ONLINE']} WHERE user_ip LIKE '$teststr%'");
-        $res = mysql_fetch_row($sel);
-        $result = $res[0];
-
-        if (mysql_num_rows($sel)){
-            cpg_db_query("UPDATE {$CONFIG['TABLE_ONLINE']} SET last_action = NOW() WHERE user_ip = '$result' LIMIT 1");
-        } else {
-            cpg_db_query("INSERT INTO {$CONFIG['TABLE_ONLINE']} (user_id, user_name, user_ip, last_action) VALUES ('$user_id', '$user_name', '$raw_ip', NOW())");
-        }
-    }
+    cpg_db_query("REPLACE INTO {$CONFIG['TABLE_ONLINE']} (user_id, user_name, user_ip, last_action) VALUES ('$user_id', '$user_name', '$raw_ip', NOW())");
 }
 
 function online_mainpage() {
@@ -145,7 +130,7 @@ function online_mainpage() {
     if($matches[1] != 'onlinestats') {
       return $matches;
     }
-    
+
     $num_users = $cpg_udb->get_user_count();
 
     $result = cpg_db_query("SELECT COUNT(*) FROM {$CONFIG['TABLE_ONLINE']}");
@@ -153,7 +138,7 @@ function online_mainpage() {
 
     $result = cpg_db_query("SELECT COUNT(*) FROM {$CONFIG['TABLE_ONLINE']} WHERE user_id <> 0");
     list($num_reg_online) = mysql_fetch_row($result);
-    
+
     $result = cpg_db_query("SELECT {$cpg_udb->field['user_id']} AS user_id, {$cpg_udb->field['username']} AS user_name FROM {$cpg_udb->usertable} ORDER BY user_id DESC LIMIT 1", $cpg_udb->link_id);
     $newest = mysql_fetch_assoc($result);
 
@@ -234,11 +219,11 @@ function online_install() {
         $sql_query[] = "INSERT IGNORE INTO {$CONFIG['TABLE_CONFIG']} (name, value) VALUES ('mod_updates_duration', '{$duration}')";
 
         foreach($sql_query as $q) cpg_db_query($q);
-        
+
         // Add the string "onlinestats" to "the content of the main page" if it doesn't exist
         if (strpos($CONFIG['main_page_layout'], 'onlinestats') === FALSE) {
             $contentOfTheMainpage = rtrim($CONFIG['main_page_layout'], '/').'/onlinestats';
-            cpg_db_query("UPDATE {$CONFIG['TABLE_CONFIG']} SET value = '$contentOfTheMainpage' WHERE name = 'main_page_layout'"); 
+            cpg_db_query("UPDATE {$CONFIG['TABLE_CONFIG']} SET value = '$contentOfTheMainpage' WHERE name = 'main_page_layout'");
         }
 
        return true;
@@ -262,7 +247,7 @@ function online_uninstall() {
         cpg_db_query("DELETE FROM {$CONFIG['TABLE_CONFIG']} WHERE name = 'record_online_users'");
         cpg_db_query("DELETE FROM {$CONFIG['TABLE_CONFIG']} WHERE name = 'record_online_date'");
     }
-    
+
     // Remove the string "onlinestats" from the config option "content of the main page"
     $contentOfTheMainpage = str_replace('/onlinestats', '', $CONFIG['main_page_layout']);
     $contentOfTheMainpage = str_replace('onlinestats/', '', $contentOfTheMainpage);

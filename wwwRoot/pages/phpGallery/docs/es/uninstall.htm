@@ -12,11 +12,11 @@
 <!--
   SVN version info:
   -----------------
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/docs/es/uninstall.htm $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/docs/es/uninstall.htm $
+  $Revision: 8884 $
 
-  $Date: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $
+  $Date: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $
 -->
 <link rel="stylesheet" type="text/css" href="../style/style.css" media="all" />
 <link rel="stylesheet" type="text/css" href="../style/screen.css" media="screen" />
@@ -44,10 +44,10 @@ Alternatively (if you don't have phpMyAdmin available), create a PHP file (using
 <pre>&lt;?php
 // add the mysql connection stuff here
 
-DROP TABLE `cpg15x_albums`, `cpg15x_banned`, `cpg15x_bridge`, `cpg15x_categories`, 
-`cpg15x_comments`, `cpg15x_config`, `cpg15x_dict`, `cpg15x_ecards`, `cpg15x_exif`, 
-`cpg15x_favpics`, `cpg15x_filetypes`, `cpg15x_hit_stats`, `cpg15x_pictures`, `cpg15x_plugins`, 
-`cpg15x_sessions`, `cpg15x_temp_data`, `cpg15x_temp_messages`, `cpg15x_usergroups`, 
+DROP TABLE `cpg15x_albums`, `cpg15x_banned`, `cpg15x_bridge`, `cpg15x_categories`,
+`cpg15x_comments`, `cpg15x_config`, `cpg15x_dict`, `cpg15x_ecards`, `cpg15x_exif`,
+`cpg15x_favpics`, `cpg15x_filetypes`, `cpg15x_hit_stats`, `cpg15x_pictures`, `cpg15x_plugins`,
+`cpg15x_sessions`, `cpg15x_temp_data`, `cpg15x_temp_messages`, `cpg15x_usergroups`,
 `cpg15x_users`, `cpg15x_votes`, `cpg15x_vote_stats`;
 ?&gt;</pre>
 safe the file as "droptables.php" and upload that file (using your FTP app) to the folder your coppermine gallery resides in. Then run the file you just uploaded in your browser by going to the URL <tt class="code">http://yourdomain.tld/your_coppermine_folder/droptables.php</tt>
@@ -59,8 +59,8 @@ safe the file as "droptables.php" and upload that file (using your FTP app) to t
 
 <div id="doc_footer">
 	<div class="doc_info_wrapper">
-		<span id="doc_last_changed">$LastChangedDate: 2012-01-10 13:20:18 +0100 (Di, 10 Jan 2012) $</span>
-		<span id="doc_revision">$Revision: 8304 $</span>
+		<span id="doc_last_changed">$LastChangedDate: 2018-12-21 21:21:36 +0100 (Fr, 21 Dez 2018) $</span>
+		<span id="doc_revision">$Revision: 8884 $</span>
 	</div>
 </div>
 </body>

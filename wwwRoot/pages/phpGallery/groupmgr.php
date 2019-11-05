@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/groupmgr.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/groupmgr.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -101,7 +101,7 @@ EOT;
         // disable row if applicable
         if ($group['group_id'] == 3 && $CONFIG['allow_unlogged_access'] == 0) {
             $disabled = 'disabled="disabled" style="background-color:InactiveCaptionText;color:GrayText"';
-            $explain_greyedout = '&nbsp;'.cpg_display_help('f=empty.htm&amp;base=64&h='.urlencode(base64_encode(serialize($lang_groupmgr_php['explain_greyed_out_title']))).'&amp;t='.urlencode(base64_encode(serialize(sprintf($lang_groupmgr_php['explain_guests_greyed_out_text'], '<em>'.$group['group_name'].'</em>')))), '450', '300');
+            $explain_greyedout = '&nbsp;'.cpg_display_help('f=empty.htm&amp;h=lang_groupmgr_php[explain_greyed_out_title]&amp;t=lang_groupmgr_php[explain_guests_greyed_out_text]', '450', '300');
         } else {
             $disabled = '';
             $explain_greyedout = '';
@@ -122,7 +122,7 @@ EOT;
                 print '</a>';
             }
         }
-        
+
         list($timestamp, $form_token) = getFormToken();
         $assignedGroupsHelp = cpg_display_help('f=groups.htm&amp;as=group_cp_assigned&amp;ae=group_cp_assigned_end', '450', '300');
         echo <<< EOT
@@ -136,7 +136,7 @@ EOT;
             $value = $group[$field_name];
             $yes_selected = ($value == 1) ? 'checked="checked"' : '';
             $no_selected = ($value == 0) ? 'checked="checked"' : '';
-            
+
             if ($field_name == 'can_rate_pictures') {
                 echo $table_start.$tr_start.$td_start.$lang_groupmgr_php['rating'].$td_end;
             } elseif ($field_name == 'can_send_ecards') {
@@ -152,7 +152,7 @@ EOT;
             } elseif ($field_name == 'priv_upl_need_approval') {
                 echo $tr_start.$td_start.$lang_groupmgr_php['approval'].$td_end;
             }
-            
+
             if ($group['group_id'] == 3 && $CONFIG['allow_unlogged_access'] == 0) {
                 $disabled_yes = 'disabled="disabled"';
                 $disabled_no = 'disabled="disabled"';
@@ -160,7 +160,7 @@ EOT;
                 $disabled_yes = '';
                 $disabled_no = '';
             }
-            
+
             echo <<< EOT
             $td_start
             <input type="radio" id="{$field_name}_{$group['group_id']}1" name="{$field_name}_{$group['group_id']}" value="1" $yes_selected $disabled_yes /><label for="{$field_name}_{$group['group_id']}1" class="clickable_option">{$lang_common['yes']}</label>
@@ -171,7 +171,7 @@ EOT;
                         $tr_end
 
 EOT;
-            if ($field_name== 'can_post_comments' || $field_name== 'pub_upl_need_approval') { 
+            if ($field_name== 'can_post_comments' || $field_name== 'pub_upl_need_approval') {
                 echo $table_end . "</td><td class=\"$table_background\" align=\"left\" valign=\"top\">";
             } else {
                 echo "<!--<br />-->";
@@ -220,7 +220,7 @@ function process_post_data()
 {
     global $CONFIG, $lang_errors;
     $superCage = Inspekt::makeSuperCage();
-    
+
     //Check if the form token is valid
     if(!checkFormToken()){
         cpg_die(ERROR, $lang_errors['invalid_form_token'], __FILE__, __LINE__);

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,12 +10,12 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/lang/chinese_gb.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/chinese_gb.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // info about translators and translated language';
 $lang_translation_info['lang_name_english'] = 'Chinese Simplified';
@@ -121,7 +121,7 @@ $lang_common['keywords_insert1'] = '关键词 用%s分开)'; // cpg1.5
 $lang_common['keywords_insert2'] = '从列表中插入'; // cpg1.5
 $lang_common['keyword_separator'] = '关键字分离器'; //cpg1.5
 $lang_common['keyword_separators'] = array(' '=>'空格', ','=>'逗号', ';'=>'分号'); // cpg1.5
-///$lang_common['owner_name'] = '画家名称'; // cpg1.5
+$lang_common['owner_name'] = '作者'; // cpg1.5
 $lang_common['filename'] = '作品名'; // cpg1.5
 $lang_common['filesize'] = '作品尺寸'; // cpg1.5
 $lang_common['album'] = '展厅'; // cpg1.5
@@ -1858,7 +1858,7 @@ $lang_register_php['thank_you_admin_activation'] = '谢谢。<br /><br />您的�
 $lang_register_php['acct_active_admin_activation'] = '账号已经启用，通知信件已经寄给会员。';
 $lang_register_php['notify_user_email_subject'] = '%s - 启用通知';
 $lang_register_php['delete_my_account'] = '删除我的用户帐户'; // cpg1.5
-$lang_register_php['warning_delete'] = '警告：删除您的帐户不能撤消。在您上传的%到公共相册%s 您的评论%s　%s 意见没有得到删除，删除您的用户帐户！然而，这些文件到您的个人画廊上传将被删除。'; // cpg1.5 // 
+$lang_register_php['warning_delete'] = '警告：删除您的帐户不能撤消。在您上传的%到公共相册%s 您的评论%s　%s 意见没有得到删除，删除您的用户帐户！然而，这些文件到您的个人画廊上传将被删除。'; // cpg1.5 //
 $lang_register_php['i_am_sure'] = '我确定，我希望删除自己的用户帐户'; // cpg1.5
 $lang_register_php['really_delete'] = '你真的要删除您的用户帐户？'; // cpg1.5 // js-alert
 $lang_register_php['edit_xs_profile'] = '编辑%s个人资料'; // cpg1.5
@@ -2202,14 +2202,14 @@ $lang_upload_swf_php['status_complete'] = '完成。'; //cpg1.5
 $lang_upload_swf_php['status_cancelled'] = '取消。'; //cpg1.5
 $lang_upload_swf_php['status_stopped'] = '停止。'; //cpg1.5
 $lang_upload_swf_php['status_failed'] = '上传失败。'; //cpg1.5
-$lang_upload_swf_php ['status_too_big'] ='文件太大。';// cpg1.5 
-$lang_upload_swf_php ['status_zero_byte'] ='无法上传零字节文件。'; // cpg1.5 
-$lang_upload_swf_php ['status_invalid_type'] ='无效的文件类型。'; // cpg1.5 
-$lang_upload_swf_php ['status_unhandled'] ='未处理的错误'; // cpg1.5 
-$lang_upload_swf_php ['status_upload_error'] ='上传错误：'; // cpg1.5 
-$lang_upload_swf_php ['status_server_error'] ='服务器（万元）错误'; //cpg1.5 
-$lang_upload_swf_php ['status_security_error'] ='安全错误'; // cpg1.5 
-$lang_upload_swf_php ['status_upload_limit'] ='上传限制超出。'; // cpg1.5 
+$lang_upload_swf_php ['status_too_big'] ='文件太大。';// cpg1.5
+$lang_upload_swf_php ['status_zero_byte'] ='无法上传零字节文件。'; // cpg1.5
+$lang_upload_swf_php ['status_invalid_type'] ='无效的文件类型。'; // cpg1.5
+$lang_upload_swf_php ['status_unhandled'] ='未处理的错误'; // cpg1.5
+$lang_upload_swf_php ['status_upload_error'] ='上传错误：'; // cpg1.5
+$lang_upload_swf_php ['status_server_error'] ='服务器（万元）错误'; //cpg1.5
+$lang_upload_swf_php ['status_security_error'] ='安全错误'; // cpg1.5
+$lang_upload_swf_php ['status_upload_limit'] ='上传限制超出。'; // cpg1.5
 $lang_upload_swf_php['status_validation_failed'] = '验证失败。上传跳过。'; //cpg1.5
 $lang_upload_swf_php['queue_limit'] = '您试图排队太多的文件。'; //cpg1.5
 $lang_upload_swf_php['upload_limit_1'] = '您已达到上载限制。'; //cpg1.5
@@ -2520,7 +2520,7 @@ if (defined('VIEWLOG_PHP')) {
 $lang_viewlog_php['delete_all'] = '删除全部记录';
 $lang_viewlog_php['delete_this'] = '删除这个记录';
 $lang_viewlog_php['view_logs'] = '浏览记录';
-$lang_viewlog_php['no_logs'] = '没有记录。'; 
+$lang_viewlog_php['no_logs'] = '没有记录。';
 $lang_viewlog_php['last_updated'] = '最后更新'; // cpg1.5
 }
 
@@ -2543,7 +2543,7 @@ $lang_xp_publish_php['no_browser_detect'] = '无法检测到您的浏览器'; //
 $lang_xp_publish_php['no_gallery_name'] = '你需要指定一个艺术馆配置名称'; // cpg1.5
 $lang_xp_publish_php['no_gallery_description'] = '你需要指定一个艺术馆描述'; // cpg1.5
 $lang_xp_publish_php['howto_install'] = '如何安装'; // cpg1.5
-$lang_xp_publish_php['install_right_click'] = '右键点击链接%s 选择 &quot;目标另存为...&quot;'; // cpg1.5 // 
+$lang_xp_publish_php['install_right_click'] = '右键点击链接%s 选择 &quot;目标另存为...&quot;'; // cpg1.5 //
 $lang_xp_publish_php['install_save'] = '保存您的客户端文件。 当保存文件，确保建议的文件名为 <tt>cpg_###.reg</tt> (the ### represents a numerical timestamp)，如果有必要用数字改变它的名称'; // cpg1.5
 $lang_xp_publish_php['install_execute'] = '下载完成，执行双击它以登记Web发布向导，您的服务器上的文件';  // cpg1.5
 $lang_xp_publish_php['usage'] = '使用';  // cpg1.5
@@ -2565,7 +2565,7 @@ $lang_xp_publish_php['create_new'] = '新建展厅';
 $lang_xp_publish_php['category'] = '艺术馆';
 $lang_xp_publish_php['new_alb_created'] = '您的展厅 &quot;<b>%s</b>&quot; 已经新建';
 $lang_xp_publish_php['continue'] = '按 &quot;下一步&quot; 开始上传作品';
-$lang_xp_publish_php['link'] = '这个连接'; 
+$lang_xp_publish_php['link'] = '这个连接';
 }
 
 // ------------------------------------------------------------------------- //

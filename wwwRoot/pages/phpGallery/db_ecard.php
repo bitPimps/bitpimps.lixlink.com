@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/db_ecard.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/db_ecard.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -28,15 +28,15 @@ if (!GALLERY_ADMIN_MODE) {
 function cpgGetUrlVars($exception)
 {
     global $CPG_PHP_SELF, $eid;
-    
+
     $cpgGetUrl = $CPG_PHP_SELF . '?';
-    
+
     foreach ($eid as $key => $value) {
         if ($key != $exception) {
             $cpgGetUrl .= $key . '=' . $value . '&';
         }
     }
-    
+
     return $cpgGetUrl;
 }
 
@@ -115,7 +115,7 @@ case 'sed':
     $sortDirection = 'DESC';
     $sortText = $lang_db_ecard_php['ecard_by_sender_email'];
     break;
-    
+
 case 'sea':
     $sortBy = 'sender_email';
     $sortDirection = 'ASC';
@@ -213,7 +213,7 @@ for ($page = 1; $page <= $pageTotal; $page++) {
             $currentEnd = $totalEcards;
         }
     }
-    
+
     $tabOutput .= $page;
 
     if ($page != $startFrom / $countTo + 1) {
@@ -305,7 +305,7 @@ print <<< EOT
             <a href="{$urlWithoutSort}sort=id">
                 <img src="images/descending.png" width="9" height="9" border="0" alt="" title="{$lang_db_ecard_php['ecard_descending']}" />
             </a>
-        </th>    
+        </th>
         <th class="tableh1" align="left" valign="bottom">{$lang_db_ecard_php['ecard_name']}
             <a href="{$urlWithoutSort}sort=rna">
                 <img src="images/ascending.png" width="9" height="9" border="0" alt="" title="{$lang_db_ecard_php['ecard_ascending']}" />
@@ -353,7 +353,7 @@ while ($line = mysql_fetch_assoc($result)) {
         </td>
         <td class="$tempClass">
             <span class="thumb_caption">
-                <a href="http://ws.arin.net/cgi-bin/whois.pl?queryinput={$line['sender_ip']}">{$line['sender_ip']}</a>{$line['ip_detail']}
+                <a href="http://whois.domaintools.com/{$line['sender_ip']}">{$line['sender_ip']}</a>{$line['ip_detail']}
             </span>
         </td>
         <td class="$tempClass">

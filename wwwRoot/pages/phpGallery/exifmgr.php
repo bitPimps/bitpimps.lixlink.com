@@ -2,17 +2,17 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/exifmgr.php $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/exifmgr.php $
+  $Revision: 8884 $
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -58,9 +58,9 @@ if ($superCage->post->keyExists('save')) {
     $selectedExifTags = trim($str, '|');
 
     cpg_config_set('show_which_exif', $selectedExifTags);
-    
+
     $output_message = $lang_picinfo['success'];
-}  
+}
 // The form has been submit --- end
 
 $exifCurrentData = explode("|", $CONFIG['show_which_exif']);
@@ -90,7 +90,7 @@ EOT;
 $loopCounter = 0;
 
 foreach ($exifRawData as $key => $val) {
-  
+
     $checked = $exifCurrentData[$key] == 1 ? 'checked="checked"' : '';
 
     if (($loopCounter / 2) == floor($loopCounter / 2)) {
@@ -98,7 +98,7 @@ foreach ($exifRawData as $key => $val) {
     } else {
         $style = 'tableb tableb_alternate';
     }
-    
+
     $loopCounter++;
 
     echo <<< EOT

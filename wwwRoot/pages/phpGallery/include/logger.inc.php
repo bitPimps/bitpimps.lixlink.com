@@ -2,21 +2,20 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 3
   as published by the Free Software Foundation.
-  
+
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/include/logger.inc.php $
-  $Revision: 8304 $
-
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/logger.inc.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) { die('Not in Coppermine...');}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
 // Initiate defines
 define('CPG_SECURITY_LOG', 'security');
@@ -43,7 +42,7 @@ function log_write($text, $log = null)
     if (isset($CONFIG['log_mode']) && $CONFIG['log_mode'] == CPG_NO_LOGGING)  {
         return false;
     }
-        
+
     if (is_null($log)) {
         $log = CPG_GLOBAL_LOG;
     }
@@ -59,7 +58,7 @@ function log_write($text, $log = null)
     if (!isset($lang_date['log'])) {
         $lang_date['log'] = '%Y-%m-%d %H:%M:%S';
     }
-    
+
     $fp = fopen($log, 'a');
     fwrite($fp, $log_header);
     fwrite($fp, localised_date(-1, $lang_date['log']) . ' - ' . $text . $LINEBREAK . '---' . $LINEBREAK);
@@ -75,9 +74,9 @@ function log_read($log = null) {
     }
 
     $log = 'logs/' . $log . '.log.php';
-    
+
     $contents = file_get_contents($log);
-    
+
     return substr($contents, strpos($contents, '?>') + 2);
 }
 
@@ -100,7 +99,7 @@ function log_delete( $log = null ) {
 function& getloglist($folder)
 {
     global $CONFIG;
-    
+
     $file_array = array();
 
     $dir = opendir($folder);
@@ -117,7 +116,7 @@ function& getloglist($folder)
     closedir($dir);
 
     ksort($file_array);
-    
+
     return $file_array;
 }
 

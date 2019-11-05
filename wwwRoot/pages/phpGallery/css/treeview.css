@@ -1,7 +1,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -9,9 +9,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/css/treeview.css $
-  $Revision: 8304 $
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/css/treeview.css $
+  $Revision: 8884 $
 **********************************************/
 
 body {
@@ -22,7 +22,7 @@ body {
     margin: 0px;
 }
 
-.treeview, .treeview ul { 
+.treeview, .treeview ul {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -47,7 +47,7 @@ body {
     float:none;
 }
 
-.treeview li { 
+.treeview li {
     margin: 0;
     padding: 3px 0pt 3px 16px;
 	list-style-type: none;
@@ -67,7 +67,7 @@ body {
 .treeview .expandable-hitarea { background-position: -80px -3px; }
 
 .treeview li.last { background-position: 0 -1766px }
-.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url(../images/tree/treeview-default.gif); }  
+.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url(../images/tree/treeview-default.gif); }
 .treeview li.lastCollapsable { background-position: 0 -111px }
 .treeview li.lastExpandable { background-position: -32px -67px }
 

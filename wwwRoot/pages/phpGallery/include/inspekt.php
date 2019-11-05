@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,10 +10,9 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/include/inspekt.php $
-  $Revision: 8304 $
-
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/inspekt.php $
+  $Revision: 8884 $
 **********************************************/
 
 /**
@@ -89,7 +88,7 @@ define ('ISPK_URI_ALLOW_COMMON', 1);
  * regex used to define what we're calling a valid domain name
  *
  */
-define ('ISPK_DNS_VALID', '/^(?:[^\W_]((?:[^\W_]|-){0,61}[^\W_])?\.)+[a-zA-Z]{2,6}\.?$/');
+define ('ISPK_DNS_VALID', '/^(?:[^\W_]((?:[^\W_]|-){0,61}[^\W_])?\.)+[a-zA-Z]{2,63}\.?$/');
 
 /**
  * regex used to define what we're calling a valid email
@@ -99,7 +98,7 @@ define ('ISPK_DNS_VALID', '/^(?:[^\W_]((?:[^\W_]|-){0,61}[^\W_])?\.)+[a-zA-Z]{2,
  *
  * @see http://www.regular-expressions.info/email.html
  */
-define ('ISPK_EMAIL_VALID', '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/');
+define ('ISPK_EMAIL_VALID', '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/');
 
 /**
  * @package    Inspekt
@@ -115,7 +114,7 @@ class Inspekt
      * @param boolean $strict whether or not to nullify the superglobal array
      * @return Inspekt_Cage
      */
-    function makeServerCage($strict=TRUE) {
+    public static function makeServerCage($strict=TRUE) {
         /**
          * @staticvar $_instance
          */
@@ -138,7 +137,7 @@ class Inspekt
      * @return Inspekt_Cage
      * @static
      */
-    function makeGetCage($strict=TRUE) {
+    public static function makeGetCage($strict=TRUE) {
         /**
          * @staticvar $_instance
          */
@@ -161,7 +160,7 @@ class Inspekt
      * @return Inspekt_Cage
      * @static
      */
-    function makePostCage($strict=TRUE) {
+    public static function makePostCage($strict=TRUE) {
         /**
          * @staticvar $_instance
          */
@@ -183,7 +182,7 @@ class Inspekt
      * @return Inspekt_Cage
      * @static
      */
-    function makeCookieCage($strict=TRUE) {
+    public static function makeCookieCage($strict=TRUE) {
         /**
          * @staticvar $_instance
          */
@@ -206,7 +205,7 @@ class Inspekt
      * @return Inspekt_Cage
      * @static
      */
-    function makeEnvCage($strict=TRUE) {
+    public static function makeEnvCage($strict=TRUE) {
         /**
          * @staticvar $_instance
          */
@@ -229,7 +228,7 @@ class Inspekt
      * @return Inspekt_Cage
      * @static
      */
-    function makeFilesCage($strict=TRUE) {
+    public static function makeFilesCage($strict=TRUE) {
         /**
          * @staticvar $_instance
          */
@@ -252,7 +251,7 @@ class Inspekt
      * @return Inspekt_Cage
      * @static
      */
-    function makeSessionCage($strict=TRUE) {
+    public static function makeSessionCage($strict=TRUE) {
         /**
          * @staticvar $_instance
          */
@@ -273,7 +272,7 @@ class Inspekt
      * @return Inspekt_Supercage
      * @static
      */
-    function makeSuperCage($strict=TRUE) {
+    public static function makeSuperCage($strict=TRUE) {
         /**
          * @staticvar $_instance
          */
@@ -1008,7 +1007,12 @@ class Inspekt
         if (is_array($value)) {
             return Inspekt::_walkArray($value, 'getEscaped');
         } elseif (!empty($value)) {
-            return mysql_real_escape_string(htmlspecialchars($value, ENT_QUOTES));
+            global $CONFIG;
+            if (isset($CONFIG['LINK_ID']) && $CONFIG['LINK_ID']) {
+                return mysql_real_escape_string(htmlspecialchars($value, ENT_QUOTES), $CONFIG['LINK_ID']);
+            } else {
+                return mysql_real_escape_string(htmlspecialchars($value, ENT_QUOTES));
+            }
         } else {
             return $value;
         }

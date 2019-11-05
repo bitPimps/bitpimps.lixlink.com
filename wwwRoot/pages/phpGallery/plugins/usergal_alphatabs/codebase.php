@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2019 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,22 +10,19 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/plugins/usergal_alphatabs/codebase.php $
-  $Revision: 8304 $
-  
+  Coppermine version: 1.5.48
+  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/plugins/usergal_alphatabs/codebase.php $
+  $Revision: 8884 $
 **********************************************/
 
-if (!defined('IN_COPPERMINE')) {
-    die('Not in Coppermine...');
-}
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 if (!defined('CORE_PLUGIN')) {
     define('CORE_PLUGIN', true);
 }
 $superCage = Inspekt::makeSuperCage();
 
 if ($superCage->get->keyExists('cat') && $superCage->get->getInt('cat') == USER_GAL_CAT){
-    
+
     if ($superCage->get->keyExists('letter')) {
         $thisplugin->add_action('page_start','bridge_extender');
     }
@@ -129,7 +126,7 @@ if ($superCage->get->keyExists('cat') && $superCage->get->getInt('cat') == USER_
                 '{DOWNLOAD_ZIP}' => cpg_fetch_icon ('zip', 2) . $lang_thumb_view['download_zip'],
             );
             // Plugin Filter: allow plugin to modify or add tags to process
-            $param = CPGPluginAPI::filter('theme_thumbnails_title', $param);        
+            $param = CPGPluginAPI::filter('theme_thumbnails_title', $param);
             $title = template_eval($template_fav_thumb_view_title_row, $param);
         } else {
             $title = $album_name;
@@ -214,7 +211,7 @@ if ($superCage->get->keyExists('cat') && $superCage->get->getInt('cat') == USER_
         for (;($i % $thumbcols); $i++) {
             echo $empty_cell;
         }
-        $footer = CPGPluginAPI::filter('theme_thumbnails_footer', $footer); 
+        $footer = CPGPluginAPI::filter('theme_thumbnails_footer', $footer);
         echo $footer;
 
         if ($display_tabs) {
@@ -233,13 +230,13 @@ if ($superCage->get->keyExists('cat') && $superCage->get->getInt('cat') == USER_
     function bridge_extender()
     {
         global $cpg_udb;
-    
+
         eval('
-        
+
         class new_udb_class extends '. get_class($cpg_udb) . ' {
-    
+
             function new_udb_class() {}
-    
+
     function list_users_query(&$user_count)
     {
         global $CONFIG, $FORBIDDEN_SET, $PAGE;
@@ -279,7 +276,7 @@ if ($superCage->get->keyExists('cat') && $superCage->get->getInt('cat') == USER_
         $lower_limit = ($PAGE-1) * $users_per_page;
 
         if ($this->can_join_tables){
-            
+
             $sql  = "SELECT {$f[\'user_id\']} as user_id,";
             $sql .= "{$f[\'username\']} as user_name,";
             $sql .= "COUNT(DISTINCT a.aid) as alb_count,";
@@ -294,51 +291,51 @@ if ($superCage->get->keyExists('cat') && $superCage->get->getInt('cat') == USER_
             $sql .= "GROUP BY category ";
             $sql .= "ORDER BY category ";
             $sql .= "LIMIT $lower_limit, $users_per_page ";
-    
-    
+
+
             $result = cpg_db_query($sql);
-    
+
             while ($row = mysql_fetch_array($result)) {
                 $users[] = $row;
             }
             mysql_free_result($result);
-            
+
         } else {
             // This is the way we collect the data without a direct join to the forums user table
 
             // This query determines which users we need to collect usernames of - ie just those which have albums with pics
             // and are on the page we are looking at
-            $sql  = "SELECT category - 10000 as user_id ";
+            $sql  = "SELECT category - ".FIRST_USER_CAT." as user_id ";
             $sql .= "FROM {$CONFIG[\'TABLE_ALBUMS\']} AS a ";
             $sql .= "INNER JOIN {$CONFIG[\'TABLE_PICTURES\']} AS p ON p.aid = a.aid ";
             $sql .= "WHERE ((isnull(approved) or approved=\"YES\") ";
             $sql .= "AND category > " . FIRST_USER_CAT . ") $forbidden_with_icon GROUP BY category ";
             $sql .= "LIMIT $lower_limit, $users_per_page ";
-    
+
             $result = cpg_db_query($sql);
-            
+
             $user_ids = array();
-            
+
             while ($row = mysql_fetch_array($result)) {
                 $user_ids[] = $row["user_id"];
             }
             mysql_free_result($result);
-            
+
             $userlist = implode(",", $user_ids);
-            
-            // This query collects an array of user_id -> username mappings for the user ids collected above 
+
+            // This query collects an array of user_id -> username mappings for the user ids collected above
             $sql = "SELECT {$this->field[\'user_id\']} AS user_id, {$this->field[\'username\']} AS user_name FROM {$this->usertable} WHERE {$this->field[\'user_id\']} IN ($userlist)";
             if ($l = $getLetter) $sql .= " AND UPPER({$f[\'username\']}) LIKE \'$l%\' ";
             $result = cpg_db_query($sql, $this->link_id);
-        
+
             $userdata = array();
-            
+
             while ($row = mysql_fetch_array($result)) {
                 $userdata[$row["user_id"]] = $row["user_name"];
             }
-            
+
             mysql_free_result($result);
-            
+
             // This is the main query, similar to the one in the join implementation above but without the join to the user table
             // We use the pics owner_id field as the user_id instead of using category - 10000 as the user_id
             $sql  = "SELECT owner_id as user_id,";
@@ -350,14 +347,14 @@ if ($superCage->get->keyExists('cat') && $superCage->get->getInt('cat') == USER_
             $sql .= "INNER JOIN {$CONFIG[\'TABLE_PICTURES\']} AS p ON p.aid = a.aid ";
             $sql .= "WHERE ((isnull(approved) or approved=\'YES\') AND category > " . FIRST_USER_CAT . ") $forbidden_with_icon GROUP BY category ";
             $sql .= "ORDER BY category ";
-    
+
             $result = cpg_db_query($sql);
-            
+
             // Here we associate the username with the album details.
             while ($row = mysql_fetch_array($result)) {
                 if (strtolower($userdata[$row["user_id"]]{0}) == strtolower($getLetter)) $users[] = array_merge($row, array("user_name" => $userdata[$row["user_id"]]));
             }
-            
+
             mysql_free_result($result);
         }
 
@@ -365,7 +362,7 @@ if ($superCage->get->keyExists('cat') && $superCage->get->getInt('cat') == USER_
     }
 }
         ');
-    
+
         $vars = get_object_vars($cpg_udb);
         $cpg_udb = new new_udb_class;
         foreach ($vars as $name => $value) $cpg_udb->$name = $value;
