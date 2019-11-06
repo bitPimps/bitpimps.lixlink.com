@@ -1,7 +1,7 @@
 <?php
 // phpBB 3.0.x auto-generated configuration file
 // Do not change anything in this file!
-$dbms = 'mysql';
+$dbms = 'mysqli';
 $dbhost = 'bp.lixlink.com';
 $dbport = '';
 $dbname = 'lixlink2';
