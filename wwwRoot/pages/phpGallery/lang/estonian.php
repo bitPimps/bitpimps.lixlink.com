@@ -1,19 +1,15 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/lang/estonian.php $
-  $Revision: 8884 $
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * lang/estonian.php
+ * @since  1.6.07
+ */
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
@@ -24,8 +20,7 @@ $lang_translation_info['lang_country_code'] = 'ee';
 $lang_translation_info['trans_name'] = 'Craig Tislar'; // Tänud eelmise tõlke eest Mihkel Tõnnovile :)
 $lang_translation_info['trans_email'] = 'kelle@email.ee';
 $lang_translation_info['trans_website'] = 'http://forum.coppermine-gallery.net/index.php?action=profile;u=87590';
-$lang_translation_info['trans_date'] = '2010-07-01';
-
+$lang_translation_info['trans_date'] = '2016-07-01';
 
 $lang_charset = 'utf-8';
 $lang_text_dir = 'ltr'; // ('ltr' for left to right, 'rtl' for right to left)
@@ -85,66 +80,66 @@ $lang_errors['offline_text'] = 'Galerii on hetkel off-line režiimis - tule vars
 $lang_errors['ecards_empty'] = 'Hetkel pole ühtegi e-kaarti näidata.';
 $lang_errors['database_query'] = 'Andmebaasipäringu töötlemisel tekkis viga';
 $lang_errors['non_exist_comment'] = 'Valitud kommentaari pole olemas';
-$lang_errors['captcha_error'] = 'Visuaalkinnituse kood ei sobinud'; // cpg1.5
-$lang_errors['login_needed'] = 'Sa pead %sregistreeruma%s/%ssisse logima%s selle lehekülje nägemiseks'; // cpg1.5
-$lang_errors['error'] = 'Viga'; // cpg1.5
-$lang_errors['critical_error'] = 'Kriitiline viga'; // cpg1.5
-$lang_errors['access_thumbnail_only'] = 'Sa saad vaadata ainult pisipilte.'; // cpg1.5
-$lang_errors['access_intermediate_only'] = 'Sul pole lubatud vaadata täismõõdus pilte.'; // cpg1.5
-$lang_errors['access_none'] = 'Sul pole lubatud üldse pilte vaadata.'; // cpg1.5
+$lang_errors['captcha_error'] = 'Visuaalkinnituse kood ei sobinud';
+$lang_errors['login_needed'] = 'Sa pead %sregistreeruma%s/%ssisse logima%s selle lehekülje nägemiseks';
+$lang_errors['error'] = 'Viga';
+$lang_errors['critical_error'] = 'Kriitiline viga';
+$lang_errors['access_thumbnail_only'] = 'Sa saad vaadata ainult pisipilte.';
+$lang_errors['access_intermediate_only'] = 'Sul pole lubatud vaadata täismõõdus pilte.';
+$lang_errors['access_none'] = 'Sul pole lubatud üldse pilte vaadata.';
 $lang_errors['register_globals_title'] = 'Register Globals on sisse lülitatud!';// cpg1.5
 $lang_errors['register_globals_warning'] = 'PHP seade register_globals on sinu serveris sisse lülitatud, mis on turvalisuse seisukohalt halb mõte. Tungivalt soovitav on see välja lülitada.'; //cpg1.5
 
 $lang_bbcode_help_title = 'BBCode abi';
 $lang_bbcode_help = 'Sa võid lisada klikitavaid linke ja mõningast kujundust sellele väljale kasutades BBCode tag\'e: <li>[b]Bold[/b] =&gt; <strong>Rasvane</strong></li><li>[i]Italic[/i] =&gt; <i>Kursiiv</i></li><li>[url=http://yoursite.com/]Url Text[/url] =&gt; <a href="http://yoursite.com">URL</a></li><li>[email]user@domain.com[/email] =&gt; <a href="mailto:user@domain.com">user@domain.com</a></li><li>[color=red]some text[/color] =&gt; <span style="color:red">mingi tekst</span></li><li>[img]http://documentation.coppermine-gallery.net/images/browser.png[/img] =&gt; <img src="docs/images/browser.png" border="0" alt="" /></li>';
 
-$lang_common['yes'] = 'Jah'; // cpg1.5
-$lang_common['no'] = 'Ei'; // cpg1.5
-$lang_common['back'] = 'Tagasi'; // cpg1.5
-$lang_common['continue'] = 'Jätka'; // cpg1.5
-$lang_common['information'] = 'Informatsioon'; // cpg1.5
-$lang_common['error'] = 'Viga'; // cpg1.5
-$lang_common['check_uncheck_all'] = 'märgi/kaota märgistus'; // cpg1.5
-$lang_common['confirm'] = 'Kinnitus'; // cpg1.5
-$lang_common['captcha_help_title'] = 'Visuaalne kinnitus (Captcha)'; // cpg1.5
-$lang_common['captcha_help'] = 'Spämmi vältimiseks palume sisestada näidatud tekst.<br />Suur-/väiksed tähed ei mängi rolli, võid kasutada läbivalt väikseid tähti.'; // cpg1.5
-$lang_common['title'] = 'Pealkiri'; // cpg1.5
-$lang_common['caption'] = 'Alapealkiri'; // cpg1.5
-$lang_common['keywords'] = 'Võtmesõnad'; // cpg1.5
-$lang_common['keywords_insert1'] = 'Võtmesõnad (eraldamiseks %s)'; // cpg1.5
-$lang_common['keywords_insert2'] = 'Sisesta nimekirjast'; // cpg1.5
+$lang_common['yes'] = 'Jah';
+$lang_common['no'] = 'Ei';
+$lang_common['back'] = 'Tagasi';
+$lang_common['continue'] = 'Jätka';
+$lang_common['information'] = 'Informatsioon';
+$lang_common['error'] = 'Viga';
+$lang_common['check_uncheck_all'] = 'märgi/kaota märgistus';
+$lang_common['confirm'] = 'Kinnitus';
+$lang_common['captcha_help_title'] = 'Visuaalne kinnitus (Captcha)';
+$lang_common['captcha_help'] = 'Spämmi vältimiseks palume sisestada näidatud tekst.<br />Suur-/väiksed tähed ei mängi rolli, võid kasutada läbivalt väikseid tähti.';
+$lang_common['title'] = 'Pealkiri';
+$lang_common['caption'] = 'Alapealkiri';
+$lang_common['keywords'] = 'Võtmesõnad';
+$lang_common['keywords_insert1'] = 'Võtmesõnad (eraldamiseks %s)';
+$lang_common['keywords_insert2'] = 'Sisesta nimekirjast';
 $lang_common['keyword_separator'] = 'Võtmesõnade eraldaja'; //cpg1.5
-$lang_common['keyword_separators'] = array(' '=>'tühik', ','=>'koma', ';'=>'semikoolon'); // cpg1.5
-$lang_common['owner_name'] = 'Omaniku nimi'; // cpg1.5
-$lang_common['filename'] = 'Faili nimi'; // cpg1.5
-$lang_common['filesize'] = 'Faili maht'; // cpg1.5
-$lang_common['album'] = 'Album'; // cpg1.5
-$lang_common['file'] = 'Fail'; // cpg1.5
-$lang_common['date'] = 'Kuupäev'; // cpg1.5
-$lang_common['help'] = 'Abi'; // cpg1.5
-$lang_common['close'] = 'Sulge'; // cpg1.5
-$lang_common['go'] = 'mine'; // cpg1.5
-$lang_common['javascript_needed'] = 'See leht nõuab JavaScripti. Palun lülita oma brauseri JavaScript sisse.'; // cpg1.5
-$lang_common['move_up'] = ' Liiguta ülespoole '; // cpg1.5
-$lang_common['move_down'] = ' Liiguta allapoole '; // cpg1.5
-$lang_common['move_top'] = ' Liiguta üles '; // cpg1.5
-$lang_common['move_bottom'] = ' Liiguta alla '; // cpg1.5
-$lang_common['delete'] = 'Kustuta'; // cpg1.5
-$lang_common['edit'] = 'Redigeeri'; // cpg1.5
-$lang_common['username_if_blank'] = 'Tundmatu tegelane'; // cpg1.5
-$lang_common['albums_no_category'] = 'Albumid ilma kategooriata'; // cpg1.5
-$lang_common['personal_albums'] = '* Isiklikud albumid'; // cpg1.5
-$lang_common['select_album'] = 'Vali album'; // cpg1.5
-$lang_common['ok'] = 'OK'; // cpg1.5
-$lang_common['status'] = 'Olek'; // cpg1.5
-$lang_common['apply_changes'] = 'Rakenda muudatused'; // cpg1.5
-$lang_common['done'] = 'Tehtud'; // cpg1.5
-$lang_common['album_properties'] = 'Albumi omadused'; // cpg1.5
-$lang_common['parent_category'] = 'Ülemkategooria'; // cpg1.5
-$lang_common['edit_files'] = 'Redigeeri faile'; // cpg1.5
-$lang_common['thumbnail_view'] = 'Pisipiltide vaade'; // cpg1.5
-$lang_common['album_manager'] = 'Albumi Haldur'; // cpg1.5
-$lang_common['more'] = 'rohkem'; // cpg1.5
+$lang_common['keyword_separators'] = array(' '=>'tühik', ','=>'koma', ';'=>'semikoolon');
+$lang_common['owner_name'] = 'Omaniku nimi';
+$lang_common['filename'] = 'Faili nimi';
+$lang_common['filesize'] = 'Faili maht';
+$lang_common['album'] = 'Album';
+$lang_common['file'] = 'Fail';
+$lang_common['date'] = 'Kuupäev';
+$lang_common['help'] = 'Abi';
+$lang_common['close'] = 'Sulge';
+$lang_common['go'] = 'mine';
+$lang_common['javascript_needed'] = 'See leht nõuab JavaScripti. Palun lülita oma brauseri JavaScript sisse.';
+$lang_common['move_up'] = ' Liiguta ülespoole ';
+$lang_common['move_down'] = ' Liiguta allapoole ';
+$lang_common['move_top'] = ' Liiguta üles ';
+$lang_common['move_bottom'] = ' Liiguta alla ';
+$lang_common['delete'] = 'Kustuta';
+$lang_common['edit'] = 'Redigeeri';
+$lang_common['username_if_blank'] = 'Tundmatu tegelane';
+$lang_common['albums_no_category'] = 'Albumid ilma kategooriata';
+$lang_common['personal_albums'] = '* Isiklikud albumid';
+$lang_common['select_album'] = 'Vali album';
+$lang_common['ok'] = 'OK';
+$lang_common['status'] = 'Olek';
+$lang_common['apply_changes'] = 'Rakenda muudatused';
+$lang_common['done'] = 'Tehtud';
+$lang_common['album_properties'] = 'Albumi omadused';
+$lang_common['parent_category'] = 'Ülemkategooria';
+$lang_common['edit_files'] = 'Redigeeri faile';
+$lang_common['thumbnail_view'] = 'Pisipiltide vaade';
+$lang_common['album_manager'] = 'Albumi Haldur';
+$lang_common['more'] = 'rohkem';
 
 // ------------------------------------------------------------------------- //
 // File theme.php
@@ -158,10 +153,10 @@ $lang_main_menu['my_gal_title'] = 'Mine minu isikliku galerii juurde';
 $lang_main_menu['my_gal_lnk'] = 'Minu galerii';
 $lang_main_menu['my_prof_title'] = 'Näita minu isiklikku profiili';
 $lang_main_menu['my_prof_lnk'] = 'Minu profiil';
-$lang_main_menu['adm_mode_title'] = 'Lülita admini seadistuste valikute näitamine sisse'; // cpg1.5
-$lang_main_menu['adm_mode_lnk'] = 'Näita admini valikuid'; // cpg1.5
-$lang_main_menu['usr_mode_title'] = 'Lülita admini seadistuste valikute näitamine välja'; // cpg1.5
-$lang_main_menu['usr_mode_lnk'] = 'Peida admini valikuid'; // cpg1.5
+$lang_main_menu['adm_mode_title'] = 'Lülita admini seadistuste valikute näitamine sisse';
+$lang_main_menu['adm_mode_lnk'] = 'Näita admini valikuid';
+$lang_main_menu['usr_mode_title'] = 'Lülita admini seadistuste valikute näitamine välja';
+$lang_main_menu['usr_mode_lnk'] = 'Peida admini valikuid';
 $lang_main_menu['upload_pic_title'] = 'Lae fail albumisse';
 $lang_main_menu['upload_pic_lnk'] = 'Lae fail';
 $lang_main_menu['register_title'] = 'Loo konto';
@@ -184,12 +179,12 @@ $lang_main_menu['fav_title'] = 'Mine minu lemmikute juurde';
 $lang_main_menu['fav_lnk'] = 'Minu lemmikud';
 $lang_main_menu['memberlist_title'] = 'Näita liikmete nimekirja';
 $lang_main_menu['memberlist_lnk'] = 'Liikmete nimekiri';
-$lang_main_menu['browse_by_date_lnk'] = 'Kuupäeva järgi'; // cpg1.5
-$lang_main_menu['browse_by_date_title'] = 'Vali lisamise aja järgi'; // cpg1.5
-$lang_main_menu['contact_title'] = 'Kontakteeru %s-ga'; // cpg1.5
-$lang_main_menu['contact_lnk'] = 'Kontakt'; // cpg1.5
-$lang_main_menu['sidebar_title'] = 'Lisa oma brauserile külgriba'; // cpg1.5
-$lang_main_menu['sidebar_lnk'] = 'Külgriba'; // cpg1.5
+$lang_main_menu['browse_by_date_lnk'] = 'Kuupäeva järgi';
+$lang_main_menu['browse_by_date_title'] = 'Vali lisamise aja järgi';
+$lang_main_menu['contact_title'] = 'Kontakteeru %s-ga';
+$lang_main_menu['contact_lnk'] = 'Kontakt';
+$lang_main_menu['sidebar_title'] = 'Lisa oma brauserile külgriba';
+$lang_main_menu['sidebar_lnk'] = 'Külgriba';
 
 $lang_gallery_admin_menu['upl_app_title'] = 'Kiida heaks uued lisamised';
 $lang_gallery_admin_menu['upl_app_lnk'] = 'Lisatute heakskiit';
@@ -218,26 +213,26 @@ $lang_gallery_admin_menu['pictures_title'] = 'Sorteeri mu pilte';
 $lang_gallery_admin_menu['pictures_lnk'] = 'Sorteeri mu pilte';
 $lang_gallery_admin_menu['documentation_lnk'] = 'Dokumentatsioon';
 $lang_gallery_admin_menu['documentation_title'] = 'Coppermine\'i käsiraamat (inglise keeles)';
-$lang_gallery_admin_menu['phpinfo_lnk'] = 'php info'; // cpg1.5
-$lang_gallery_admin_menu['phpinfo_title'] = 'Sisaldab tehnilist infot serveri kohta. Teistelt abi küsides võidakse paluda sul siit infot.'; // cpg1.5
-$lang_gallery_admin_menu['update_database_lnk'] = 'Uuenda andmebaasi'; // cpg1.5
-$lang_gallery_admin_menu['update_database_title'] = 'Kui sa oled asendanud Coppermine\'i faile, lisanud modifikatsioone või uuendanud Coppermine\'i versiooni, siis ära unusta andmebaasi uuendust korra käivitamast. See loob vajalikud tabelid ja/või seadete väärtused sinu Coppermine\'i andmebaasi.'; // cpg1.5
-$lang_gallery_admin_menu['view_log_files_lnk'] = 'Vaata logifaile'; // cpg1.5
-$lang_gallery_admin_menu['view_log_files_title'] = 'Coppermine suudab hoida silma peal erinevatel kasutaja tegevustel. Sa võid neid logisid vaadata, kui sa oled logimise Coppermine\'i seadetes sisse lülitanud.'; // cpg1.5
-$lang_gallery_admin_menu['check_versions_lnk'] = 'Kontrolli versioone'; // cpg1.5
-$lang_gallery_admin_menu['check_versions_title'] = 'Kontrolli failide versioone, et teada saada, kas sa oled asendanud kõik failid pärast uuendust või kas Coppermine\'i algfailid on uuendatud pärast paki väljalaset'; // cpg1.5
-$lang_gallery_admin_menu['bridgemgr_lnk'] = 'Sildamise Haldur'; // cpg1.5
-$lang_gallery_admin_menu['bridgemgr_title'] = 'Lülita sisse/välja Coppermine\'i integreerimist (sildamist) teiste programmidega (nt BBS)'; // cpg1.5
-$lang_gallery_admin_menu['pluginmgr_lnk'] = 'Pluginate Haldur'; // cpg1.5
-$lang_gallery_admin_menu['pluginmgr_title'] = 'Pluginate haldur'; // cpg1.5
-$lang_gallery_admin_menu['overall_stats_lnk'] = 'Üldine statistika'; // cpg1.5
-$lang_gallery_admin_menu['overall_stats_title'] = 'Üldine vaatamiste statistikat brauserite ja opsüsteemide lõikes (juhul, kui vastavad seaded on sisse lülitatud).'; // cpg1.5
-$lang_gallery_admin_menu['keywordmgr_lnk'] = 'Võtmesõnade Haldur'; // cpg1.5
-$lang_gallery_admin_menu['keywordmgr_title'] = 'Halda võtmesõnu (juhul, kui vastav seade on sisse lülitatud)'; // cpg1.5
-$lang_gallery_admin_menu['exifmgr_lnk'] = 'EXIF Haldur'; // cpg1.5
-$lang_gallery_admin_menu['exifmgr_title'] = 'Halda EXIF infot (juhul, kui vastav seade on sisse lülitatud)'; // cpg1.5
-$lang_gallery_admin_menu['shownews_lnk'] = 'Näita uudiseid'; // cpg1.5
-$lang_gallery_admin_menu['shownews_title'] = 'Näita coppermine-gallery.net uudiseid'; // cpg1.5
+$lang_gallery_admin_menu['phpinfo_lnk'] = 'php info';
+$lang_gallery_admin_menu['phpinfo_title'] = 'Sisaldab tehnilist infot serveri kohta. Teistelt abi küsides võidakse paluda sul siit infot.';
+$lang_gallery_admin_menu['update_database_lnk'] = 'Uuenda andmebaasi';
+$lang_gallery_admin_menu['update_database_title'] = 'Kui sa oled asendanud Coppermine\'i faile, lisanud modifikatsioone või uuendanud Coppermine\'i versiooni, siis ära unusta andmebaasi uuendust korra käivitamast. See loob vajalikud tabelid ja/või seadete väärtused sinu Coppermine\'i andmebaasi.';
+$lang_gallery_admin_menu['view_log_files_lnk'] = 'Vaata logifaile';
+$lang_gallery_admin_menu['view_log_files_title'] = 'Coppermine suudab hoida silma peal erinevatel kasutaja tegevustel. Sa võid neid logisid vaadata, kui sa oled logimise Coppermine\'i seadetes sisse lülitanud.';
+$lang_gallery_admin_menu['check_versions_lnk'] = 'Kontrolli versioone';
+$lang_gallery_admin_menu['check_versions_title'] = 'Kontrolli failide versioone, et teada saada, kas sa oled asendanud kõik failid pärast uuendust või kas Coppermine\'i algfailid on uuendatud pärast paki väljalaset';
+$lang_gallery_admin_menu['bridgemgr_lnk'] = 'Sildamise Haldur';
+$lang_gallery_admin_menu['bridgemgr_title'] = 'Lülita sisse/välja Coppermine\'i integreerimist (sildamist) teiste programmidega (nt BBS)';
+$lang_gallery_admin_menu['pluginmgr_lnk'] = 'Pluginate Haldur';
+$lang_gallery_admin_menu['pluginmgr_title'] = 'Pluginate haldur';
+$lang_gallery_admin_menu['overall_stats_lnk'] = 'Üldine statistika';
+$lang_gallery_admin_menu['overall_stats_title'] = 'Üldine vaatamiste statistikat brauserite ja opsüsteemide lõikes (juhul, kui vastavad seaded on sisse lülitatud).';
+$lang_gallery_admin_menu['keywordmgr_lnk'] = 'Võtmesõnade Haldur';
+$lang_gallery_admin_menu['keywordmgr_title'] = 'Halda võtmesõnu (juhul, kui vastav seade on sisse lülitatud)';
+$lang_gallery_admin_menu['exifmgr_lnk'] = 'EXIF Haldur';
+$lang_gallery_admin_menu['exifmgr_title'] = 'Halda EXIF infot (juhul, kui vastav seade on sisse lülitatud)';
+$lang_gallery_admin_menu['shownews_lnk'] = 'Näita uudiseid';
+$lang_gallery_admin_menu['shownews_title'] = 'Näita coppermine-gallery.net uudiseid';
 
 $lang_user_admin_menu['albmgr_title'] = 'Loo ja telli minu albumeid';
 $lang_user_admin_menu['albmgr_lnk'] = 'Minu albumite loomine / tellimine';
@@ -271,8 +266,8 @@ $lang_thumb_view['enter_alb_pass'] = 'Sisesta albumi salasõna';
 $lang_thumb_view['invalid_pass'] = 'Vigane salasõna';
 $lang_thumb_view['pass'] = 'Salasõna';
 $lang_thumb_view['submit'] = 'Saada';
-$lang_thumb_view['zipdownload_copyright'] = 'Palun austa autoriõigusi - kasuta alla laetud faile nõnda nagu galerii omanik on ette näinud'; // cpg1.5
-$lang_thumb_view['zipdownload_username'] = 'See pakitud fail sisaldab %s lemmikpilte'; // cpg1.5
+$lang_thumb_view['zipdownload_copyright'] = 'Palun austa autoriõigusi - kasuta alla laetud faile nõnda nagu galerii omanik on ette näinud';
+$lang_thumb_view['zipdownload_username'] = 'See pakitud fail sisaldab %s lemmikpilte';
 
 $lang_img_nav_bar['thumb_title'] = 'Tagasi pisipiltide lehele';
 $lang_img_nav_bar['pic_info_title'] = 'Näita/peida faili infot';
@@ -296,10 +291,10 @@ $lang_rate_pic['fair'] = 'Nii-naa';
 $lang_rate_pic['good'] = 'Hea';
 $lang_rate_pic['excellent'] = 'Oivaline';
 $lang_rate_pic['great'] = 'Suurepärane';
-$lang_rate_pic['js_warning'] = 'Hindamiseks peab Javascript olema lubatud'; // cpg1.5
-$lang_rate_pic['already_voted'] = 'Sa oled seda pilti juba hinnanud.'; // cpg1.5
-$lang_rate_pic['forbidden'] = 'Sa ei saa hinnata enda faile.'; // cpg1.5
-$lang_rate_pic['rollover_to_rate'] = 'Pildi hindamiseks liigu üle tärnide'; // cpg1.5
+$lang_rate_pic['js_warning'] = 'Hindamiseks peab Javascript olema lubatud';
+$lang_rate_pic['already_voted'] = 'Sa oled seda pilti juba hinnanud.';
+$lang_rate_pic['forbidden'] = 'Sa ei saa hinnata enda faile.';
+$lang_rate_pic['rollover_to_rate'] = 'Pildi hindamiseks liigu üle tärnide';
 
 // ------------------------------------------------------------------------- //
 // File include/functions.inc.php
@@ -316,15 +311,15 @@ $lang_get_pic_data['n_views'] = 'vaatamisi: %s';
 $lang_get_pic_data['n_votes'] = '(%s hinnangut)';
 
 $lang_cpg_debug_output['debug_info'] = 'Silumisinfo';
-$lang_cpg_debug_output['debug_output'] = 'Silumise väljund'; // cpg1.5
+$lang_cpg_debug_output['debug_output'] = 'Silumise väljund';
 $lang_cpg_debug_output['select_all'] = 'Vali kõik';
-$lang_cpg_debug_output['copy_and_paste_instructions'] = 'Kui kavatsed paluda abi Coppermine\'i foorumist, kopeeri vajadusel oma postitusse see silumise väljund koos veateatega, mille said (kui said). Postita silumise väljund ainult juhul, kui seda tõesti küsitakse! Enne postitamist asenda kindlasti kõik salasõnad tärnidega (***).'; // cpg1.5
-$lang_cpg_debug_output['debug_output_explain'] = 'Märkus: see on ainult teadmiseks ja ei tähenda, et galeriis mingi viga oleks.'; // cpg1.5
+$lang_cpg_debug_output['copy_and_paste_instructions'] = 'Kui kavatsed paluda abi Coppermine\'i foorumist, kopeeri vajadusel oma postitusse see silumise väljund koos veateatega, mille said (kui said). Postita silumise väljund ainult juhul, kui seda tõesti küsitakse! Enne postitamist asenda kindlasti kõik salasõnad tärnidega (***).';
+$lang_cpg_debug_output['debug_output_explain'] = 'Märkus: see on ainult teadmiseks ja ei tähenda, et galeriis mingi viga oleks.';
 $lang_cpg_debug_output['phpinfo'] = 'Kuva php info';
 $lang_cpg_debug_output['notices'] = 'Märkused';
-$lang_cpg_debug_output['notices_help_admin'] = 'Märkuseid näidatakse sel lehel seepärast, et sina (kui galerii administraator) oled tahtlikult lubanud selle funktsiooni Coppermine\'i konfiguratsioonis. Need ei tähenda tingimata seda, et midagi on sinu galeriiga valesti. Tegelikult on see arendaja töövahend, mida peaks ainult kogenud koodikirjutaja kasutama, et leida võimalikke bug\'e. Kui märkuste kuvamine häirib sind ja/või sul pole aimugi, mida need märkused tähendavad, siis lülita vastav funktsioon konfis välja.'; // cpg1.5
-$lang_cpg_debug_output['notices_help_non_admin'] = 'Märkuste kuvamine on administraatori poolt tahtlikult sisse lülitatud. See ei tähenda, et midagi on valesti sinu poole peal. Sa võid vabalt ignoreerida siin kuvatavaid märkuseid.'; // cpg1.5
-$lang_cpg_debug_output['show_hide'] = 'näita / peida'; // cpg1.5
+$lang_cpg_debug_output['notices_help_admin'] = 'Märkuseid näidatakse sel lehel seepärast, et sina (kui galerii administraator) oled tahtlikult lubanud selle funktsiooni Coppermine\'i konfiguratsioonis. Need ei tähenda tingimata seda, et midagi on sinu galeriiga valesti. Tegelikult on see arendaja töövahend, mida peaks ainult kogenud koodikirjutaja kasutama, et leida võimalikke bug\'e. Kui märkuste kuvamine häirib sind ja/või sul pole aimugi, mida need märkused tähendavad, siis lülita vastav funktsioon konfis välja.';
+$lang_cpg_debug_output['notices_help_non_admin'] = 'Märkuste kuvamine on administraatori poolt tahtlikult sisse lülitatud. See ei tähenda, et midagi on valesti sinu poole peal. Sa võid vabalt ignoreerida siin kuvatavaid märkuseid.';
+$lang_cpg_debug_output['show_hide'] = 'näita / peida';
 
 $lang_language_selection['reset_language'] = 'Vaikimisi keel';
 $lang_language_selection['choose_language'] = 'Vali keel';
@@ -335,45 +330,57 @@ $lang_theme_selection['choose_theme'] = 'Vali kujundus';
 $lang_version_alert['version_alert'] = 'Toetamata versioon!';
 $lang_version_alert['no_stable_version'] = 'Sa kasutad Coppermine %s (%s), mis on mõeldud ainult väga kogenud kasutajatele - sellel versioonil puudub igasugune garantii ja tootetugi. Kasuta seda omal riisikol või kasuta viimast stabiilset versiooni, kui tootetuge vajad!';
 $lang_version_alert['gallery_offline'] = 'Galerii on hetkel kättesaamatu ja on nähtav ainult sulle, kui administraatorile. Ära unusta pärast hooldustööde lõpetamist seda jälle kättesaadavaks teha.';
-$lang_version_alert['coppermine_news'] = 'coppermine-gallery.net uudised'; // cpg1.5
-$lang_version_alert['no_iframe'] = 'Sinu brauser ei kuva sisemisi raame'; // cpg1.5
-$lang_version_alert['hide'] = 'peida'; // cpg1.5
+$lang_version_alert['coppermine_news'] = 'coppermine-gallery.net uudised';
+$lang_version_alert['no_iframe'] = 'Sinu brauser ei kuva sisemisi raame';
+$lang_version_alert['hide'] = 'peida';
+// for version update checks
+$lang_version_alert['updates_available'] = 'CPG uuem versioon on saadaval.';
+$lang_version_alert['view_updates'] = 'Vaata uuendusi';
 
-$lang_create_tabs['previous'] = 'Eelmine'; // cpg1.5
-$lang_create_tabs['next'] = 'Järgmine'; // cpg1.5
-$lang_create_tabs['jump_to_page'] = 'Hüppa lehele'; // cpg1.5
+$lang_create_tabs['previous'] = 'Eelmine';
+$lang_create_tabs['next'] = 'Järgmine';
+$lang_create_tabs['jump_to_page'] = 'Hüppa lehele';
 
-$lang_get_remote_file_by_url['no_data_returned'] = 'Andmeid ei tagastatud, kasutades %s'; // cpg1.5
-$lang_get_remote_file_by_url['curl'] = 'CURL'; // cpg1.5
-$lang_get_remote_file_by_url['fsockopen'] = 'Sokli ühendus (FSOCKOPEN)'; // cpg1.5
-$lang_get_remote_file_by_url['fopen'] = 'fopen'; // cpg1.5
-$lang_get_remote_file_by_url['curl_not_available'] = 'Curl ei ole sinu serveris saadaval'; // cpg1.5
-$lang_get_remote_file_by_url['error_number'] = 'Viga number: %s'; // cpg1.5
-$lang_get_remote_file_by_url['error_message'] = 'Veateade: %s'; // cpg1.5
+$lang_get_remote_file_by_url['no_data_returned'] = 'Andmeid ei tagastatud, kasutades %s';
+$lang_get_remote_file_by_url['curl'] = 'CURL';
+$lang_get_remote_file_by_url['fsockopen'] = 'Sokli ühendus (FSOCKOPEN)';
+$lang_get_remote_file_by_url['fopen'] = 'fopen';
+$lang_get_remote_file_by_url['curl_not_available'] = 'Curl ei ole sinu serveris saadaval';
+$lang_get_remote_file_by_url['error_number'] = 'Viga number: %s';
+$lang_get_remote_file_by_url['error_message'] = 'Veateade: %s';
+
+$lang_alb_select_box['only_empty_albums'] = 'Näita ainult tühju albumeid';
+$lang_alb_select_box['all_albums'] = 'Näita kõiki albumeid';
 
 // ------------------------------------------------------------------------- //
 // File include/mailer.inc.php
 // ------------------------------------------------------------------------- //
-$lang_mailer['provide_address'] = 'Sa pead kirjutama vähemalt ühe ';
-$lang_mailer['mailer_not_supported'] = ' meiliprogramm ei ole toetatud.';
-$lang_mailer['execute'] = 'Ei suuda käivitada: ';
-$lang_mailer['instantiate'] = 'Ei suuda meilimise funktsiooni rakendada.';
 $lang_mailer['authenticate'] = 'SMTP viga: ei ole autenditud.';
-$lang_mailer['from_failed'] = 'Järgnev From (Kellelt) aadress ebaõnnestus: ';
-$lang_mailer['recipients_failed'] = 'SMTP viga: järgnev ';
-$lang_mailer['data_not_accepted'] = 'SMTP viga: andmeid ei aktsepteeritud.';
 $lang_mailer['connect_host'] = 'SMTP viga: ei suuda ühenduda SMTP hostijaga.';
+$lang_mailer['data_not_accepted'] = 'SMTP viga: andmeid ei aktsepteeritud.';
+$lang_mailer['empty_message'] = 'Kirja sisu on tühi';
+$lang_mailer['encoding'] = 'Tundmatu kodeering: ';
+$lang_mailer['execute'] = 'Ei suuda käivitada: ';
 $lang_mailer['file_access'] = 'Faili juurdepääs puudub: ';
 $lang_mailer['file_open'] = 'Faili viga: ei suuda avada fail: ';
-$lang_mailer['encoding'] = 'Tundmatu kodeering: ';
+$lang_mailer['from_failed'] = 'Järgnev From (Kellelt) aadress ebaõnnestus: ';
+$lang_mailer['instantiate'] = 'Ei suuda meilimise funktsiooni rakendada.';
+$lang_mailer['invalid_address'] = 'Invalid address: ';
+$lang_mailer['mailer_not_supported'] = ' meiliprogramm ei ole toetatud.';
+$lang_mailer['provide_address'] = 'Sa pead kirjutama vähemalt ühe ';
+$lang_mailer['recipients_failed'] = 'SMTP viga: järgnev ';
 $lang_mailer['signing'] = 'Signeerimise viga: ';
+$lang_mailer['smtp_connect_failed'] = 'SMTP connect() ebaõnnestus.';
+$lang_mailer['smtp_error'] = 'SMTP serveri viga: ';
+$lang_mailer['variable_set'] = 'Ei suutnud määrata või uuendada muutujat: ';
+$lang_mailer['extension_missing'] = 'Lisamoodul puudub: ';
 
 // ------------------------------------------------------------------------- //
 // File include/plugin_api.inc.php
 // ------------------------------------------------------------------------- //
 $lang_plugin_api['error_install'] = 'Ei suudetud paigaldada pluginat \'%s\'';
 $lang_plugin_api['error_uninstall'] = 'Ei suudetud maha paigaldada pluginat \'%s\'';
-$lang_plugin_api['error_sleep'] = 'Ei suudetud välja lülitada pluginat \'%s\''; // cpg1.5
+$lang_plugin_api['error_sleep'] = 'Ei suudetud välja lülitada pluginat \'%s\'';
 
 // ------------------------------------------------------------------------- //
 // File include/smilies.inc.php
@@ -391,7 +398,7 @@ $lang_smilies_inc_php['Cool'] = 'Lahe';
 $lang_smilies_inc_php['Laughing'] = 'Naerab';
 $lang_smilies_inc_php['Mad'] = 'Vihane';
 $lang_smilies_inc_php['Razz'] = 'Kiuslik';
-$lang_smilies_inc_php['Embarrassed'] = 'Piinlik'; // cpg1.5
+$lang_smilies_inc_php['Embarrassed'] = 'Piinlik';
 $lang_smilies_inc_php['Crying or Very sad'] = 'Nutab või väga kurb';
 $lang_smilies_inc_php['Evil or Very Mad'] = 'Õel või väga kuri';
 $lang_smilies_inc_php['Twisted Evil'] = 'Kahtlaste kavatsustega / kurikaval';
@@ -407,22 +414,23 @@ $lang_smilies_inc_php['Mr. Green'] = 'Hr. Roheline';
 // File albmgr.php
 // ------------------------------------------------------------------------- //
 if (defined('ALBMGR_PHP')) {
-$lang_albmgr_php['title'] = 'Albumi Haldur'; // cpg1.5
+$lang_albmgr_php['title'] = 'Albumi Haldur';
 $lang_albmgr_php['alb_need_name'] = 'Albumitel peab olema nimi!'; // js-alert
 $lang_albmgr_php['confirm_modifs'] = 'Oled kindel, et tahad need muudatused teha?'; // js-alert
 $lang_albmgr_php['no_change'] = 'Sa ei muutnud midagi!'; // js-alert
 $lang_albmgr_php['new_album'] = 'Uus album';
-$lang_albmgr_php['delete_album'] = 'Kustuta album'; // cpg1.5
+$lang_albmgr_php['delete_album'] = 'Kustuta album';
 $lang_albmgr_php['confirm_delete1'] = 'Oled kindel, et tahad selle albumi kustutada?'; // js-alert
 $lang_albmgr_php['confirm_delete2'] = 'Kõik selles olevad failid ja kommentaarid lähevad kaotsi!'; // js-alert
 $lang_albmgr_php['select_first'] = 'Vali esmalt album'; // js-alert
 $lang_albmgr_php['my_gallery'] = '* Minu galerii *';
 $lang_albmgr_php['no_category'] = '* Kategooriaid pole *';
 $lang_albmgr_php['select_category'] = 'Vali kategooria';
-$lang_albmgr_php['category_change'] = 'Kui sa muudad kategooria, siis su muudatused lähevad kaotsi!'; // cpg1.5
-$lang_albmgr_php['page_change'] = 'Kui sa seda linki järgid, siis su muudatused lähevad kaotsi!'; // cpg1.5
-$lang_albmgr_php['cancel'] = 'Katkesta'; // cpg1.5
-$lang_albmgr_php['submit_reminder'] = 'Sortimise muudatusi ei salvestata enne, kui klikkad &quot;Rakenda muudatused&quot;.'; // cpg1.5
+$lang_albmgr_php['category_change'] = 'Kui sa muudad kategooria, siis su muudatused lähevad kaotsi!';
+$lang_albmgr_php['page_change'] = 'Kui sa seda linki järgid, siis su muudatused lähevad kaotsi!';
+$lang_albmgr_php['cancel'] = 'Katkesta';
+$lang_albmgr_php['submit_reminder'] = 'Sortimise muudatusi ei salvestata enne, kui klikkad &quot;Rakenda muudatused&quot;.';
+$lang_albmgr_php['upload_files'] = 'Lae pilte sellesse albumisse'; // cpg1.6
 }
 
 // ------------------------------------------------------------------------- //
@@ -433,11 +441,11 @@ if (defined('BANNING_PHP')) {
 $lang_banning_php['title'] = 'Bänni Kasutajaid';
 $lang_banning_php['user_name'] = 'Kasutajanimi';
 $lang_banning_php['user_account'] = 'Kasutajakonto';
-$lang_banning_php['email_address'] = 'E-posti aadress'; // cpg1.5
+$lang_banning_php['email_address'] = 'E-posti aadress';
 $lang_banning_php['ip_address'] = 'IP aadress';
-$lang_banning_php['expires'] = 'Aegub'; // cpg1.5
-$lang_banning_php['expiry_date'] = 'Aegub'; // cpg1.5
-$lang_banning_php['expired'] = 'Aegus'; // cpg1.5
+$lang_banning_php['expires'] = 'Aegub';
+$lang_banning_php['expiry_date'] = 'Aegub';
+$lang_banning_php['expired'] = 'Aegus';
 $lang_banning_php['edit_ban'] = 'Salvesta muudatused';
 $lang_banning_php['add_new'] = 'Lisa uus bänn';
 $lang_banning_php['add_ban'] = 'Lisa';
@@ -446,33 +454,33 @@ $lang_banning_php['error_specify'] = 'Sa pead määratlema kas kasutajanime või
 $lang_banning_php['error_ban_id'] = 'Vigane bännimise ID!';
 $lang_banning_php['error_admin_ban'] = 'Sa ei saa ennast bännida!';
 $lang_banning_php['error_server_ban'] = 'Sa soovid bännida omaenda serverit? Ei, seda küll teha ei saa...';
-$lang_banning_php['skipping'] = 'Käsu vahelejätmine.'; // cpg1.5
+$lang_banning_php['skipping'] = 'Käsu vahelejätmine.';
 $lang_banning_php['lookup_ip'] = 'IP aadressi otsing';
 $lang_banning_php['select_date'] = 'vali kuupäev';
-$lang_banning_php['delete_comments'] = 'Kustuta kommentaarid'; // cpg1.5
-$lang_banning_php['current'] = 'käesolev'; // cpg1.5
-$lang_banning_php['all'] = 'kõik'; // cpg1.5
-$lang_banning_php['none'] = 'ükski'; // cpg1.5
-$lang_banning_php['view'] = 'vaata'; // cpg1.5
-$lang_banning_php['ban_id'] = 'Bänni ID'; // cpg1.5
-$lang_banning_php['existing_bans'] = 'Kehtivad bännid'; // cpg1.5
-$lang_banning_php['no_banning_when_bridged'] = 'Sinu galerii on hetkel sillatud (integreeritud) mõne teise rakendusega. Kasuta parem selle sillatud rakenduse bännimismehhanismi. Coppermine\'i sisseehitatud bännimismehhanism rakendub sillatuna  kehvasti.'; // cpg1.5
-$lang_banning_php['records_on_page'] = '%d kirjet %d lehel'; // cpg1.5
-$lang_banning_php['ascending'] = 'järgi kasvavalt'; // cpg1.5
-$lang_banning_php['descending'] = 'järgi kahanevalt'; // cpg1.5
-$lang_banning_php['sort_by'] = 'Sordi'; // cpg1.5
-$lang_banning_php['sorted_by'] = 'sorditud:'; // cpg1.5
-$lang_banning_php['ban_record_x_updated'] = 'Bännimiskirje %s uuendatud'; // cpg1.5
-$lang_banning_php['ban_record_x_deleted'] = 'Bännimiskirje %s kustutatud'; // cpg1.5
-$lang_banning_php['new_ban_record_created'] = 'Uus bännimiskirje on loodud'; // cpg1.5
-$lang_banning_php['ban_record_x_already_exists'] = '%s bännimiskirje on juba olemas!'; // cpg1.5
-$lang_banning_php['comment_deleted'] = '%s kommentaar %s poolt on kustutatud'; // cpg1.5
-$lang_banning_php['comments_deleted'] = '%s kommentaarid %s poolt on kustutatud'; // cpg1.5
-$lang_banning_php['email_field_invalid'] = 'Sisesta õige e-posti aadress'; // cpg1.5
-$lang_banning_php['ip_address_field_invalid'] = 'Sisesta õige IP aadress (kujul: x.x.x.x)'; // cpg1.5
-$lang_banning_php['expiry_field_invalid'] = 'Sisesta õige aegumiskuupäev (AAAA-KK-PP)'; // cpg1.5
-$lang_banning_php['form_not_submit'] = 'Vormi ei võetud vastu - seal esinevad vead tuleb esmalt parandada!'; // cpg1.5
-};
+$lang_banning_php['delete_comments'] = 'Kustuta kommentaarid';
+$lang_banning_php['current'] = 'käesolev';
+$lang_banning_php['all'] = 'kõik';
+$lang_banning_php['none'] = 'ükski';
+$lang_banning_php['view'] = 'vaata';
+$lang_banning_php['ban_id'] = 'Bänni ID';
+$lang_banning_php['existing_bans'] = 'Kehtivad bännid';
+$lang_banning_php['no_banning_when_bridged'] = 'Sinu galerii on hetkel sillatud (integreeritud) mõne teise rakendusega. Kasuta parem selle sillatud rakenduse bännimismehhanismi. Coppermine\'i sisseehitatud bännimismehhanism rakendub sillatuna  kehvasti.';
+$lang_banning_php['records_on_page'] = '%d kirjet %d lehel';
+$lang_banning_php['ascending'] = 'järgi kasvavalt';
+$lang_banning_php['descending'] = 'järgi kahanevalt';
+$lang_banning_php['sort_by'] = 'Sordi';
+$lang_banning_php['sorted_by'] = 'sorditud:';
+$lang_banning_php['ban_record_x_updated'] = 'Bännimiskirje %s uuendatud';
+$lang_banning_php['ban_record_x_deleted'] = 'Bännimiskirje %s kustutatud';
+$lang_banning_php['new_ban_record_created'] = 'Uus bännimiskirje on loodud';
+$lang_banning_php['ban_record_x_already_exists'] = '%s bännimiskirje on juba olemas!';
+$lang_banning_php['comment_deleted'] = '%s kommentaar %s poolt on kustutatud';
+$lang_banning_php['comments_deleted'] = '%s kommentaarid %s poolt on kustutatud';
+$lang_banning_php['email_field_invalid'] = 'Sisesta õige e-posti aadress';
+$lang_banning_php['ip_address_field_invalid'] = 'Sisesta õige IP aadress (kujul: x.x.x.x)';
+$lang_banning_php['expiry_field_invalid'] = 'Sisesta õige aegumiskuupäev (AAAA-KK-PP)';
+$lang_banning_php['form_not_submit'] = 'Vormi ei võetud vastu - seal esinevad vead tuleb esmalt parandada!';
+}
 
 // ------------------------------------------------------------------------- //
 // File bridgemgr.php
@@ -506,6 +514,7 @@ $lang_bridgemgr_php['bridge_enable_yes'] = 'lülita sisse';
 $lang_bridgemgr_php['bridge_enable_no'] = 'lülita välja';
 $lang_bridgemgr_php['error_must_not_be_empty'] = 'ei tohi olla tühi';
 $lang_bridgemgr_php['error_either_be'] = 'peab olema kas %s või %s';
+$lang_bridgemgr_php['error_bridge_file_not_exist'] = 'Silla faili ei eksisteeri: %s';
 $lang_bridgemgr_php['error_folder_not_exist'] = '%s ei eksisteeri. Paranda %s jaoks sisestatud väärtus';
 $lang_bridgemgr_php['error_cookie_not_readible'] = 'Coppermine ei suuda lugeda cookie\'t nimega %s. Paranda %s jaoks sisestatud väärtus või mine oma sildamisrakenduse admini paneelile ja hoolitse, et cookie rada oleks loetav Coppermine jaoks.';
 $lang_bridgemgr_php['error_mandatory_field_empty'] = 'Välja %s ei saa tühjaks jätta - sisesta sobiv väärtus.';
@@ -537,7 +546,7 @@ $lang_bridgemgr_php['browse'] = 'vali';
 if (defined('CALENDAR_PHP')) {
 $lang_calendar_php['title'] = 'Kalender';
 $lang_calendar_php['clear_date'] = 'korista kuupäev ära';
-$lang_calendar_php['files'] = 'faile'; // cpg1.5
+$lang_calendar_php['files'] = 'faile';
 }
 
 // ------------------------------------------------------------------------- //
@@ -549,7 +558,7 @@ $lang_catmgr_php['unknown_cat'] = 'Valitud kategooriat andmebaasis pole';
 $lang_catmgr_php['usergal_cat_ro'] = 'Kasutajate galeriide kategooriat kustutada ei saa!';
 $lang_catmgr_php['manage_cat'] = 'Halda kategooriaid';
 $lang_catmgr_php['confirm_delete'] = 'Oled kindel, et tahad selle kategooria KUSTUTADA'; // js-alert
-$lang_catmgr_php['category'] = 'Kategooriad'; // cpg1.5
+$lang_catmgr_php['category'] = 'Kategooriad';
 $lang_catmgr_php['operations'] = 'Toimingud';
 $lang_catmgr_php['move_into'] = 'Tõsta';
 $lang_catmgr_php['update_create'] = 'Uuenda/loo kategooria';
@@ -559,33 +568,33 @@ $lang_catmgr_php['cat_thumb'] = 'Kategooria pisipilt';
 $lang_catmgr_php['cat_desc'] = 'Kategooria kirjeldus';
 $lang_catmgr_php['categories_alpha_sort'] = 'Sorteeri kategooriad tähestiku järgi (kohandatu asemel)';
 $lang_catmgr_php['save_cfg'] = 'Salvesta seadistused';
-$lang_catmgr_php['no_category'] = '* Kategooriata *'; // cpg1.5
-$lang_catmgr_php['group_create_alb'] = 'Grupp (grupid), kellel on lubatud luua albumeid selles kategoorias'; // cpg1.5
+$lang_catmgr_php['no_category'] = '* Kategooriata *';
+$lang_catmgr_php['group_create_alb'] = 'Grupp (grupid), kellel on lubatud luua albumeid selles kategoorias';
 }
 
 // ------------------------------------------------------------------------- //
 // File contact.php
 // ------------------------------------------------------------------------- //
 if (defined('CONTACT_PHP')) {
-$lang_contact_php['title'] = 'Kontakt'; // cpg1.5
-$lang_contact_php['your_name'] = 'Sinu nimi'; // cpg1.5
-$lang_contact_php['your_email'] = 'Sinu e-posti aadress'; // cpg1.5
-$lang_contact_php['subject'] = 'Teema'; // cpg1.5
-$lang_contact_php['your_message'] = 'Sinu sõnum'; // cpg1.5
-$lang_contact_php['name_field_mandatory'] = 'Palun sisesta oma nimi'; // cpg1.5 // js-alert
-$lang_contact_php['name_field_invalid'] = 'Palun sisesta oma tegelik nimi'; // cpg1.5 // js-alert
-$lang_contact_php['email_field_mandatory'] = 'Palun sisesta oma e-posti aadress'; // cpg1.5 // js-alert
-$lang_contact_php['email_field_invalid'] = 'Palun sisesta toimiv e-posti aadress'; // cpg1.5 // js-alert
-$lang_contact_php['subject_field_mandatory'] = 'Palun sisesta sisukas teema'; // cpg1.5 // js-alert
-$lang_contact_php['message_field_mandatory'] = 'Palun sisesta oma sõnum'; // cpg1.5 // js-alert
-$lang_contact_php['confirmation'] = 'Kinnitus'; // cpg1.5
-$lang_contact_php['email_headline'] = 'See e-kiri saadeti %s poolt, kasutades %s kontaktvormi IP aadressilt %s'; // cpg1.5
-$lang_contact_php['registered_user'] = 'registreerunud kasutaja'; // cpg1.5
-$lang_contact_php['guest'] = 'külaline'; // cpg1.5
-$lang_contact_php['unknown'] = 'tundmatu'; // cpg1.5
-$lang_contact_php['user_info'] = '%s nimega %s ja e-posti aadressiga %s ütles:'; // cpg1.5
-$lang_contact_php['failed_sending_email'] = 'E-kirja saatmine ebaõnnestus. Palun proovi pärast uuesti.'; // cpg1.5
-$lang_contact_php['email_sent'] = 'Sinu e-kiri läks teele.'; // cpg1.5
+$lang_contact_php['title'] = 'Kontakt';
+$lang_contact_php['your_name'] = 'Sinu nimi';
+$lang_contact_php['your_email'] = 'Sinu e-posti aadress';
+$lang_contact_php['subject'] = 'Teema';
+$lang_contact_php['your_message'] = 'Sinu sõnum';
+$lang_contact_php['name_field_mandatory'] = 'Palun sisesta oma nimi'; // js-alert
+$lang_contact_php['name_field_invalid'] = 'Palun sisesta oma tegelik nimi'; // js-alert
+$lang_contact_php['email_field_mandatory'] = 'Palun sisesta oma e-posti aadress'; // js-alert
+$lang_contact_php['email_field_invalid'] = 'Palun sisesta toimiv e-posti aadress'; // js-alert
+$lang_contact_php['subject_field_mandatory'] = 'Palun sisesta sisukas teema'; // js-alert
+$lang_contact_php['message_field_mandatory'] = 'Palun sisesta oma sõnum'; // js-alert
+$lang_contact_php['confirmation'] = 'Kinnitus';
+$lang_contact_php['email_headline'] = 'See e-kiri saadeti %s poolt, kasutades %s kontaktvormi IP aadressilt %s';
+$lang_contact_php['registered_user'] = 'registreerunud kasutaja';
+$lang_contact_php['guest'] = 'külaline';
+$lang_contact_php['unknown'] = 'tundmatu';
+$lang_contact_php['user_info'] = '%s nimega %s ja e-posti aadressiga %s ütles:';
+$lang_contact_php['failed_sending_email'] = 'E-kirja saatmine ebaõnnestus. Palun proovi pärast uuesti.';
+$lang_contact_php['email_sent'] = 'Sinu e-kiri läks teele.';
 }
 
 // ------------------------------------------------------------------------- //
@@ -593,29 +602,29 @@ $lang_contact_php['email_sent'] = 'Sinu e-kiri läks teele.'; // cpg1.5
 // ------------------------------------------------------------------------- //
 if (defined('ADMIN_PHP')) {
 $lang_admin_php['title'] = 'Galerii seadistused';
-$lang_admin_php['general_settings'] = 'Üldised seaded'; // cpg1.5
-$lang_admin_php['language_charset_settings'] = 'Keele &amp; Charset\' seaded'; // cpg1.5
-$lang_admin_php['themes_settings'] = 'Teemade seaded'; // cpg1.5
-$lang_admin_php['album_list_view'] = 'Albumi nimekirja vaade'; // cpg1.5
-$lang_admin_php['thumbnail_view'] = 'Pisipildi vaade'; // cpg1.5
-$lang_admin_php['image_view'] = 'Pildi vaade'; // cpg1.5
-$lang_admin_php['comment_settings'] = 'Kommentaari seaded'; // cpg1.5
-$lang_admin_php['thumbnail_settings'] = 'Pisipildi seaded'; // cpg1.5
-$lang_admin_php['file_settings'] = 'Faili seaded'; // cpg1.5
-$lang_admin_php['image_watermarking'] = 'Pildi vesimärgistamine'; // cpg1.5
-$lang_admin_php['registration'] = 'Registreerimine'; // cpg1.5
-$lang_admin_php['user_settings'] = 'Kasutaja seaded'; // cpg1.5
-$lang_admin_php['custom_fields_user_profile'] = 'Kasutajaprofiili kohandatud väljad (jäta lahtrid tühjaks, kui välju ei kasuta)'; // cpg1.5
-$lang_admin_php['custom_fields_image_description'] = 'Pildikirjelduse kohandatud väljad (jäta lahtrid tühjaks, kui välju ei kasuta)'; // cpg1.5
-$lang_admin_php['cookie_settings'] = 'Cookie\'de seaded'; // cpg1.5
-$lang_admin_php['email_settings'] = 'E-posti seaded (tavaliselt pole tarvis siin midagi muuta; jäta kõik lahtrid tühjaks, kui pole kindel)'; // cpg1.5
-$lang_admin_php['logging_stats'] = 'Logimine ja statistika'; // cpg1.5
-$lang_admin_php['maintenance_settings'] = 'Hooldustööde seaded'; // cpg1.5
+$lang_admin_php['general_settings'] = 'Üldised seaded';
+$lang_admin_php['language_charset_settings'] = 'Keele &amp; Charset\' seaded';
+$lang_admin_php['themes_settings'] = 'Teemade seaded';
+$lang_admin_php['album_list_view'] = 'Albumi nimekirja vaade';
+$lang_admin_php['thumbnail_view'] = 'Pisipildi vaade';
+$lang_admin_php['image_view'] = 'Pildi vaade';
+$lang_admin_php['comment_settings'] = 'Kommentaari seaded';
+$lang_admin_php['thumbnail_settings'] = 'Pisipildi seaded';
+$lang_admin_php['file_settings'] = 'Faili seaded';
+$lang_admin_php['image_watermarking'] = 'Pildi vesimärgistamine';
+$lang_admin_php['registration'] = 'Registreerimine';
+$lang_admin_php['user_settings'] = 'Kasutaja seaded';
+$lang_admin_php['custom_fields_user_profile'] = 'Kasutajaprofiili kohandatud väljad (jäta lahtrid tühjaks, kui välju ei kasuta)';
+$lang_admin_php['custom_fields_image_description'] = 'Pildikirjelduse kohandatud väljad (jäta lahtrid tühjaks, kui välju ei kasuta)';
+$lang_admin_php['cookie_settings'] = 'Cookie\'de seaded';
+$lang_admin_php['email_settings'] = 'E-posti seaded (tavaliselt pole tarvis siin midagi muuta; jäta kõik lahtrid tühjaks, kui pole kindel)';
+$lang_admin_php['logging_stats'] = 'Logimine ja statistika';
+$lang_admin_php['maintenance_settings'] = 'Hooldustööde seaded';
 $lang_admin_php['manage_exif'] = 'Muuda EXIF info näitamist';
 $lang_admin_php['manage_plugins'] = 'Pluginate Haldur';
 $lang_admin_php['manage_keyword'] = 'Võtmesõnade Haldur';
 $lang_admin_php['restore_cfg'] = 'Taasta vaikeväärtused';
-$lang_admin_php['restore_cfg_confirm'] = 'Kas tõesti soovid taastada kogu konfiguratsiooni vaikeväärtused? Seda ei ole võimalik hiljem tagasi muuta!'; // cpg1.5 // js-alert
+$lang_admin_php['restore_cfg_confirm'] = 'Kas tõesti soovid taastada kogu konfiguratsiooni vaikeväärtused? Seda ei ole võimalik hiljem tagasi muuta!'; // js-alert
 $lang_admin_php['save_cfg'] = 'Salvesta uus konfiguratsioon';
 $lang_admin_php['notes'] = 'Märkmed';
 $lang_admin_php['info'] = 'Teade';
@@ -629,10 +638,12 @@ $lang_admin_php['date_a'] = 'Kuupäev kasvavalt';
 $lang_admin_php['date_d'] = 'Kuupäev kahanevalt';
 $lang_admin_php['pos_a'] = 'Asukoht kasvavalt';
 $lang_admin_php['pos_d'] = 'Asukoht kahanevalt';
+$lang_admin_php['view_a'] = 'Vaated kasvavalt'; // cpg1.6
+$lang_admin_php['view_d'] = 'Vaated kahanevalt'; // cpg1.6
 $lang_admin_php['th_any'] = 'Suurim kuvasuhe';
 $lang_admin_php['th_ht'] = 'Kõrgus';
 $lang_admin_php['th_wd'] = 'Laius';
-$lang_admin_php['th_ex'] = 'Täpselt'; // cpg1.5
+$lang_admin_php['th_ex'] = 'Täpselt';
 $lang_admin_php['debug_everyone'] = 'igaüks';
 $lang_admin_php['debug_admin'] = 'ainult adminil';
 $lang_admin_php['no_logs'] = 'Väljas';
@@ -640,9 +651,9 @@ $lang_admin_php['log_normal'] = 'Tavapärane';
 $lang_admin_php['log_all'] = 'Kõik';
 $lang_admin_php['view_logs'] = 'Vaata logisid';
 $lang_admin_php['click_expand'] = 'laiendamiseks klõpsa sektsiooni nimel';
-$lang_admin_php['click_collapse'] = 'kokku tõmbamiseks klõpsa sektsiooni nimel'; // cpg1.5
+$lang_admin_php['click_collapse'] = 'kokku tõmbamiseks klõpsa sektsiooni nimel';
 $lang_admin_php['expand_all'] = 'Ava kõik';
-$lang_admin_php['toggle_all'] = 'Lülita kõik ümber'; // cpg1.5
+$lang_admin_php['toggle_all'] = 'Lülita kõik ümber';
 $lang_admin_php['notice1'] = '(*) Neid seadeid ei tohi muuta, kui su andmebaasis juba faile on.';
 $lang_admin_php['notice2'] = '(**) Selle seade muutmine mõjutab ainult faile, mis lisatakse edaspidi. Niisiis on soovitatav, et seda seadet ei muudeta, kui galeriis juba faile on. Olemasolevatele failidele saab siiski muudatused kehtestada, kasutades admin-menüü utiliiti &quot;<a href="util.php">Admini tööriistad</a> (muuda pildi mõõtmeid)&quot;.';
 $lang_admin_php['notice3'] = '(***) Kõik logifailid on ingliskeelsed.';
@@ -651,278 +662,289 @@ $lang_admin_php['auto_resize_everyone'] = 'igaüks';
 $lang_admin_php['auto_resize_user'] = 'ainult (tava)kasutajad';
 $lang_admin_php['ascending'] = 'kasvavalt';
 $lang_admin_php['descending'] = 'kahanevalt';
-$lang_admin_php['collapse_all'] = 'Tõmba kõik kokku'; // cpg1.5
-$lang_admin_php['separate_page'] = 'eraldi lehel'; // cpg1.5
-$lang_admin_php['inline'] = 'rivis'; // cpg1.5
-$lang_admin_php['guests_only'] = 'ainult külalised'; // cpg1.5
-$lang_admin_php['wm_bottomright'] = 'All paremal'; // cpg1.5
-$lang_admin_php['wm_bottomleft'] = 'All vasakul'; // cpg1.5
-$lang_admin_php['wm_topleft'] = 'Üleval vasakul'; // cpg1.5
-$lang_admin_php['wm_topright'] = 'Üleval paremal'; // cpg1.5
-$lang_admin_php['wm_center'] = 'Keskel'; // cpg1.5
-$lang_admin_php['wm_both'] = 'Mõlemad'; // cpg1.5
-$lang_admin_php['wm_original'] = 'Originaal'; // cpg1.5
-$lang_admin_php['wm_resized'] = 'Muudetud suurusega'; // cpg1.5
-$lang_admin_php['gallery_name'] = 'Galerii nimi'; // cpg1.5
-$lang_admin_php['gallery_description'] = 'Galerii kirjeldus'; // cpg1.5
-$lang_admin_php['gallery_admin_email'] = 'Galerii administraatori e-posti aadress'; // cpg1.5
-$lang_admin_php['ecards_more_pic_target'] = 'Sinu Coppermine\'i galerii URL'; // cpg1.5
-$lang_admin_php['ecards_more_pic_target_detail'] = '(lõpus peab olema kaldkriips, mitte \'index.php\' või muu taoline)'; // cpg1.5
-$lang_admin_php['home_target'] = 'Sinu kodulehe URL'; // cpg1.5
-$lang_admin_php['enable_zipdownload'] = 'Luba lemmikute pakitud allalaadimist'; // cpg1.5
-$lang_admin_php['enable_zipdownload_no_textfile'] = 'ainult lemmikud'; // cpg1.5
-$lang_admin_php['enable_zipdownload_additional_textfile'] = 'lemmikud ja readme-fail'; // cpg1.5
-$lang_admin_php['time_offset'] = 'Ajavööndi erinevus GMT suhtes'; // cpg1.5
-$lang_admin_php['time_offset_detail'] = '(hetke kellaaeg: %s)'; // cpg1.5
-$lang_admin_php['enable_help'] = 'Luba abi-ikoonid'; // cpg1.5
-$lang_admin_php['enable_help_description'] = 'abi on saadaval inglise keeles ja osaliselt'; // cpg1.5
-$lang_admin_php['clickable_keyword_search'] = 'Luba klikitavad võtmesõnad otsingus'; // cpg1.5
-$lang_admin_php['keyword_separator'] = 'Võtmesõnade eraldaja'; // cpg1.5
-$lang_admin_php['keyword_convert'] = 'Konverteeri võtmesõnade eraldaja'; // cpg1.5
-$lang_admin_php['enable_plugins'] = 'Luba pluginad'; // cpg1.5
-$lang_admin_php['purge_expired_bans'] = 'Automaatselt tühista aegunud bännid'; // cpg1.5
-$lang_admin_php['browse_batch_add'] = 'Lehitsetav hulgilisamise liides'; // cpg1.5
-$lang_admin_php['batch_proc_limit'] = 'Mitut faili korraga hulgilisamise liideses kasutada'; // cpg1.5
-$lang_admin_php['display_thumbs_batch_add'] = 'Näita eelvaate pisipilte hulgilisamise liideses'; // cpg1.5
-$lang_admin_php['lang'] = 'Vaikimisi keel'; // cpg1.5
-$lang_admin_php['language_autodetect'] = 'Keele automaattuvastus'; // cpg1.5
-$lang_admin_php['charset'] = 'Märgistiku kodeering'; // cpg1.5
-// 'previous_next_tab'] = 'Display previous/next on tabbed pages'; // cpg1.5
-$lang_admin_php['theme'] = 'Teema'; // cpg1.5
-$lang_admin_php['custom_lnk_name'] = 'Kohandatud menüülingi nimetus'; // cpg1.5
-$lang_admin_php['custom_lnk_url'] = 'Kohandatud menüülingi URL'; // cpg1.5
-$lang_admin_php['enable_menu_icons'] = 'Luba menüüikoonid'; // cpg1.5
-$lang_admin_php['show_bbcode_help'] = 'Kuva BBCode abi'; // cpg1.5
-$lang_admin_php['vanity_block'] = 'Näita XHTML ja CSS standarditele vastavate teemade puhul ühilduvusteadet'; // cpg1.5
-$lang_admin_php['highlight_multiple'] = 'Ridade hulgimärgistamiseks hoia all Ctrl-klahvi'; // cpg1.5
-$lang_admin_php['custom_header_path'] = 'Rada kohandatud päiseni'; // cpg1.5
-$lang_admin_php['custom_footer_path'] = 'Rada kohandatud jaluseni'; // cpg1.5
-$lang_admin_php['browse_by_date'] = 'Luba lehitsemine kuupäeva järgi'; // cpg1.5
-$lang_admin_php['display_redirection_page'] = 'Kuva edasisuunamise lehed'; // cpg1.5
-$lang_admin_php['display_xp_publish_link'] = 'Reklaami XP Publisher\'i kuvades vastavat linki üleslaadimise lehel'; // cpg1.5
-$lang_admin_php['main_table_width'] = 'Põhitabeli laius'; // cpg1.5
-$lang_admin_php['pixels_or_percent'] = 'px või %'; // cpg1.5
-$lang_admin_php['subcat_level'] = 'Näidatavate kategooriatasemete arv'; // cpg1.5
-$lang_admin_php['albums_per_page'] = 'Näidatavate albumite arv'; // cpg1.5
-$lang_admin_php['album_list_cols'] = 'Veergude arv albumi nimekirjas'; // cpg1.5
-$lang_admin_php['alb_list_thumb_size'] = 'Albumi pisipiltide suurus'; // cpg1.5
-$lang_admin_php['main_page_layout'] = 'Pealehe sisu'; // cpg1.5
-$lang_admin_php['first_level'] = 'Näita kategooriates esimese taseme albumi pisipilte'; // cpg1.5
-$lang_admin_php['categories_alpha_sort'] = 'Sorteeri kategooriad tähestiku järgi'; // cpg1.5
-$lang_admin_php['categories_alpha_sort_details'] = '(kohandatud järjekorra asemel)'; // cpg1.5
-$lang_admin_php['link_pic_count'] = 'Näita lingitud failide arvu'; // cpg1.5
-$lang_admin_php['thumbcols'] = 'Veergude arv pisipiltide lehel'; // cpg1.5
-$lang_admin_php['thumbrows'] = 'Ridade arv pisipiltide lehel'; // cpg1.5
-$lang_admin_php['max_tabs'] = 'Näidatavate kaartide suurim arv'; // cpg1.5
-$lang_admin_php['tabs_dropdown'] = 'Näita kõikide lehtede rippmenüü nimekirja kaartide kõrval'; // cpg1.5
-$lang_admin_php['caption_in_thumbview'] = 'Näita pisipildi all faili seletust (lisaks pealkirjale)'; // cpg1.5
-$lang_admin_php['views_in_thumbview'] = 'Näita pisipildi all vaatamiste arvu'; // cpg1.5
-$lang_admin_php['display_comment_count'] = 'Näita pisipildi all kommentaaride arvu'; // cpg1.5
-$lang_admin_php['display_uploader'] = 'Näita pisipildi all üleslaadija nime'; // cpg1.5
-// 'display_admin_uploader'] = 'Display name of admin uploaders below the thumbnail'; // cpg1.5
-$lang_admin_php['display_filename'] = 'Näita pisipildi all faili nime'; // cpg1.5
-$lang_admin_php['display_thumbnail_rating'] = 'Näita pisipildi all reitingut'; // cpg1.5
-$lang_admin_php['alb_desc_thumb'] = 'Näita albumi kirjeldust'; // cpg1.5
-$lang_admin_php['thumbnail_to_fullsize'] = 'Mine pisipildilt otse täissuuruses pildile'; // cpg1.5
-$lang_admin_php['default_sort_order'] = 'Failide vaikimisi sorteerimisjärjekord'; // cpg1.5
-$lang_admin_php['min_votes_for_rating'] = 'Vähim häälte arv, millega fail saab ilmuda \'Kõrgeimalt hinnatud\' nimekirja'; // cpg1.5
-$lang_admin_php['picture_table_width'] = 'Tabeli laius faili näitamiseks'; // cpg1.5
-$lang_admin_php['display_pic_info'] = 'Faili info on vaikimisi nähtaval'; // cpg1.5
-$lang_admin_php['picinfo_movie_download_link'] = 'Näita video allalaadimislinki failiinfo alas'; // cpg1.5
-$lang_admin_php['max_img_desc_length'] = 'Pildi kirjelduse suurim pikkus'; // cpg1.5
-$lang_admin_php['max_com_wlength'] = 'Tähemärkide maksimumarv sõnas'; // cpg1.5
-$lang_admin_php['display_film_strip'] = 'Näita filmiriba'; // cpg1.5
-$lang_admin_php['max_film_strip_items'] = 'Elementide arv filmiribal'; // cpg1.5
-$lang_admin_php['slideshow_interval'] = 'Slaidiseansi intervall'; // cpg1.5
-$lang_admin_php['milliseconds'] = 'millisekundites'; // cpg1.5
-$lang_admin_php['slideshow_interval_detail'] = '1000 ms = 1 s'; // cpg1.5
-$lang_admin_php['slideshow_hits'] = 'Loenda slaidiseansi klikke'; // cpg1.5
-$lang_admin_php['ecard_flash'] = 'Luba Flash e-kaartidel'; // cpg1.5
-$lang_admin_php['not_recommended'] = 'ei ole soovitav'; // cpg1.5
-$lang_admin_php['recommended'] = 'soovitav'; // cpg1.5
-$lang_admin_php['transparent_overlay'] = 'Lisa läbipaistev kiht piltide varguse vähendamiseks'; // cpg1.5
-$lang_admin_php['old_style_rating'] = 'Pöördu tagasi vana hindamissüsteemi juurde'; // cpg1.5
-$lang_admin_php['old_style_rating_extra'] = 'See keelab \'Reitingutähekeste arv\' valiku'; // cpg1.5
-$lang_admin_php['rating_stars_amount'] = 'Reitingutähekeste arv hindamisel'; // cpg1.5
-$lang_admin_php['rate_own_files'] = 'Kasutajad võivad hinnata omi pilte'; // cpg1.5
-$lang_admin_php['filter_bad_words'] = 'Filtreeri kommentaaridest inetud sõnad välja'; // cpg1.5
-$lang_admin_php['enable_smilies'] = 'Luba smailid kommentaarides'; // cpg1.5
-$lang_admin_php['disable_comment_flood_protect'] = 'Luba sama kasutaja poolt mitu järjestikust kommentaari ühele failile'; // cpg1.5
-$lang_admin_php['disable_comment_flood_protect_details'] = '(ehk: keela spämmikaitse)'; // cpg1.5
-$lang_admin_php['max_com_lines'] = 'Ridade suurim arv kommentaaris'; // cpg1.5
-$lang_admin_php['max_com_size'] = 'Kommentaari maksimumpikkus'; // cpg1.5
-$lang_admin_php['email_comment_notification'] = 'Teavita kommentaaridest e-posti teel administraatorit'; // cpg1.5
-$lang_admin_php['comments_sort_descending'] = 'Kommentaaride sorteerimisjärjekord'; // cpg1.5
-$lang_admin_php['comments_per_page'] = 'Kommentaare lehel'; // cpg1.5
-$lang_admin_php['comments_anon_pfx'] = 'Anonüümsete kommenteerijate nime eesliide'; // cpg1.5
-$lang_admin_php['comment_approval'] = 'Kommentaarid vajavad heakskiitu'; // cpg1.5
-$lang_admin_php['display_comment_approval_only'] = 'Näita ainult kommentaare, mis vajavad heakskiitu lehel: &quot;Vaata kommentaare&quot;'; // cpg1.5
-$lang_admin_php['comment_placeholder'] = 'Näita lõppkasutajatele asendusteksti nende kommentaaride osas, mis ootavad admini heakskiitu'; // cpg1.5
-$lang_admin_php['comment_user_edit'] = 'Luba kasutajail muuta oma kommentaare'; // cpg1.5
-$lang_admin_php['comment_captcha'] = 'Näita lisatavate kommentaaride puhul Captcha\'t (visuaalkinnitust)'; // cpg1.5
-$lang_admin_php['comment_akismet_enable'] = 'Akismet'; // cpg1.5
-$lang_admin_php['comment_akismet_enable_description'] = 'mida teha, kui kõrvaldatakse spämmikahtlusega kommentaar?'; // cpg1.5
-$lang_admin_php['comment_akismet_applicable_only'] = 'Valik rakendub ainult juhul, kui on sisestatud Akismeti valiidne API võti'; // cpg1.5
-$lang_admin_php['comment_akismet_enable_approval'] = 'Luba kommentaarid, mis ei läbi Akismeti kontrolli (aga märgista need, kui heakskiitmata)'; // cpg1.5
-$lang_admin_php['comment_akismet_drop_tell'] = 'Keela kommentaar, mis ei valideeru ja ütle autorile, et see lükati kõrvale'; // cpg1.5
-$lang_admin_php['comment_akismet_drop_lie'] = 'Keela kommentaar, mis ei valideeru aga ütle autorile, et see lisati'; // cpg1.5
-$lang_admin_php['comment_akismet_api_key'] = 'Akismeti API võti'; // cpg1.5
-$lang_admin_php['comment_akismet_api_key_description'] = 'Akismeti keelamiseks jäta tühjaks'; // cpg1.5
-$lang_admin_php['comment_akismet_group'] = 'Rakenda Akismet nende kommentaaride puhul, mille on lisanud'; // cpg1.5
-$lang_admin_php['comment_promote_registration'] = 'Palu külalistel kommentaaride postitamiseks sisse logida'; // cpg1.5
-$lang_admin_php['thumb_width'] = 'Pisipildi maksimummõõde (laius, kui &quot;Kasutatav mõõde&quot; on &quot;Täpselt&quot;)'; // cpg1.5
-$lang_admin_php['thumb_use'] = 'Kasutatav mõõde'; // cpg1.5
-$lang_admin_php['thumb_use_detail'] = '(pisipildi laius, kõrgus või suurim kuvasuhe)'; // cpg1.5
-$lang_admin_php['thumb_height'] = 'Pisipildi kõrgus'; // cpg1.5
-$lang_admin_php['thumb_height_detail'] = '(rakendub ainult siis, kui &quot;Kasutatav mõõde&quot; on &quot;Täpselt&quot;)'; // cpg1.5
-$lang_admin_php['movie_audio_document'] = 'video, audio, dokument'; // cpg1.5
-$lang_admin_php['thumb_pfx'] = 'Pisipiltide eesliide'; // cpg1.5
-$lang_admin_php['enable_unsharp'] = 'Pisipiltide teravustamine: luba Unsharp Mask'; // cpg1.5
-$lang_admin_php['unsharp_amount'] = 'Pisipiltide teravustamise tugevus'; // cpg1.5
-$lang_admin_php['unsharp_radius'] = 'Pisipiltide teravustamise raadius'; // cpg1.5
-$lang_admin_php['unsharp_threshold'] = 'Pisipiltide teravustamise lävi'; // cpg1.5
-$lang_admin_php['jpeg_qual'] = 'JPEG-failide kvaliteet'; // cpg1.5
-$lang_admin_php['make_intermediate'] = 'Loo vahepealsed pildid'; // cpg1.5
-$lang_admin_php['picture_use'] = 'Vahepealse pildi mõõde'; // cpg1.5
-$lang_admin_php['picture_use_detail'] = '(laius, kõrgus või suurim kuvasuhe)'; // cpg1.5
-$lang_admin_php['picture_use_thumb'] = 'Nagu pisipilt'; // cpg1.5
-$lang_admin_php['picture_width'] = 'Vahepealse pildi maksimumlaius või -kõrgus'; // cpg1.5
-$lang_admin_php['max_upl_size'] = 'Üleslaetud faili maksimumsuurus'; // cpg1.5
-$lang_admin_php['kilobytes'] = 'KB'; // cpg1.5
-$lang_admin_php['pixels'] = 'px'; // cpg1.5
-$lang_admin_php['max_upl_width_height'] = 'Üleslaetud piltide maksimumlaius või -kõrgus'; // cpg1.5
-$lang_admin_php['auto_resize'] = 'Vähenda lubatust laiemad või kõrgemad pildid automaatselt'; // cpg1.5
-$lang_admin_php['fullsize_padding_x'] = 'Täismõõdus hüpikakna (pop-up\'i) horisontaalne polster (padding)'; // cpg1.5
-$lang_admin_php['fullsize_padding_y'] = 'Täismõõdus hüpikakna (pop-up\'i) vertikaalne polster (padding)'; // cpg1.5
-$lang_admin_php['allow_private_albums'] = 'Albumid võivad olla privaatsed'; // cpg1.5
-$lang_admin_php['allow_private_albums_note'] = '(MÄRKUS: selle keelamisel muutuvad kõik praegused privaatsed albumid nähtavaks)'; // cpg1.5
-$lang_admin_php['show_private'] = 'Näita privaatalbumite ikoone sisselogimata kasutajatele'; // cpg1.5
-$lang_admin_php['forbiden_fname_char'] = 'Failinimedes keelatud sümbolid'; // cpg1.5
-$lang_admin_php['silly_safe_mode'] = 'Luba &quot;lihtne safe mode&quot;'; // cpg1.5
-$lang_admin_php['allowed_img_types'] = 'Lubatud pildivormingud'; // cpg1.5
-$lang_admin_php['allowed_mov_types'] = 'Lubatud videovormingud'; // cpg1.5
-$lang_admin_php['media_autostart'] = 'Video automaatkäivitus'; // cpg1.5
-$lang_admin_php['allowed_snd_types'] = 'Lubatud audiovormingud'; // cpg1.5
-$lang_admin_php['allowed_doc_types'] = 'Lubatud dokumendivormingud'; // cpg1.5
-$lang_admin_php['thumb_method'] = 'Piltide suuruse muutmise meetod'; // cpg1.5
-$lang_admin_php['impath'] = 'Rada ImageMagick\'u utiliidi \'convert\' juurde'; // cpg1.5
-$lang_admin_php['impath_example'] = '(nt /usr/bin/)'; // cpg1.5
-$lang_admin_php['im_options'] = 'Käsurea võtmed ImageMagick\'ule'; // cpg1.5
-$lang_admin_php['read_exif_data'] = 'Loe JPEG-failidest EXIF-andmed'; // cpg1.5
-$lang_admin_php['read_iptc_data'] = 'Loe JPEG-failidest IPTC-andmed'; // cpg1.5
-$lang_admin_php['fullpath'] = 'Albumikataloog'; // cpg1.5
-$lang_admin_php['userpics'] = 'Kasutajafailide kataloog'; // cpg1.5
-$lang_admin_php['normal_pfx'] = 'Vahepealsete piltide eesliide'; // cpg1.5
-$lang_admin_php['default_dir_mode'] = 'Kataloogide vaikimisi õigused'; // cpg1.5
-$lang_admin_php['default_file_mode'] = 'Failide vaikimisi õigused'; // cpg1.5
-$lang_admin_php['enable_watermark'] = 'Vesimärgi kujutis'; // cpg1.5
-$lang_admin_php['enable_thumb_watermark'] = 'Vesimärgi kohandatud pisipildid'; // cpg1.5
-$lang_admin_php['where_put_watermark'] = 'Kuhu vesimärk paigutada'; // cpg1.5
-$lang_admin_php['which_files_to_watermark'] = 'Milliseid faile vesimärgistada'; // cpg1.5
-$lang_admin_php['watermark_file'] = 'Millist faili kasutada vesimärgistamiseks'; // cpg1.5
-$lang_admin_php['watermark_transparency'] = 'Vesipildi läbipaistvus'; // cpg1.5
-$lang_admin_php['zero_2_hundred'] = '0-100'; // cpg1.5
-$lang_admin_php['reduce_watermark'] = 'Vähenda vesimärki, kui pildi laius on väiksem, kui sisestatud väärtus. See on 100% osutuspunkt. Vesimärgi vähendamine on lineaarne (0 - keelab)'; // cpg1.5
-$lang_admin_php['watermark_transparency_featherx'] = 'Sea x läbipaistev värv'; // cpg1.5
-$lang_admin_php['watermark_transparency_feathery'] = 'Sea y läbipaistev värv'; // cpg1.5
-$lang_admin_php['gd2_only'] = 'Ainult GD2 puhul'; // cpg1.5
-$lang_admin_php['allow_user_registration'] = 'Luba uute kasutajate registreerimine'; // cpg1.5
-$lang_admin_php['global_registration_pw'] = 'Registreerimise üleüldine salasõna'; // cpg1.5
-$lang_admin_php['user_registration_disclaimer'] = 'Näita kasutaja registreerimisel kasutustingimusi'; // cpg1.5
-$lang_admin_php['registration_captcha'] = 'Näita registreerimislehel Captcha\'t (visuaalkinnitust)'; // cpg1.5
-$lang_admin_php['reg_requires_valid_email'] = 'Nõua registreerumisel e-posti aadressi tõestamist'; // cpg1.5
-$lang_admin_php['reg_notify_admin_email'] = 'Teavita kasutajate registreerumisest e-posti teel administraatorit'; // cpg1.5
-$lang_admin_php['admin_activation'] = 'Registreerumiste aktiveerimine administraatori poolt'; // cpg1.5
-$lang_admin_php['personal_album_on_registration'] = 'Loo kasutaja album personaalsesse galeriisse registreerumisel'; // cpg1.5
-$lang_admin_php['allow_unlogged_access'] = 'Luba sisselogimata kasutajate (anonüümsete või külaliste) juurdepääs'; // cpg1.5
-$lang_admin_php['thumbnail_intermediate_full'] = 'kõik pildiformaadid'; // cpg1.5
-$lang_admin_php['thumbnail_intermediate'] = 'pisipilt ja vahepealne pilt'; // cpg1.5
-$lang_admin_php['thumbnail_only'] = 'ainult pisipilt'; // cpg1.5
-$lang_admin_php['upload_mechanism'] = 'Vaikimisi üleslaadimise viis'; // cpg1.5
-$lang_admin_php['upload_swf'] = 'mitu faili korraga, Flash-i põhine (soovitatav)'; // cpg1.5
-$lang_admin_php['upload_single'] = 'üks fail korraga'; // cpg1.5
-$lang_admin_php['allow_user_upload_choice'] = 'Luba neil valida üleslaadimise viisi'; // cpg1.5
-$lang_admin_php['allow_duplicate_emails_addr'] = 'Luba kahel kasutajal sama e-posti aadressi kasutada'; // cpg1.5
-$lang_admin_php['upl_notify_admin_email'] = 'Teavita heakskiitu ootavatest üleslaadimistest e-posti teel administraatorit'; // cpg1.5
-$lang_admin_php['allow_memberlist'] = 'Luba sisselogitud kasutajatel liikmete nimekirja vaadata'; // cpg1.5
-$lang_admin_php['allow_email_change'] = 'Luba neil oma profiilis e-posti aadressi muuta'; // cpg1.5
-$lang_admin_php['allow_user_account_delete'] = 'Luba neil kustutada oma kasutajakonto'; // cpg1.5
-$lang_admin_php['users_can_edit_pics'] = 'Luba neil säilitada kontroll oma piltide üle, mis asuvad avalikes galeriides'; // cpg1.5
-$lang_admin_php['allow_user_move_album'] = 'Luba neil oma albumeid lubatud kategooriate seas ringi tõsta'; // cpg1.5
-$lang_admin_php['allow_user_album_keyword'] = 'Luba neil albumeile võtmesõnu panna'; // cpg1.5
-$lang_admin_php['allow_user_edit_after_cat_close'] = 'Luba neil redigeerida oma albumeid lukustatud kategooorias'; // cpg1.5
-$lang_admin_php['login_method_username'] = 'Kasutajanimi'; // cpg1.5
-$lang_admin_php['login_method_email'] = 'E-posti aadress'; // cpg1.5
-$lang_admin_php['login_method_both'] = 'Mõlemad'; // cpg1.5
-$lang_admin_php['login_method'] = 'Kuidas sa soovid neil lasta sisse logida'; // cpg1.5
-$lang_admin_php['login_threshold'] = 'Ebaõnnestunud sisselogimiste arv kuni ajutise bännini'; // cpg1.5
-$lang_admin_php['login_threshold_detail'] = '(et ära hoida brute force ründeid)'; // cpg1.5
-$lang_admin_php['login_expiry'] = 'Ajutise bänni kestus pärast ebaõnnestunud sisselogimist'; // cpg1.5
-$lang_admin_php['minutes'] = 'minutit'; // cpg1.5
-$lang_admin_php['report_post'] = 'Luba administraatorile teatamine'; // cpg1.5
-$lang_admin_php['user_profile1_name'] = 'Profiili nr 1 nimi'; // cpg1.5
-$lang_admin_php['user_profile2_name'] = 'Profiili nr 2 nimi'; // cpg1.5
-$lang_admin_php['user_profile3_name'] = 'Profiili nr 3 nimi'; // cpg1.5
-$lang_admin_php['user_profile4_name'] = 'Profiili nr 4 nimi'; // cpg1.5
-$lang_admin_php['user_profile5_name'] = 'Profiili nr 5 nimi'; // cpg1.5
-$lang_admin_php['user_profile6_name'] = 'Profiili nr 6 nimi (kasuta seda profiili pikemate väljade jaoks, nt elulugu)'; // cpg1.5
-$lang_admin_php['user_field1_name'] = 'Välja nr 1 nimi'; // cpg1.5
-$lang_admin_php['user_field2_name'] = 'Välja nr 2 nimi'; // cpg1.5
-$lang_admin_php['user_field3_name'] = 'Välja nr 3 nimi'; // cpg1.5
-$lang_admin_php['user_field4_name'] = 'Välja nr 4 nimi'; // cpg1.5
-$lang_admin_php['cookie_name'] = 'Cookie nimi'; // cpg1.5
-$lang_admin_php['cookie_path'] = 'Cookie rada'; // cpg1.5
-$lang_admin_php['smtp_host'] = 'SMTP host (kui tühjaks jätta, kasutatakse sendmail\'i)'; // cpg1.5
-$lang_admin_php['smtp_username'] = 'SMTP kasutajanimi'; // cpg1.5
-$lang_admin_php['smtp_password'] = 'SMTP salasõna'; // cpg1.5
-$lang_admin_php['log_mode'] = 'Logide pidamise viis'; // cpg1.5
-$lang_admin_php['log_mode_details'] = 'Kõik logifailid on ingliskeelsed'; // cpg1.5
-$lang_admin_php['log_ecards'] = 'Logi e-kaarte'; // cpg1.5
-$lang_admin_php['log_ecards_detail'] = 'MÄRKUS: logi pidamisel võivad olla õiguslikud tagajärjed. Kasutajat peab teavitama registreerumisel, et e-kaarte logitakse. On soovitav pakkuda ka eraldi lehekülge privaatsuspoliitikaga.'; // cpg1.5
-$lang_admin_php['vote_details'] = 'Säilita detailne hääletamise statistika'; // cpg1.5
-$lang_admin_php['hit_details'] = 'Säilita detailne vaatamiste statistika'; // cpg1.5
-$lang_admin_php['display_stats_on_index'] = 'Näita statistikat saidi esilehel'; // cpg1.5
-$lang_admin_php['count_file_hits'] = 'Loenda failide vaatamisi'; // cpg1.5
-$lang_admin_php['count_album_hits'] = 'Loenda albumi vaatamisi'; // cpg1.5
-$lang_admin_php['count_admin_hits'] = 'Loenda admini vaatamisi'; // cpg1.5
-$lang_admin_php['debug_mode'] = 'Luba silumisrežiim'; // cpg1.5
-$lang_admin_php['debug_notice'] = 'Näita silumisrežiimis märkusi'; // cpg1.5
-$lang_admin_php['offline'] = 'Galerii on hetkel maas'; // cpg1.5
-$lang_admin_php['display_coppermine_news'] = 'Näita coppermine-gallery.net uudiseid'; // cpg1.5
-$lang_admin_php['display_coppermine_detail'] = 'näidatakse ainult adminile'; // cpg1.5
-$lang_admin_php['config_setting_invalid'] = '&laquo;%s&raquo; väärtused on väärad, palun vaata need üle.'; // cpg1.5
-$lang_admin_php['config_setting_ok'] = 'Sinu &laquo;%s&raquo; seaded on salvestatud.'; // cpg1.5
-$lang_admin_php['contact_form_settings'] = 'Kontaktivormi seaded'; // cpg1.5
-$lang_admin_php['contact_form_guest_enable'] = 'Näita anonüümsetele külalistele kontaktivormi'; // cpg1.5
-$lang_admin_php['contact_form_registered_enable'] = 'Näita registreeritud kasutajatele kontaktivormi'; // cpg1.5
-$lang_admin_php['with_captcha'] = 'koos Captcha\'ga'; // cpg1.5
-$lang_admin_php['without_captcha'] = 'ilma Captcha\'ta'; // cpg1.5
-$lang_admin_php['optional'] = 'vabal valikul'; // cpg1.5
-$lang_admin_php['mandatory'] = 'kohustuslik'; // cpg1.5
-$lang_admin_php['contact_form_guest_name_field'] = 'Näita külalistele saatja nime'; // cpg1.5
-$lang_admin_php['contact_form_guest_email_field'] = 'Näita külalistele saatja e-posti aadressi'; // cpg1.5
-$lang_admin_php['contact_form_subject_field'] = 'Näita teema rida'; // cpg1.5
-$lang_admin_php['contact_form_subject_content'] = 'E-kirjade teemarea tekst, mida kasutab kontaktivorm'; // cpg1.5
-$lang_admin_php['contact_form_sender_email'] = 'Kasuta saatja e-posti aadressi &quot;Kellelt&quot; rea peal'; // cpg1.5
-$lang_admin_php['allow_no_link'] = 'luba, aga ära näita linki'; // cpg1.5
-$lang_admin_php['allow_show_link'] = 'luba ja reklaami seda lingi näitamise näol'; // cpg1.5
-$lang_admin_php['display_sidebar_user'] = 'Külgpaan registreeritud kasutajatele'; // cpg1.5
-$lang_admin_php['display_sidebar_guest'] = 'Külgpaan külalistele'; // cpg1.5
-$lang_admin_php['do_not_change'] = 'Ära muuda seda, kui sa ei tea, MIDA sa teed!'; // cpg1.5
-$lang_admin_php['reset_to_default'] = 'Lähtesta vaikeväärtustele'; // cpg1.5
-$lang_admin_php['no_change_needed'] = 'Muudatusi pole vaja, konfiguratsioon on seatud vaikeväärtustele'; // cpg1.5
-$lang_admin_php['enabled'] = 'lubatud'; // cpg1.5
-$lang_admin_php['disabled'] = 'keelatud'; // cpg1.5
-$lang_admin_php['none'] = 'puudub'; // cpg1.5
-$lang_admin_php['warning_change'] = 'Seda seadet muutes saavad mõjutatud ainult need failid, mis lisatakse pärast seda. Seega on soovitav seda seadet mitte muuta, kui galeriis on juba faile. Sellegi poolest on sul võimalik eksisteerivatele failidele muudatusi rakendada utiliidiga "Admini tööriistad (muuda pildi mõõtmeid)" admin-menüüst.'; // cpg1.5
-$lang_admin_php['warning_exist'] = 'Neid seadeid ei tohi muuta, kui su andmebaasis juba faile on.'; // cpg1.5
-$lang_admin_php['warning_dont_submit'] = 'Kui sul ei ole ettekujutust muudatustest, mida see seade põhjustab, siis ära kinnita vormi ja tutvu esmalt dokumentatsiooniga.'; // cpg1.5 // js-alert
-$lang_admin_php['menu_only'] = 'ainult menüüs'; // cpg1.5
-$lang_admin_php['everywhere'] = 'igal pool'; // cpg1.5
-$lang_admin_php['manage_languages'] = 'Keelte Haldur'; // cpg1.5
-$lang_admin_php['form_token_lifetime'] = 'Vormi eluiga'; // cpg1.5
-$lang_admin_php['seconds'] = 'sekundit'; // cpg1.5
-$lang_admin_php['display_reset_boxes_in_config'] = 'Näita lähtestamise nuppe konfiguratsioonis'; // cpg1.5
+$lang_admin_php['collapse_all'] = 'Tõmba kõik kokku';
+$lang_admin_php['separate_page'] = 'eraldi lehel';
+$lang_admin_php['inline'] = 'rivis';
+$lang_admin_php['guests_only'] = 'ainult külalised';
+$lang_admin_php['wm_bottomright'] = 'All paremal';
+$lang_admin_php['wm_bottomleft'] = 'All vasakul';
+$lang_admin_php['wm_topleft'] = 'Üleval vasakul';
+$lang_admin_php['wm_topright'] = 'Üleval paremal';
+$lang_admin_php['wm_center'] = 'Keskel';
+$lang_admin_php['wm_both'] = 'Mõlemad';
+$lang_admin_php['wm_original'] = 'Originaal';
+$lang_admin_php['wm_resized'] = 'Muudetud suurusega';
+$lang_admin_php['gallery_name'] = 'Galerii nimi';
+$lang_admin_php['gallery_description'] = 'Galerii kirjeldus';
+$lang_admin_php['gallery_admin_email'] = 'Galerii administraatori e-posti aadress';
+$lang_admin_php['ecards_more_pic_target'] = 'Sinu Coppermine\'i galerii URL';
+$lang_admin_php['ecards_more_pic_target_detail'] = '(lõpus peab olema kaldkriips, mitte \'index.php\' või muu taoline)';
+$lang_admin_php['home_target'] = 'Sinu kodulehe URL';
+$lang_admin_php['enable_zipdownload'] = 'Luba lemmikute pakitud allalaadimist';
+$lang_admin_php['enable_zipdownload_no_textfile'] = 'ainult lemmikud';
+$lang_admin_php['enable_zipdownload_additional_textfile'] = 'lemmikud ja readme-fail';
+$lang_admin_php['time_offset'] = 'Ajavööndi erinevus GMT suhtes';
+$lang_admin_php['time_offset_detail'] = '(hetke kellaaeg: %s)';
+$lang_admin_php['enable_help'] = 'Luba abi-ikoonid';
+$lang_admin_php['enable_help_description'] = 'abi on saadaval inglise keeles ja osaliselt';
+$lang_admin_php['clickable_keyword_search'] = 'Luba klikitavad võtmesõnad otsingus';
+$lang_admin_php['keyword_separator'] = 'Võtmesõnade eraldaja';
+$lang_admin_php['keyword_convert'] = 'Konverteeri võtmesõnade eraldaja';
+$lang_admin_php['enable_plugins'] = 'Luba pluginad';
+$lang_admin_php['purge_expired_bans'] = 'Automaatselt tühista aegunud bännid';
+$lang_admin_php['only_empty_albums'] = 'Lisa nupp albumi rippmenüü järele et näidata ainult tühje albumeid';
+$lang_admin_php['browse_batch_add'] = 'Lehitsetav hulgilisamise liides';
+$lang_admin_php['batch_add_hide_existing_files'] = 'Peida juba lisatud failid hulgilisamise liideses';
+$lang_admin_php['batch_proc_limit'] = 'Mitut faili korraga hulgilisamise liideses kasutada';
+$lang_admin_php['display_thumbs_batch_add'] = 'Näita eelvaate pisipilte hulgilisamise liideses';
+$lang_admin_php['lang'] = 'Vaikimisi keel';
+$lang_admin_php['language_autodetect'] = 'Keele automaattuvastus';
+$lang_admin_php['charset'] = 'Märgistiku kodeering';
+// 'previous_next_tab'] = 'Display previous/next on tabbed pages';
+$lang_admin_php['theme'] = 'Teema';
+$lang_admin_php['custom_lnk_name'] = 'Kohandatud menüülingi nimetus';
+$lang_admin_php['custom_lnk_url'] = 'Kohandatud menüülingi URL';
+$lang_admin_php['enable_menu_icons'] = 'Luba menüüikoonid';
+$lang_admin_php['show_bbcode_help'] = 'Kuva BBCode abi';
+$lang_admin_php['vanity_block'] = 'Näita XHTML ja CSS standarditele vastavate teemade puhul ühilduvusteadet';
+$lang_admin_php['highlight_multiple'] = 'Ridade hulgimärgistamiseks hoia all Ctrl-klahvi';
+$lang_admin_php['custom_header_path'] = 'Rada kohandatud päiseni';
+$lang_admin_php['custom_footer_path'] = 'Rada kohandatud jaluseni';
+$lang_admin_php['browse_by_date'] = 'Luba lehitsemine kuupäeva järgi';
+$lang_admin_php['display_redirection_page'] = 'Kuva edasisuunamise lehed';
+$lang_admin_php['main_table_width'] = 'Põhitabeli laius';
+$lang_admin_php['pixels_or_percent'] = 'px või %';
+$lang_admin_php['subcat_level'] = 'Näidatavate kategooriatasemete arv';
+$lang_admin_php['albums_per_page'] = 'Näidatavate albumite arv';
+$lang_admin_php['album_list_cols'] = 'Veergude arv albumi nimekirjas';
+$lang_admin_php['alb_list_thumb_size'] = 'Albumi pisipiltide suurus';
+$lang_admin_php['main_page_layout'] = 'Pealehe sisu';
+$lang_admin_php['first_level'] = 'Näita kategooriates esimese taseme albumi pisipilte';
+$lang_admin_php['categories_alpha_sort'] = 'Sorteeri kategooriad tähestiku järgi';
+$lang_admin_php['categories_alpha_sort_details'] = '(kohandatud järjekorra asemel)';
+$lang_admin_php['album_sort_order'] = 'Sorteerimisjärjekord albumitele';
+$lang_admin_php['link_pic_count'] = 'Näita lingitud failide arvu';
+$lang_admin_php['link_last_upload'] = 'Arvesta üleslaadimise ajaga lingitud failidega albumi infos'; // cpg1.6
+$lang_admin_php['thumbcols'] = 'Veergude arv pisipiltide lehel';
+$lang_admin_php['thumbrows'] = 'Ridade arv pisipiltide lehel';
+$lang_admin_php['max_tabs'] = 'Näidatavate kaartide suurim arv';
+$lang_admin_php['tabs_dropdown'] = 'Näita kõikide lehtede rippmenüü nimekirja kaartide kõrval';
+$lang_admin_php['caption_in_thumbview'] = 'Näita pisipildi all faili seletust (lisaks pealkirjale)';
+$lang_admin_php['views_in_thumbview'] = 'Näita pisipildi all vaatamiste arvu';
+$lang_admin_php['display_comment_count'] = 'Näita pisipildi all kommentaaride arvu';
+$lang_admin_php['display_uploader'] = 'Näita pisipildi all üleslaadija nime';
+// 'display_admin_uploader'] = 'Display name of admin uploaders below the thumbnail';
+$lang_admin_php['display_filename'] = 'Näita pisipildi all faili nime';
+$lang_admin_php['display_thumbnail_rating'] = 'Näita pisipildi all reitingut';
+$lang_admin_php['alb_desc_thumb'] = 'Näita albumi kirjeldust';
+$lang_admin_php['thumbnail_to_fullsize'] = 'Mine pisipildilt otse täissuuruses pildile';
+$lang_admin_php['default_sort_order'] = 'Failide vaikimisi sorteerimisjärjekord';
+$lang_admin_php['custom_sortorder_thumbs'] = 'Näita sorteerimise nuppe pisipiltide lehel';
+$lang_admin_php['min_votes_for_rating'] = 'Vähim häälte arv, millega fail saab ilmuda \'Kõrgeimalt hinnatud\' nimekirja';
+$lang_admin_php['picture_table_width'] = 'Tabeli laius faili näitamiseks';
+$lang_admin_php['display_pic_info'] = 'Faili info on vaikimisi nähtaval';
+$lang_admin_php['picinfo_movie_download_link'] = 'Näita video allalaadimislinki failiinfo alas';
+$lang_admin_php['max_img_desc_length'] = 'Pildi kirjelduse suurim pikkus';
+$lang_admin_php['max_com_wlength'] = 'Tähemärkide maksimumarv sõnas';
+$lang_admin_php['display_film_strip'] = 'Näita filmiriba';
+$lang_admin_php['max_film_strip_items'] = 'Elementide arv filmiribal';
+$lang_admin_php['slideshow_interval'] = 'Slaidiseansi intervall';
+$lang_admin_php['milliseconds'] = 'millisekundites';
+$lang_admin_php['slideshow_interval_detail'] = '1000 ms = 1 s';
+$lang_admin_php['slideshow_hits'] = 'Loenda slaidiseansi klikke';
+$lang_admin_php['ecard_captcha'] = 'Näita captchat (kinnituskoodi) e-kaartide saatmise juures'; // cpg1.6
+$lang_admin_php['ecard_flash'] = 'Luba Flash e-kaartidel';
+$lang_admin_php['not_recommended'] = 'ei ole soovitav';
+$lang_admin_php['recommended'] = 'soovitav';
+$lang_admin_php['transparent_overlay'] = 'Lisa läbipaistev kiht piltide varguse vähendamiseks';
+$lang_admin_php['old_style_rating'] = 'Pöördu tagasi vana hindamissüsteemi juurde';
+$lang_admin_php['old_style_rating_extra'] = 'See keelab \'Reitingutähekeste arv\' valiku';
+$lang_admin_php['rating_stars_amount'] = 'Reitingutähekeste arv hindamisel';
+$lang_admin_php['rate_own_files'] = 'Kasutajad võivad hinnata omi pilte';
+$lang_admin_php['filter_bad_words'] = 'Filtreeri kommentaaridest inetud sõnad välja';
+$lang_admin_php['enable_smilies'] = 'Luba smailid kommentaarides';
+$lang_admin_php['disable_comment_flood_protect'] = 'Luba sama kasutaja poolt mitu järjestikust kommentaari ühele failile';
+$lang_admin_php['disable_comment_flood_protect_details'] = '(ehk: keela spämmikaitse)';
+$lang_admin_php['max_com_lines'] = 'Ridade suurim arv kommentaaris';
+$lang_admin_php['max_com_size'] = 'Kommentaari maksimumpikkus';
+$lang_admin_php['email_comment_notification'] = 'Teavita kommentaaridest e-posti teel administraatorit';
+$lang_admin_php['comments_sort_descending'] = 'Kommentaaride sorteerimisjärjekord';
+$lang_admin_php['comments_per_page'] = 'Kommentaare lehel';
+$lang_admin_php['comments_anon_pfx'] = 'Anonüümsete kommenteerijate nime eesliide';
+$lang_admin_php['comment_approval'] = 'Kommentaarid vajavad heakskiitu';
+$lang_admin_php['display_comment_approval_only'] = 'Näita ainult kommentaare, mis vajavad heakskiitu lehel: &quot;Vaata kommentaare&quot;';
+$lang_admin_php['comment_placeholder'] = 'Näita lõppkasutajatele asendusteksti nende kommentaaride osas, mis ootavad admini heakskiitu';
+$lang_admin_php['comment_user_edit'] = 'Luba kasutajail muuta oma kommentaare';
+$lang_admin_php['comment_captcha'] = 'Näita lisatavate kommentaaride puhul Captcha\'t (visuaalkinnitust)';
+$lang_admin_php['comment_akismet_enable'] = 'Akismet';
+$lang_admin_php['comment_akismet_enable_description'] = 'mida teha, kui kõrvaldatakse spämmikahtlusega kommentaar?';
+$lang_admin_php['comment_akismet_applicable_only'] = 'Valik rakendub ainult juhul, kui on sisestatud Akismeti valiidne API võti';
+$lang_admin_php['comment_akismet_enable_approval'] = 'Luba kommentaarid, mis ei läbi Akismeti kontrolli (aga märgista need, kui heakskiitmata)';
+$lang_admin_php['comment_akismet_drop_tell'] = 'Keela kommentaar, mis ei valideeru ja ütle autorile, et see lükati kõrvale';
+$lang_admin_php['comment_akismet_drop_lie'] = 'Keela kommentaar, mis ei valideeru aga ütle autorile, et see lisati';
+$lang_admin_php['comment_akismet_api_key'] = 'Akismeti API võti';
+$lang_admin_php['comment_akismet_api_key_description'] = 'Akismeti keelamiseks jäta tühjaks';
+$lang_admin_php['comment_akismet_group'] = 'Rakenda Akismet nende kommentaaride puhul, mille on lisanud';
+$lang_admin_php['comment_promote_registration'] = 'Palu külalistel kommentaaride postitamiseks sisse logida';
+$lang_admin_php['thumb_width'] = 'Pisipildi maksimummõõde (laius, kui &quot;Kasutatav mõõde&quot; on &quot;Täpselt&quot;)';
+$lang_admin_php['thumb_use'] = 'Kasutatav mõõde';
+$lang_admin_php['thumb_use_detail'] = '(pisipildi laius, kõrgus või suurim kuvasuhe)';
+$lang_admin_php['thumb_height'] = 'Pisipildi kõrgus';
+$lang_admin_php['thumb_height_detail'] = '(rakendub ainult siis, kui &quot;Kasutatav mõõde&quot; on &quot;Täpselt&quot;)';
+$lang_admin_php['movie_audio_document'] = 'video, audio, dokument';
+$lang_admin_php['thumb_pfx'] = 'Pisipiltide eesliide';
+$lang_admin_php['enable_unsharp'] = 'Pisipiltide teravustamine: luba Unsharp Mask';
+$lang_admin_php['unsharp_amount'] = 'Pisipiltide teravustamise tugevus';
+$lang_admin_php['unsharp_radius'] = 'Pisipiltide teravustamise raadius';
+$lang_admin_php['unsharp_threshold'] = 'Pisipiltide teravustamise lävi';
+$lang_admin_php['jpeg_qual'] = 'JPEG-failide kvaliteet';
+$lang_admin_php['make_intermediate'] = 'Loo vahepealsed pildid';
+$lang_admin_php['picture_use'] = 'Vahepealse pildi mõõde';
+$lang_admin_php['picture_use_detail'] = '(laius, kõrgus või suurim kuvasuhe)';
+$lang_admin_php['picture_use_thumb'] = 'Nagu pisipilt';
+$lang_admin_php['picture_width'] = 'Vahepealse pildi maksimumlaius või -kõrgus';
+$lang_admin_php['max_upl_size'] = 'Üleslaetud faili maksimumsuurus';
+$lang_admin_php['kilobytes'] = 'KB';
+$lang_admin_php['pixels'] = 'px';
+$lang_admin_php['max_upl_width_height'] = 'Üleslaetud piltide maksimumlaius või -kõrgus';
+$lang_admin_php['auto_resize'] = 'Vähenda lubatust laiemad või kõrgemad pildid automaatselt';
+$lang_admin_php['fullsize_padding_x'] = 'Täismõõdus hüpikakna (pop-up\'i) horisontaalne polster (padding)';
+$lang_admin_php['fullsize_padding_y'] = 'Täismõõdus hüpikakna (pop-up\'i) vertikaalne polster (padding)';
+$lang_admin_php['allow_private_albums'] = 'Albumid võivad olla privaatsed';
+$lang_admin_php['allow_private_albums_note'] = '(MÄRKUS: selle keelamisel muutuvad kõik praegused privaatsed albumid nähtavaks)';
+$lang_admin_php['show_private'] = 'Näita privaatalbumite ikoone sisselogimata kasutajatele';
+$lang_admin_php['forbiden_fname_char'] = 'Failinimedes keelatud sümbolid';
+$lang_admin_php['silly_safe_mode'] = 'Luba &quot;lihtne safe mode&quot;';
+$lang_admin_php['allowed_img_types'] = 'Lubatud pildivormingud';
+$lang_admin_php['allowed_mov_types'] = 'Lubatud videovormingud';
+$lang_admin_php['media_autostart'] = 'Video automaatkäivitus';
+$lang_admin_php['allowed_snd_types'] = 'Lubatud audiovormingud';
+$lang_admin_php['allowed_doc_types'] = 'Lubatud dokumendivormingud';
+$lang_admin_php['thumb_method'] = 'Piltide suuruse muutmise meetod';
+$lang_admin_php['impath'] = 'Rada ImageMagick\'u utiliidi \'convert\' juurde';
+$lang_admin_php['impath_example'] = '(nt /usr/bin/)';
+$lang_admin_php['im_options'] = 'Käsurea võtmed ImageMagick\'ule';
+$lang_admin_php['read_exif_data'] = 'Loe JPEG-failidest EXIF-andmed';
+$lang_admin_php['read_iptc_data'] = 'Loe JPEG-failidest IPTC-andmed';
+$lang_admin_php['fullpath'] = 'Albumikataloog';
+$lang_admin_php['userpics'] = 'Kasutajafailide kataloog';
+$lang_admin_php['upload_create_album_directory'] = 'Loo alamkataloog igale albumile kaustas users\' üleslaadimisteks  '; // cpg1.6
+$lang_admin_php['normal_pfx'] = 'Vahepealsete piltide eesliide';
+$lang_admin_php['default_dir_mode'] = 'Kataloogide vaikimisi õigused';
+$lang_admin_php['default_file_mode'] = 'Failide vaikimisi õigused';
+$lang_admin_php['enable_watermark'] = 'Vesimärgi kujutis';
+$lang_admin_php['enable_thumb_watermark'] = 'Vesimärgi kohandatud pisipildid';
+$lang_admin_php['where_put_watermark'] = 'Kuhu vesimärk paigutada';
+$lang_admin_php['which_files_to_watermark'] = 'Milliseid faile vesimärgistada';
+$lang_admin_php['watermark_file'] = 'Millist faili kasutada vesimärgistamiseks';
+$lang_admin_php['watermark_transparency'] = 'Vesipildi läbipaistvus';
+$lang_admin_php['zero_2_hundred'] = '0-100';
+$lang_admin_php['reduce_watermark'] = 'Vähenda vesimärki, kui pildi laius on väiksem, kui sisestatud väärtus. See on 100% osutuspunkt. Vesimärgi vähendamine on lineaarne (0 - keelab)';
+$lang_admin_php['watermark_transparency_featherx'] = 'Sea x läbipaistev värv';
+$lang_admin_php['watermark_transparency_feathery'] = 'Sea y läbipaistev värv';
+$lang_admin_php['gd2_only'] = 'Ainult GD2 puhul';
+$lang_admin_php['allow_user_registration'] = 'Luba uute kasutajate registreerimine';
+$lang_admin_php['global_registration_pw'] = 'Registreerimise üleüldine salasõna';
+$lang_admin_php['user_registration_disclaimer'] = 'Näita kasutaja registreerimisel kasutustingimusi';
+$lang_admin_php['registration_captcha'] = 'Näita registreerimislehel Captcha\'t (visuaalkinnitust)';
+$lang_admin_php['reg_requires_valid_email'] = 'Nõua registreerumisel e-posti aadressi tõestamist';
+$lang_admin_php['reg_notify_admin_email'] = 'Teavita kasutajate registreerumisest e-posti teel administraatorit';
+$lang_admin_php['admin_activation'] = 'Registreerumiste aktiveerimine administraatori poolt';
+$lang_admin_php['personal_album_on_registration'] = 'Loo kasutaja album personaalsesse galeriisse registreerumisel';
+$lang_admin_php['allow_unlogged_access'] = 'Luba sisselogimata kasutajate (anonüümsete või külaliste) juurdepääs';
+$lang_admin_php['thumbnail_intermediate_full'] = 'kõik pildiformaadid';
+$lang_admin_php['thumbnail_intermediate'] = 'pisipilt ja vahepealne pilt';
+$lang_admin_php['thumbnail_only'] = 'ainult pisipilt';
+$lang_admin_php['upload_mechanism'] = 'Vaikimisi üleslaadimise viis';
+$lang_admin_php['upload_swf'] = 'mitu faili korraga, Flash-i põhine';
+$lang_admin_php['upload_single'] = 'üks fail korraga';
+$lang_admin_php['allow_user_upload_choice'] = 'Luba neil valida üleslaadimise viisi';
+$lang_admin_php['editpics_ignore_newer_than'] = 'Näita eelnevalt üles laetud faile ja failide redigeerimisvormi peale flash üleslaadimist';
+$lang_admin_php['allow_duplicate_emails_addr'] = 'Luba kahel kasutajal sama e-posti aadressi kasutada';
+$lang_admin_php['upl_notify_admin_email'] = 'Teavita heakskiitu ootavatest üleslaadimistest e-posti teel administraatorit';
+$lang_admin_php['user_manager_hide_file_stats'] = 'Peida failide arvu ja kettaruumi näidikud kasutaja halduses'; // cpg1.6
+$lang_admin_php['allow_memberlist'] = 'Luba sisselogitud kasutajatel liikmete nimekirja vaadata';
+$lang_admin_php['allow_email_change'] = 'Luba neil oma profiilis e-posti aadressi muuta';
+$lang_admin_php['allow_user_account_delete'] = 'Luba neil kustutada oma kasutajakonto';
+$lang_admin_php['users_can_edit_pics'] = 'Luba neil säilitada kontroll oma piltide üle, mis asuvad avalikes galeriides';
+$lang_admin_php['allow_user_move_album'] = 'Luba neil oma albumeid lubatud kategooriate seas ringi tõsta';
+$lang_admin_php['allow_user_album_keyword'] = 'Luba neil albumeile võtmesõnu panna';
+$lang_admin_php['allow_user_edit_after_cat_close'] = 'Luba neil redigeerida oma albumeid lukustatud kategooorias';
+$lang_admin_php['album_uploads_default'] = 'Vaikeväärtus albumi seadele "Külastajad saavad faile üles laadida"'; // cpg1.6
+$lang_admin_php['login_method_username'] = 'Kasutajanimi';
+$lang_admin_php['login_method_email'] = 'E-posti aadress';
+$lang_admin_php['login_method_both'] = 'Mõlemad';
+$lang_admin_php['login_method'] = 'Kuidas sa soovid neil lasta sisse logida';
+$lang_admin_php['login_threshold'] = 'Ebaõnnestunud sisselogimiste arv kuni ajutise bännini';
+$lang_admin_php['login_threshold_detail'] = '(et ära hoida brute force ründeid)';
+$lang_admin_php['login_expiry'] = 'Ajutise bänni kestus pärast ebaõnnestunud sisselogimist';
+$lang_admin_php['minutes'] = 'minutit';
+$lang_admin_php['report_post'] = 'Luba administraatorile teatamine';
+$lang_admin_php['user_profile1_name'] = 'Profiili nr 1 nimi';
+$lang_admin_php['user_profile2_name'] = 'Profiili nr 2 nimi';
+$lang_admin_php['user_profile3_name'] = 'Profiili nr 3 nimi';
+$lang_admin_php['user_profile4_name'] = 'Profiili nr 4 nimi';
+$lang_admin_php['user_profile5_name'] = 'Profiili nr 5 nimi';
+$lang_admin_php['user_profile6_name'] = 'Profiili nr 6 nimi (kasuta seda profiili pikemate väljade jaoks, nt elulugu)';
+$lang_admin_php['user_field1_name'] = 'Välja nr 1 nimi';
+$lang_admin_php['user_field2_name'] = 'Välja nr 2 nimi';
+$lang_admin_php['user_field3_name'] = 'Välja nr 3 nimi';
+$lang_admin_php['user_field4_name'] = 'Välja nr 4 nimi';
+$lang_admin_php['cookie_name'] = 'Cookie nimi';
+$lang_admin_php['cookie_path'] = 'Cookie rada';
+$lang_admin_php['smtp_host'] = 'SMTP host (kui tühjaks jätta, kasutatakse sendmail\'i)';
+$lang_admin_php['smtp_username'] = 'SMTP kasutajanimi';
+$lang_admin_php['smtp_password'] = 'SMTP salasõna';
+$lang_admin_php['log_mode'] = 'Logide pidamise viis';
+$lang_admin_php['log_mode_details'] = 'Kõik logifailid on ingliskeelsed';
+$lang_admin_php['log_ecards'] = 'Logi e-kaarte';
+$lang_admin_php['log_ecards_detail'] = 'MÄRKUS: logi pidamisel võivad olla õiguslikud tagajärjed. Kasutajat peab teavitama registreerumisel, et e-kaarte logitakse. On soovitav pakkuda ka eraldi lehekülge privaatsuspoliitikaga.';
+$lang_admin_php['vote_details'] = 'Säilita detailne hääletamise statistika';
+$lang_admin_php['hit_details'] = 'Säilita detailne vaatamiste statistika';
+$lang_admin_php['display_stats_on_index'] = 'Näita statistikat saidi esilehel';
+$lang_admin_php['count_file_hits'] = 'Loenda failide vaatamisi';
+$lang_admin_php['count_album_hits'] = 'Loenda albumi vaatamisi';
+$lang_admin_php['count_admin_hits'] = 'Loenda admini vaatamisi';
+$lang_admin_php['debug_mode'] = 'Luba silumisrežiim';
+$lang_admin_php['debug_notice'] = 'Näita silumisrežiimis märkusi';
+$lang_admin_php['offline'] = 'Galerii on hetkel maas';
+$lang_admin_php['display_coppermine_news'] = 'Näita coppermine-gallery.net uudiseid';
+$lang_admin_php['display_coppermine_detail'] = 'näidatakse ainult adminile';
+$lang_admin_php['config_setting_invalid'] = '&laquo;%s&raquo; väärtused on väärad, palun vaata need üle.';
+$lang_admin_php['config_setting_rangerr'] = 'Väärtus mis sa sisestasid &laquo;%s&raquo; on väljaspool lubatud piire, palun vaata üle.';
+$lang_admin_php['config_setting_ok'] = 'Sinu &laquo;%s&raquo; seaded on salvestatud.';
+$lang_admin_php['contact_form_settings'] = 'Kontaktivormi seaded';
+$lang_admin_php['contact_form_guest_enable'] = 'Näita anonüümsetele külalistele kontaktivormi';
+$lang_admin_php['contact_form_registered_enable'] = 'Näita registreeritud kasutajatele kontaktivormi';
+$lang_admin_php['with_captcha'] = 'koos Captcha\'ga';
+$lang_admin_php['without_captcha'] = 'ilma Captcha\'ta';
+$lang_admin_php['optional'] = 'vabal valikul';
+$lang_admin_php['mandatory'] = 'kohustuslik';
+$lang_admin_php['contact_form_guest_name_field'] = 'Näita külalistele saatja nime';
+$lang_admin_php['contact_form_guest_email_field'] = 'Näita külalistele saatja e-posti aadressi';
+$lang_admin_php['contact_form_subject_field'] = 'Näita teema rida';
+$lang_admin_php['contact_form_subject_content'] = 'E-kirjade teemarea tekst, mida kasutab kontaktivorm';
+$lang_admin_php['contact_form_sender_email'] = 'Kasuta saatja e-posti aadressi &quot;Kellelt&quot; rea peal';
+$lang_admin_php['allow_no_link'] = 'luba, aga ära näita linki';
+$lang_admin_php['allow_show_link'] = 'luba ja reklaami seda lingi näitamise näol';
+$lang_admin_php['display_sidebar_user'] = 'Külgpaan registreeritud kasutajatele';
+$lang_admin_php['display_sidebar_guest'] = 'Külgpaan külalistele';
+$lang_admin_php['do_not_change'] = 'Ära muuda seda, kui sa ei tea, MIDA sa teed!';
+$lang_admin_php['reset_to_default'] = 'Lähtesta vaikeväärtustele';
+$lang_admin_php['no_change_needed'] = 'Muudatusi pole vaja, konfiguratsioon on seatud vaikeväärtustele';
+$lang_admin_php['enabled'] = 'lubatud';
+$lang_admin_php['disabled'] = 'keelatud';
+$lang_admin_php['none'] = 'puudub';
+$lang_admin_php['warning_change'] = 'Seda seadet muutes saavad mõjutatud ainult need failid, mis lisatakse pärast seda. Seega on soovitav seda seadet mitte muuta, kui galeriis on juba faile. Sellegi poolest on sul võimalik eksisteerivatele failidele muudatusi rakendada utiliidiga "Admini tööriistad (muuda pildi mõõtmeid)" admin-menüüst.';
+$lang_admin_php['warning_exist'] = 'Neid seadeid ei tohi muuta, kui su andmebaasis juba faile on.';
+$lang_admin_php['warning_dont_submit'] = 'Kui sul ei ole ettekujutust muudatustest, mida see seade põhjustab, siis ära kinnita vormi ja tutvu esmalt dokumentatsiooniga.'; // js-alert
+$lang_admin_php['warning_just_new_albums'] = 'See seade rakendub vaid uutele albumitele ja ei rakendu olemasolevatele.'; // cpg1.6
+$lang_admin_php['menu_only'] = 'ainult menüüs';
+$lang_admin_php['everywhere'] = 'igal pool';
+$lang_admin_php['manage_languages'] = 'Keelte Haldur';
+$lang_admin_php['form_token_lifetime'] = 'Vormi eluiga';
+$lang_admin_php['seconds'] = 'sekundit';
+$lang_admin_php['display_reset_boxes_in_config'] = 'Näita lähtestamise nuppe konfiguratsioonis';
 $lang_admin_php['upd_not_needed'] = 'Uuendus pole vajalik.'; // cpg 1.5
 }
 
@@ -964,7 +986,7 @@ $lang_db_ecard_php['invalid_data'] = 'E-kaardi andmed, mida sa soovid vaadata, o
 // ------------------------------------------------------------------------- //
 if (defined('DB_INPUT_PHP')) {
 $lang_db_input_php['empty_name_or_com'] = 'Sa pead sisestama oma nime ja kommentaari';
-$lang_db_input_php['com_added'] = 'Sinu kommentaar on lisatud'; // cpg1.5
+$lang_db_input_php['com_added'] = 'Sinu kommentaar on lisatud';
 $lang_db_input_php['alb_need_title'] = 'Sa pead panema albumile nime!';
 $lang_db_input_php['no_udp_needed'] = 'Uuendamist pole vaja.';
 $lang_db_input_php['alb_updated'] = 'Album uuendati';
@@ -982,7 +1004,7 @@ $lang_db_input_php['upload_success'] = 'Fail edukalt üles laetud..<br />Nähtav
 $lang_db_input_php['notify_admin_email_subject'] = '%s - üleslaadimisteavitus';
 $lang_db_input_php['notify_admin_email_body'] = '%s laadis üles pildi, mis ootab heakskiitu. Vt %s';
 $lang_db_input_php['info'] = 'Teade';
-$lang_db_input_php['com_updated'] = 'Kommentaar lisatud'; // cpg1.5
+$lang_db_input_php['com_updated'] = 'Kommentaar lisatud';
 $lang_db_input_php['alb_updated'] = 'Album uuendatud';
 $lang_db_input_php['err_comment_empty'] = 'Su kommentaar on tühi!';
 $lang_db_input_php['err_invalid_fext'] = 'Lubatud on ainult järgnevate laienditega failid:'; // js-alert
@@ -999,7 +1021,7 @@ $lang_db_input_php['com_author_error'] = 'Seda nime juba kasutab üks registreer
 // File delete.php
 // ------------------------------------------------------------------------- //
 if (defined('DELETE_PHP')) {
-$lang_delete_php['orig_pic'] = 'originaalpilt'; // cpg1.5
+$lang_delete_php['orig_pic'] = 'originaalpilt';
 $lang_delete_php['fs_pic'] = 'täismõõdus pilt';
 $lang_delete_php['del_success'] = 'edukalt kustutatud';
 $lang_delete_php['ns_pic'] = 'normaalmõõdus pilt';
@@ -1040,8 +1062,8 @@ $lang_delete_php['change_group_to_group'] = 'Muutmine: %s -&gt; %s';
 $lang_delete_php['add_group'] = 'Lisa teisene grupp';
 $lang_delete_php['add_group_to_group'] = 'Kasutaja %s lisamine gruppi %s. Ta on nüüd esmaselt %s ja teiseselt %s kasutajagrupi liige.';
 $lang_delete_php['status'] = 'Olek';
-$lang_delete_php['updating_album'] = 'Uuenda albumit '; // cpg1.5
-$lang_delete_php['moved_picture_to_position'] = 'Pilt %s tõstetud kohale %s'; // cpg1.5
+$lang_delete_php['updating_album'] = 'Uuenda albumit ';
+$lang_delete_php['moved_picture_to_position'] = 'Pilt %s tõstetud kohale %s';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1133,32 +1155,32 @@ $lang_picinfo['Contrast'] = 'Kontrastsus';
 $lang_picinfo['Sharpness'] = 'Teravus';
 $lang_picinfo['ManageExifDisplay'] = 'EXIF info haldus';
 $lang_picinfo['success'] = 'Info edukalt uuendatud.';
-$lang_picinfo['show_details'] = 'Näita üksikasju'; // cpg1.5
-$lang_picinfo['hide_details'] = 'Peida üksikasju'; // cpg1.5
+$lang_picinfo['show_details'] = 'Näita üksikasju';
+$lang_picinfo['hide_details'] = 'Peida üksikasju';
 $lang_picinfo['download_URL'] = 'Otseviide';
 $lang_picinfo['movie_player'] = 'Mängita faili standardrakendusega';
 
-$lang_display_comments['comment_x_to_y_of_z'] = '%d-lt %d-le %d kohta'; // cpg1.5
-$lang_display_comments['page'] = 'Lk'; // cpg1.5
+$lang_display_comments['comment_x_to_y_of_z'] = '%d-lt %d-le %d kohta';
+$lang_display_comments['page'] = 'Lk';
 $lang_display_comments['edit_title'] = 'Muuda seda kommentaari';
-$lang_display_comments['delete_title'] = 'Kustuta see kommentaar'; // cpg1.5
+$lang_display_comments['delete_title'] = 'Kustuta see kommentaar';
 $lang_display_comments['confirm_delete'] = 'Oled kindel, et tahad selle kommentaari kustutada?'; // js-alert
 $lang_display_comments['add_your_comment'] = 'Lisa oma kommentaar';
 $lang_display_comments['name'] = 'Nimi';
 $lang_display_comments['comment'] = 'Kommentaar';
 $lang_display_comments['your_name'] = 'Sinu nimi';
 $lang_display_comments['report_comment_title'] = 'Teavita sellest kommentaarist administraatorit';
-$lang_display_comments['pending_approval'] = 'Kommentaar muutub nähtavaks pärast administraatori heakskiitu'; // cpg1.5
-$lang_display_comments['unapproved_comment'] = 'Heakskiiduta kommentaar'; // cpg1.5
-$lang_display_comments['pending_approval_message'] = 'Keegi on postitanud siia kommentaari. See muutub nähtavaks pärast administraatori heakskiitu.'; // cpg1.5
-$lang_display_comments['approve'] = 'Kiida kommentaar heaks'; // cpg1.5
-$lang_display_comments['disapprove'] = 'Märgista kommentaar kõlbmatuks'; // cpg1.5
-$lang_display_comments['log_in_to_comment'] = 'Anonüümsed kommentaarid pole siin lubatud. %sLogi sisse%s, kui soovid oma kommentaari postitada'; // cpg1.5 // do not translate the %s placeholders - they will be used as wrappers for the link (<a>)
-$lang_display_comments['default_username_message'] = 'Palun nimeta oma nimi ka'; // cpg1.5
-$lang_display_comments['comment_rejected'] = 'Sinu kommentaar on tagasi lükatud'; // cpg1.5
+$lang_display_comments['pending_approval'] = 'Kommentaar muutub nähtavaks pärast administraatori heakskiitu';
+$lang_display_comments['unapproved_comment'] = 'Heakskiiduta kommentaar';
+$lang_display_comments['pending_approval_message'] = 'Keegi on postitanud siia kommentaari. See muutub nähtavaks pärast administraatori heakskiitu.';
+$lang_display_comments['approve'] = 'Kiida kommentaar heaks';
+$lang_display_comments['disapprove'] = 'Märgista kommentaar kõlbmatuks';
+$lang_display_comments['log_in_to_comment'] = 'Anonüümsed kommentaarid pole siin lubatud. %sLogi sisse%s, kui soovid oma kommentaari postitada'; // do not translate the %s placeholders - they will be used as wrappers for the link (<a>)
+$lang_display_comments['default_username_message'] = 'Palun nimeta oma nimi ka';
+$lang_display_comments['comment_rejected'] = 'Sinu kommentaar on tagasi lükatud';
 
 $lang_fullsize_popup['click_to_close'] = 'Klõpsa pildil akna sulgemiseks';
-$lang_fullsize_popup['close_window'] = 'sulge aken'; // cpg1.5
+$lang_fullsize_popup['close_window'] = 'sulge aken';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1167,10 +1189,10 @@ $lang_fullsize_popup['close_window'] = 'sulge aken'; // cpg1.5
 
 if (defined('ECARDS_PHP')) {
 $lang_ecard_php['title'] = 'Saada e-kaart';
-$lang_ecard_php['invalid_email'] = 'Hoiatus: vigane e-posti aadress:'; // cpg1.5
+$lang_ecard_php['invalid_email'] = 'Hoiatus: vigane e-posti aadress:';
 $lang_ecard_php['ecard_title'] = '%s saatis sulle e-kaardi';
-$lang_ecard_php['error_not_image'] = 'E-kaardina saab saata ainult pilte.'; // cpg1.5
-$lang_ecard_php['error_not_image_flash'] = 'Ainult pilte ja Flashi faile saab saata e-kaardina.'; // cpg1.5
+$lang_ecard_php['error_not_image'] = 'E-kaardina saab saata ainult pilte.';
+$lang_ecard_php['error_not_image_flash'] = 'Ainult pilte ja Flashi faile saab saata e-kaardina.';
 $lang_ecard_php['view_ecard'] = 'Alternatiivne link puhuks, kui e-kaarti ei näidata korralikult';
 $lang_ecard_php['view_ecard_plaintext'] = 'E-kaardi vaatamiseks kopeeri oma veebilehitseja aadressiribale see URL:';
 $lang_ecard_php['view_more_pics'] = 'Vaata rohkem pilte!';
@@ -1279,8 +1301,8 @@ $lang_editpics_php['mime_conv'] = 'Faili teisendamine \'%s\'-st to \'%s\'-ks pol
 $lang_editpics_php['forb_ext'] = 'Keelatud faililaiend.';
 $lang_editpics_php['error_editor_class'] = 'Redaktori klass ei toimi sinu suuruse muutmise meetodi puhul'; // cpg 1.5
 $lang_editpics_php['error_document_size'] = 'Dokumendil pole laiust või kõrgust'; // cpg 1.5 // js-alert
-$lang_editpics_php['success_picture'] = 'Pilt edukalt salvestatud - sa võid nüüd %ssulgeda%s selle akna'; // cpg1.5 // do not translate "%s" here
-$lang_editpics_php['success_thumb'] = 'Pisipilt edukalt salvestatud - sa võid nüüd %ssulgeda%s selle akna'; // cpg1.5 // do not translate "%s" here
+$lang_editpics_php['success_picture'] = 'Pilt edukalt salvestatud - sa võid nüüd %ssulgeda%s selle akna'; // do not translate "%s" here
+$lang_editpics_php['success_thumb'] = 'Pisipilt edukalt salvestatud - sa võid nüüd %ssulgeda%s selle akna'; // do not translate "%s" here
 $lang_editpics_php['rotate'] = 'Pööra'; // cpg 1.5
 $lang_editpics_php['mirror'] = 'Peegelda'; // cpg 1.5
 $lang_editpics_php['scale'] = 'Skaleeri'; // cpg 1.5
@@ -1291,14 +1313,14 @@ $lang_editpics_php['jpeg_quality'] = 'JPEG väljundkvaliteet'; // cpg 1.5
 $lang_editpics_php['or'] = 'VÕI'; // cpg 1.5
 $lang_editpics_php['approve_pic'] = 'Kiida pilt heaks'; // cpg 1.5
 $lang_editpics_php['approve_all'] = 'Kiida heaks KÕIK failid'; // cpg 1.5
-$lang_editpics_php['error_empty'] = 'Album on tühi'; // cpg1.5
-$lang_editpics_php['error_approval_empty'] = 'Pole enam ühtegi pilti heaks kiita'; // cpg1.5
-$lang_editpics_php['error_linked_only'] = 'Album sisaldab ainult lingitud faile, mida ei saa siin redigeerida'; // cpg1.5
-$lang_editpics_php['note_approve_public'] = 'Avalikku albumisse tõstetavad failid peab admin heaks kiitma.'; // cpg1.5
-$lang_editpics_php['note_approve_private'] = 'Privaatsesse albumisse tõstetavad failid peab admin heaks kiitma.' ; // cpg1.5
-$lang_editpics_php['note_edit_control'] = 'Avalikku albumisse tõstetud faile ei saa redigeerida.'; // cpg1.5
-$lang_editpics_php['confirm_move'] = 'Oled sa kindel, et sa soovid selle faili ringi tõsta?'; // cpg1.5 //js-alert
-$lang_editpics_php['success_changes'] = 'Muudatused edukalt salvestatud'; // cpg1.5
+$lang_editpics_php['error_empty'] = 'Album on tühi';
+$lang_editpics_php['error_approval_empty'] = 'Pole enam ühtegi pilti heaks kiita';
+$lang_editpics_php['error_linked_only'] = 'Album sisaldab ainult lingitud faile, mida ei saa siin redigeerida';
+$lang_editpics_php['note_approve_public'] = 'Avalikku albumisse tõstetavad failid peab admin heaks kiitma.';
+$lang_editpics_php['note_approve_private'] = 'Privaatsesse albumisse tõstetavad failid peab admin heaks kiitma.' ;
+$lang_editpics_php['note_edit_control'] = 'Avalikku albumisse tõstetud faile ei saa redigeerida.';
+$lang_editpics_php['confirm_move'] = 'Oled sa kindel, et sa soovid selle faili ringi tõsta?'; //js-alert
+$lang_editpics_php['success_changes'] = 'Muudatused edukalt salvestatud';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1322,7 +1344,9 @@ Sa taotlesid uut salasõna. Kui sa soovid endiselt, et salasõna sulle saadetaks
 
 <a href="{VERIFY_LINK}">{VERIFY_LINK}</a>
 
+
 Tervitustega,
+
 {SITE_NAME} haldaja
 
 EOT;
@@ -1335,7 +1359,9 @@ Salasõna: {PASSWORD}
 
 Mine sisselogimiseks <a href="{SITE_LINK}">{SITE_LINK}</a>.
 
+
 Tervitustega,
+
 {SITE_NAME} haldaja
 
 EOT;
@@ -1345,7 +1371,7 @@ EOT;
 // File groupmgr.php
 // ------------------------------------------------------------------------- //
 if (defined('GROUPMGR_PHP')) {
-$lang_groupmgr_php['group_manager'] = 'Grupi Haldur'; // cpg1.5.x
+$lang_groupmgr_php['group_manager'] = 'Grupi Haldur';
 $lang_groupmgr_php['group_name'] = 'Grupp';
 $lang_groupmgr_php['permissions'] = 'Õigused';
 $lang_groupmgr_php['public_albums'] = 'Avalike albumite üleslaadim.';
@@ -1365,11 +1391,11 @@ $lang_groupmgr_php['error_group_empty'] = 'Grupi tabel oli tühi!<br />Loodi vai
 $lang_groupmgr_php['explain_greyed_out_title'] = 'Miks see rida hall on?';
 $lang_groupmgr_php['explain_guests_greyed_out_text'] = 'Sa ei saa selle grupi omadusi muuta, sest selle grupi juurdepääsutase: PUUDUB. Kõik sisselogimata kasutajad (grupi %s liikmed) ei saa teha midagi peale sisselogimise, niisiis grupi seaded neile ei kehti. Muuda juurdepääsutaset siit või Galerii konfiguratsiooni lehelt: "Kasutaja seaded", "Luba sisselogimata kasutajate (anonüümsete või külaliste) juurdepääs".';
 $lang_groupmgr_php['group_assigned_album'] = 'omistatud album(id)';
-$lang_groupmgr_php['access_level'] = 'Juurdepääsu tase'; // cpg1.5
-$lang_groupmgr_php['thumbnail_intermediate_full'] = 'kõik pildiformaadid'; // cpg1.5
-$lang_groupmgr_php['thumbnail_intermediate'] = 'pisipilt ja vahepealne pilt'; // cpg1.5
-$lang_groupmgr_php['thumbnail_only'] = 'ainult pisipilt'; // cpg1.5
-$lang_groupmgr_php['none'] = 'puudub'; // cpg1.5
+$lang_groupmgr_php['access_level'] = 'Juurdepääsu tase';
+$lang_groupmgr_php['thumbnail_intermediate_full'] = 'kõik pildiformaadid';
+$lang_groupmgr_php['thumbnail_intermediate'] = 'pisipilt ja vahepealne pilt';
+$lang_groupmgr_php['thumbnail_only'] = 'ainult pisipilt';
+$lang_groupmgr_php['none'] = 'puudub';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1382,7 +1408,7 @@ $lang_album_admin_menu['confirm_delete'] = 'Oled kindel, et tahad selle albumi K
 $lang_album_admin_menu['delete'] = 'Kustuta';
 $lang_album_admin_menu['modify'] = 'Omadused';
 $lang_album_admin_menu['edit_pics'] = 'Muuda faile';
-$lang_album_admin_menu['cat_locked'] = 'See album on muutmiseks lukustatud'; // cpg1.5.x
+$lang_album_admin_menu['cat_locked'] = 'See album on muutmiseks lukustatud';
 
 $lang_list_categories['home'] = 'Kodu';
 $lang_list_categories['stat1'] = '[pictures] faili [albums] albumis ja [cat] kategoorias koos [comments] kommentaariga, mida on vaadatud [views] korda'; // do not translate the stuff in square brackets
@@ -1399,8 +1425,8 @@ $lang_list_albums['n_pictures'] = '%s faili';
 $lang_list_albums['last_added'] = ', viimane lisati: %s';
 $lang_list_albums['n_link_pictures'] = '%s lingitud faili';
 $lang_list_albums['total_pictures'] = '%s faili kokku';
-$lang_list_albums['alb_hits'] = 'Albumit vaadatud: %s korda'; // cpg1.5
-$lang_list_albums['from_category'] = ' - kategooriast: '; // cpg1.5
+$lang_list_albums['alb_hits'] = 'Albumit vaadatud: %s korda';
+$lang_list_albums['from_category'] = ' - kategooriast: ';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1444,27 +1470,27 @@ $lang_install['installer_locked'] = 'Installer on lukustatud';
 $lang_install['installer_selected'] = 'Installer on valitud';
 $lang_install['inv_im_path'] = 'Installer ei leia \'%s\' kataloogi, mille sa määratlesid ImageMagick\'u jaoks või ei ole õigusi sellele juurdepääsuks. Kontrolli õigekirja ja et sul oleks määratletud katalooogile juurdepääs.';
 $lang_install['lets_go'] = 'Minek!';
-$lang_install['mysql_create_btn'] = 'Loo';
-$lang_install['mysql_create_db'] = 'Loo uus MySQL andmebaas';
-$lang_install['mysql_db_name'] = 'MySQL andmebaasi nimi';
-$lang_install['mysql_error'] = 'MySQL viga: ';
-$lang_install['mysql_host'] = 'MySQL host<br />(localhost on tavaliselt OK)';
-$lang_install['mysql_username'] = 'MySQL kasutajanimi'; // cpg1.5
-$lang_install['mysql_password'] = 'MySQL salasõna'; // cpg1.5
-$lang_install['mysql_no_create_db'] = 'Ei suuda luua MySQL andmebaasi.';
-$lang_install['mysql_no_sel_dbs'] = 'Ei suuda leida olemasolevaid MySQL\'i andmebaase';
-$lang_install['mysql_succ'] = 'Edukas ühendumine andmebaasiga';
-$lang_install['mysql_tbl_pref'] = 'MySQL tabeli eesliide';
-$lang_install['mysql_test_connection'] = 'Testi ühendust';
-$lang_install['mysql_wrong_db'] = 'MySQL ei suuda leida andmebaasi nimega \'%s\', palun kontrolli sisestatud väärtust.';
+$lang_install['dbase_create_btn'] = 'Loo';
+$lang_install['dbase_create_db'] = 'Loo uus MySQL andmebaas';
+$lang_install['dbase_db_name'] = 'MySQL andmebaasi nimi';
+$lang_install['dbase_error'] = 'MySQL viga: ';
+$lang_install['dbase_host'] = 'MySQL host<br />(localhost on tavaliselt OK)';
+$lang_install['dbase_username'] = 'MySQL kasutajanimi';
+$lang_install['dbase_password'] = 'MySQL salasõna';
+$lang_install['dbase_no_create_db'] = 'Ei suuda luua MySQL andmebaasi.';
+$lang_install['dbase_no_sel_dbs'] = 'Ei suuda leida olemasolevaid MySQL\'i andmebaase';
+$lang_install['dbase_succ'] = 'Edukas ühendumine andmebaasiga';
+$lang_install['dbase_tbl_pref'] = 'MySQL tabeli eesliide';
+$lang_install['dbase_test_connection'] = 'Testi ühendust';
+$lang_install['dbase_wrong_db'] = 'MySQL ei suuda leida andmebaasi nimega \'%s\', palun kontrolli sisestatud väärtust.';
 $lang_install['n_a'] = 'Pole saadaval';
 $lang_install['no_admin_email'] = 'Sisesta admini e-posti aadress';
 $lang_install['no_admin_password'] = 'Sisesta admini salasõna';
 $lang_install['no_admin_username'] = 'Sisesta admini kasutajanimi';
 $lang_install['no_dir'] = 'Kataloog pole saadaval';
 $lang_install['no_gd'] = 'Näib, et sinu PHP install ei sisalda \'GD\' graafikateeki ja sa ei märkinud, et soovid kasutada ImageMagick\'ut. Coppermine on häälestatud kasutama GD2\'e kuna automaatne GD tuvastamine vahetevahel ebaõnnestub. Kui GD on installitud sinu süsteemi, siis skript peaks töötama, vastasel juhul pead installima ImageMagick\'u.';
-$lang_install['no_mysql_conn'] = 'Ei suuda luua MySQL ühendust, palun kontrollige sisestatud MySQL\'i üksikasju';
-$lang_install['no_mysql_support'] = 'PHP\'l ei ole MySQL tuge.';
+$lang_install['no_dbase_conn'] = 'Ei suuda luua MySQL ühendust, palun kontrollige sisestatud MySQL\'i üksikasju';
+$lang_install['no_dbase_support'] = 'PHP\'l ei ole MySQL tuge.';
 $lang_install['no_thumb_method'] = 'Sa pead valima pilditöötlusrakenduse (GD/IM)';
 $lang_install['nok'] = 'Ei sobi';
 $lang_install['not_here_yet'] = 'Praegu ei ole siin midagi, palun klõpsa %ssiia%s tagasi pöördumiseks.';
@@ -1476,13 +1502,13 @@ $lang_install['password'] = 'Salasõna';
 $lang_install['password_verif'] = 'Kinnita salasõna';
 $lang_install['perm_error'] = '\'%s\' õigused on seatud %s, palun sea need';
 $lang_install['perm_ok'] = 'Teatud kataloogide õigused on kontrollitud ja näivad OK. <br />Palun jätka.';
-$lang_install['perm_not_ok'] = 'Teatud kataloogide õigused pole korrektsed.<br />Palun muuda õigusi alltoodud kataloogidel, mis on märgitud, kui "Ei sobi".'; // cpg1.5
+$lang_install['perm_not_ok'] = 'Teatud kataloogide õigused pole korrektsed.<br />Palun muuda õigusi alltoodud kataloogidel, mis on märgitud, kui "Ei sobi".';
 $lang_install['please_go_back'] = 'Enne jätkamist pöördu %ssiit%s tagasi ja paranda probleem.';
 $lang_install['populate_db'] = 'Täida andmebaas';
 $lang_install['ready_to_roll'] = '<a href="index.php">Coppermine</a> on nüüd nõuetekohaselt konfitud ja valmis kasutamiseks.<br /><a href="login.php">Logi sisse</a> kasutades infot, mille sisestasid admini konto loomisel.';
 $lang_install['sect_create_adm'] = 'See sektsioon nõuab infot, et luua sinu Coppermine\'i admini kontot. Kasuta ainult tähti ja numbreid. Sisesta andmed tähelepanelikult!';
-$lang_install['sect_mysql_info'] = 'See sektsioon nõuab infot, kuidas pöörduda sinu MySQL andmebaasi poole.<br />Kui sa ei tea, kuidas seda täita, siis uuri oma majutusteenuse pakkujalt.';
-$lang_install['sect_mysql_sel_db'] = 'Siin pead sa valima, millist andmebaasi sa soovid kasutada Coppermine\'i jaoks.<br />Kui sinu MySQL konto omab vajalikke privileege, siis saad paigaldamise käigus luua uue andmebaasi aga sa võid kasutada ka olemasolevat andmebaasi. Kui sulle ei sobi kumbki valik, siis pead esmalt looma andmebaasi väljaspool Coppermine\'i installi, seejärel pöörduma tagasi siia ja valima uue andmebaasi rippmenüüst. Sa võid ka muuta tabeli eesliidet (ära kasuta punkte!), kuigi vaikimisi eesliide on soovitatav.';
+$lang_install['sect_dbase_info'] = 'See sektsioon nõuab infot, kuidas pöörduda sinu MySQL andmebaasi poole.<br />Kui sa ei tea, kuidas seda täita, siis uuri oma majutusteenuse pakkujalt.';
+$lang_install['sect_dbase_sel_db'] = 'Siin pead sa valima, millist andmebaasi sa soovid kasutada Coppermine\'i jaoks.<br />Kui sinu MySQL konto omab vajalikke privileege, siis saad paigaldamise käigus luua uue andmebaasi aga sa võid kasutada ka olemasolevat andmebaasi. Kui sulle ei sobi kumbki valik, siis pead esmalt looma andmebaasi väljaspool Coppermine\'i installi, seejärel pöörduma tagasi siia ja valima uue andmebaasi rippmenüüst. Sa võid ka muuta tabeli eesliidet (ära kasuta punkte!), kuigi vaikimisi eesliide on soovitatav.';
 $lang_install['select_lang'] = 'Vali vaikimisi keel: ';
 $lang_install['sql_file_not_found'] = 'Faili \'%s\' ei leitud. Kontrolli, kas sa ikka laadisid oma serverisse üles kõik Coppermine\'i failid.';
 $lang_install['status'] = 'Olek';
@@ -1493,9 +1519,10 @@ $lang_install['title_file_check'] = 'Kontrollin installifaile';
 $lang_install['title_finished'] = 'Install lõpetatud';
 $lang_install['title_imp'] = 'Pildi paketi valik';
 $lang_install['title_imp_test'] = 'Testin graafikateeki';
-$lang_install['title_mysql_db_sel'] = 'MySQL andmebaasi valik';
-$lang_install['title_mysql_pop'] = 'Loon andmebaasi struktuuri';
-$lang_install['title_mysql_user'] = 'MySQL kasutaja autentimine';
+$lang_install['title_dbase_type'] = 'Vali andmebaasi tüüp';
+$lang_install['title_dbase_db_sel'] = 'MySQL andmebaasi valik';
+$lang_install['title_dbase_pop'] = 'Loon andmebaasi struktuuri';
+$lang_install['title_dbase_user'] = 'MySQL kasutaja autentimine';
 $lang_install['title_welcome'] = 'Tere tulemast Coppermine\'i installerisse';
 $lang_install['tmp_conf_error'] = 'Ei ole võimeline kirjutama ajutist konfifaili - kontrolli, kas \'include\' kataloog on skripti poolt kirjutatav.';
 $lang_install['tmp_conf_ser_err'] = 'Kriitiline viga toimus installeris, proovi lehte värskendada või alusta algusest kõrvaldades \'include/config.tmp\' faili.';
@@ -1528,8 +1555,9 @@ $lang_install['imp_test_error'] = 'Ühes või enamas testis tekkis viga, palun k
 $lang_install['writable'] = 'Kirjutatav';
 $lang_install['not_writable'] = 'Ei ole kirjutatav';
 $lang_install['not_exist'] = 'Pole olemas';
-$lang_install['old_install'] = 'See on uue paigalduse nõustaja. Klõpsa %ssiia%s tavalise paigalduse lehele minekuks.'; //cpg1.5
-
+// 1.6 dbabstract
+$lang_install['not_available'] = 'pole saadaval';
+$lang_install['version_too_old'] = 'versioon on liiga vana';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1589,8 +1617,8 @@ if (defined('LOGIN_PHP')) {
 $lang_login_php['login'] = 'Logi sisse';
 $lang_login_php['enter_login_pswd'] = 'Sisselogimiseks sisesta oma kasutajanimi ja salasõna';
 $lang_login_php['username'] = 'Kasutajanimi';
-$lang_login_php['email'] = 'E-posti aadress'; // cpg1.5
-$lang_login_php['both'] = 'Kasutajanimi / E-posti aadress'; // cpg1.5
+$lang_login_php['email'] = 'E-posti aadress';
+$lang_login_php['both'] = 'Kasutajanimi / E-posti aadress';
 $lang_login_php['password'] = 'Salasõna';
 $lang_login_php['remember_me'] = 'Mäleta mind';
 $lang_login_php['welcome'] = 'Tere, %s ...';
@@ -1599,8 +1627,8 @@ $lang_login_php['err_already_logged_in'] = 'Sa oled juba sisselogitud!';
 $lang_login_php['forgot_password_link'] = 'Unustasin oma salasõna';
 $lang_login_php['cookie_warning'] = 'Hoiatus: su veebilehitseja ei luba skripti küpsiseid';
 $lang_login_php['send_activation_link'] = 'Kas aktiveerimislink läks kaotsi?';
-$lang_login_php['force_login'] = 'Selle lehe nägemiseks pead sisse logima'; // cpg1.5
-$lang_login_php['force_login_title'] = 'Jätkamiseks logi sisse'; // cpg1.5
+$lang_login_php['force_login'] = 'Selle lehe nägemiseks pead sisse logima';
+$lang_login_php['force_login_title'] = 'Jätkamiseks logi sisse';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1610,7 +1638,7 @@ $lang_login_php['force_login_title'] = 'Jätkamiseks logi sisse'; // cpg1.5
 if (defined('LOGOUT_PHP')) {
 $lang_logout_php['logout'] = 'Logi välja';
 $lang_logout_php['bye'] = 'Jällenägemiseni, %s ...';
-$lang_logout_php['err_not_logged_in'] = 'Sa pole sisselogitud!'; // cpg1.5
+$lang_logout_php['err_not_logged_in'] = 'Sa pole sisselogitud!';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1621,17 +1649,17 @@ $lang_minibrowser_php['up'] = 'tase ülespoole';
 $lang_minibrowser_php['current_path'] = 'praegune asukoht';
 $lang_minibrowser_php['select_directory'] = 'palun vali kataloog';
 $lang_minibrowser_php['click_to_close'] = 'Klõpsa pildil akna sulgemiseks';
-$lang_minibrowser_php['folder'] = 'Kaust'; // cpg1.5
+$lang_minibrowser_php['folder'] = 'Kaust';
 }
 
 // ------------------------------------------------------------------------- //
 // File mode.php
 // ------------------------------------------------------------------------- //
 if (defined('MODE_PHP')) {
-$lang_mode_php[0] = 'Admini seadete näitamise väljalülimine...'; // cpg1.5
-$lang_mode_php[1] = 'Admini seadete näitamise sisselülimine...'; // cpg1.5
-$lang_mode_php['news_hide'] = 'Uudiste peitmine...'; // cpg1.5
-$lang_mode_php['news_show'] = 'Uudiste näitamine...'; // cpg1.5
+$lang_mode_php[0] = 'Admini seadete näitamise väljalülimine...';
+$lang_mode_php[1] = 'Admini seadete näitamise sisselülimine...';
+$lang_mode_php['news_hide'] = 'Uudiste peitmine...';
+$lang_mode_php['news_show'] = 'Uudiste näitamine...';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1639,8 +1667,8 @@ $lang_mode_php['news_show'] = 'Uudiste näitamine...'; // cpg1.5
 // ------------------------------------------------------------------------- //
 if (defined('MODIFYALB_PHP')) {
 $lang_modifyalb_php['upd_alb_n'] = 'Uuenda %s albumit';
-$lang_modifyalb_php['related_tasks'] = 'Seotud tegumid'; // cpg1.5
-$lang_modifyalb_php['choose_album'] = 'Vali album'; // cpg1.5
+$lang_modifyalb_php['related_tasks'] = 'Seotud tegumid';
+$lang_modifyalb_php['choose_album'] = 'Vali album';
 $lang_modifyalb_php['general_settings'] = 'Üldised seaded';
 $lang_modifyalb_php['alb_title'] = 'Albumi pealkiri';
 $lang_modifyalb_php['alb_cat'] = 'Albumi kategooria';
@@ -1700,14 +1728,14 @@ $lang_phpinfo_php['no_link'] = 'Oma php info teistele näitamine võib olla turv
 // ------------------------------------------------------------------------- //
 if (defined('PICMGR_PHP')) {
 $lang_picmgr_php['pic_mgr'] = 'Pildi Haldur';
-$lang_picmgr_php['confirm_modifs'] = 'Kas tõesti kinnitada muudatused?'; // cpg1.5 // js-alert
+$lang_picmgr_php['confirm_modifs'] = 'Kas tõesti kinnitada muudatused?'; // js-alert
 $lang_picmgr_php['no_change'] = 'Sa ei muutnud midagi!';
 $lang_picmgr_php['no_album'] = '* Albumit pole *';
 $lang_picmgr_php['explanation_header'] = 'Sellel lehel määratud kohandatud sorteerimisjärjestust arvestatakse ainult juhul, kui';
 $lang_picmgr_php['explanation1'] = 'administraator on määranud seadetes &quot;Failide vaikimisi järjestuse&quot; väärtuseks &quot;Asukoht kahanevalt&quot; või &quot;Asukoht kasvavalt&quot; (kehtib kõikidele kasutajatele, kes pole ise muud sorteerimismeetodit määranud)';
 $lang_picmgr_php['explanation2'] = 'kasutaja on pisipiltide lehel valinud &quot;Asukoht kahanevalt&quot; või &quot;Asukoht kasvavalt&quot; (kehtib individuaalselt)';
-$lang_picmgr_php['change_album'] = 'Albumit muutes lähevad muudatused kaotsi!'; // cpg1.5 // js-alert
-$lang_picmgr_php['submit_reminder'] = 'Sorteerimisjärjestust ei salvestata enne, kui klõpsad &quot;Rakenda muudatused&quot;.'; // cpg1.5
+$lang_picmgr_php['change_album'] = 'Albumit muutes lähevad muudatused kaotsi!'; // js-alert
+$lang_picmgr_php['submit_reminder'] = 'Sorteerimisjärjestust ei salvestata enne, kui klõpsad &quot;Rakenda muudatused&quot;.';
 }
 
 
@@ -1715,13 +1743,12 @@ $lang_picmgr_php['submit_reminder'] = 'Sorteerimisjärjestust ei salvestata enne
 // File pluginmgr.php
 // ------------------------------------------------------------------------- //
 if (defined('PLUGINMGR_PHP')){
-
 $lang_pluginmgr_php['confirm_uninstall'] = 'Oled kindel, et tahad selle plugina kasutusest EEMALDADA?';
-$lang_pluginmgr_php['confirm_remove'] = 'MÄRKUS: Plugina API on keelatud. Kas soovid MANUAALSELT KÕRVALDADA selle plugina, ignoreerides mistahes ärakorjamise tegevust?'; // cpg1.5
+$lang_pluginmgr_php['confirm_remove'] = 'MÄRKUS: Plugina API on keelatud. Kas soovid MANUAALSELT KÕRVALDADA selle plugina, ignoreerides mistahes ärakorjamise tegevust?';
 $lang_pluginmgr_php['confirm_delete'] = 'Oled kindel, et tahad selle plugina KUSTUTADA?';
 $lang_pluginmgr_php['pmgr'] = 'Pluginate Haldur';
-$lang_pluginmgr_php['explanation'] = 'Paigalda / eemalda / halda pluginaid kasutades seda lehte.'; // cpg1.5
-$lang_pluginmgr_php['plugin_enabled'] = 'Plugina API lubatud'; // cpg1.5
+$lang_pluginmgr_php['explanation'] = 'Paigalda / eemalda / halda pluginaid kasutades seda lehte.';
+$lang_pluginmgr_php['plugin_enabled'] = 'Plugina API lubatud';
 $lang_pluginmgr_php['name'] = 'Nimi';
 $lang_pluginmgr_php['author'] = 'Autor';
 $lang_pluginmgr_php['desc'] = 'Kirjeldus';
@@ -1735,13 +1762,19 @@ $lang_pluginmgr_php['copy_error'] = 'Tekkis viga paketi kopeerimisel pluginate k
 $lang_pluginmgr_php['upload'] = 'Lae üles';
 $lang_pluginmgr_php['configure_plugin'] = 'Konfigureeri pluginat';
 $lang_pluginmgr_php['cleanup_plugin'] = 'Korja plugin ära';
-$lang_pluginmgr_php['extra'] = 'Ekstra'; // cpg1.5
-$lang_pluginmgr_php['install_info'] = 'Paigaldamise info'; // cpg1.5
-$lang_pluginmgr_php['plugin_disabled_note'] = 'Plugina API on keelatud, seega see toiming pole lubatud.'; // cpg1.5
-$lang_pluginmgr_php['install'] = 'Paigalda'; // cpg1.5
-$lang_pluginmgr_php['uninstall'] = 'Eemalda'; // cpg1.5
-$lang_pluginmgr_php['minimum_requirements_not_met'] = 'Miinimumnõuded pole täidetud'; // cpg1.5
-$lang_pluginmgr_php['confirm_version'] = 'Ei suuda määratleda selle plugina versiooni nõudeid. See näitab tavaliselt, et plugin pole sinu Coppermine\'i versiooni jaoks ette nähtud ja võib su galerii uppi lüüa. Jätkata sellegi poolest? (ei soovita)'; // cpg1.5 // js-alert
+$lang_pluginmgr_php['extra'] = 'Ekstra';
+$lang_pluginmgr_php['install_info'] = 'Paigaldamise info';
+$lang_pluginmgr_php['plugin_disabled_note'] = 'Plugina API on keelatud, seega see toiming pole lubatud.';
+$lang_pluginmgr_php['install'] = 'Paigalda';
+$lang_pluginmgr_php['uninstall'] = 'Eemalda';
+$lang_pluginmgr_php['minimum_requirements_not_met'] = 'Miinimumnõuded pole täidetud';
+$lang_pluginmgr_php['confirm_version'] = 'Ei suuda määratleda selle plugina versiooni nõudeid. See näitab tavaliselt, et plugin pole sinu Coppermine\'i versiooni jaoks ette nähtud ja võib su galerii uppi lüüa. Jätkata sellegi poolest? (ei soovita)'; // js-alert
+$lang_pluginmgr_php['announcement_thread'] = 'Teadaanded'; // cpg1.6
+
+$lang_pluginmgr_php['plugin_action'] = 'Tegevus';	// cpg1.6
+$lang_pluginmgr_php['saved_config'] = 'Seadistus pluginale &laquo;%s&raquo; on salvestatud.';	// cpg1.6
+$lang_pluginmgr_php['enable'] = 'Luba';	// cpg1.6
+$lang_pluginmgr_php['disable'] = 'Keela';	// cpg1.6
 }
 
 // ------------------------------------------------------------------------- //
@@ -1751,13 +1784,15 @@ if (defined('RATEPIC_PHP')) {
 $lang_rate_pic_php['already_rated'] = 'Vabandust, aga sa oled seda faili juba hinnanud';
 $lang_rate_pic_php['rate_ok'] = 'Hääl arvestatud';
 $lang_rate_pic_php['forbidden'] = 'Iseenda faile ei saa hinnata.';
+$lang_rate_pic_php['fav_added'] = 'Pilt on lisatud meeldivate hulka'; // cpg1.6
+$lang_rate_pic_php['fav_removed'] = 'Pilt on eemaldatud meeldivate hulgast'; // cpg1.6
 }
 
 // ------------------------------------------------------------------------- //
 // File register.php & profile.php
 // ------------------------------------------------------------------------- //
 if (defined('REGISTER_PHP') || defined('PROFILE_PHP')) {
-$lang_register_php['disclamer'] = <<< EOT
+$lang_register_php['disclaimer'] = <<< EOT
 Kuigi {SITE_NAME} haldajad püüavad ebasobiva materjali võimalikult kiiresti eemaldada või seda toimetada, on siiski võimatu igat postitust kontrollida. Seega oled teadlik, et kõik postitused sellel saidil väljendavad nende autorite vaateid ja seisukohti, mitte aga saidi administraatorite või veebimeistri omi (v.a nende endi postituste korral), seega ei peeta neid vastutavaks.<br />
 <br />
 Sa lubad, et ei postita materjali, mis on kuritahtlik, rõve, vulgaarne, laimav, vaenuõhutav, ähvardav, seksuaalse suunitlusega või kehtivate seadustega vastuolus. Sa oled nõus, et saidi {SITE_NAME} veebimeistril, administraatoril ja moderaatoritel on õigus igal ajal oma parema äranägemise järgi sisu eemaldada või muuta. Kasutajana oled nõus, et ülalsisestatud infot hoitakse andmebaasis. Ehkki seda ei avaldata ilma sinu nõusolekuta kolmandatele osapooltele, ei saa veebimeistrit ega administraatorit pidada vastutavaks, kui võimaliku rünnaku käigus info lekkima peaks.<br />
@@ -1771,17 +1806,17 @@ $lang_register_php['term_cond'] = 'Reeglid ja tingimused';
 $lang_register_php['i_agree'] = 'Olen nõus';
 $lang_register_php['submit'] = 'Saada registreerumine';
 $lang_register_php['err_user_exists'] = 'Sellise nimega kasutaja on juba olemas, palun vali teistsugune';
-$lang_register_php['err_global_pw'] = 'Vigane üldise registreerumise salasõna'; // cpg1.5
-$lang_register_php['err_global_pass_same'] = 'Sinu salasõna peab olema erinev üldisest salasõnast'; // cpg1.5
+$lang_register_php['err_global_pw'] = 'Vigane üldise registreerumise salasõna';
+$lang_register_php['err_global_pass_same'] = 'Sinu salasõna peab olema erinev üldisest salasõnast';
 $lang_register_php['err_duplicate_email'] = 'Sellise e-posti aadressiga kasutaja on juba olemas';
-$lang_register_php['err_disclaimer'] = 'Sa pead nõustuma tingimustega'; // cpg1.5
+$lang_register_php['err_disclaimer'] = 'Sa pead nõustuma tingimustega';
 $lang_register_php['enter_info'] = 'Sisesta registreerumisinfo';
 $lang_register_php['required_info'] = 'Kohustuslik info';
 $lang_register_php['optional_info'] = 'Vabatahtlik info';
 $lang_register_php['username'] = 'Kasutajanimi';
 $lang_register_php['password'] = 'Salasõna';
 $lang_register_php['password_again'] = 'Salasõna uuesti';
-$lang_register_php['global_registration_pw'] = 'Üldine salasõna'; // cpg1.5
+$lang_register_php['global_registration_pw'] = 'Üldine salasõna';
 $lang_register_php['email'] = 'E-post';
 $lang_register_php['location'] = 'Asukoht';
 $lang_register_php['interests'] = 'Huvid';
@@ -1811,51 +1846,50 @@ $lang_register_php['update_success'] = 'Sinu profiil uuendati';
 $lang_register_php['pass_chg_success'] = 'Sinu salasõna muudeti';
 $lang_register_php['pass_chg_error'] = 'Sinu salasõna ei muudetud';
 $lang_register_php['notify_admin_email_subject'] = '%s - registreerumisteatis';
-$lang_register_php['last_uploads'] = 'Viimati üleslaetud fail'; // cpg1.5
-$lang_register_php['last_uploads_detail'] = 'Klõpsa, et näha kõike, mille on üles laadinud %s'; // cpg1.5
-$lang_register_php['last_comments'] = 'Viimane kommentaar'; // cpg1.5
-$lang_register_php['you'] = 'sina'; // cpg1.5
-$lang_register_php['last_comments_detail'] = 'Klõpsa, et näha kõiki kommentaare, mille autor on %s'; // cpg1.5
+$lang_register_php['last_uploads'] = 'Viimati üleslaetud fail';
+$lang_register_php['last_uploads_detail'] = 'Klõpsa, et näha kõike, mille on üles laadinud %s';
+$lang_register_php['last_comments'] = 'Viimane kommentaar';
+$lang_register_php['you'] = 'sina';
+$lang_register_php['last_comments_detail'] = 'Klõpsa, et näha kõiki kommentaare, mille autor on %s';
 $lang_register_php['notify_admin_email_body'] = 'Uus kasutaja kasutajanimega "%s" on sinu galeriis registreerunud';
 $lang_register_php['pic_count'] = 'üleslaetud faili';
 $lang_register_php['notify_admin_request_email_subject'] = '%s - registreerumistaotlus';
 $lang_register_php['thank_you_admin_activation'] = 'Tänan.<br />Taotlus sinu konto aktiveerimiseks saadeti administraatorile. Heakskiidu korral saadetakse sulle e-kiri.';
 $lang_register_php['acct_active_admin_activation'] = 'Konto on nüüd aktiivne ja kasutajale saadeti sellest teavitav e-kiri.';
 $lang_register_php['notify_user_email_subject'] = '%s - aktiveerimisteatis';
-$lang_register_php['delete_my_account'] = 'Kustuta mu kasutajakonto'; // cpg1.5
-$lang_register_php['warning_delete'] = 'Hoiatus: konto kustutamist ei saa tagasi võtta. Avalikesse albumitesse %ssinu poolt üleslaetud faile%s ja %skommentaare%s ei kustutata, kui sa oma kasutajakonto kustutad! Kustutatakse vaid failid, mis oled laadinud oma personaalsesse galeriisse.'; // cpg1.5 // The %s-placeholders mustn't be removed, they will later be replaced by the wrappers for the links
-$lang_register_php['i_am_sure'] = 'Olen veendunud, et ma soovin kustutada oma kasutajakonto'; // cpg1.5
-$lang_register_php['really_delete'] = 'Kas sa tõepoolest soovid kustutada oma kasutajakonto?'; // cpg1.5 // js-alert
-$lang_register_php['edit_xs_profile'] = 'Muuda %s profiili'; // cpg1.5
-$lang_register_php['edit_my_profile'] = 'Muuda minu profiili'; // cpg1.5
-$lang_register_php['none'] = 'puudub'; // cpg1.5
-$lang_register_php['user_name_banned'] = 'Sinu valitud kasutajanimi ei ole sobiv. Vali mõni teine kasutajanimi'; // cpg1.5
-$lang_register_php['email_address_banned'] = 'Sa oled selles galeriis bännitud. Sul ei ole lubatud ka uuesti registreeruda. Sul tuleb otsida mõni teine galerii.'; // cpg1.5
-$lang_register_php['email_warning1'] = 'E-posti aadressi väli ei tohi olla tühi!'; // cpg1.5
-$lang_register_php['email_warning2'] = 'sinu sisestatud e-posti aadress ei ole korrektne. Kontrolli!'; // cpg1.5
-$lang_register_php['username_warning1'] = 'Kasutajanime väli ei tohi olla tühi!'; // cpg1.5
-$lang_register_php['username_warning2'] = 'Kasutajanimi peab olema vähemalt kahe sümboli pikkune!'; // cpg1.5
-$lang_register_php['password_warning1'] = 'Salasõna peab olema vähemalt kahe sümboli pikkune!'; // cpg1.5
-$lang_register_php['password_warning2'] = 'Kasutajanimi ja salasõna peavad olema erinevad!'; // cpg1.5
-$lang_register_php['password_verification_warning1'] = 'Need kaks salasõna ei kattu, palun sisesta need uuesti!'; // cpg1.5
-$lang_register_php['form_not_submit'] = 'Sisestusvormi ei saadetud - selles on vigu, mida sa pead parandama!'; // cpg1.5
-$lang_register_php['banned'] = 'Bännitud!'; // cpg1.5
+$lang_register_php['delete_my_account'] = 'Kustuta mu kasutajakonto';
+$lang_register_php['warning_delete'] = 'Hoiatus: konto kustutamist ei saa tagasi võtta. Avalikesse albumitesse %ssinu poolt üleslaetud faile%s ja %skommentaare%s ei kustutata, kui sa oma kasutajakonto kustutad! Kustutatakse vaid failid, mis oled laadinud oma personaalsesse galeriisse.'; // The %s-placeholders mustn't be removed, they will later be replaced by the wrappers for the links
+$lang_register_php['i_am_sure'] = 'Olen veendunud, et ma soovin kustutada oma kasutajakonto';
+$lang_register_php['really_delete'] = 'Kas sa tõepoolest soovid kustutada oma kasutajakonto?'; // js-alert
+$lang_register_php['edit_xs_profile'] = 'Muuda %s profiili';
+$lang_register_php['edit_my_profile'] = 'Muuda minu profiili';
+$lang_register_php['none'] = 'puudub';
+$lang_register_php['user_name_banned'] = 'Sinu valitud kasutajanimi ei ole sobiv. Vali mõni teine kasutajanimi';
+$lang_register_php['email_address_banned'] = 'Sa oled selles galeriis bännitud. Sul ei ole lubatud ka uuesti registreeruda. Sul tuleb otsida mõni teine galerii.';
+$lang_register_php['email_warning1'] = 'E-posti aadressi väli ei tohi olla tühi!';
+$lang_register_php['email_warning2'] = 'sinu sisestatud e-posti aadress ei ole korrektne. Kontrolli!';
+$lang_register_php['username_warning1'] = 'Kasutajanime väli ei tohi olla tühi!';
+$lang_register_php['username_warning2'] = 'Kasutajanimi peab olema vähemalt kahe sümboli pikkune!';
+$lang_register_php['password_warning1'] = 'Salasõna peab olema vähemalt kahe sümboli pikkune!';
+$lang_register_php['password_warning2'] = 'Kasutajanimi ja salasõna peavad olema erinevad!';
+$lang_register_php['password_verification_warning1'] = 'Need kaks salasõna ei kattu, palun sisesta need uuesti!';
+$lang_register_php['form_not_submit'] = 'Sisestusvormi ei saadetud - selles on vigu, mida sa pead parandama!';
+$lang_register_php['banned'] = 'Bännitud!';
 
 $lang_register_php['confirm_email'] = <<< EOT
 Tänan, et registreerusid saidil {SITE_NAME}
 
 Valitud kasutajanimega "{USER_NAME}" konto aktiveerimiseks klõpsa alloleval lingil või kopeeri see oma veebilehitseja aadressiribale.
-
 <a href="{ACT_LINK}">{ACT_LINK}</a>
 
 Tervitades,
+
 {SITE_NAME} haldajad
 
 EOT;
 
 $lang_register_approve_email = <<< EOT
 Sinu galeriis registreerus uus kasutaja, "{USER_NAME}".
-
 Tema konto aktiveerimiseks klõpsa alloleval lingil või kopeeri see oma veebilehitseja aadressiribale.
 
 <a href="{ACT_LINK}">{ACT_LINK}</a>
@@ -1867,7 +1901,9 @@ Sinu konto on heaks kiidetud ja aktiveeritud.
 
 Saad nüüd lehel <a href="{SITE_LINK}">{SITE_LINK}</a> oma kasutajanimega "{USER_NAME}" sisse logida.
 
+
 Tervitades,
+
 {SITE_NAME} haldajad
 
 EOT;
@@ -1896,66 +1932,66 @@ $lang_reviewcom_php['comment_a'] = 'Kommentaari sisu kasvavalt';
 $lang_reviewcom_php['comment_d'] = 'Kommentaari sisu kahanevalt';
 $lang_reviewcom_php['file_a'] = 'Fail kasvavalt';
 $lang_reviewcom_php['file_d'] = 'Fail kahanevalt';
-$lang_reviewcom_php['approval_a'] = 'Heakskiit kasvavalt'; // cpg1.5
-$lang_reviewcom_php['approval_d'] = 'Heakskiit kahanevalt'; // cpg1.5
-$lang_reviewcom_php['ip_a'] = 'IP aadress kasvavalt'; // cpg1.5
-$lang_reviewcom_php['ip_d'] = 'IP aadress kahanevalt'; // cpg1.5
-$lang_reviewcom_php['akismet_a'] = 'Akismeti reiting (sobivad kommentaarid all)'; // cpg1.5
-$lang_reviewcom_php['akismet_d'] = 'Akismeti reiting (sobivad kommentaarid  ülal)'; // cpg1.5
-$lang_reviewcom_php['n_comm_appr'] = '%s heakskiidetud kommentaar(i)'; // cpg1.5
-$lang_reviewcom_php['n_comm_unappr'] = '%s tagasilükatud kommentaar(i)'; // cpg1.5
-$lang_reviewcom_php['configuration_changed'] = 'Heakskiitmise konfi muudeti'; // cpg1.5
-$lang_reviewcom_php['only_approval'] = 'näita ainult heakskiitmist vajavaid kommentaare'; // cpg1.5
-$lang_reviewcom_php['approval'] = 'Heakskiidetud'; // cpg1.5
-$lang_reviewcom_php['save_changes'] = 'Salvesta muudatused'; // cpg1.5
-$lang_reviewcom_php['n_confirm_delete'] = 'Kas sa tõepoolest soovid kustutada valitud kommentaari(d)?'; // cpg1.5
-$lang_reviewcom_php['with_selected'] = 'Koos valitutega'; // cpg1.5
-$lang_reviewcom_php['delete'] = 'kustuta'; // cpg1.5
-$lang_reviewcom_php['approve'] = 'kiida heaks'; // cpg1.5
-$lang_reviewcom_php['disapprove'] = 'märgi tagasilükatuks'; // cpg1.5
-$lang_reviewcom_php['do_nothing'] = 'ära tee midagi'; // cpg1.5
-$lang_reviewcom_php['comment_approved'] = 'Kommentaar heaks kiidetud'; // cpg1.5
-$lang_reviewcom_php['comment_unapproved'] = 'Kommentaar märgitud tagasilükatuks'; // cpg1.5
-$lang_reviewcom_php['ban_and_delete'] = 'Bänni kasutaja ja kustuta kommentaar(id)'; // cpg1.5
-$lang_reviewcom_php['akismet_status'] = 'Akismet ütles'; // cpg1.5
-$lang_reviewcom_php['is_spam'] = 'on spämm'; // cpg1.5
-$lang_reviewcom_php['is_not_spam'] = 'pole spämm'; // cpg1.5
-$lang_reviewcom_php['akismet'] = 'Akismet'; // cpg1.5
-$lang_reviewcom_php['akismet_count'] = 'Akismet leidis %s spämmisõnumit praeguseks'; // cpg1.5
-$lang_reviewcom_php['akismet_test_result'] = 'Testi oma Akismeti API võtme %s tulemusi'; // cpg1.5
-$lang_reviewcom_php['invalid'] = 'kehtetu'; // cpg1.5
-$lang_reviewcom_php['missing_gallery_url'] = 'Sa pead määratlema galerii URL-i oma Coppermine\'i konfis'; // cpg1.5
-$lang_reviewcom_php['unable_to_connect'] = 'Ei suuda ühenduda akismet.com\'iga'; // cpg1.5
-$lang_reviewcom_php['not_found'] = 'Siht-URL-i ei leitud. Võib-olla on akismet.com\'i saidi struktuur muutunud.'; // cpg1.5
-$lang_reviewcom_php['unknown_error'] = 'Tundmatu viga'; // cpg1.5
-$lang_reviewcom_php['error_message'] = 'Veateade oli'; // cpg1.5
-$lang_reviewcom_php['ip_address'] = 'IP aadress'; // cpg1.5
+$lang_reviewcom_php['approval_a'] = 'Heakskiit kasvavalt';
+$lang_reviewcom_php['approval_d'] = 'Heakskiit kahanevalt';
+$lang_reviewcom_php['ip_a'] = 'IP aadress kasvavalt';
+$lang_reviewcom_php['ip_d'] = 'IP aadress kahanevalt';
+$lang_reviewcom_php['akismet_a'] = 'Akismeti reiting (sobivad kommentaarid all)';
+$lang_reviewcom_php['akismet_d'] = 'Akismeti reiting (sobivad kommentaarid  ülal)';
+$lang_reviewcom_php['n_comm_appr'] = '%s heakskiidetud kommentaar(i)';
+$lang_reviewcom_php['n_comm_unappr'] = '%s tagasilükatud kommentaar(i)';
+$lang_reviewcom_php['configuration_changed'] = 'Heakskiitmise konfi muudeti';
+$lang_reviewcom_php['only_approval'] = 'näita ainult heakskiitmist vajavaid kommentaare';
+$lang_reviewcom_php['approval'] = 'Heakskiidetud';
+$lang_reviewcom_php['save_changes'] = 'Salvesta muudatused';
+$lang_reviewcom_php['n_confirm_delete'] = 'Kas sa tõepoolest soovid kustutada valitud kommentaari(d)?';
+$lang_reviewcom_php['with_selected'] = 'Koos valitutega';
+$lang_reviewcom_php['delete'] = 'kustuta';
+$lang_reviewcom_php['approve'] = 'kiida heaks';
+$lang_reviewcom_php['disapprove'] = 'märgi tagasilükatuks';
+$lang_reviewcom_php['do_nothing'] = 'ära tee midagi';
+$lang_reviewcom_php['comment_approved'] = 'Kommentaar heaks kiidetud';
+$lang_reviewcom_php['comment_unapproved'] = 'Kommentaar märgitud tagasilükatuks';
+$lang_reviewcom_php['ban_and_delete'] = 'Bänni kasutaja ja kustuta kommentaar(id)';
+$lang_reviewcom_php['akismet_status'] = 'Akismet ütles';
+$lang_reviewcom_php['is_spam'] = 'on spämm';
+$lang_reviewcom_php['is_not_spam'] = 'pole spämm';
+$lang_reviewcom_php['akismet'] = 'Akismet';
+$lang_reviewcom_php['akismet_count'] = 'Akismet leidis %s spämmisõnumit praeguseks';
+$lang_reviewcom_php['akismet_test_result'] = 'Testi oma Akismeti API võtme %s tulemusi';
+$lang_reviewcom_php['invalid'] = 'kehtetu';
+$lang_reviewcom_php['missing_gallery_url'] = 'Sa pead määratlema galerii URL-i oma Coppermine\'i konfis';
+$lang_reviewcom_php['unable_to_connect'] = 'Ei suuda ühenduda akismet.com\'iga';
+$lang_reviewcom_php['not_found'] = 'Siht-URL-i ei leitud. Võib-olla on akismet.com\'i saidi struktuur muutunud.';
+$lang_reviewcom_php['unknown_error'] = 'Tundmatu viga';
+$lang_reviewcom_php['error_message'] = 'Veateade oli';
+$lang_reviewcom_php['ip_address'] = 'IP aadress';
 }
 
 // ------------------------------------------------------------------------- //
 // File sidebar.php
 // ------------------------------------------------------------------------- //
 if (defined('SIDEBAR_PHP')) {
-$lang_sidebar_php['sidebar'] = 'Külgriba'; // cpg1.5
-$lang_sidebar_php['install'] = 'paigalda'; // cpg1.5
-$lang_sidebar_php['install_explain'] = 'Paljude teiste tarkade pöördumismeetodite hulgas, mis võimaldavad saidile kiiresti infot saada, pakume külgriba populaarseimatele brauseritele, mida kasutatakse erinevate opsüsteemidega, et tagada lehekülgedele lihtne juurdepääs. Siit leiab toetatud brauserite jaoks vajaliku paigaldamise ja mahavõtmise info.'; // cpg1.5
-$lang_sidebar_php['os_browser_detect'] = 'Sinu OS ja brauseri määratlemine'; // cpg1.5
-$lang_sidebar_php['os_browser_detect_explain'] = 'Skript proovib tuvastada sinu opsüsteemi ja brauseri versiooni - palun oota hetk. Kui automaatne tuvastamine ebaõnnestub, siis sa ehk soovid %snähtavaks teha%s kõik võimalikud külgriba paigaldamise valikud.'; // cpg1.5
-$lang_sidebar_php['mozilla'] = 'Mozilla, Firefox, Netscape 6+, Konqueror 3.2+'; // cpg1.5
-$lang_sidebar_php['mozilla_explain'] = 'Kui sa kasutad Mozilla 0.9.4 või hilisemat, võid %slisada meie külgriba oma seadistusele%s. Sa võid külgriba maha võtta, kasutades Mozilla "Kohanda külgriba" ("Customize Sidebar") dialoogi.'; // cpg1.5
-$lang_sidebar_php['ie_mac'] = 'Internet Explorer 5 ja uuem Mac OS\'il'; // cpg1.5
-$lang_sidebar_php['ie_mac_explain'] = 'Kui sa kasutad Internet Explorer 5 või uuemat Mac OS\'il, %sava oma külgriba lehekülg%s eraldi aknas. Selles aknas ava "Leheküljehoidja" ("Page Holder") kaart akna vasakus servas. Klõpsa "Lisa" ("Add"). Kui sa soovid seda tulevikus kasutada, klõpsa "Lemmikud" ("Favorites") ja vali käsk "Lisa leheküljehoidja lemmikutesse" ("Add to Page Holder Favorites").'; // cpg1.5
-$lang_sidebar_php['ie_win'] = 'Internet Explorer 5 ja uuem Windows\'is'; // cpg1.5
-$lang_sidebar_php['ie_win_explain'] = 'Kui sa kasutad Internet Explorer 5 või uuemat Windows\'is, siis võid lisada külgriba oma viidete tööriistaribale või lemmikutesse ja klõpsates sellel näed meie külgriba seal, kus tavaliselt on otsinguriba, paremklõpsates %ssiin%s ja valides kontekstimenüüst "Lisa lemmikute hulka" ("Add to favorites"). See viide ei paigalda meie riba vaikimisi otsinguriba asemele, seega ei tehta sinu süsteemis mingeid muudatusi.'; // cpg1.5
-$lang_sidebar_php['ie7_win'] = 'Internet Explorer 7 Windows XP/Vista\'s'; // cpg1.5
-$lang_sidebar_php['ie7_win_explain'] = 'Kui sa kasutad Internet Explorer 7-t Windows\'is, siis sa võid lisada navigeerimise pop-up\'i oma viidete tööriistaribale või lemmikutesse ja klõpsates sellel näed meie külgriba hüpikaknana (pop-up\'ina) paremklõpsates %ssiin%s ja valides kontekstimenüüst "Lisa lemmikute hulka" ("Add to favorites"). IE eelmistes versioonides oli võimalik lisada tegelikku külgriba, aga IE7-s ei saa seda teostada ilma keerulise registri häkkimiseta. Soovitav on kasutada mõnda teist brauserit, kui sa soovid kasutada tegelikku külgriba.'; // cpg1.5
-$lang_sidebar_php['opera'] = 'Opera 6 ja uuem'; // cpg1.5
-$lang_sidebar_php['opera_explain'] = 'Kui sa kasutad Opera\'t, siis võid %sklõpsata sellel viitel, et lisada meie külgriba oma seadistusele%s. Märgista seejärel "Näita paanil" ("Show in panel"). Sa võid külgriba maha võtta paremklõpsates selle kaardil ja valides kontekstimenüüst "Kustuta" ("Delete").'; // cpg1.5
-$lang_sidebar_php['additional_options'] = 'Lisavalikud'; // cpg1.5
-$lang_sidebar_php['additional_options_explain'] = 'Kui sa kasutad ülalmainitutest erinevat brauserit, siis klõpsa %ssiin%s, et näha kõiki võimalikke külgriba valikuid.'; // cpg1.5
-$lang_sidebar_php['cannot_add_sidebar'] = 'Külgriba ei saa lisada! Sinu brauser ei toeta seda meetodit!'; // cpg1.5 // js-alert
-$lang_sidebar_php['search'] = 'Otsi'; // cpg1.5
-$lang_sidebar_php['reload'] = 'Lae uuesti'; // cpg1.5
+$lang_sidebar_php['sidebar'] = 'Külgriba';
+$lang_sidebar_php['install'] = 'paigalda';
+$lang_sidebar_php['install_explain'] = 'Paljude teiste tarkade pöördumismeetodite hulgas, mis võimaldavad saidile kiiresti infot saada, pakume külgriba populaarseimatele brauseritele, mida kasutatakse erinevate opsüsteemidega, et tagada lehekülgedele lihtne juurdepääs. Siit leiab toetatud brauserite jaoks vajaliku paigaldamise ja mahavõtmise info.';
+$lang_sidebar_php['os_browser_detect'] = 'Sinu OS ja brauseri määratlemine';
+$lang_sidebar_php['os_browser_detect_explain'] = 'Skript proovib tuvastada sinu opsüsteemi ja brauseri versiooni - palun oota hetk. Kui automaatne tuvastamine ebaõnnestub, siis sa ehk soovid %snähtavaks teha%s kõik võimalikud külgriba paigaldamise valikud.';
+$lang_sidebar_php['mozilla'] = 'Mozilla, Firefox, Netscape 6+, Konqueror 3.2+';
+$lang_sidebar_php['mozilla_explain'] = 'Kui sa kasutad Mozilla 0.9.4 või hilisemat, võid %slisada meie külgriba oma seadistusele%s. Sa võid külgriba maha võtta, kasutades Mozilla "Kohanda külgriba" ("Customize Sidebar") dialoogi.';
+$lang_sidebar_php['ie_mac'] = 'Internet Explorer 5 ja uuem Mac OS\'il';
+$lang_sidebar_php['ie_mac_explain'] = 'Kui sa kasutad Internet Explorer 5 või uuemat Mac OS\'il, %sava oma külgriba lehekülg%s eraldi aknas. Selles aknas ava "Leheküljehoidja" ("Page Holder") kaart akna vasakus servas. Klõpsa "Lisa" ("Add"). Kui sa soovid seda tulevikus kasutada, klõpsa "Lemmikud" ("Favorites") ja vali käsk "Lisa leheküljehoidja lemmikutesse" ("Add to Page Holder Favorites").';
+$lang_sidebar_php['ie_win'] = 'Internet Explorer 5 ja uuem Windows\'is';
+$lang_sidebar_php['ie_win_explain'] = 'Kui sa kasutad Internet Explorer 5 või uuemat Windows\'is, siis võid lisada külgriba oma viidete tööriistaribale või lemmikutesse ja klõpsates sellel näed meie külgriba seal, kus tavaliselt on otsinguriba, paremklõpsates %ssiin%s ja valides kontekstimenüüst "Lisa lemmikute hulka" ("Add to favorites"). See viide ei paigalda meie riba vaikimisi otsinguriba asemele, seega ei tehta sinu süsteemis mingeid muudatusi.';
+$lang_sidebar_php['ie7_win'] = 'Internet Explorer 7 Windows XP/Vista\'s';
+$lang_sidebar_php['ie7_win_explain'] = 'Kui sa kasutad Internet Explorer 7-t Windows\'is, siis sa võid lisada navigeerimise pop-up\'i oma viidete tööriistaribale või lemmikutesse ja klõpsates sellel näed meie külgriba hüpikaknana (pop-up\'ina) paremklõpsates %ssiin%s ja valides kontekstimenüüst "Lisa lemmikute hulka" ("Add to favorites"). IE eelmistes versioonides oli võimalik lisada tegelikku külgriba, aga IE7-s ei saa seda teostada ilma keerulise registri häkkimiseta. Soovitav on kasutada mõnda teist brauserit, kui sa soovid kasutada tegelikku külgriba.';
+$lang_sidebar_php['opera'] = 'Opera 6 ja uuem';
+$lang_sidebar_php['opera_explain'] = 'Kui sa kasutad Opera\'t, siis võid %sklõpsata sellel viitel, et lisada meie külgriba oma seadistusele%s. Märgista seejärel "Näita paanil" ("Show in panel"). Sa võid külgriba maha võtta paremklõpsates selle kaardil ja valides kontekstimenüüst "Kustuta" ("Delete").';
+$lang_sidebar_php['additional_options'] = 'Lisavalikud';
+$lang_sidebar_php['additional_options_explain'] = 'Kui sa kasutad ülalmainitutest erinevat brauserit, siis klõpsa %ssiin%s, et näha kõiki võimalikke külgriba valikuid.';
+$lang_sidebar_php['cannot_add_sidebar'] = 'Külgriba ei saa lisada! Sinu brauser ei toeta seda meetodit!'; // js-alert
+$lang_sidebar_php['search'] = 'Otsi';
+$lang_sidebar_php['reload'] = 'Lae uuesti';
 }
 
 
@@ -2006,6 +2042,7 @@ $lang_search_new_php['insert_selected'] = 'Lisa valitud pildid';
 $lang_search_new_php['no_pic_found'] = 'Ei leitud ühtegi uut faili';
 $lang_search_new_php['be_patient'] = 'Palun ole kannatlik, skriptil läheb failide lisamisega aega';
 $lang_search_new_php['no_album'] = 'ühtegi albumit pole valitud';
+$lang_search_new_php['no_file'] = 'faile pole valitud'; // cpg1.6
 $lang_search_new_php['result_icon'] = 'klõpsa üksikasjade nägemiseks või uuesti laadimiseks';
 $lang_search_new_php['notes'] = <<< EOT
     <ul>
@@ -2024,26 +2061,26 @@ EOT;
 $lang_search_new_php['check_all'] = 'Märgista kõik';
 $lang_search_new_php['uncheck_all'] = 'Eemalda märgistus';
 $lang_search_new_php['no_folders'] = 'Kataloogis &quot;albums&quot; pole hetkel ühtegi alamkataloogi. Loo sinna vähemalt üks kataloog ja lae sinna FTP-kliendiga oma failid. Faile ei tohi laadida ainult kataloogidesse &quot;userpics&quot; või &quot;edit&quot; - need on ainult HTTP-üleslaadimistele ja sisemiseks kasutamiseks.';
-$lang_search_new_php['browse_batch_add'] = 'Lehitsetav kasutajaliides'; // cpg1.5
-$lang_search_new_php['display_thumbs_batch_add'] = 'Näita eelvaate pisipilte'; // cpg1.5
+$lang_search_new_php['browse_batch_add'] = 'Lehitsetav kasutajaliides';
+$lang_search_new_php['display_thumbs_batch_add'] = 'Näita eelvaate pisipilte';
 $lang_search_new_php['edit_pics'] = 'Muuda faile';
 $lang_search_new_php['edit_properties'] = 'Albumi omadused';
 $lang_search_new_php['view_thumbs'] = 'Pisipildivaade';
-$lang_search_new_php['add_more_folder'] = 'Lisa hulgi faile kaustast %s'; // cpg1.5
+$lang_search_new_php['add_more_folder'] = 'Lisa hulgi faile kaustast %s';
 }
 
 // ------------------------------------------------------------------------- //
 //File send_activation.php
 // ------------------------------------------------------------------------- //
 if (defined('SEND_ACTIVATION_PHP')) {
-$lang_send_activation_php['err_already_logged_in'] = 'Sa oled juba sisse logitud!'; // cpg1.5
-$lang_send_activation_php['activation_not_required'] = 'See veebisait ei nõua aktiveerimist e-posti teel'; // cpg1.5
-$lang_send_activation_php['err_unk_user'] = 'Valitud kasutajat ei eksisteeri!'; // cpg1.5
-$lang_send_activation_php['resend_act_link'] = 'Saada aktiveerimise link uuesti'; // cpg1.5
-$lang_send_activation_php['enter_email'] = 'Sisesta oma e-posti aadress'; // cpg1.5
-$lang_send_activation_php['submit'] = 'Mine'; // cpg1.5
-$lang_send_activation_php['failed_sending_email'] = 'Aktiveerimislingiga e-kirja saatmine ebaõnnestus'; // cpg1.5
-$lang_send_activation_php['activation_email_sent'] = 'Aktiveerimislingiga e-kiri saadeti aadressile: %s. Palun kontrolli oma postkasti toimingu lõpuniviimiseks.'; // cpg1.5
+$lang_send_activation_php['err_already_logged_in'] = 'Sa oled juba sisse logitud!';
+$lang_send_activation_php['activation_not_required'] = 'See veebisait ei nõua aktiveerimist e-posti teel';
+$lang_send_activation_php['err_unk_user'] = 'Valitud kasutajat ei eksisteeri!';
+$lang_send_activation_php['resend_act_link'] = 'Saada aktiveerimise link uuesti';
+$lang_send_activation_php['enter_email'] = 'Sisesta oma e-posti aadress';
+$lang_send_activation_php['submit'] = 'Mine';
+$lang_send_activation_php['failed_sending_email'] = 'Aktiveerimislingiga e-kirja saatmine ebaõnnestus';
+$lang_send_activation_php['activation_email_sent'] = 'Aktiveerimislingiga e-kiri saadeti aadressile: %s. Palun kontrolli oma postkasti toimingu lõpuniviimiseks.';
 }
 
 // ------------------------------------------------------------------------- //
@@ -2052,7 +2089,7 @@ $lang_send_activation_php['activation_email_sent'] = 'Aktiveerimislingiga e-kiri
 
 if (defined('STAT_DETAILS_PHP')) {
 $lang_stat_details_php['show_hide'] = 'kuva/peida see veerg';
-$lang_stat_details_php['title'] = 'Statistika üksikasjad'; // cpg1.5
+$lang_stat_details_php['title'] = 'Statistika üksikasjad';
 $lang_stat_details_php['vote'] = 'Hääletamise üksikasjad';
 $lang_stat_details_php['hits'] = 'Tabamuste üksikasjad';
 $lang_stat_details_php['stats'] = 'Hääletamise statistika';
@@ -2064,7 +2101,7 @@ $lang_stat_details_php['referer'] = 'Suunaja';
 $lang_stat_details_php['browser'] = 'Veebilehitseja';
 $lang_stat_details_php['os'] = 'Opsüsteem';
 $lang_stat_details_php['ip'] = 'IP aadress';
-$lang_stat_details_php['uid'] = 'Kasutaja'; // cpg1.5
+$lang_stat_details_php['uid'] = 'Kasutaja';
 $lang_stat_details_php['sort_by_xxx'] = 'Sorteerimise alus: %s';
 $lang_stat_details_php['ascending'] = 'kasvavalt';
 $lang_stat_details_php['descending'] = 'kahanevalt';
@@ -2074,29 +2111,29 @@ $lang_stat_details_php['hide_internal_referers'] = 'peida sisemised suunajad';
 $lang_stat_details_php['date_display'] = 'Kuupäeva vorming:';
 $lang_stat_details_php['records_per_page'] = 'kirjet lehel';
 $lang_stat_details_php['submit'] = 'sisesta / värskenda';
-$lang_stat_details_php['overall_stats'] = 'Üleüldine statistika'; // cpg1.5
-$lang_stat_details_php['stats_by_os'] = 'Statistika opsüsteemide alusel'; // cpg1.5
-$lang_stat_details_php['number_of_hits'] = 'Tabamuste arv'; // cpg1.5
-$lang_stat_details_php['total'] = 'Kokku'; // cpg1.5
-$lang_stat_details_php['stats_by_browser'] = 'Statistika brauserite alusel'; // cpg1.5
-$lang_stat_details_php['overall_stats_config'] = 'Üleüldine statistika konfiguratsioon'; // cpg1.5
-$lang_stat_details_php['hit_details'] = 'Säilita üksikasjalikku tabamuste statistikat'; // cpg1.5
-$lang_stat_details_php['hit_details_explanation'] = 'Säilita üksikasjalikku tabamuste statistikat'; // cpg1.5
-$lang_stat_details_php['vote_details'] = 'Säilita üksikasjalikku hääletamise statistikat'; // cpg1.5
-$lang_stat_details_php['vote_details_explanation'] = 'Säilita üksikasjalikku hääletamise statistikat'; // cpg1.5
-$lang_stat_details_php['empty_hits_table'] = 'Tühjenda kogu tabamuste statistika'; // cpg1.5
-$lang_stat_details_php['empty_hits_table_confirm'] = 'Oled sa täiesti kindel, et soovid kustutada KOGU oma galerii KÕIK tabamuste statistika kirjed? Seda käsku ei saa tagasi võtta!'; // cpg1.5 // js-alert
-$lang_stat_details_php['empty_votes_table'] = 'Tühjenda kogu hääletamise statistika'; // cpg1.5
-$lang_stat_details_php['empty_votes_table_confirm'] = 'Oled sa täiesti kindel, et soovid kustutada KOGU oma galerii KÕIK hääletamiste statistika kirjed? Seda käsku ei saa tagasi võtta!'; // cpg1.5 // js-alert
-$lang_stat_details_php['submit'] = 'Saada'; // cpg1.5
-$lang_stat_details_php['upd_success'] = 'Coppermine\'i konfi uuendati'; // cpg1.5
-$lang_stat_details_php['votes'] = 'häält'; // cpg1.5
-$lang_stat_details_php['reset_votes_individual'] = 'Lähtesta valitud hääletus(ed)'; // cpg1.5
-$lang_stat_details_php['reset_votes_individual_confirm'] = 'Oled sa kindel, et soovid kustutada valitud hääletused? Seda käsku ei saa tagasi võtta!'; // cpg1.5
-$lang_stat_details_php['back_to_intermediate'] = 'Tagasi vahepealsete failide vaatesse'; // cpg1.5
-$lang_stat_details_php['records_on_page'] = '%s kirjet %s lehel'; // cpg1.5
-$lang_stat_details_php['guest'] = 'Külaline'; // cpg1.5
-$lang_stat_details_php['not_implemented'] = 'ei ole veel rakendatud'; // cpg1.5
+$lang_stat_details_php['overall_stats'] = 'Üleüldine statistika';
+$lang_stat_details_php['stats_by_os'] = 'Statistika opsüsteemide alusel';
+$lang_stat_details_php['number_of_hits'] = 'Tabamuste arv';
+$lang_stat_details_php['total'] = 'Kokku';
+$lang_stat_details_php['stats_by_browser'] = 'Statistika brauserite alusel';
+$lang_stat_details_php['overall_stats_config'] = 'Üleüldine statistika konfiguratsioon';
+$lang_stat_details_php['hit_details'] = 'Säilita üksikasjalikku tabamuste statistikat';
+$lang_stat_details_php['hit_details_explanation'] = 'Säilita üksikasjalikku tabamuste statistikat';
+$lang_stat_details_php['vote_details'] = 'Säilita üksikasjalikku hääletamise statistikat';
+$lang_stat_details_php['vote_details_explanation'] = 'Säilita üksikasjalikku hääletamise statistikat';
+$lang_stat_details_php['empty_hits_table'] = 'Tühjenda kogu tabamuste statistika';
+$lang_stat_details_php['empty_hits_table_confirm'] = 'Oled sa täiesti kindel, et soovid kustutada KOGU oma galerii KÕIK tabamuste statistika kirjed? Seda käsku ei saa tagasi võtta!'; // js-alert
+$lang_stat_details_php['empty_votes_table'] = 'Tühjenda kogu hääletamise statistika';
+$lang_stat_details_php['empty_votes_table_confirm'] = 'Oled sa täiesti kindel, et soovid kustutada KOGU oma galerii KÕIK hääletamiste statistika kirjed? Seda käsku ei saa tagasi võtta!'; // js-alert
+$lang_stat_details_php['submit'] = 'Saada';
+$lang_stat_details_php['upd_success'] = 'Coppermine\'i konfi uuendati';
+$lang_stat_details_php['votes'] = 'häält';
+$lang_stat_details_php['reset_votes_individual'] = 'Lähtesta valitud hääletus(ed)';
+$lang_stat_details_php['reset_votes_individual_confirm'] = 'Oled sa kindel, et soovid kustutada valitud hääletused? Seda käsku ei saa tagasi võtta!';
+$lang_stat_details_php['back_to_intermediate'] = 'Tagasi vahepealsete failide vaatesse';
+$lang_stat_details_php['records_on_page'] = '%s kirjet %s lehel';
+$lang_stat_details_php['guest'] = 'Külaline';
+$lang_stat_details_php['not_implemented'] = 'ei ole veel rakendatud';
 }
 
 // ------------------------------------------------------------------------- //
@@ -2105,10 +2142,10 @@ $lang_stat_details_php['not_implemented'] = 'ei ole veel rakendatud'; // cpg1.5
 
 if (defined('UPLOAD_PHP')) {
 $lang_upload_php['title'] = 'Faili üleslaadimine';
-$lang_upload_php['restrictions'] = 'Piirangud'; // cpg1.5
-$lang_upload_php['choose_method'] = 'Vali üleslaadimise meetod'; // cpg1.5
-$lang_upload_php['upload_swf'] = 'Mitu faili korraga - Flashi-põhine (soovitav)'; // cpg1.5
-$lang_upload_php['upload_single'] = 'lihtne - üks fail korraga'; // cpg1.5
+$lang_upload_php['restrictions'] = 'Piirangud';
+$lang_upload_php['choose_method'] = 'Vali üleslaadimise meetod';
+$lang_upload_php['upload_swf'] = 'Mitu faili korraga - Flashi-põhine';
+$lang_upload_php['upload_single'] = 'lihtne - üks fail korraga';
 $lang_upload_php['up_instr_1'] = 'Vali rippmenüüst album';
 $lang_upload_php['up_instr_2'] = 'Klõpsa allolevat "Lehitse" nuppu ja liigu failini, mida soovid üles laadida. Sa võid valida ka mitu faili hoides all Ctrl klahvi.';
 $lang_upload_php['up_instr_3'] = 'Vali üleslaadimiseks rohkem faile korrates sammu nr 2';
@@ -2141,19 +2178,20 @@ $lang_upload_php['err_no_alb_uploadables'] = 'Vabandust, pole ühtegi albumit, k
 $lang_upload_php['close'] = 'Sulge';
 $lang_upload_php['no_keywords'] = 'Vabandust, ühtegi võtmesõna pole saadaval!';
 $lang_upload_php['regenerate_dictionary'] = 'Genereeri võtmesõnastik uuesti';
-$lang_upload_php['allowed_types'] = 'Sul on lubatud üles laadida faile järgnevate laienditega:'; // cpg1.5
-$lang_upload_php['allowed_img_types'] = 'Pildifaili laiendid: %s'; // cpg1.5
-$lang_upload_php['allowed_mov_types'] = 'Videofaili laiendid: %s'; // cpg1.5
-$lang_upload_php['allowed_doc_types'] = 'Dokumendifaili laiendid: %s'; // cpg1.5
-$lang_upload_php['allowed_snd_types'] = 'Helifaili laiendid: %s'; // cpg1.5
-$lang_upload_php['please_wait'] = 'Palun oota kuni skript laeb - sellega läheb natuke aega'; // cpg1.5
-$lang_upload_php['alternative_upload'] = 'Alternatiivne üleslaadimise meetod'; // cpg1.5
-$lang_upload_php['xp_publish_promote'] = 'Kui sul on Windows XP/Vista, siis saad üleslaadimiseks kasutada ka Windows XP üleslaadimisnõustajat (Uploading Wizard), mis pakub lihtsalt kasutajaliidest.'; // cpg1.5
-$lang_upload_php['err_js_disabled'] = 'Flashi üleslaadimisliidest ei saa laadida. Sul peab olema JavaScript lubatud, et Flashi-põhist üleslaadimist nautida.'; // cpg1.5
-$lang_upload_php['err_flash_disabled'] = 'Üleslaadimisliidesel võtab toiming kaua aega või laadimine on ebaõnnestunud. Palun kontrolli, kas Flashi plugin on lubatud ja kas Flashi esitaja töötav versioon on paigaldatud.'; // cpg1.5
-$lang_upload_php['err_alternate_method'] = 'Alternatiivselt võid kasutada <a href="upload.php?single=1">üksiku</a> faili üleslaadimisliidest.'; // cpg1.5
-$lang_upload_php['err_flash_version'] = 'Üleslaadimisliides ei saa laadida. Võimalik, et sul on vaja paigaldada või uuendada Flashi esitaja. Külasta esitaja saamiseks lehekülge: <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">Adobe Shockwave Flash</a>.'; // cpg1.5
-$lang_upload_php['flash_loading'] = 'Laetakse üleslaadimisliidest. Palun oota hetk...'; // cpg1.5
+$lang_upload_php['allowed_types'] = 'Sul on lubatud üles laadida faile järgnevate laienditega:';
+$lang_upload_php['allowed_img_types'] = 'Pildifaili laiendid: %s';
+$lang_upload_php['allowed_mov_types'] = 'Videofaili laiendid: %s';
+$lang_upload_php['allowed_doc_types'] = 'Dokumendifaili laiendid: %s';
+$lang_upload_php['allowed_snd_types'] = 'Helifaili laiendid: %s';
+$lang_upload_php['please_wait'] = 'Palun oota kuni skript laeb - sellega läheb natuke aega';
+$lang_upload_php['alternative_upload'] = 'Alternatiivne üleslaadimise meetod';
+$lang_upload_php['err_js_disabled'] = 'Flashi üleslaadimisliidest ei saa laadida. Sul peab olema JavaScript lubatud, et Flashi-põhist üleslaadimist nautida.';
+$lang_upload_php['err_flash_disabled'] = 'Üleslaadimisliidesel võtab toiming kaua aega või laadimine on ebaõnnestunud. Palun kontrolli, kas Flashi plugin on lubatud ja kas Flashi esitaja töötav versioon on paigaldatud.';
+$lang_upload_php['err_alternate_method'] = 'Alternatiivselt võid kasutada <a href="upload.php?html5=1">HTML5</a> faili üleslaadimisliidest.';
+$lang_upload_php['err_flash_version'] = 'Üleslaadimisliides ei saa laadida. Võimalik, et sul on vaja paigaldada või uuendada Flashi esitaja. Külasta esitaja saamiseks lehekülge: <a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">Adobe Shockwave Flash</a>.';
+$lang_upload_php['flash_loading'] = 'Laetakse üleslaadimisliidest. Palun oota hetk...';
+$lang_upload_php['err_no_method'] = 'Vähemalt üks üleslaadimisplugin peab olema lubatud';
+$lang_upload_php['auto_orient'] = 'Määra piltide orientatsioon automaatselt';
 
 $lang_upload_swf_php['browse'] = 'Lehitse...'; //cpg1.5
 $lang_upload_swf_php['cancel_all'] = 'Katkesta kõik üleslaadimised'; //cpg1.5
@@ -2178,6 +2216,65 @@ $lang_upload_swf_php['status_validation_failed'] = 'Valideerimine ebaõnnestus. 
 $lang_upload_swf_php['queue_limit'] = 'Sa kavatsesid panna järjekorda liiga palju faile.'; //cpg1.5
 $lang_upload_swf_php['upload_limit_1'] = 'Sa oled üleslaadimise limiidini jõudnud.'; //cpg1.5
 $lang_upload_swf_php['upload_limit_2'] = 'Sa võid valida kuni %s faili'; //cpg1.5
+}
+// ------------------------------------------------------------------------- //
+// Upload plugin(s)
+// ------------------------------------------------------------------------- //
+if (defined('PLUGINMGR_PHP') || defined('UPLOAD_PHP') || defined('ADMIN_PHP') || defined('UPLOAD_H5A')) {
+$lang_plugin_upload['js_require'] = 'SELLE MEETODI JAOKS OB VAJA JAVASCRIPTI.';
+$lang_plugin_upload['albmSelMsg'] = 'Palun vali enne album.';
+$lang_plugin_upload['size_err'] = 'Fail on suurem kui maksimaalselt lubatud on.';
+
+// HTML5
+$lang_plugin_upload_h5a['plug_desc'] = 'Lisab HTML5 samaaegselt mitme faili üleslaadimise võimaluse, kaasa arvatud sikuta ja lase lahti võimaluse';
+$lang_plugin_upload_h5a['plug_info'] = 'Selle plugina abil saad üles laadida mitut faili korraga. töötab see HTML5 põhjal ja vajab brauseripoolset javascripti lubamist.';
+$lang_plugin_upload_h5a['html5_method'] = 'Mitu faili korraga - HTML5 (soovitatav)';
+$lang_plugin_upload_h5a['html5upload'] = 'CoreH5A üleslaadimine';
+$lang_plugin_upload_h5a['title'] = 'HTML5 üleslaadimine';
+
+$lang_plugin_upload_h5a['upldfiles'] = 'Lae faile üles';
+$lang_plugin_upload_h5a['files'] = 'Failid';
+$lang_plugin_upload_h5a['flistitl'] = 'Kasuta fiali nime pealkirjana';
+$lang_plugin_upload_h5a['drop_files'] = 'Või sikuta failid siia';
+$lang_plugin_upload_h5a['files_left'] = 'Failid ootel: ';
+$lang_plugin_upload_h5a['continue'] = 'Jätka:';
+$lang_plugin_upload_h5a['gotoedit'] = 'Muuda üleslaetud faile';
+
+$lang_plugin_upload_h5a['maxUplSiz'] = 'Maksimaalne üleslaetava faili maht';	//v1.3
+$lang_plugin_upload_h5a['select'] = 'Samaaegsete üleslaetavate failide arv';
+$lang_plugin_upload_h5a['acptmime'] = 'Mime tüübid, millega filtreerida failide üleslaadimist';
+$lang_plugin_upload_h5a['autoedit'] = 'Automaatselt liigu muutmisaknasse kui üleslaadimine on edukalt lõppenud';
+$lang_plugin_upload_h5a['incflds'] = 'Kaasa välju:';
+$lang_plugin_upload_h5a['saved'] = 'Seaded salvestatud.';
+$lang_plugin_upload_h5a['revert'] = 'Muuda vaikeväärtusteks';	//v1.3
+
+$lang_plugin_upload_h5a['notavail'] = 'SELLE BRAUSERIGA POLE TOETATUD';
+$lang_plugin_upload_h5a['aborted'] = 'katkestatud';
+$lang_plugin_upload_h5a['type_err'] = 'Seda tüüpi faili ei saa üles laadida. (laiend)';
+$lang_plugin_upload_h5a['extallow'] = 'Ainult selle laiendiga faile on võimalik üles laadida: ';
+
+$lang_plugin_upload_h5a['q_stop'] = 'peata ootejärjekord';
+$lang_plugin_upload_h5a['q_resume'] = 'jätka ootejärjekorda';
+$lang_plugin_upload_h5a['q_cancel'] = 'katkesta ootejärjekord';
+//v1.3.2 chunked
+$lang_plugin_upload_h5a['muf_err'] = 'Viga faili andmete loomisel #%d failile %s ( %s %s )';
+$lang_plugin_upload_h5a['miss_chnk'] = 'Puuduvad faili andmed';
+$lang_plugin_upload_h5a['dest_fail'] = 'Ei suuda luua lõppfaili: %s';
+
+// swf
+$lang_plugin_upload_swf['plug_desc'] = 'Lisatakse Flash põhine üleslaadimisvõimalus';
+$lang_plugin_upload_swf['plug_info'] = 'Selle plugina abil saad mitme faili üleslaadimise võimaluse mis kasutab Flashi ja javascripti.';
+$lang_plugin_upload_swf['swf_method'] = 'Mitu faili korraga - Flash';
+$lang_plugin_upload_swf['swfupload'] = 'CoreSWF üleslaadimine';
+$lang_plugin_upload_swf['title'] = 'Flash üleslaadimine';
+
+// single
+$lang_plugin_upload_sgl['plug_desc'] = 'Üksiku faili üleslaadimine';
+$lang_plugin_upload_sgl['plug_info'] = 'Selle plugina abil saat üles laadida vaid ühte faili korraga.';
+$lang_plugin_upload_sgl['sgl_method'] = 'Lihtne - üks fail korraga';
+$lang_plugin_upload_sgl['sglupload'] = 'CoreSGL üleslaadimine';
+$lang_plugin_upload_sgl['title'] = 'Single File üleslaadimine';
+$lang_plugin_upload_sgl['choose_file'] = 'Palun vali fail.';
 }
 // ------------------------------------------------------------------------- //
 // File usermgr.php
@@ -2217,7 +2314,7 @@ $lang_usermgr_php['inactive'] = 'Mitteaktiivne';
 $lang_usermgr_php['operations'] = 'Toimingud';
 $lang_usermgr_php['pictures'] = 'Faile';
 $lang_usermgr_php['disk_space_used'] = 'Kasutatud ruum';
-$lang_usermgr_php['disk_space_quota'] = 'Kettalimiit'; // cpg1.5
+$lang_usermgr_php['disk_space_quota'] = 'Kettalimiit';
 $lang_usermgr_php['registered_on'] = 'Registreerunud';
 $lang_usermgr_php['last_visit'] = 'Viimane külastus';
 $lang_usermgr_php['u_user_on_p_pages'] = '%d kasutajat %d lehel';
@@ -2243,10 +2340,10 @@ $lang_usermgr_php['user_profile4'] = '$user_profile4';
 $lang_usermgr_php['user_profile5'] = '$user_profile5';
 $lang_usermgr_php['user_profile6'] = '$user_profile6';
 $lang_usermgr_php['latest_upload'] = 'Hiljutised üleslaadimised';
-$lang_usermgr_php['no_latest_upload'] = 'Pole ühtegi faili üles laadinud'; // cpg1.5
-$lang_usermgr_php['last_comments'] = 'Viimased kommentaarid'; // cpg1.5
-$lang_usermgr_php['no_last_comments'] = 'Pole ühtegi kommentaari lisanud'; // cpg1.5
-$lang_usermgr_php['comments'] = 'Kommentaarid'; // cpg1.5
+$lang_usermgr_php['no_latest_upload'] = 'Pole ühtegi faili üles laadinud';
+$lang_usermgr_php['last_comments'] = 'Viimased kommentaarid';
+$lang_usermgr_php['no_last_comments'] = 'Pole ühtegi kommentaari lisanud';
+$lang_usermgr_php['comments'] = 'Kommentaarid';
 $lang_usermgr_php['never'] = 'mitte kunagi';
 $lang_usermgr_php['search'] = 'Kasutaja otsing';
 $lang_usermgr_php['submit'] = 'Sisesta';
@@ -2260,17 +2357,17 @@ $lang_usermgr_php['modify'] = 'Kas muuta?';
 $lang_usermgr_php['group_no_access'] = 'Sel grupil pole erilisi juurdepääsuõigusi';
 $lang_usermgr_php['notice'] = 'Märkus';
 $lang_usermgr_php['group_can_access'] = 'Album(id), millele ainult "%s" juurde pääseb';
-$lang_usermgr_php['send_login_data'] = 'Saada sellele kasutajale sisselogimise andmed (salasõna saadetakse e-posti teel)'; // cpg1.5
-$lang_usermgr_php['send_login_email_subject'] = 'Sinu uue konto info'; // cpg1.5
-$lang_usermgr_php['failed_sending_email'] = 'Sisselogimisandmete e-kirja ei saa saata!'; // cpg1.5
-$lang_usermgr_php['view_profile'] = 'Vaata profiili'; // cpg1.5
-$lang_usermgr_php['edit_profile'] = 'Muuda profiili'; // cpg1.5
-$lang_usermgr_php['ban_user'] = 'Bänni kasutaja'; // cpg1.5
-$lang_usermgr_php['user_is_banned'] = 'Kasutaja on bännitud'; // cpg1.5
-$lang_usermgr_php['status'] = 'Olek'; // cpg1.5
-$lang_usermgr_php['status_active'] = 'aktiivne'; // cpg1.5
-$lang_usermgr_php['status_inactive'] = 'mitteaktiivne'; // cpg1.5
-$lang_usermgr_php['total'] = 'Kokku'; // cpg1.5
+$lang_usermgr_php['send_login_data'] = 'Saada sellele kasutajale sisselogimise andmed (salasõna saadetakse e-posti teel)';
+$lang_usermgr_php['send_login_email_subject'] = 'Sinu uue konto info';
+$lang_usermgr_php['failed_sending_email'] = 'Sisselogimisandmete e-kirja ei saa saata!';
+$lang_usermgr_php['view_profile'] = 'Vaata profiili';
+$lang_usermgr_php['edit_profile'] = 'Muuda profiili';
+$lang_usermgr_php['ban_user'] = 'Bänni kasutaja';
+$lang_usermgr_php['user_is_banned'] = 'Kasutaja on bännitud';
+$lang_usermgr_php['status'] = 'Olek';
+$lang_usermgr_php['status_active'] = 'aktiivne';
+$lang_usermgr_php['status_inactive'] = 'mitteaktiivne';
+$lang_usermgr_php['total'] = 'Kokku';
 $lang_usermgr_php['send_login_data_email'] = <<< EOT
 {SITE_NAME} keskkonnas on sulle loodud uus konto.
 
@@ -2278,6 +2375,7 @@ Sa võid nüüd sisse logida aadressilt: <a href="{SITE_LINK}">{SITE_LINK}</a> k
 
 
 Tervitades,
+
 {SITE_NAME} haldajad
 
 EOT;
@@ -2287,52 +2385,76 @@ EOT;
 // File update.php
 // ------------------------------------------------------------------------- //
 if (defined('UPDATE_PHP')) {
-$lang_update_php['title'] = 'Uuendaja'; // cpg1.5
-$lang_update_php['welcome_updater'] = 'Tere tulemast Coppermine\'i uuendajasse'; // cpg1.5
-$lang_update_php['could_not_authenticate'] = 'Autentimine ebaõnnestus'; // cpg1.5
-$lang_update_php['provide_admin_account'] = 'Palun sisesta oma Coppermine\'i adminikonto andmed või oma MySQL-i konto andmed'; // cpg1.5
-$lang_update_php['try_again'] = 'Proovi uuesti'; // cpg1.5
-$lang_update_php['mysql_connect_error'] = 'Ei suuda luua MySQL ühendust'; // cpg1.5
-$lang_update_php['mysql_database_error'] = 'MySQL ei leia andmebaasi nimega %s'; // cpg1.5
-$lang_update_php['mysql_said'] = 'MySQL ütles'; // cpg1.5
-$lang_update_php['check_config_file'] = 'Palun kontrolli MySQL andmeid: %s'; // cpg1.5
-$lang_update_php['performing_database_updates'] = 'Teostab andmebaasi uuendust'; // cpg1.5
-$lang_update_php['performing_file_updates'] = 'Teostab faili uuendust'; // cpg1.5
-$lang_update_php['already_done'] = 'Juba tehtud'; // cpg1.5
-$lang_update_php['password_encryption'] = 'Salasõnade krüptimine'; // cpg1.5
-$lang_update_php['alb_password_encryption'] = 'Albumi salasõnade krüptimine'; // cpg1.5
-$lang_update_php['category_tree'] = 'Kategooriapuu'; // cpg1.5
-$lang_update_php['authentication_needed'] = 'Nõutav on autentimine'; // cpg1.5
-$lang_update_php['username'] = 'Kasutajanimi'; // cpg1.5
-$lang_update_php['password'] = 'Salasõna'; // cpg1.5
-$lang_update_php['update_completed'] = 'Uuendus lõpetatud'; // cpg1.5
-$lang_update_php['check_versions'] = 'Soovitav on %skontrollida failide versioone%s, kui sa uuendasid oma vanemat Coppermine\'i versiooni'; // cpg1.5 // Leave the %s untouched when translating - it wraps the link
-$lang_update_php['start_page'] = 'Kui sa ei soovi (või ei taha) kontrollida, siis võid minna %soma galerii alguslehele%s'; // cpg1.5 // Leave the %s untouched when translating - it wraps the link
-$lang_update_php['errors_encountered'] = 'Leiti järgnevad vead ja need peab esmalt parandama'; // cpg1.5
-$lang_update_php['delete_file'] = 'Kustuta %s'; // cpg1.5
-$lang_update_php['could_not_delete'] = 'Ei suuda kustutada puuduvate õiguste tõttu. Kustuta fail käsitsi!'; // cpg1.5
-$lang_update_php['rename_file'] = 'Nimeta %s ümber %s-ks'; // cpg1.5
-$lang_update_php['could_not_rename'] = 'Ei suuda ümber nimetada puuduvate õiguste tõttu. Nimeta fail käsitsi ümber!'; // cpg1.5
+$lang_update_php['title'] = 'Uuendaja';
+$lang_update_php['welcome_updater'] = 'Tere tulemast Coppermine\'i uuendajasse';
+$lang_update_php['could_not_authenticate'] = 'Autentimine ebaõnnestus';
+$lang_update_php['provide_admin_account_cpg'] = 'Palun sisesta oma Coppermine\'i adminikonto andmed';
+$lang_update_php['provide_admin_account_dbase'] = 'Palun sisesta oma %s konto andmed'; // cpg1.6
+$lang_update_php['try_again'] = 'Proovi uuesti';
+$lang_update_php['dbase_connect_error'] = 'Ei suuda luua MySQL ühendust';
+$lang_update_php['dbase_database_error'] = 'MySQL ei leia andmebaasi nimega %s';
+$lang_update_php['dbase_said'] = 'MySQL ütles';
+$lang_update_php['check_config_file'] = 'Palun kontrolli MySQL andmeid: %s';
+$lang_update_php['performing_database_updates'] = 'Teostab andmebaasi uuendust';
+$lang_update_php['performing_file_updates'] = 'Teostab faili uuendust';
+$lang_update_php['already_done'] = 'Juba tehtud';
+$lang_update_php['password_encryption'] = 'Salasõnade krüptimine';
+$lang_update_php['alb_password_encryption'] = 'Albumi salasõnade krüptimine';
+$lang_update_php['category_tree'] = 'Kategooriapuu';
+$lang_update_php['authentication_needed'] = 'Nõutav on autentimine';
+$lang_update_php['username'] = 'Kasutajanimi';
+$lang_update_php['password'] = 'Salasõna';
+$lang_update_php['update_completed'] = 'Uuendus lõpetatud';
+$lang_update_php['check_versions'] = 'Soovitav on %skontrollida failide versioone%s, kui sa uuendasid oma vanemat Coppermine\'i versiooni'; // Leave the %s untouched when translating - it wraps the link
+$lang_update_php['start_page'] = 'Kui sa ei soovi (või ei taha) kontrollida, siis võid minna %soma galerii alguslehele%s'; // Leave the %s untouched when translating - it wraps the link
+$lang_update_php['errors_encountered'] = 'Leiti järgnevad vead ja need peab esmalt parandama';
+$lang_update_php['delete_file'] = 'Kustuta %s';
+$lang_update_php['could_not_delete'] = 'Ei suuda kustutada puuduvate õiguste tõttu. Kustuta fail käsitsi!';
+$lang_update_php['rename_file'] = 'Nimeta %s ümber %s-ks';
+$lang_update_php['could_not_rename'] = 'Ei suuda ümber nimetada puuduvate õiguste tõttu. Nimeta fail käsitsi ümber!';
+// 1.6 dbabstract
+$lang_update_php['newDbMethod'] = 'Sinu Coppermine Gallery paigaldus kasutab andmebaasi ühendust (mysql) mida ei toetata. Palun vali mõni teine ühendus allpool olevast valikust.';
+$lang_update_php['not_available'] = 'pole saadaval';
+$lang_update_php['version_too_old'] = 'liiga vana versioon';
+$lang_update_php['recommended'] = ' (soovitatud)';
+$lang_update_php['current_nr'] = ' (praegune, pole soovitatud)';
+$lang_update_php['unable_write_config'] = 'Ei suutnud kirjutada seadetefaili';
+// 1.6 core upload plugins
+$lang_update_php['core_upload_plugs'] = 'Luba tuuma üleslaadimispluginad';
+// for scripted upgrade/update mechanism
+$lang_update_php['no_zip_extn'] = 'Vajalik ZipArchive pole saadaval';
+$lang_update_php['files_placed_title'] = 'Uuendusfailid paigaldatud';
+$lang_update_php['files_placed_msg'] = 'Kõik uuendusfailid kenasti paigaldatud. Kliki, et lõpetada uuenamine.';
+$lang_update_php['complete_update'] = 'Täielik uuendus';
+$lang_update_php['select_update'] = 'Palun vali uuendus mida käivitada.';
+$lang_update_php['not_writeable'] = '<b>Uuendamist ei suudetud käivitada</b><br />Järgnevad kaustad pole kirjutamisõigusega: ';
+$lang_update_php['available_updates'] = 'Saadaval uuendused';
+$lang_update_php['perform_update'] = 'Käivita valitud uuendus';
+$lang_update_php['no_updates_title'] = 'Uuendusi pole saadaval';
+$lang_update_php['no_updates_msg'] = 'Sellele versioonile uuendusi ei leitud';
+$lang_update_php['not_found'] = 'CPG väljalaskepakke Githubist ei leitud';
+$lang_update_php['save_error'] = 'Ei suutnud salvestada uut uuendust. Toiming katkestati.';
+$lang_update_php['pre_warning'] = '<span style="color:red">HOIATUS: See on eel-versioon!</span>';
 }
 
 // ------------------------------------------------------------------------- //
 // File util.php
 // ------------------------------------------------------------------------- //
 if (defined('UTIL_PHP')) {
-$lang_util_php['title'] = 'Admini tööriistad'; // cpg1.5
+$lang_util_php['title'] = 'Admini tööriistad';
 $lang_util_php['file'] = 'Fail';
 $lang_util_php['problem'] = 'Probleem';
 $lang_util_php['status'] = 'Olek';
 $lang_util_php['title_set_to'] = 'pealkiri:';
 $lang_util_php['submit_form'] = 'sisesta';
-$lang_util_php['titles_updated'] = '%s pealkirja uuendatud.'; // cpg1.5
-$lang_util_php['updated_successfully'] = 'edukalt uuendatud'; // cpg1.5
+$lang_util_php['titles_updated'] = '%s pealkirja uuendatud.';
+$lang_util_php['updated_successfully'] = 'edukalt uuendatud';
 $lang_util_php['error_create'] = 'Viga loomisel';
-$lang_util_php['continue'] = 'Töötle veel pilte'; // cpg1.5
+$lang_util_php['continue'] = 'Töötle veel pilte';
 $lang_util_php['main_success'] = 'Fail %s edukalt peamise failina kasutuses';
 $lang_util_php['error_rename'] = 'Viga %s ümbernimetamisel %s-ks';
 $lang_util_php['error_not_found'] = 'Faili %s ei leitud';
-$lang_util_php['back'] = 'Tagasi Admini tööriistade pealehele'; // cpg1.5
+$lang_util_php['back'] = 'Tagasi Admini tööriistade pealehele';
 $lang_util_php['thumbs_wait'] = 'Pisipiltide ja/või muudetud suurusega piltide uuendamine, palun oota...';
 $lang_util_php['thumbs_continue_wait'] = 'Pisipiltide ja/või muudetud suurusega piltide uuendamise jätkamine...';
 $lang_util_php['titles_wait'] = 'Pealkirjade uuendamine, palun oota...';
@@ -2345,80 +2467,92 @@ $lang_util_php['update_pic'] = 'ainult muudetud suurusega pilte';
 $lang_util_php['update_both'] = 'nii pisipilte kui muudetud suurusega pilte';
 $lang_util_php['update_number'] = 'Töödeldud pilte klõpsu kohta:';
 $lang_util_php['update_option'] = '(Ajalimiidi probleemide korral proovi väiksemat väärtust)';
-$lang_util_php['update_missing'] = 'Uuenda ainult puuduvaid faile'; // cpg1.5
+$lang_util_php['update_missing'] = 'Uuenda ainult puuduvaid faile';
 $lang_util_php['filename_title'] = 'Failinime muutmine faili pealkirjaks';
 $lang_util_php['filename_how'] = 'Failinime muutmisel';
-$lang_util_php['filename_remove'] = 'eemalda lõpust laiend (.jpg või muu) ning asenda alakriipsud (_) tühikutega'; // cpg1.5
+$lang_util_php['filename_remove'] = 'eemalda lõpust laiend (.jpg või muu) ning asenda alakriipsud (_) tühikutega';
 $lang_util_php['filename_euro'] = 'asenda 2003_11_23_13_20_20.jpg kujuga 23/11/2003 13:20';
 $lang_util_php['filename_us'] = 'asenda 2003_11_23_13_20_20.jpg kujuga 11/23/2003 13:20';
 $lang_util_php['filename_time'] = 'asenda 2003_11_23_13_20_20.jpg kujuga 13:20';
-$lang_util_php['notitle'] = 'Rakenda ainult ilma pealkirjata failide puhul'; // cpg1.5
-$lang_util_php['delete_title'] = 'Kustuta failide pealkirjad';
-$lang_util_php['delete_title_explanation'] = 'Eemaldab määratud albumis kõikidelt failidelt pealkirjad.';
+$lang_util_php['notitle'] = 'Rakenda ainult ilma pealkirjata failide puhul';
+//$lang_util_php['delete_title'] = 'Kustuta failide pealkirjad';
+//$lang_util_php['delete_title_explanation'] = 'Eemaldab määratud albumis kõikidelt failidelt pealkirjad.';
+$lang_util_php['change_values_title'] = 'Muuda väärtusi (või tühjenda) pealkirjale, iseloomustusele ja võtmesõnadele.';
+$lang_util_php['change_values_how'] = 'Määra uued automaatsed väärtused või tühjenda need.';
+$lang_util_php['change_values_title_label'] = 'Pealkiri:';
+$lang_util_php['change_values_desc_label'] = 'Iseloomustus:';
+$lang_util_php['change_values_tags_label'] = 'Võtmesõnad (kasuta semikoolonit):';
+$lang_util_php['change_values_msg_nothing'] = 'Midagi pole teha.';
+$lang_util_php['change_values_msg_changed'] = 'Neil üksustel %d tehti muudatusi.';
+$lang_util_php['change_values_msg_error'] = 'Muudatuste tegemine ebaõnnestus.';
 $lang_util_php['delete_original'] = 'Originaalsuuruses fotode kustutamine';
 $lang_util_php['delete_original_explanation'] = 'Täissuuruses piltide kustutamine.';
 $lang_util_php['delete_intermediate'] = 'Vahepealsete piltide kustutamine';
-$lang_util_php['delete_intermediate_explanation1'] = 'Kustutab vahepealsed (normaalsuuruses) pildid.'; // cpg1.5
-$lang_util_php['delete_intermediate_explanation2'] = 'Kasuta seda kettaruumi vabastamiseks juhul, kui pärast piltide lisamist on seadistuses keelatud vahepealsete piltide loomine.'; // cpg1.5
-$lang_util_php['delete_intermediate_check'] = 'Seadistuse \'Loo vahepealsed pildid\' valik on hetkel seatud: %s.'; // cpg1.5
-$lang_util_php['no_image'] = '%s jäeti vahele kuna see ei ole pilt.'; // cpg1.5
-$lang_util_php['enabled'] = 'lubatud'; // cpg1.5
-$lang_util_php['disabled'] = 'keelatud'; // cpg1.5
+$lang_util_php['delete_intermediate_explanation1'] = 'Kustutab vahepealsed (normaalsuuruses) pildid.';
+$lang_util_php['delete_intermediate_explanation2'] = 'Kasuta seda kettaruumi vabastamiseks juhul, kui pärast piltide lisamist on seadistuses keelatud vahepealsete piltide loomine.';
+$lang_util_php['delete_intermediate_check'] = 'Seadistuse \'Loo vahepealsed pildid\' valik on hetkel seatud: %s.';
+$lang_util_php['no_image'] = '%s jäeti vahele kuna see ei ole pilt.';
+$lang_util_php['enabled'] = 'lubatud';
+$lang_util_php['disabled'] = 'keelatud';
 $lang_util_php['delete_replace'] = 'Kustutab originaalsuuruses pildid ja asendab need vähendatud versioonidega';
 $lang_util_php['titles_deleted'] = 'Kõik pealkirjad määratud albumis on eemaldatud';
 $lang_util_php['deleting_intermediates'] = 'Vahepealsete piltide kustutamine, palun oota...';
 $lang_util_php['searching_orphans'] = 'Orbude otsimine, palun oota...';
 $lang_util_php['delete_orphans'] = 'Orvuks jäänud kommentaaride kustutamine';
 $lang_util_php['delete_orphans_explanation'] = 'Tuvastab ja laseb kustutada kommentaarid, mis on seotud failidega, mida enam galeriis ei ole.<br />Kontrollib üle kõik albumid.';
-$lang_util_php['update_full_normal_thumb'] = 'Kõik: täismõõdus, muudetud suurusega ja pisipildid'; // cpg1.5
-$lang_util_php['update_full_normal'] = 'Nii muudetud suurusega, kui täismõõdus (kui koopia originaalist on olemas)'; // cpg1.5
-$lang_util_php['update_full'] = 'Ainult täismõõdus (kui koopia originaalist on olemas)'; // cpg1.5
-$lang_util_php['delete_back'] = 'Kustuta vesimärgistatud originaalkujutiste tagavarakoopia'; // cpg1.5
-$lang_util_php['delete_back_explanation'] = 'Kustutab tagavarakoopia. Sellega hoiab kokku natuke ketta mahtu aga vesimärki ei ole võimalik enam tagasi võtta!!! Pärast seda on vesimärk alaline.'; // cpg1.5
-$lang_util_php['finished'] = '<br />Pisipiltide/kujutiste uuendamine lõpetatud!<br />'; // cpg1.5
-$lang_util_php['autorefresh'] = 'Automaatselt värskenda (ei pea enam klõpsama jätkamise nuppu)'; // cpg1.5
+$lang_util_php['update_full_normal_thumb'] = 'Kõik: täismõõdus, muudetud suurusega ja pisipildid';
+$lang_util_php['update_full_normal'] = 'Nii muudetud suurusega, kui täismõõdus (kui koopia originaalist on olemas)';
+$lang_util_php['update_full'] = 'Ainult täismõõdus (kui koopia originaalist on olemas)';
+$lang_util_php['delete_back'] = 'Kustuta vesimärgistatud originaalkujutiste tagavarakoopia';
+$lang_util_php['delete_back_explanation'] = 'Kustutab tagavarakoopia. Sellega hoiab kokku natuke ketta mahtu aga vesimärki ei ole võimalik enam tagasi võtta!!! Pärast seda on vesimärk alaline.';
+$lang_util_php['finished'] = 'Pisipiltide/kujutiste uuendamine lõpetatud!';
+$lang_util_php['autorefresh'] = 'Automaatselt värskenda (ei pea enam klõpsama jätkamise nuppu)';
 $lang_util_php['refresh_db'] = 'Lae uuesti faili mõõtude ja mahu info';
 $lang_util_php['refresh_db_explanation'] = 'See laeb uuesti faili mahu ja mõõdud. Kasuta seda, kui kettalimiit on ebakorrektne või kui faile on käsitsi muudetud.';
 $lang_util_php['reset_views'] = 'Lähtesta vaatamiste loendur';
 $lang_util_php['reset_views_explanation'] = 'Nullib kõikide failide vaatamiste arvu määratud albumis.';
-$lang_util_php['reset_success'] = 'Lähtestamine õnnestus'; // cpg1.5
+$lang_util_php['reset_success'] = 'Lähtestamine õnnestus';
 $lang_util_php['orphan_comment'] = 'leiti orbkommentaare';
 $lang_util_php['delete_all'] = 'Kustuta kõik';
 $lang_util_php['delete_all_orphans'] = 'Kas kustutada kõik orvud?';
 $lang_util_php['comment'] = 'Kommentaar: ';
 $lang_util_php['nonexist'] = 'lisatud olematule failile # ';
-$lang_util_php['delete_old'] = 'Kustuta failid, mis on vanemad, kui seatud päevade arv'; // cpg1.5
-$lang_util_php['delete_old_explanation'] = 'Kustutab failid, mis on vanemad, kui sinu poolt määratud päevade arv (täismõõdulised, vahepealsed, pisipildid). Kasuta seda funktsiooni kettaruumi vabastamiseks.'; // cpg1.5
-$lang_util_php['delete_old_warning'] = 'Hoiatus: määratud failid kustutatakse ilma täiendavate hoiatusteta!'; // cpg1.5
-$lang_util_php['deleting_old'] = 'Kustutab vanu pilte, palun oota...'; // cpg1.5
-$lang_util_php['older_than'] = 'Kustuta failid, mis on vanemad, kui %s päev(a)'; // cpg1.5
-$lang_util_php['del_orig'] = 'Originaalfail %s kustutati edukalt'; // cpg1.5
-$lang_util_php['del_intermediate'] = 'Vahepealne kujutis %s kustutati edukalt'; // cpg1.5
-$lang_util_php['del_thumb'] = 'Pisipilt %s kustutati edukalt'; // cpg1.5
-$lang_util_php['del_error'] = '%s kustutamisel tekkis viga!'; // cpg1.5
-$lang_util_php['affected_records'] = '%s kaasatud kirjet.'; // cpg1.5
-$lang_util_php['all_albums'] = 'Kõik albumid'; // cpg1.5
-$lang_util_php['update_result'] = 'Uuendamise tulemused'; // cpg1.5
-$lang_util_php['incorrect_filesize'] = 'Failide kogumaht on vale'; // cpg1.5
-$lang_util_php['database'] = 'Andmebaas: '; // cpg1.5
-$lang_util_php['bytes'] = ' baiti'; // cpg1.5
-$lang_util_php['actual'] = 'Tegelik: '; // cpg1.5
-$lang_util_php['updated'] = 'Uuendatud'; // cpg1.5
-$lang_util_php['filesize_error'] = 'Ei tuvastanud faili mahtu (ehk on vigane fail), jätan vahele....'; // cpg1.5
-$lang_util_php['skipped'] = 'Vahele jäetud'; // cpg1.5
-$lang_util_php['incorrect_dimension'] = 'Mõõdud on valed'; // cpg1.5
-$lang_util_php['dimension_error'] = 'Ei tuvastanud mõõte, jätan vahele....'; // cpg1.5
-$lang_util_php['cannot_fix'] = 'Ei suuda parandada'; // cpg1.5
-$lang_util_php['fullpic_error'] = 'Faili %s pole olemas!'; // cpg1.5
-$lang_util_php['no_prob_detect'] = 'Probleeme ei tuvastatud'; // cpg1.5
-$lang_util_php['no_prob_found'] = 'Probleeme ei avastatud.'; // cpg1.5
-$lang_util_php['keyword_convert'] = 'Konverteeri võtmesõnade eraldaja'; // cpg1.5
-$lang_util_php['keyword_from_to'] = 'Konverteeri võtmesõnade eraldaja %s-st %s-ks'; // cpg1.5
-$lang_util_php['keyword_set'] = 'Sea galerii võtmesõna eraldajale uus väärtus'; // cpg1.5
-$lang_util_php['keyword_replace_before'] = 'Enne konverteerimist asenda %s %s-ga'; // cpg1.5
-$lang_util_php['keyword_replace_after'] = 'Pärast konverteerimist asenda %s %s-ga'; // cpg1.5
-$lang_util_php['keyword_replace_values'] = array('_'=>'alakriips', '-'=>'sidekriips', '~'=>'tilde'); // cpg1.5
-$lang_util_php['keyword_explanation'] = 'See konverteerib kõikide failide võtmesõnade eraldaja ühest väärtusest teiseks. Vaata üksikasju abidokumentatsioonist.'; // cpg1.5
+$lang_util_php['delete_old'] = 'Kustuta failid, mis on vanemad, kui seatud päevade arv';
+$lang_util_php['delete_old_explanation'] = 'Kustutab failid, mis on vanemad, kui sinu poolt määratud päevade arv (täismõõdulised, vahepealsed, pisipildid). Kasuta seda funktsiooni kettaruumi vabastamiseks.';
+$lang_util_php['delete_old_warning'] = 'Hoiatus: määratud failid kustutatakse ilma täiendavate hoiatusteta!';
+$lang_util_php['deleting_old'] = 'Kustutab vanu pilte, palun oota...';
+$lang_util_php['older_than'] = 'Kustuta failid, mis on vanemad, kui %s päev(a)';
+$lang_util_php['del_orig'] = 'Originaalfail %s kustutati edukalt';
+$lang_util_php['del_intermediate'] = 'Vahepealne kujutis %s kustutati edukalt';
+$lang_util_php['del_thumb'] = 'Pisipilt %s kustutati edukalt';
+$lang_util_php['del_error'] = '%s kustutamisel tekkis viga!';
+$lang_util_php['affected_records'] = '%s kaasatud kirjet.';
+$lang_util_php['all_albums'] = 'Kõik albumid';
+$lang_util_php['update_result'] = 'Uuendamise tulemused';
+$lang_util_php['incorrect_filesize'] = 'Failide kogumaht on vale';
+$lang_util_php['database'] = 'Andmebaas: ';
+$lang_util_php['bytes'] = ' baiti';
+$lang_util_php['actual'] = 'Tegelik: ';
+$lang_util_php['updated'] = 'Uuendatud';
+$lang_util_php['filesize_error'] = 'Ei tuvastanud faili mahtu (ehk on vigane fail), jätan vahele....';
+$lang_util_php['skipped'] = 'Vahele jäetud';
+$lang_util_php['incorrect_dimension'] = 'Mõõdud on valed';
+$lang_util_php['dimension_error'] = 'Ei tuvastanud mõõte, jätan vahele....';
+$lang_util_php['cannot_fix'] = 'Ei suuda parandada';
+$lang_util_php['fullpic_error'] = 'Faili %s pole olemas!';
+$lang_util_php['no_prob_detect'] = 'Probleeme ei tuvastatud';
+$lang_util_php['no_prob_found'] = 'Probleeme ei avastatud.';
+$lang_util_php['keyword_convert'] = 'Konverteeri võtmesõnade eraldaja';
+$lang_util_php['keyword_from_to'] = 'Konverteeri võtmesõnade eraldaja %s-st %s-ks';
+$lang_util_php['keyword_set'] = 'Sea galerii võtmesõna eraldajale uus väärtus';
+$lang_util_php['keyword_replace_before'] = 'Enne konverteerimist asenda %s %s-ga';
+$lang_util_php['keyword_replace_after'] = 'Pärast konverteerimist asenda %s %s-ga';
+$lang_util_php['keyword_replace_values'] = array('_'=>'alakriips', '-'=>'sidekriips', '~'=>'tilde');
+$lang_util_php['keyword_explanation'] = 'See konverteerib kõikide failide võtmesõnade eraldaja ühest väärtusest teiseks. Vaata üksikasju abidokumentatsioonist.';
+$lang_util_php['nothing_deleted'] = 'Pole midagi kustutada.'; // cpg1.6
+$lang_util_php['warnings'] = 'Hoiatust'; // cpg1.6
+$lang_util_php['errors'] = 'Viga'; // cpg1.6
+$lang_util_php['complete'] = 'Toiming lõpetatud'; // cpg1.6
 }
 
 // ------------------------------------------------------------------------- //
@@ -2432,7 +2566,7 @@ $lang_versioncheck_php['folder'] = 'kaust';
 $lang_versioncheck_php['outdated'] = 'vanem kui %s';
 $lang_versioncheck_php['newer'] = 'uuem kui %s';
 $lang_versioncheck_php['modified'] = 'muudetud';
-$lang_versioncheck_php['not_modified'] = 'muutmata'; // cpg1.5
+$lang_versioncheck_php['not_modified'] = 'muutmata';
 $lang_versioncheck_php['needs_change'] = 'vajab muutmist';
 $lang_versioncheck_php['review_permissions'] = 'Kontrolli õigusi';
 $lang_versioncheck_php['inaccessible'] = 'Juurdepääs failile puudub';
@@ -2455,25 +2589,27 @@ $lang_versioncheck_php['help'] = 'Abi';
 $lang_versioncheck_php['repository_link'] = 'Repositooriumi link';
 $lang_versioncheck_php['browse_corresponding_page_subversion'] = 'Lehitse selle faili lehekülge projekti alamversiooni repositooriumis';
 $lang_versioncheck_php['mandatory'] = 'kohustuslik';
-$lang_versioncheck_php['mandatory_missing'] = 'Kohustuslik fail on puudu'; // cpg1.5
+$lang_versioncheck_php['mandatory_missing'] = 'Kohustuslik fail on puudu';
 $lang_versioncheck_php['optional'] = 'valikuline';
-$lang_versioncheck_php['removed'] = 'eemaldatud'; // cpg1.5
+$lang_versioncheck_php['removed'] = 'eemaldatud';
 $lang_versioncheck_php['options'] = 'Valikud';
 $lang_versioncheck_php['display_output'] = 'Näita väljundit';
 $lang_versioncheck_php['on_screen'] = 'Illustreeritud';
 $lang_versioncheck_php['text_only'] = 'Tekstina';
 $lang_versioncheck_php['errors_only'] = 'Näita ainult potentsiaalseid vigu';
-$lang_versioncheck_php['hide_images'] = 'Peida pildid'; // cpg1.5
-$lang_versioncheck_php['no_modification_check'] = 'Ära kontrolli muudetud faile'; // cpg1.5
+$lang_versioncheck_php['hide_images'] = 'Peida pildid';
+$lang_versioncheck_php['no_modification_check'] = 'Ära kontrolli muudetud faile';
 $lang_versioncheck_php['do_not_connect_to_online_repository'] = 'Ära ühendu online repositooriumiga';
 $lang_versioncheck_php['online_repository_explain'] = 'soovitav ainult siis, kui ühendus ebaõnnestub';
 $lang_versioncheck_php['submit'] = 'saada / värskenda';
 $lang_versioncheck_php['select_all'] = 'Vali kõik'; // js-alert
 $lang_versioncheck_php['files_folder_processed'] = 'Näitab %s asja %s kaustas/failis, koos %s potentsiaalse probleemiga';
-$lang_versioncheck_php['read'] = 'Loe'; // cpg1.5
-$lang_versioncheck_php['write'] = 'Kirjuta'; // cpg1.5
-$lang_versioncheck_php['warning'] = 'Hoiatus'; // cpg1.5
-$lang_versioncheck_php['not_applicable'] = 'pole rakendatav'; // cpg1.5
+$lang_versioncheck_php['read'] = 'Loe';
+$lang_versioncheck_php['write'] = 'Kirjuta';
+$lang_versioncheck_php['warning'] = 'Hoiatus';
+$lang_versioncheck_php['not_applicable'] = 'pole rakendatav';
+$lang_versioncheck_php['no_repo_title'] = 'Pole hoidla andmeid';
+$lang_versioncheck_php['no_repo_message'] = 'Andmehoidlast ei saadud versioonide kontrollimiseks infot.';
 }
 
 // ------------------------------------------------------------------------- //
@@ -2484,102 +2620,7 @@ $lang_viewlog_php['delete_all'] = 'Kustuta kõik logid';
 $lang_viewlog_php['delete_this'] = 'Kustuta see logi';
 $lang_viewlog_php['view_logs'] = 'Vaata logisid';
 $lang_viewlog_php['no_logs'] = 'Logisid pole loodud.';
-$lang_viewlog_php['last_updated'] = 'viimane uuendus'; // cpg1.5
+$lang_viewlog_php['last_updated'] = 'viimane uuendus';
 }
 
-// ------------------------------------------------------------------------- //
-// File xp_publish.php
-// ------------------------------------------------------------------------- //
-if (defined('XP_PUBLISH_PHP')) {
-$lang_xp_publish_php['title'] = 'XP veebi publitseerimise nõustaja (XP Web Publishing Wizard)';
-$lang_xp_publish_php['client_header'] = 'XP veebi publitseerimise nõustaja klient (XP Web Publishing Wizard Client)'; // cpg1.5
-$lang_xp_publish_php['requirements'] = 'Nõuded'; // cpg1.5
-$lang_xp_publish_php['windows_xp'] = 'Windows XP / Vista'; // cpg1.5
-$lang_xp_publish_php['no_windows_xp'] = 'Paistab, et sa kasutad mingisugust muud opsüsteemi, mida ei toetata'; // cpg1.5
-$lang_xp_publish_php['no_os_detect'] = 'Ei suuda tuvastada sinu opsüsteemi'; // cpg1.5
-$lang_xp_publish_php['requirement_http_upload'] = 'Töötav Coppermine\'i install, millel HTTP-üleslaadimise funktsioon töötab korralikult'; // cpg1.5
-$lang_xp_publish_php['requirement_ie'] = 'Microsoft Internet Explorer'; // cpg1.5
-$lang_xp_publish_php['requirement_permissions'] = 'Galerii administraator peab garanteerima sulle üleslaadimise õiguse'; // cpg1.5
-$lang_xp_publish_php['requirement_login'] = 'Üleslaadimiseks pead sisse logima'; // cpg1.5
-$lang_xp_publish_php['no_ie'] = 'Paistab, et sa kasutad mingisugust teist brauserit, mida ei toetata'; // cpg1.5
-$lang_xp_publish_php['no_browser_detect'] = 'Ei suuda tuvastada sinu brauserit'; // cpg1.5
-$lang_xp_publish_php['no_gallery_name'] = 'Sa pead konfiguratsioonis määratlema galerii nime'; // cpg1.5
-$lang_xp_publish_php['no_gallery_description'] = 'Sa pead konfiguratsioonis määratlema galerii kirjelduse'; // cpg1.5
-$lang_xp_publish_php['howto_install'] = 'Kuidas paigaldada'; // cpg1.5
-$lang_xp_publish_php['install_right_click'] = 'Paremklõpsa %ssellel lingil%s ja vali &quot;Save target as...&quot; (Salvesta kui...)'; // cpg1.5 // translator note: don't replace the %s - that placeholder token needs to go untranslated
-$lang_xp_publish_php['install_save'] = 'Salvesta fail oma klienti. Faili salvestades kontrolli, et pakutud faili nimi on <tt>cpg_###.reg</tt> (### tähendavad numbrilist ajatemplit). Muuda nimi selliseks, kui vaja (numbrid jäta rahule)'; // cpg1.5
-$lang_xp_publish_php['install_execute'] = 'Pärast allalaadimise lõppu käivita fail topeltklõpsuga, et saaksid veebi publitseerimise nõustajaga selle oma serveris registreerida'; // cpg1.5
-$lang_xp_publish_php['usage'] = 'Kasutus'; // cpg1.5
-$lang_xp_publish_php['select_files'] = 'Windows Exploreris vali failid, mida soovid üles laadida'; // cpg1.5
-$lang_xp_publish_php['display_tasks'] = 'Kontrolli, et kaustu ei näidataks Exploreri vasakpoolsel paanil'; // cpg1.5
-$lang_xp_publish_php['publish_on_the_web'] = 'klõpsa vasakul paanil &quot;Publish xxx on the web&quot; (Avalda xxx veebis)'; // cpg1.5
-$lang_xp_publish_php['confirm_selection'] = 'Kinnita oma faili valikut'; // cpg1.5
-$lang_xp_publish_php['select_service'] = 'Ilmuvas teenuste nimekirjas vali oma fotogalerii jaoks üks (sellel on sinu galerii nimi)'; // cpg1.5
-$lang_xp_publish_php['enter_login'] = 'Sisesta sisselogimisinfo, kui seda nõutakse'; // cpg1.5
-$lang_xp_publish_php['select_album'] = 'Vali oma piltide jaoks sihtalbum või loo uus'; // cpg1.5
-$lang_xp_publish_php['next'] = 'klõpsa &quot;next&quot; (järgmine)'; // cpg1.5
-$lang_xp_publish_php['upload_starts'] = 'Sinu piltide üleslaadimine peaks algama'; // cpg1.5
-$lang_xp_publish_php['upload_completed'] = 'Kui see on lõpetatud, siis kontrolli oma galeriist, kas kõik pildid on õigesti  lisatud'; // cpg1.5
-$lang_xp_publish_php['welcome'] = 'Tere tulemast <strong>%s</strong>,';
-$lang_xp_publish_php['need_login'] = 'Sa pead Internet Exploreriga galeriisse sisse logima enne selle nõustaja kasutamist.<p/><p>Kui sisse logid, siis ära unusta märgistamast valikut &quot;remember me&quot; (jäta mind meelde), kui see on olemas.';
-$lang_xp_publish_php['no_alb'] = 'Vabandust, aga pole ühtegi albumit, kuhu sul oleks lubatud selle nõustajaga oma pilte üles laadida.';
-$lang_xp_publish_php['upload'] = 'Lae oma pildid üles olemasolevasse albumisse';
-$lang_xp_publish_php['create_new'] = 'Loo oma piltide jaoks uus album';
-$lang_xp_publish_php['category'] = 'Kategooria';
-$lang_xp_publish_php['new_alb_created'] = 'Sinu uus album &quot;<strong>%s</strong>&quot; on loodud.';
-$lang_xp_publish_php['continue'] = 'Vajuta &quot;Next&quot; (Edasi), et hakata oma pilte üles laadima';
-$lang_xp_publish_php['link'] = '';
-}
-
-// ------------------------------------------------------------------------- //
-// Core plugins
-// ------------------------------------------------------------------------- //
-if (defined('CORE_PLUGIN')) {
-$lang_plugin_php['usergal_alphatabs_config_name'] = 'Kasutajate galeriide tähestikulised vahekaardid'; // cpg1.5
-$lang_plugin_php['usergal_alphatabs_config_description'] = 'Mida see teeb: klikitavad vahekaardid A-st Z-ni kasutajagalerii ülaservas võimaldavad külastajatel hüpata lehele, mis kuvab kõikide nende kasutajate galeriid, kelle kasutajanimi algab selle tähega. Plugin on soovitav ainult siis, kui kasutajate galeriide hulk on tõepoolest suur.'; // cpg1.5
-$lang_plugin_php['usergal_alphatabs_jump_by_username'] = 'Hüppa kasutajanimele'; // cpg1.5
-$lang_plugin_php['sample_config_name'] = 'Näidisplugin'; // cpg1.5
-$lang_plugin_php['sample_config_description'] = 'See on näidisplugin. Ta ei tee eriti midagi kasulikku - see on mõeldud vaid pluginate võimaluste demonstreerimiseks ja näitamaks, kuidas nad on kodeeritud. Kui lubatud, siis näitab punases kirjas näidisteksti.'; // cpg1.5
-$lang_plugin_php['sample_plugin_documentation'] = 'Plugina dokumentatsioon'; // cpg1.5
-$lang_plugin_php['sample_plugin_support'] = 'Plugina toetus'; // cpg1.5
-$lang_plugin_php['sample_install_explain'] = 'Paigaldamiseks sisesta kasutajanimi (\'foo\') ja salasõna (\'bar\')'; // cpg1.5
-$lang_plugin_php['sample_install_username'] = 'Kasutajanimi'; // cpg1.5
-$lang_plugin_php['sample_install_password'] = 'Salasõna'; // cpg1.5
-$lang_plugin_php['sample_output'] = 'See on näidissisu, mille väljastas näidisplugin'; // cpg1.5
-$lang_plugin_php['opensearch_config_name'] = 'OpenSearch'; // cpg1.5
-$lang_plugin_php['opensearch_config_description'] = '<a href="http://www.opensearch.org/" rel="external" class="external">OpenSearch\'i</a> rakendus Coppermine\'ile.<br />Kui lubatud, siis saavad külastajad lisada sinu galerii oma brauseri otsinguribale.'; // cpg1.5
-$lang_plugin_php['opensearch_search'] = 'Otsida: %s'; // cpg1.5
-$lang_plugin_php['opensearch_extra'] = 'Soovid ehk lisada natuke teksti oma saidile, mis selgitab, mida see plugin teeb'; // cpg1.5
-$lang_plugin_php['opensearch_failed_to_open_file'] = 'Faili %s avamine ebaõnnestus - kontrolli õigusi'; // cpg1.5
-$lang_plugin_php['opensearch_failed_to_write_file'] = 'Faili %s kirjutamine ebaõnnestus - kontrolli õigusi'; // cpg1.5
-$lang_plugin_php['opensearch_form_header'] = 'Sisesta üksikasjad, mida kasutatakse kirjeldavas failis'; // cpg1.5
-$lang_plugin_php['opensearch_gallery_url'] = 'Galerii URL (kontrolli töötavust)'; // cpg1.5
-$lang_plugin_php['opensearch_display_name'] = 'Nimi nagu seda brauseris näidatakse'; // cpg1.5
-$lang_plugin_php['opensearch_description'] = 'Kirjeldus'; // cpg1.5
-$lang_plugin_php['opensearch_character_limit'] = '%s tähemärgi limiit'; // cpg1.5
-$lang_plugin_php['onlinestats_description'] = 'Näidata igal galerii lehel plokki, kus on kirjas hetkel online\'is olevad kasutajad ja külalised.';
-$lang_plugin_php['onlinestats_name'] = 'Kes on online?';
-$lang_plugin_php['onlinestats_config_extra'] = 'Plugina lubamiseks (teha onlinestats plokk tegelikult nähtavaks) lisati string "onlinestats" (kaldkriipsuga eraldatult) <a href="admin.php">Coppermine\'i konfi</a> "põhilehe sisusse" sektsiooni "Albumi nimekirja vaade". Seadetes peaks praegu kirjas olema "breadcrumb/catlist/alblist/onlinestats" või midagi sarnast. Ploki asukoha muutmiseks tuleb konfi väljal string "onlinestats" ringi tõsta.';
-$lang_plugin_php['onlinestats_config_install'] = 'Plugin jooksutab igakordsel käivitamisel andmebaasis täiendavaid päringuid, hõivates protsessori tsükleid ja kasutades ressursse. Kui sinu Coppermine\'i galerii on aeglane või kasutajate hulk on suur, siis sa ei peaks seda pluginat kasutama.';
-$lang_plugin_php['onlinestats_we_have_reg_member'] = 'Siin on %s registreeritud kasutaja';
-$lang_plugin_php['onlinestats_we_have_reg_members'] = 'Siin on %s registreeritud kasutajat';
-$lang_plugin_php['onlinestats_most_recent'] = 'Uusim registreeritud kasutaja on %s';
-$lang_plugin_php['onlinestats_is'] = 'Hetkel on siin %s külaline';
-$lang_plugin_php['onlinestats_are'] = 'Kokku on siin hetkel %s külalist';
-$lang_plugin_php['onlinestats_and'] = 'ja';
-$lang_plugin_php['onlinestats_reg_member'] = '%s registreeritud kasutaja';
-$lang_plugin_php['onlinestats_reg_members'] = '%s registreeritud kasutajat';
-$lang_plugin_php['onlinestats_guest'] = '%s külaline';
-$lang_plugin_php['onlinestats_guests'] = '%s külalist';
-$lang_plugin_php['onlinestats_record'] = 'Seni kõige rohkem kasutajaid: %s %s-st';
-$lang_plugin_php['onlinestats_since'] = 'Registreeritud kasutajad, kes on olnud hiljuti online\'is %s minutit: %s';
-$lang_plugin_php['onlinestats_config_text'] = 'Kui kaua sa soovid hoida kasutajaid online\'i nimekirjas (enne, kui oletada, et nad on ära läinud)?';
-$lang_plugin_php['onlinestats_minute'] = 'minutit';
-$lang_plugin_php['onlinestats_remove'] = 'Eemaldada tabel, mida kasutati online andmete säilitamiseks?';
-$lang_plugin_php['link_target_name'] = 'Viitamismoodus';
-$lang_plugin_php['link_target_description'] = 'Muudab moodust, kuidas väliseid linke avatakse: kui plugin on lubatud, siis kõik atribuutidega rel="external" lingid avatakse uues aknas (samas aknas avamise asemel).';
-$lang_plugin_php['link_target_extra'] = 'See plugin avaldab mõju galerii allosas olevale "Powered by Coppermine" lingile.';
-$lang_plugin_php['link_target_recommendation'] = 'Seda pluginat pole soovitav kasutada, et ära hoida kasutajate eemaletõukamist: uues aknas lingi avamine tähendab oma külastajatega ülbitsemist.';
-}
-
-?>
+//EOF

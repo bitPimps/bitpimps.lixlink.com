@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
+  Copyright (c) 2003-2016 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,8 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/plugin_api.inc.php $
-  $Revision: 8884 $
+  Coppermine version: 1.6.03
+  $HeadURL$
 **********************************************/
 
 global $thisplugin;                     // Stores the current plugin being processed
@@ -33,7 +32,7 @@ $CONFIG['TABLE_PLUGINS']                = $CONFIG['TABLE_PREFIX'].'plugins';
  * Local plugin class
  * Processes all the plugins (filters,actions,install,uninstall)
  */
-class CPGPluginAPI {
+abstract class CPGPluginAPI {
 
     /**
      * CPGPluginAPI::load()
@@ -44,7 +43,7 @@ class CPGPluginAPI {
      * @return N/A
      **/
 
-    function load() {
+    public static function load() {
         global $CONFIG,$thisplugin,$USER_DATA,$CPG_PLUGINS,$lang_plugin_api;
 
         // Get the installed plugins from the database and sort them by execution priority
@@ -52,7 +51,7 @@ class CPGPluginAPI {
         $result = cpg_db_query($sql);
 
         // Exit if no plugins are installed
-        if (mysql_num_rows($result) == 0) {
+        if ($result->numRows() == 0) {
             return;
         }
 
@@ -66,11 +65,10 @@ class CPGPluginAPI {
         $index = 0;
 
         // Get the plugin properties from the database
-        while ($plugin = mysql_fetch_assoc($result)) {
+        while ($plugin = $result->fetchAssoc()) {
 
-            // If configuration and codebase files aren't present, skip this plugin.
-            if (!file_exists('./plugins/'.$plugin['path'].'/codebase.php') &&
-                !file_exists('./plugins/'.$plugin['path'].'/configuration.php')) {
+            // If codebase.php or configuration.php don't exist, skip this plugin
+            if (!(file_exists('./plugins/'.$plugin['path'].'/codebase.php') && file_exists('./plugins/'.$plugin['path'].'/configuration.php'))) {
                 continue;
             }
 
@@ -80,26 +78,31 @@ class CPGPluginAPI {
 
             $thisplugin =& $CPG_PLUGINS[$plugin['plugin_id']];
 
-            include ('./plugins/'.$thisplugin->path.'/codebase.php');
-
-            // Check if plugin has a wakeup action
-            if (!($thisplugin->awake = CPGPluginAPI::action('plugin_wakeup',true,$thisplugin->plugin_id))) {
-
-
-                if ($CONFIG['log_mode']) {
-                    log_write("Couldn't wake plugin '" . $thisplugin->name, CPG_GLOBAL_LOG);
-                }
-
-                $thisplugin->filters = array();
-                $thisplugin->actions = array();
-                if (!isset($thisplugin->error['desc']) || is_null($thisplugin->error['desc'])) {
-                    $thisplugin->error['desc'] = "Couldn't wake plugin '{$thisplugin->name}'";
-                }
-            }
+			if ($thisplugin->enabled) {
+	            include ('./plugins/'.$thisplugin->path.'/codebase.php');
+	
+	            // Load language files
+	            cpg_load_plugin_language_file($thisplugin->path);
+	
+	            // Check if plugin has a wakeup action
+	            if (!($thisplugin->awake = CPGPluginAPI::action('plugin_wakeup',true,$thisplugin->plugin_id))) {
+	
+	
+	                if ($CONFIG['log_mode']) {
+	                    log_write("Couldn't wake plugin '" . $thisplugin->name, CPG_GLOBAL_LOG);
+	                }
+	
+	                $thisplugin->filters = array();
+	                $thisplugin->actions = array();
+	                if (!isset($thisplugin->error['desc']) || is_null($thisplugin->error['desc'])) {
+	                    $thisplugin->error['desc'] = "Couldn't wake plugin '{$thisplugin->name}'";
+	                }
+	            }
+			}
 
             $index++;
         }
-        mysql_free_result($result);
+        $result->free();
     }
 
 
@@ -112,7 +115,7 @@ class CPGPluginAPI {
      * @return boolean TRUE/FALSE
      **/
 
-    function installed( $plugin_folder ) {
+    public static function installed( $plugin_folder ) {
         global $CONFIG;
 
         // Stores if a given plugin is installed or not
@@ -125,14 +128,13 @@ class CPGPluginAPI {
             $result = cpg_db_query($sql);
 
             // If the plugin isn't in the database store a false value in the array
-            if (mysql_num_rows($result) == 0) {
+            if ($result->numRows() == 0) {
                 $installed_array[$plugin_folder] = false;
                 return false;
             }
 
             // It's installed! Get the plugin_id
-            $plugin = mysql_fetch_assoc($result);
-            mysql_free_result($result);
+            $plugin = $result->fetchAssoc(true);
 
             // Store the plugin_id in the database
             $installed_array[$plugin_folder] = $plugin['plugin_id'];
@@ -154,7 +156,7 @@ class CPGPluginAPI {
      * @return $value
      **/
 
-    function& filter( $key, $value, $execute_scope = CPG_EXEC_ALL ) {
+    public static function& filter( $key, $value, $execute_scope = CPG_EXEC_ALL ) {
         global $CPG_PLUGINS,$CONFIG,$USER_DATA,$thisplugin;
 
         global $hook_name;
@@ -167,8 +169,8 @@ class CPGPluginAPI {
             // Reference current plugin to local scope
             $thisplugin =& $CPG_PLUGINS[$plugin_id];
 
-            // Skip this plugin; the key isn't set
-            if (!isset($thisplugin->filters[$key]) || (!$thisplugin->awake)) {
+            // Skip this plugin; the plugin is not enabled or the key isn't set
+            if (!$thisplugin->enabled || !isset($thisplugin->filters[$key]) || (!$thisplugin->awake)) {
                  return $value;
             }
 
@@ -195,6 +197,9 @@ class CPGPluginAPI {
 
                 // Reference current plugin to local scope
                 $thisplugin =& $CPG_PLUGINS[$plugin_id];
+
+				// If not enabled ignore this one
+				if (!$thisplugin->enabled) continue;
 
                 // Get the filter's value from the plugin
                 if (!isset($thisplugin->filters[$key]) || ($key != 'plugin_wakeup' && !$thisplugin->awake)) {
@@ -242,7 +247,7 @@ class CPGPluginAPI {
      * @return $value
      **/
 
-    function& action( $key, $value, $execute_scope = CPG_EXEC_ALL ) {
+    public static function& action( $key, $value, $execute_scope = CPG_EXEC_ALL ) {
         global $CPG_PLUGINS,$CONFIG,$USER_DATA,$thisplugin;
 
         global $hook_name;
@@ -255,8 +260,8 @@ class CPGPluginAPI {
             // Reference current plugin to local scope
             $thisplugin =& $CPG_PLUGINS[$plugin_id];
 
-            // Skip this plugin; the key isn't set
-            if (!isset($thisplugin->actions[$key]) || (!$thisplugin->awake && $key!='plugin_wakeup')) {
+            // Skip this plugin; the plugin is not enabled or the key isn't set
+            if (!$thisplugin->enabled || !isset($thisplugin->actions[$key]) || (!$thisplugin->awake && $key!='plugin_wakeup')) {
 
                  return $value;
             }
@@ -284,6 +289,9 @@ class CPGPluginAPI {
 
                 // Copy current plugin to local scope
                 $thisplugin =& $CPG_PLUGINS[$plugin_id]; //changed to reference for PHP4 see note below
+
+				// If not enabled ignore this one
+				if (!$thisplugin->enabled) continue;
 
                 // Get the action's value from the plugin
                 if (!isset($thisplugin->actions[$key]) || ($key != 'plugin_wakeup' && !$thisplugin->awake)) {
@@ -341,7 +349,7 @@ class CPGPluginAPI {
      * @return CPGPlugin $object
      **/
 
-    function wakeup($properties) {
+    public static function wakeup($properties) {
         global $CONFIG,$USER_DATA,$CPG_PLUGINS,$thisplugin,$lang_plugin_api;
 
         // Get a new instance of the plugin object
@@ -366,7 +374,7 @@ class CPGPluginAPI {
      * @return N/A
      **/
 
-    function sleep() {
+    public static function sleep() {
         global $CPG_PLUGINS,$thisplugin,$lang_plugin_api;
 
         // Loop through all the plugins
@@ -395,26 +403,29 @@ class CPGPluginAPI {
      * @return N/A
      **/
 
-    function install($path) {
-        global $CONFIG,$thisplugin,$CPG_PLUGINS,$lang_plugin_api,$lang_plugin_php;
+    public static function install($path) {
+        global $CONFIG,$thisplugin,$CPG_PLUGINS,$lang_plugin_api;
 
         // If this plugin is already installed return true
         if (CPGPluginAPI::installed($path)) {
             return true;
         }
 
-        // If the codebase and configuration.php file is missing return false
-        if (!file_exists('./plugins/'.$path.'/codebase.php') &&
-            !file_exists('./plugins/'.$path.'/configuration.php')) {
+        // If codebase.php or configuration.php don't exist, skip this plugin
+        if (!(file_exists('./plugins/'.$path.'/codebase.php') && file_exists('./plugins/'.$path.'/configuration.php'))) {
             return false;
         }
+
+        // Load language files
+        $lg = 'lang_plugin_'.$path;
+        global $$lg;
+        cpg_load_plugin_language_file($path);
 
         // Get the lowest priority level (highest number) from the database
         $sql = "SELECT priority FROM {$CONFIG['TABLE_PLUGINS']} ORDER BY priority DESC LIMIT 1";
         $result = cpg_db_query($sql);
 
-        $data = mysql_fetch_assoc($result);
-        mysql_free_result($result);
+        $data = $result->fetchAssoc(true);
 
         // Set the execution priority to last
         $priority = (is_null($data['priority'])) ? (0) : ($data['priority']+1);
@@ -427,6 +438,7 @@ class CPGPluginAPI {
                                     array(
                                           'plugin_id' => 'new',
                                           'name' => $name,
+                                          'enabled' => 1,
                                           'priority' => $priority,
                                           'path' => $path
                                          )
@@ -475,7 +487,7 @@ class CPGPluginAPI {
      * @return N/A
      **/
 
-    function uninstall($plugin_id) {
+    public static function uninstall($plugin_id) {
         global $CONFIG,$USER_DATA,$CPG_PLUGINS,$thisplugin,$lang_plugin_api,$name;
 
         if (!isset($CPG_PLUGINS[$plugin_id])) {
@@ -542,7 +554,7 @@ class CPGPlugin {
      * @return N/A
      **/
 
-    function CPGPlugin($properties) {
+    function __construct($properties) {
 
         // Store the properties in the object
         foreach($properties as $key => $value) {
@@ -662,7 +674,7 @@ function cpg_action_page_end() {
  * @return string HTML
  **/
 
-function& cpg_filter_page_html( &$html ) {
+function& cpg_filter_page_html($html) {
     return CPGPluginAPI::filter('page_html',$html);
 }
 
@@ -695,4 +707,4 @@ function pluginapi_sleep_wrapper() {
     CPGPluginAPI::sleep();
 }
 
-?>
+//EOF

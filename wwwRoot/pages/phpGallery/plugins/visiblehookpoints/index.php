@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
+  Copyright (c) 2003-2016 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,8 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/plugins/visiblehookpoints/index.php $
-  $Revision: 8884 $
+  Coppermine version: 1.6.03
+  $HeadURL$
 **********************************************/
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
@@ -65,24 +64,25 @@ switch ($action) {
             $redirect = "index.php?file=visiblehookpoints/index&action=config";
             header($header_location . $redirect);
             pageheader('Information', "<meta http-equiv=\"refresh\" content=\"0;url=$redirect\" />");
-            msg_box('Information', $lang_plugin_php['visiblehookpoints_settings_saved'], 'continue', $redirect);
+            msg_box('Information', $lang_plugin_visiblehookpoints['settings_saved'], 'continue', $redirect);
             pagefooter();
             ob_end_flush();
             exit;
         } else {
-            cpgRedirectPage('index.php?file=visiblehookpoints/index&action=config', $lang_common['information'], $lang_plugin_php['visiblehookpoints_settings_saved'], 1);
+            cpgRedirectPage('index.php?file=visiblehookpoints/index&action=config', $lang_common['information'], $lang_plugin_visiblehookpoints['settings_saved'], 1);
         }
       }
     } else {
       $message_id = '';
     }
-    pageheader($lang_plugin_php['visiblehookpoints_config_name'] . ' - ' . $lang_plugin_php['visiblehookpoints_plugin_config']);
+    pageheader($lang_plugin_visiblehookpoints['config_name'] . ' - ' . $lang_plugin_visiblehookpoints['plugin_config']);
     visiblehookpoints_configure();
           break;
   default:
-          cpg_die (ERROR, $lang_plugin_php['visiblehookpoints_error'], __FILE__, __LINE__);
+          cpg_die (ERROR, $lang_plugin_visiblehookpoints['error'], __FILE__, __LINE__);
 }
 
 pagefooter();
 ob_end_flush();
-?>
+
+//EOF

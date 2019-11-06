@@ -1,21 +1,16 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/logger.inc.php $
-  $Revision: 8884 $
-**********************************************/
-
-if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * include/logger.inc.php
+ * @since  1.6.06
+ */
+defined('IN_COPPERMINE') or die('Not in Coppermine...');
 
 // Initiate defines
 define('CPG_SECURITY_LOG', 'security');
@@ -50,7 +45,7 @@ function log_write($text, $log = null)
     $log = 'logs/' . $log . '.log.php';
 
     if (!file_exists($log)) {
-        $log_header = implode('', file('logs/log_header.inc.php'));
+        $log_header = implode('', file('include/log_header.inc.php'));
     } else {
         $log_header = '';
     }
@@ -104,7 +99,7 @@ function& getloglist($folder)
 
     $dir = opendir($folder);
     while (($file = readdir($dir)) !== FALSE) {
-        if (is_file($folder . $file) && $file != 'log_header.inc.php') {
+        if (is_file($folder . $file) && $file != 'index.html') {
             $file_array[$file] = array(
                 'filename' => $file,
                 'logname'  => str_replace('.log.php', '', $file),
@@ -168,4 +163,4 @@ function& spring_cleaning($directory_path, $cache_time = CPG_HOUR, $exclusion_li
     return $deleted_list;
 }
 
-?>
+//EOF

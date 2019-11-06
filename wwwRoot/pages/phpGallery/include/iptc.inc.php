@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
+  Copyright (c) 2003-2016 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,8 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/iptc.inc.php $
-  $Revision: 8884 $
+  Coppermine version: 1.6.03
+  $HeadURL$
 **********************************************/
 
 function strip_IPTC($data) {
@@ -60,4 +59,4 @@ function get_IPTC($filename) {
         }
 return $IPTC_data;
 }
-?>
+//EOF

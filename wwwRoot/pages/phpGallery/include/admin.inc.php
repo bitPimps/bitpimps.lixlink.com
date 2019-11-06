@@ -1,19 +1,15 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/admin.inc.php $
-  $Revision: 8884 $
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * include/admin.inc.php
+ * @since  1.6.05
+ */
 
 /**********************************************
   Defines the scope of configuration variables
@@ -33,25 +29,6 @@ $config_data = array(
       'type'      => 'textfield',
       'help_link' => 'f=configuration.htm&amp;as=admin_general_description&amp;ae=admin_general_description_end',
       'regex_not' => '^Your gallery description here$',
-      'default_value' => '',
-    ),
-    'gallery_admin_email' => array(
-      'type'      => 'textfield',
-      'help_link' => 'f=configuration.htm&amp;as=admin_general_email&amp;ae=admin_general_email_end',
-      'regex'     => '^'
-                     .'('
-                     .'[a-zA-Z0-9]((\.|\-|\_){0,1}'
-                     .'[a-zA-Z0-9]){0,}'
-                     .')'
-                     .'@'
-                     .'('
-                     .'[a-zA-Z0-9]((\.|\-){0,1}'
-                     .'[a-zA-Z0-9]){0,}'
-                     .')'
-                     .'\.'
-                     .'([a-zA-Z]{2,63})'
-                     .'$',
-      'regex_not' => '^you@somewhere\.com$',
       'default_value' => '',
     ),
     'ecards_more_pic_target' => array(
@@ -139,10 +116,25 @@ $config_data = array(
       'help_link'       => 'f=configuration.htm&amp;as=admin_general_enable-plugins&amp;ae=admin_general_enable-plugins_end',
       'end_description' => '&nbsp;&nbsp;(<a href="pluginmgr.php">'.$lang_admin_php['manage_plugins'].'</a>)',
     ),
+    'only_empty_albums' => array(
+      'type'          => 'radio',
+      'default_value' => '0',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_general_only_empty_albums&amp;ae=admin_general_only_empty_albums_end',
+      'options'       => array(
+                           $lang_common['no'],
+                           $lang_common['yes'] . ': ' . $lang_admin_php['debug_everyone'],
+                           $lang_common['yes'] . ': ' . $lang_admin_php['debug_admin'],
+                         ),
+    ),
     'browse_batch_add' => array(
       'type'          => 'checkbox',
       'default_value' => '1',
       'help_link'     => 'f=configuration.htm&amp;as=admin_general_browsable_batch_add&amp;ae=admin_general_browsable_batch_add_end',
+    ),
+    'batch_add_hide_existing_files' => array(
+      'type'          => 'checkbox',
+      'default_value' => '0',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_general_batch_add_hide_existing_files&amp;ae=admin_general_batch_add_hide_existing_files_end',
     ),
     'batch_proc_limit' => array(
       'type'          => 'textfield',
@@ -168,7 +160,7 @@ $config_data = array(
       'default_value'   => '900',
       'help_link'       => 'f=configuration.htm&amp;as=admin_general_form_token_lifetime&amp;ae=admin_general_form_token_lifetime_end',
       'regex'           => '^[0-9]{1,6}$',
-      'size'            => '50',
+      'size'            => '5',
       'width'           => '75',
       'maxlength'       => '6',
       'end_description' => $lang_admin_php['seconds']
@@ -293,11 +285,6 @@ $config_data = array(
       'options'         => array($lang_common['no'], $lang_common['yes']),
       'end_description' => '('.$lang_admin_php['recommended'].': '.$lang_common['no'].')',
     ),
-    'display_xp_publish_link' => array(
-      'type'          => 'checkbox',
-      'default_value' => '0',
-      'help_link'     => 'f=configuration.htm&amp;as=admin_theme_display_xp_publish_link&amp;ae=admin_theme_display_xp_publish_link_end',
-    ),
   ),
   'album_list_view' => array(
     'main_table_width' => array(
@@ -402,10 +389,29 @@ $config_data = array(
       'help_link'              => 'f=configuration.htm&amp;as=admin_album_list_alphasort_start&amp;ae=admin_album_list_alphasort_end',
       'additional_description' => $lang_admin_php['categories_alpha_sort_details'],
     ),
+    'album_sort_order' => array(
+      'type'          => 'select',
+      'default_value' => 'pa',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_album_sort_order_start&amp;ae=admin_album_sort_order_end',
+      'options'       => array('ta' => $lang_admin_php['title_a'],
+                           'td' => $lang_admin_php['title_d'],
+                           'da' => $lang_admin_php['date_a'],
+                           'dd' => $lang_admin_php['date_d'],
+                           'pa' => $lang_admin_php['pos_a'],
+                           'pd' => $lang_admin_php['pos_d'],
+                           'va' => $lang_admin_php['view_a'],
+                           'vd' => $lang_admin_php['view_d'],
+                         ),
+    ),
     'link_pic_count' => array(
       'type'          => 'checkbox',
       'default_value' => '1',
       'help_link'     => 'f=configuration.htm&amp;as=admin_album_linked_files_start&amp;ae=admin_album_linked_files_end',
+    ),
+    'link_last_upload' => array(
+      'type'          => 'checkbox',
+      'default_value' => '0',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_album_linked_files_upload_time_start&amp;ae=admin_album_linked_files_upload_time_end',
     ),
   ),
   'thumbnail_view' => array(
@@ -501,6 +507,11 @@ $config_data = array(
                            'pd' => $lang_admin_php['pos_d'],
                          ),
     ),
+    'custom_sortorder_thumbs' => array(
+      'type'          => 'checkbox',
+      'default_value' => '1',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_thumbnail_custom_sortorder_thumbs&amp;ae=admin_thumbnail_custom_sortorder_thumbs_end',
+    ),
     'min_votes_for_rating' => array(
       'type'          => 'textfield',
       'min'           => '0',
@@ -577,6 +588,16 @@ $config_data = array(
       'type'          => 'checkbox',
       'default_value' => '1',
       'help_link'     => 'f=configuration.htm&amp;as=admin_image_slideshow_hits&amp;ae=admin_image_slideshow_hits_end',
+    ),
+    'ecard_captcha' => array(
+      'type'          => 'radio',
+      'default_value' => '1',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_ecard_captcha_start&amp;ae=admin_ecard_captcha_end',
+      'options'       => array(
+                           $lang_common['no'],
+                           $lang_common['yes'].': '.$lang_admin_php['debug_everyone'],
+                           $lang_common['yes'].': '.$lang_admin_php['guests_only'],
+                         ),
     ),
     'ecard_flash' => array(
       'type'            => 'checkbox',
@@ -854,7 +875,7 @@ $config_data = array(
                      'ex' => $lang_admin_php['th_ex'],
                    ),
       'additional_description' => $lang_admin_php['thumb_use_detail'],
-      'warning'                => 'lang_admin_php[warning_change]',
+      'warning'                => 'warning_change',
     ),
     'thumb_width' => array(
       'type'            => 'textfield',
@@ -866,7 +887,7 @@ $config_data = array(
       'size'            => '4',
       'width'           => '75',
       'maxlength'       => '4',
-      'warning'         => 'lang_admin_php[warning_change]',
+      'warning'         => 'warning_change',
       'end_description' => $lang_admin_php['pixels'],
     ),
     'thumb_height' => array(
@@ -880,7 +901,7 @@ $config_data = array(
       'width'                  => '75',
       'maxlength'              => '4',
       'additional_description' => $lang_admin_php['thumb_height_detail'],
-      'warning'                => 'lang_admin_php[warning_change]',
+      'warning'                => 'warning_change',
       'end_description'        => $lang_admin_php['pixels'],
     ),
     'thumb_pfx' => array(
@@ -888,7 +909,7 @@ $config_data = array(
       'default_value'       => 'thumb_',
       'only_display_if_not' => 'thumb_',
       'help_link'           => 'f=configuration.htm&amp;as=admin_picture_thumb_advanced_thumbs_prefix&amp;ae=admin_picture_thumb_advanced_thumbs_prefix_end',
-      'warning'             => 'lang_admin_php[warning_change]',
+      'warning'             => 'warning_change',
     ),
     'enable_unsharp' => array(
       'type'          => 'checkbox',
@@ -955,7 +976,7 @@ $config_data = array(
                      'thumb' => $lang_admin_php['picture_use_thumb'],
                      ),
       'additional_description' => $lang_admin_php['picture_use_detail'],
-      'warning'                => 'lang_admin_php[warning_change]',
+      'warning'                => 'warning_change',
     ),
     'picture_width' => array(
       'type'            => 'textfield',
@@ -967,21 +988,21 @@ $config_data = array(
       'size'            => '5',
       'width'           => '75',
       'maxlength'       => '5',
-      'warning'         => 'lang_admin_php[warning_change]',
+      'warning'         => 'warning_change',
       'end_description' => $lang_admin_php['pixels'],
     ),
     'max_upl_size' => array(
-      'type'            => 'textfield',
-      'min'             => '1',
-      'max'             => '9999999',
-      'step'             => '8',
+      'type'            => 'KMG',
+      'min'             => '8',
+      'max'             => '1073741824',
+//      'step'             => '0.1',
       'default_value'   => '1024',
       'help_link'       => 'f=configuration.htm&amp;as=admin_picture_thumbnail_max_upload_size&amp;ae=admin_picture_thumbnail_max_upload_size_end',
       'regex'           => '^[0-9]{1,7}$',
       'size'            => '7',
-      'width'           => '100',
+      'width'           => '50',
       'maxlength'       => '7',
-      'end_description' => $lang_admin_php['kilobytes'],
+      'end_description' => '',
     ),
     'max_upl_width_height' => array(
       'type'            => 'textfield',
@@ -1053,8 +1074,8 @@ $config_data = array(
       'default_value' => 'gd2',
       'help_link'     => 'f=configuration.htm&amp;as=admin_picture_thumb_advanced_resize_method&amp;ae=admin_picture_thumb_advanced_resize_method_end',
       'options'       => array(
+							'imx' => 'Imagick Extension',
                            'im' => 'ImageMagick',
-                           'gd1' => 'GD version 1.x',
                            'gd2' => 'GD version 2.x',
                          ),
     ),
@@ -1084,22 +1105,27 @@ $config_data = array(
       'type'                   => 'textfield',
       'default_value'          => 'albums/',
       'help_link'              => 'f=configuration.htm&amp;as=admin_picture_thumb_advanced_albums_dir&amp;ae=admin_picture_thumb_advanced_albums_dir_end',
-      'warning'                => 'lang_admin_php[warning_exist]',
+      'warning'                => 'warning_exist',
       'additional_description' => '<br />('.$lang_admin_php['warning_exist'].')',
     ),
     'userpics' => array(
       'type'                   => 'textfield',
       'default_value'          => 'userpics/',
       'help_link'              => 'f=configuration.htm&amp;as=admin_picture_thumb_advanced_userpics_dir&amp;ae=admin_picture_thumb_advanced_userpics_dir_end',
-      'warning'                => 'lang_admin_php[warning_exist]',
+      'warning'                => 'warning_exist',
       'additional_description' => '<br />('.$lang_admin_php['warning_exist'].')',
+    ),
+    'upload_create_album_directory' => array(
+      'type'                   => 'checkbox',
+      'default_value'          => '1',
+      'help_link'              => 'f=configuration.htm&amp;as=admin_picture_upload_create_album_directory&amp;ae=admin_picture_upload_create_album_directory_end',
     ),
     'normal_pfx' => array(
       'type'                   => 'textfield',
       'default_value'          => 'normal_',
       'only_display_if_not'    => 'normal_',
       'help_link'              => 'f=configuration.htm&amp;as=admin_picture_thumb_advanced_intermediate_prefix&amp;ae=admin_picture_thumb_advanced_intermediate_prefix_end',
-      'warning'                => 'lang_admin_php[warning_exist]',
+      'warning'                => 'warning_exist',
       'additional_description' => '<br />('.$lang_admin_php['warning_exist'].')',
     ),
     'default_dir_mode' => array(
@@ -1276,17 +1302,22 @@ $config_data = array(
     ),
     'upload_mechanism' => array(
       'type'          => 'select',
-      'default_value' => 'swfupload',
+      'default_value' => 'upload_h5a',
       'help_link'     => 'f=configuration.htm&amp;as=admin_upload_mechanism&amp;ae=admin_upload_mechanism_end',
       'options'       => array(
-                           'swfupload' => $lang_admin_php['upload_swf'],
-                           'html_single' => $lang_admin_php['upload_single'],
+                           //'swfupload' => $lang_admin_php['upload_swf'],
+                           //'html_single' => $lang_admin_php['upload_single'],
                          ),
     ),
     'allow_user_upload_choice' => array(
       'type'          => 'checkbox',
       'default_value' => '1',
       'help_link'     => 'f=configuration.htm&amp;as=admin_allow_user_upload_choice&amp;ae=admin_allow_user_upload_choice_end',
+    ),
+    'editpics_ignore_newer_than' => array(
+      'type'          => 'checkbox',
+      'default_value' => '0',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_editpics_ignore_newer_than_start&amp;ae=admin_editpics_ignore_newer_than_end',
     ),
     'allow_duplicate_emails_addr' => array(
       'type'            => 'checkbox',
@@ -1299,6 +1330,11 @@ $config_data = array(
       'type'          => 'checkbox',
       'default_value' => '0',
       'help_link'     => 'f=configuration.htm&amp;as=admin_approval_notify&amp;ae=admin_approval_notify_end',
+    ),
+    'user_manager_hide_file_stats' => array(
+      'type'          => 'checkbox',
+      'default_value' => '0',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_user_manager_hide_file_stats&amp;ae=admin_user_manager_hide_file_stats_end',
     ),
     'allow_memberlist' => array(
       'type'          => 'checkbox',
@@ -1337,7 +1373,16 @@ $config_data = array(
       'default_value' => '0',
       'help_link'     => 'f=configuration.htm&amp;as=admin_allow_user_album_keyword&amp;ae=admin_allow_user_album_keyword_end',
     ),
-    // login_method gives you the choice of logging in with username, email or both
+    'album_uploads_default' => array(
+      'type'          => 'select',
+      'default_value' => 'NO',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_user_album_uploads_default_start&amp;ae=admin_user_album_uploads_default_end',
+      'warning'       => 'warning_just_new_albums',
+      'options'       => array(
+                           'YES' => $lang_common['yes'],
+                           'NO' => $lang_common['no'],
+                         ),
+    ),
     'login_method' => array(
       'type'          => 'select',
       'default_value' => 'username',
@@ -1379,7 +1424,7 @@ $config_data = array(
     'purge_expired_bans' => array(
       'type'          => 'checkbox',
       'default_value' => '0',
-      'help_link'     => ' f=configuration.htm&amp;as=admin_user_purge_expired_bans&amp;ae=admin_user_purge_expired_bans_end',
+      'help_link'     => 'f=configuration.htm&amp;as=admin_user_purge_expired_bans&amp;ae=admin_user_purge_expired_bans_end',
     ),
     'report_post' => array(
       'type'          => 'checkbox',
@@ -1460,7 +1505,7 @@ $config_data = array(
   'cookie_settings' => array(
     'cookie_name' => array(
       'type'          => 'textfield',
-      'default_value' => 'cpg15x',
+      'default_value' => 'cpg16x',
       'help_link'     => 'f=configuration.htm&amp;as=admin_cookie_name&amp;ae=admin_cookie_name_end',
       'regex'         => '^([a-z0-9_-]){1,}$',
       'regex_not'     => '\.',
@@ -1472,6 +1517,25 @@ $config_data = array(
     ),
   ),
   'email_settings' => array(
+    'gallery_admin_email' => array(
+      'type'      => 'textfield',
+      'help_link' => 'f=configuration.htm&amp;as=admin_email_email&amp;ae=admin_email_email_end',
+      'regex'     => '^'
+                     .'('
+                     .'[a-zA-Z0-9]((\.|\-|\_){0,1}'
+                     .'[a-zA-Z0-9]){0,}'
+                     .')'
+                     .'@'
+                     .'('
+                     .'[a-zA-Z0-9]((\.|\-){0,1}'
+                     .'[a-zA-Z0-9]){0,}'
+                     .')'
+                     .'\.'
+                     .'([a-zA-Z]{2,63})'
+                     .'$',
+      'regex_not' => '^you@somewhere\.com$',
+      'default_value' => '',
+    ),
     'smtp_host' => array(
       'type'      => 'textfield',
       'default_value' => '',
@@ -1574,5 +1638,4 @@ $config_data = array(
   ),
 );
 
-
-?>
+//EOF

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
+  Copyright (c) 2003-2016 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,16 +10,11 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/plugins/visiblehookpoints/codebase.php $
-  $Revision: 8884 $
+  Coppermine version: 1.6.03
+  $HeadURL$
 **********************************************/
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
-if (!defined('CORE_PLUGIN')) {
-    define('CORE_PLUGIN', true);
-}
-
 
 $vhp_tableHeaderCounter = 0;
 $superCage = Inspekt::makeSuperCage();
@@ -237,7 +232,7 @@ EOT;
 }
 
 function vhp_stats() {
-    global $VHP, $lang_plugin_php;
+    global $VHP, $lang_plugin_visiblehookpoints;
     $html ='';
     $marks=$times=$counts=array();
     foreach ($VHP as $value) {
@@ -251,10 +246,10 @@ function vhp_stats() {
           $counts[]=array('Variable_name'=>$marker,'Value'=>$count);
     }
     $html .= '<div class="vhp_wrap">';
-    $html .= vhp_stat_table($lang_plugin_php['visiblehookpoints_usage_stats'],$counts);
+    $html .= vhp_stat_table($lang_plugin_visiblehookpoints['usage_stats'],$counts);
     $html .= '</div>';
     $html .= '<div class="vhp_wrap">';
-    $html .= vhp_stat_table($lang_plugin_php['visiblehookpoints_time_chart'],$times);
+    $html .= vhp_stat_table($lang_plugin_visiblehookpoints['time_chart'],$times);
     $html .= '</div>';
     return $html;
 }
@@ -669,7 +664,7 @@ function visiblehookpoints_uninstall() {
 // Configure function
 // Displays the form
 function visiblehookpoints_configure() {
-    global $CONFIG, $lang_plugin_php;
+    global $CONFIG, $lang_plugin_visiblehookpoints;
     $superCage = Inspekt::makeSuperCage();
     $req_uri = $superCage->server->getMatched('REQUEST_URI', '/([^\/]+\.php)$/');
     $req_uri = $req_uri[1];
@@ -686,36 +681,36 @@ function visiblehookpoints_configure() {
       $visible = '';
       $admin_only = 'checked="checked"';
     }
-    $help_invisible = '&nbsp;'.cpg_display_help('f=empty.htm&amp;h=lang_plugin_php[visiblehookpoints_help_invisible_header]&amp;t=lang_plugin_php[visiblehookpoints_help_invisible_text]',470,245);
-    $help_visible = '&nbsp;'.cpg_display_help('f=empty.htm&amp;h=lang_plugin_php[visiblehookpoints_help_visible_header]&amp;t=lang_plugin_php[visiblehookpoints_help_visible_text]',470,245);
+    $help_invisible = '&nbsp;'.cpg_display_help('f=empty.htm&amp;h=lang_plugin_visiblehookpoints[help_invisible_header]&amp;t=lang_plugin_visiblehookpoints[help_invisible_text]',470,245);
+    $help_visible = '&nbsp;'.cpg_display_help('f=empty.htm&amp;h=lang_plugin_visiblehookpoints[help_visible_header]&amp;t=lang_plugin_visiblehookpoints[help_visible_text]',470,245);
     echo <<< EOT
     <form name="cpgform" id="cpgform" action="{$req_uri}" method="post">
 EOT;
-    starttable('100%', $lang_plugin_php['visiblehookpoints_config_name'] . ' - ' . $lang_plugin_php['visiblehookpoints_plugin_config'], 1);
+    starttable('100%', $lang_plugin_visiblehookpoints['config_name'] . ' - ' . $lang_plugin_visiblehookpoints['plugin_config'], 1);
     echo <<< EOT
               <tr>
                 <td class="tableh2">
-                  <h3>{$lang_plugin_php['visiblehookpoints_visibility_choose']}</h3>
+                  <h3>{$lang_plugin_visiblehookpoints['visibility_choose']}</h3>
                 </td>
               </tr>
               <tr>
                 <td class="tableb">
                   <input type="radio" name="visiblehookpoints_display" id="invisible" value="0" class="radio" {$invisible} />
-                  <label for="invisible" class="clickable_option">{$lang_plugin_php['visiblehookpoints_visibility_parameter']}</label>{$help_invisible}
+                  <label for="invisible" class="clickable_option">{$lang_plugin_visiblehookpoints['visibility_parameter']}</label>{$help_invisible}
               </tr>
               <tr>
                 <td class="tableb tableb_alternate">
                   <input type="radio" name="visiblehookpoints_display" id="visible" value="1" class="radio" {$visible} />
-                  <label for="visible" class="clickable_option">{$lang_plugin_php['visiblehookpoints_visibility_permanent']}</label>{$help_visible}
+                  <label for="visible" class="clickable_option">{$lang_plugin_visiblehookpoints['visibility_permanent']}</label>{$help_visible}
               </tr>
               <!--<tr>
                 <td class="tableb">
                   <input type="radio" name="visiblehookpoints_display" id="admin_only" value="2" class="radio" {$admin_only} />
-                  <label for="admin_only" class="clickable_option">{$lang_plugin_php['visiblehookpoints_visibility_admin']}</label>
+                  <label for="admin_only" class="clickable_option">{$lang_plugin_visiblehookpoints['visibility_admin']}</label>
               </tr>-->
               <tr>
                 <td class="tablef">
-                  <input type="submit" value="{$lang_plugin_php['visiblehookpoints_save']}" class="button" />
+                  <input type="submit" value="{$lang_plugin_visiblehookpoints['save']}" class="button" />
                 </td>
               </tr>
 EOT;
@@ -724,6 +719,4 @@ EOT;
     </form>
 EOT;
 }
-
-
-?>
+//EOF

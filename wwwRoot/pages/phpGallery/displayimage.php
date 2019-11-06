@@ -1,19 +1,15 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/displayimage.php $
-  $Revision: 8884 $
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * displayimage.php
+ * @since  1.6.06
+ */
 
 define('IN_COPPERMINE', true);
 define('DISPLAYIMAGE_PHP', true);
@@ -35,7 +31,7 @@ if (!USER_ID && ($CONFIG['allow_unlogged_access'] <= 1)) {
 }
 
 if (USER_ID && (USER_ACCESS_LEVEL <= 1)) {
-    cpg_die(ERROR, ((USER_ACCESS_LEVEL == 1) ? $lang_errors['access_thumbnail_only'] : $lang_errors['access_none']));
+    cpg_die(ERROR, ((USER_ACCESS_LEVEL == 1) ? $lang_errors['access_thumbnail_only'] : $lang_errors['access_none']), __FILE__, __LINE__);
 }
 
 if (!$superCage->get->keyExists('slideshow')) {
@@ -295,11 +291,11 @@ $ajax_call = $superCage->get->getInt('ajax_call');
 // attempt to fix topn images for keyworded albums
 if ($cat < 0) {
     $result = cpg_db_query("SELECT category, title, aid, keyword, description, alb_password_hint FROM {$CONFIG['TABLE_ALBUMS']} WHERE aid='" . (- $cat) . "'");
-    if (mysql_num_rows($result) > 0) {
-        $CURRENT_ALBUM_DATA = mysql_fetch_assoc($result);
+    if ($result->numRows() > 0) {
+        $CURRENT_ALBUM_DATA = $result->fetchAssoc();
         $CURRENT_ALBUM_KEYWORD = $CURRENT_ALBUM_DATA['keyword'];
     }
-    mysql_free_result($result);
+    $result->free();
 }
 
 set_js_var('cookies_allowed', CPG_COOKIES_ALLOWED);
@@ -314,9 +310,9 @@ if (!$superCage->get->keyExists('fullsize') && ($pos < 0 || $pid > 0)) {
 
         $result = cpg_db_query("SELECT aid FROM {$CONFIG['TABLE_PICTURES']} AS p WHERE pid='$pid' $FORBIDDEN_SET LIMIT 1");
 
-        if (mysql_num_rows($result) == 0) {
+        if ($result->numRows() == 0) {
             // show password prompt if the file is in a password protected album and the user has access rights to that album
-            $aid = mysql_result(cpg_db_query("SELECT aid FROM {$CONFIG['TABLE_PICTURES']} WHERE pid='$pid' LIMIT 1"), 0);
+            $aid = cpg_db_query("SELECT aid FROM {$CONFIG['TABLE_PICTURES']} WHERE pid='$pid' LIMIT 1")->result(0);
             if (cpg_pw_protected_album_access($aid) === 1) {
                 $redirect = "thumbnails.php?album=".$aid;
                 header("Location: $redirect");
@@ -325,8 +321,7 @@ if (!$superCage->get->keyExists('fullsize') && ($pos < 0 || $pid > 0)) {
             }
         }
 
-        $row = mysql_fetch_assoc($result);
-        mysql_free_result($result);
+        $row = $result->fetchAssoc(true);
     }
 
     $album = (!$album) ? $row['aid'] : $album;
@@ -391,6 +386,8 @@ if (!$superCage->get->keyExists('fullsize') && !$superCage->get->keyExists('ajax
 set_js_var('position', $pos);
 set_js_var('album', $album);
 set_js_var('cat', $cat);
+set_js_var('count', $pic_count);
+
 if ($superCage->get->keyExists('msg_id')) {
     set_js_var('msg_id', $superCage->get->getInt('msg_id'));
     set_js_var('page', $superCage->get->getInt('page'));
@@ -422,12 +419,11 @@ if (isset($CURRENT_PIC_DATA)) {
 
     $result = cpg_db_query("SELECT title, comments, votes, category, aid FROM {$CONFIG['TABLE_ALBUMS']} WHERE aid='{$ref_album}' LIMIT 1");
 
-    if (!mysql_num_rows($result)) {
+    if (!$result->numRows()) {
         cpg_die(CRITICAL_ERROR, sprintf($lang_errors['pic_in_invalid_album'], $CURRENT_PIC_DATA['aid']), __FILE__, __LINE__);
     }
 
-    $CURRENT_ALBUM_DATA = mysql_fetch_assoc($result);
-    mysql_free_result($result);
+    $CURRENT_ALBUM_DATA = $result->fetchAssoc(true);
 
     if (is_numeric($album)) {
         $cat = - $album;
@@ -442,7 +438,7 @@ if (isset($CURRENT_PIC_DATA)) {
 
 if ($superCage->get->keyExists('fullsize')) {
 
-    $CURRENT_PIC_DATA = mysql_fetch_assoc(cpg_db_query("SELECT * FROM {$CONFIG['TABLE_PICTURES']} AS p " . "WHERE pid='$pid' $FORBIDDEN_SET"));
+    $CURRENT_PIC_DATA = cpg_db_query("SELECT * FROM {$CONFIG['TABLE_PICTURES']} AS p " . "WHERE pid='$pid' $FORBIDDEN_SET")->fetchAssoc(true);
     theme_display_fullsize_pic();
 
 } elseif ($superCage->get->keyExists('slideshow')) {
@@ -478,10 +474,10 @@ if ($superCage->get->keyExists('fullsize')) {
 
     $meta_keywords .= $meta_nav;
 
-    // Display Filmstrip if the album is not search -- commented out due to thread ID 64312
-    //if ($album != 'search') {
-        $film_strip = display_film_strip($album, (isset($cat) ? $cat : 0), $pos, true);
-    //}
+	$film_strip = '';
+	if ($CONFIG['display_film_strip'] == 1) {
+		$film_strip = display_film_strip($album, (isset($cat) ? $cat : 0), $pos, true);
+	}
 
     // Set the picture id for use in js
     set_js_var('picture_id', $CURRENT_PIC_DATA['pid']);
@@ -499,4 +495,4 @@ if ($superCage->get->keyExists('fullsize')) {
     pagefooter();
 }
 
-?>
+//EOF

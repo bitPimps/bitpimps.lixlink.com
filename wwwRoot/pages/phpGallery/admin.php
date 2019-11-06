@@ -1,19 +1,15 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/admin.php $
-  $Revision: 8884 $
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2019 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * admin.php
+ * @since  1.6.07
+ */
 
 define('IN_COPPERMINE', true);
 define('ADMIN_PHP', true);
@@ -24,6 +20,28 @@ if (!GALLERY_ADMIN_MODE) {
     cpg_die(ERROR, $lang_errors['access_denied'], __FILE__, __LINE__);
 }
 
+function kmgVals ($k)
+{
+	if ($k >= 1048576) {
+		$m = 1048576;
+	} else if ($k >= 1024) {
+		$m = 1024;
+	} else {
+		$m = 1;
+	}
+	return array(round($k/$m, 1), $m);
+}
+
+function kmgOpts ($m)
+{
+	global $lang_byte_units;
+	$sa = ' selected="selected"';
+	$html = '<option value="1"'.($m==1?$sa:'').'>'.$lang_byte_units[1].'</option>';
+	$html .= '<option value="1024"'.($m==1024?$sa:'').'>'.$lang_byte_units[2].'</option>';
+	$html .= '<option value="1048576"'.($m==1048576?$sa:'').'>'.$lang_byte_units[3].'</option>';
+	return $html;
+}
+
 // define some vars that need to exist in JS
 set_js_var('lang_warning_dont_submit', $lang_admin_php['warning_dont_submit']);
 set_js_var('lang_reset_to_default', $lang_admin_php['reset_to_default']);
@@ -32,7 +50,6 @@ set_js_var('display_reset_boxes', $CONFIG['display_reset_boxes_in_config']);
 
 
 // Include the JS for admin.php
-js_include('js/jquery.spinbutton.js');
 js_include('js/admin.js');
 
 $admin_data_array  = $CONFIG;
@@ -136,9 +153,11 @@ foreach ($config_data as $config_section_key => $config_section_value) { // Loop
         if ( (isset($adminDataValue['min']) || isset($adminDataValue['min']) ) && $regexValidation == '1') { // Only perform the additional validation if the regex is green so far
             if (isset($adminDataValue['min']) && $evaluate_value < $adminDataValue['min'] ) {
                 $regexValidation = '0';
+                $userMessage .= '<li style="list-style-image:url(images/icons/stop.png)">'.sprintf($lang_admin_php['config_setting_rangerr'], '<a class="direct_config_link" href="#'.$adminDataKey.'">'.$lang_admin_php[$adminDataKey].'</a>').'</li>'.$LINEBREAK;
             }
             if (isset($adminDataValue['max']) && $evaluate_value > $adminDataValue['max'] ) {
                 $regexValidation = '0';
+                $userMessage .= '<li style="list-style-image:url(images/icons/stop.png)">'.sprintf($lang_admin_php['config_setting_rangerr'], '<a class="direct_config_link" href="#'.$adminDataKey.'">'.$lang_admin_php[$adminDataKey].'</a>').'</li>'.$LINEBREAK;
             }
         }
         // If validation failed, set things right
@@ -255,6 +274,14 @@ EOT;
     $admin_page .= '<br />'.$LINEBREAK;
 }
 
+$admin_page .= '<style>
+#cpgform input:invalid {
+	border-color: #900;
+	background-color: #FDD;
+}
+</style>
+';
+
 $signature = 'Coppermine Photo Gallery ' . COPPERMINE_VERSION . ' ('. COPPERMINE_VERSION_STATUS . ')';
 
 $tabindexCounter      = 1;
@@ -359,7 +386,7 @@ EOT;
 				$labelWrapperEnd   = '';
 			}
 			if (!empty($value['warning'])) { // set warning text
-				$warningText  = $value['warning'];
+				$warningText  = $lang_admin_php[$value['warning']];
 				$warningPopUp = cpg_display_help('f=empty.htm&amp;h=lang_admin_php['.$key.']&amp;t='.$value['warning'], 500, 250, '*');
 			} else {
 				$warningText  = '';
@@ -395,7 +422,7 @@ EOT;
 				$readonly_radio   = '';
 			}
 			if (!empty($value['width'])) { // set width if option is set in array
-				$widthOption = ' style="width:'.$value['width'].'"';
+				$widthOption = ' style="width:'.$value['width'].'px"';
 			} else {
 				$widthOption = ' style="width:90%"';
 			}
@@ -414,31 +441,40 @@ EOT;
 			} else {
 				$highlightFieldCSS = '';
 			}
-			if (isset($value['min']) && ($value['min'] != '' || $value['max'] != '')) { // apply class spinbutton if applicable
-				$spinbuttonOption = ' spin-button';
-				$javascriptOutput .= '  $("#'.$key.'").SpinButton({';
+			if (isset($value['min']) && ($value['min'] != '' || $value['max'] != '') && $value['type'] != 'KMG') { // coerse field to HTML5 number field
+				$value['type'] = 'number';
+				$numminmax = '';
 				if ($value['min'] != '') {
-					$javascriptOutput .= 'min: '.$value['min'];
-					if ($value['max'] != '') {
-						$javascriptOutput .= ',';
-					}
+					$numminmax .= ' min="'.$value['min'].'"';
 				}
 				if ($value['max'] != '') {
-					$javascriptOutput .= 'max: '.$value['max'];
+					$numminmax .= ' max="'.$value['max'].'"';
 				}
 				if (isset($value['step']) && $value['step'] != '') {
-					$javascriptOutput .= ', step: '.$value['step'];
+					$numminmax .= ' step="'.$value['step'].'"';
 				}
-				$javascriptOutput .= '});' . $LINEBREAK;
-			} else {
-				$spinbuttonOption = '';
 			}
 
 			// Different types of fields --- start
 			if ($value['type'] == 'textfield') { // TEXTFIELD
 				$js_default_values['textfield'][] = array('key' => $key, 'warning' => $warningText);
 				
-				$admin_page .= '<span id="'.$key.'_wrapper" class="'.$highlightFieldCSS.'"><input type="text" class="textinput'.$spinbuttonOption.'"'.$widthOption.$sizeOption.$maxlengthOption.'  name="'.$key.'" id="'.$key.'" value="'.$admin_data_array[$key].'"'.$readonly_text.' tabindex="'.$tabindexCounter.'" title="'.str_replace("'", "\'", htmlspecialchars($warningText)).'" />'.$readonly_message.'</span>';
+				$admin_page .= '<span id="'.$key.'_wrapper" class="'.$highlightFieldCSS.'"><input type="text" class="textinput"'.$widthOption.$sizeOption.$maxlengthOption.'  name="'.$key.'" id="'.$key.'" value="'.$admin_data_array[$key].'"'.$readonly_text.' tabindex="'.$tabindexCounter.'" title="'.str_replace("'", "\'", htmlspecialchars($warningText)).'" />'.$readonly_message.'</span>';
+
+			} elseif ($value['type'] == 'KMG') { // KMG COMBO
+				$kmgVals = kmgVals($admin_data_array[$key]);
+				$js_default_values['textfield'][] = array('key' => $key, 'warning' => $warningText);
+				
+				$admin_page .= '<span id="'.$key.'_wrapper" class="'.$highlightFieldCSS.'">'
+					.'<input type="number" class="textinput" min="1" step="0.1" '.$widthOption.$sizeOption.$maxlengthOption.' id="'.$key.'_n" value="'.$kmgVals[0].'"'.$readonly_text.' tabindex="'.$tabindexCounter.'" title="'.str_replace("'", "\'", htmlspecialchars($warningText)).'" onchange="mfuCalc(\'#'.$key.'\')" />'
+					.' <select id="'.$key.'_m" onchange="mfuCalc(\'#'.$key.'\')">'.kmgOpts($kmgVals[1]).'</select>'
+					.'<input type="hidden" name="'.$key.'" id="'.$key.'" value="'.$admin_data_array[$key].'" />'
+					.$readonly_message.'</span>';
+
+			} elseif ($value['type'] == 'number') { // NUMBER
+				$js_default_values['textfield'][] = array('key' => $key, 'warning' => $warningText);
+				
+				$admin_page .= '<span id="'.$key.'_wrapper" class="'.$highlightFieldCSS.'"><input type="number" class="textinput"'.$numminmax.$widthOption.$sizeOption.$maxlengthOption.'  name="'.$key.'" id="'.$key.'" value="'.$admin_data_array[$key].'"'.$readonly_text.' tabindex="'.$tabindexCounter.'" title="'.str_replace("'", "\'", htmlspecialchars($warningText)).'" />'.$readonly_message.'</span>';
 
 			} elseif ($value['type'] == 'password') { // PASSWORD
 				$js_default_values['password'][] = array('key' => $key, 'warning' => $warningText);
@@ -619,7 +655,6 @@ EOT;
 endtable();
 echo '<br />';
 
-
 list($timestamp, $form_token) = getFormToken();
 echo <<< EOT
 <input type="hidden" name="form_token" value="{$form_token}" />
@@ -638,6 +673,7 @@ if ($javascriptOutput != '') {
 </script>
 EOT;
 }
+
 pagefooter();
 
-?>
+//EOF

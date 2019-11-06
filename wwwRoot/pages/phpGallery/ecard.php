@@ -1,19 +1,15 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/ecard.php $
-  $Revision: 8884 $
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * ecard.php
+ * @since  1.6.05
+ */
 
 define('IN_COPPERMINE', true);
 define('ECARDS_PHP', true);
@@ -71,11 +67,11 @@ $recipient_email_warning = '';
 // Get picture thumbnail url
 $result = cpg_db_query("SELECT url_prefix, filepath, filename, title, caption, pwidth, pheight FROM {$CONFIG['TABLE_PICTURES']} AS p WHERE pid='$pid' $FORBIDDEN_SET");
 
-if (!mysql_num_rows($result)) {
+if (!$result->numRows()) {
     cpg_die(ERROR, $lang_errors['non_exist_ap'], __FILE__, __LINE__);
 }
 
-$row = mysql_fetch_assoc($result);
+$row = $result->fetchAssoc(true);
 
 $thumb_pic_url = get_pic_url($row, 'thumb');
 $normal_pic_url = get_pic_url($row, 'normal');
@@ -481,4 +477,4 @@ EOT;
 
 pagefooter();
 
-?>
+//EOF

@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
+  Copyright (c) 2003-2016 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,8 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/zipdownload.php $
-  $Revision: 8884 $
+  Coppermine version: 1.6.03
+  $HeadURL$
 **********************************************/
 
 define('IN_COPPERMINE', true);
@@ -76,11 +75,11 @@ EOT;
         }
     }
 
-    $zip = new zip_file('pictures.zip');
+    $filename = 'edit/pictures-' . uniqid() . '.zip';
+    $zip = new zip_file($filename);
 
     $options = array(
         'basedir'    => "./{$CONFIG['fullpath']}",
-        'inmemory'   => 1,
         'recurse'    => 0,
         'storepaths' => 0,
     );
@@ -89,13 +88,12 @@ EOT;
     $zip->add_files($filelist);
     $zip->create_archive();
 
-    ob_end_clean();
-
-    $zip->download_file();
-
     if ($CONFIG['enable_zipdownload'] == 2) {
         @unlink($CONFIG['fullpath'].'edit/'.$readme_filename);
     }
-}
 
-?>
+    ob_end_clean();
+
+    header('Location: ' . $CONFIG['site_url'] . $CONFIG['fullpath'] . $filename);
+}
+//EOF

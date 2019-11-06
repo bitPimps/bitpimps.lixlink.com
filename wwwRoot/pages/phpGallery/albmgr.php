@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2019 Coppermine Dev Team
+  Copyright (c) 2003-2016 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,9 +10,8 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/albmgr.php $
-  $Revision: 8884 $
+  Coppermine version: 1.6.03
+  $HeadURL$
 **********************************************/
 
 // TODO: title tags contain hardcoded English instead of lang vars.
@@ -56,6 +55,7 @@ function alb_get_subcat_data($parent, $ident = '')
     global $CONFIG, $CAT_LIST, $USER_DATA;
 
     // select cats where the users can change the albums
+    $groups = '';
     foreach ($USER_DATA['groups'] as $group) {
         $groups .= "group_id = '$group' OR ";
     }
@@ -63,7 +63,7 @@ function alb_get_subcat_data($parent, $ident = '')
 
     $result = cpg_db_query("SELECT cid, name, description FROM {$CONFIG['TABLE_CATEGORIES']} WHERE parent = '$parent' AND cid != 1 ORDER BY pos");
 
-    if (mysql_num_rows($result) > 0) {
+    if ($result->numRows() > 0) {
         $rowset = cpg_db_fetch_rowset($result);
         foreach ($rowset as $subcat) {
             if (!GALLERY_ADMIN_MODE) {
@@ -95,7 +95,7 @@ set_js_var('category_change', $lang_albmgr_php['category_change']);
 // confirm page change when there are unsaved changes
 set_js_var('page_change', $lang_albmgr_php['page_change']);
 // title for upload image
-set_js_var('upload_file', $lang_main_menu['upload_pic_lnk']);
+set_js_var('upload_file', $lang_albmgr_php['upload_files']);
 // form token & timestamp
 set_js_var('form_token', $form_token);
 set_js_var('timestamp', $timestamp);
@@ -116,8 +116,7 @@ if (!GALLERY_ADMIN_MODE && USER_ADMIN_MODE) {
         } else {
             // user is only allowed to create public albums - get first category the user is allowed to create albums in
             $result = cpg_db_query("SELECT cm.cid FROM {$CONFIG['TABLE_CATMAP']} AS cm INNER JOIN {$CONFIG['TABLE_CATEGORIES']} AS c ON cm.cid = c.cid WHERE cm.group_id in (" .  implode(",", $USER_DATA['groups']). ") ORDER BY pos LIMIT 1");
-            $cat = mysql_result($result, 0);
-            mysql_free_result($result);
+            $cat = $result->result(0, 0, true);
         }
     }
     // only list the albums owned by the user
@@ -218,7 +217,7 @@ if (count($rowset) > 0) {
         echo <<< EOT
                 <tr id="sort-{$album['aid']}">
                     <td class="dragHandle"></td>
-                    <td class="album_text" width="96%"><span class="albumName">{$title}</span>&nbsp;<a href="upload.php?album={$album['aid']}"><img src="images/icons/upload.png" title="{$lang_main_menu['upload_pic_lnk']}" /></a><span class="editAlbum">{$icon_array['edit']}{$lang_common['edit']}</span></td>
+                    <td class="album_text" width="96%"><span class="albumName">{$title}</span>&nbsp;<a href="upload.php?album={$album['aid']}"><img src="images/icons/upload.png" title="{$lang_albmgr_php['upload_files']}" /></a><span class="editAlbum">{$icon_array['edit']}{$lang_common['edit']}</span></td>
                 </tr>
 EOT;
     }
@@ -292,4 +291,4 @@ endtable();
 echo '</form>';
 pagefooter();
 
-?>
+//EOF

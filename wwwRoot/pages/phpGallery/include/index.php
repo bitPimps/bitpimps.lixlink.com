@@ -9,9 +9,8 @@
 <link rel="shortcut icon" href="../favicon.ico" />
 <!--
   SVN version info:
-  Coppermine version: 1.5.48
-  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/include/index.php $
-  $Revision: 8884 $
+  Coppermine version: 1.6.03
+  $HeadURL$
 -->
 </head>
 <body>

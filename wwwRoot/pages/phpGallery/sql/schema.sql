@@ -1,17 +1,14 @@
 ##  ********************************************
 ##  Coppermine Photo Gallery
 ##  ************************
-##  Copyright (c) 2003-2019 Coppermine Dev Team
 ##  v1.0 originally written by Gregory Demar
 ##
-##  This program is free software; you can redistribute it and/or modify
-##  it under the terms of the GNU General Public License version 3
-##  as published by the Free Software Foundation.
+##  @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+##  @license    GNU General Public License version 3 or later; see LICENSE
 ##
 ##  ********************************************
-##  Coppermine version: 1.5.48
-##  $HeadURL: https://svn.code.sf.net/p/coppermine/code/trunk/cpg1.5.x/sql/schema.sql $
-##  $Revision: 8884 $
+##  sql/schema.sql
+##  @since  1.6.05
 ##  ********************************************
 
 #
@@ -38,7 +35,7 @@ CREATE TABLE CPG_albums (
   KEY alb_category (category),
   KEY `moderator_group` (`moderator_group`),
   KEY `visibility` (`visibility`)
-) COMMENT='Used to store albums';
+)  COMMENT='Used to store albums';
 # --------------------------------------------------------
 
 #
@@ -53,7 +50,7 @@ CREATE TABLE CPG_banned (
         expiry datetime DEFAULT NULL,
         brute_force tinyint(5) NOT NULL default '0',
         PRIMARY KEY  (ban_id)
-) COMMENT='Data about banned users';
+)  COMMENT='Data about banned users';
 #---------------------------------------------------------
 
 
@@ -64,7 +61,7 @@ CREATE TABLE CPG_bridge (
   name varchar(40) NOT NULL default '0',
   value varchar(255) NOT NULL default '',
   UNIQUE KEY name (name)
-) COMMENT='Stores the bridging data, not used when unbridged';
+)  COMMENT='Stores the bridging data, not used when unbridged';
 # --------------------------------------------------------
 
 #
@@ -87,7 +84,7 @@ CREATE TABLE CPG_categories (
   KEY cat_owner_id (owner_id),
   KEY `depth_cid` (`depth`,`cid`),
   KEY `lft_depth` (`lft`,`depth`)
-) COMMENT='Used to store categories';
+)  COMMENT='Used to store categories';
 # --------------------------------------------------------
 
 #
@@ -97,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `CPG_categorymap` (
   cid int(11) NOT NULL,
   group_id int(11) NOT NULL,
   PRIMARY KEY  (cid,group_id)
-) COMMENT='Holds the categories where groups can create albums';
+)  COMMENT='Holds the categories where groups can create albums';
 # --------------------------------------------------------
 
 #
@@ -118,7 +115,7 @@ CREATE TABLE CPG_comments (
   PRIMARY KEY  (msg_id),
   KEY com_pic_id (pid),
   KEY author_id (author_id)
-) COMMENT='Used to store comments made on pics';
+)  COMMENT='Used to store comments made on pics';
 # --------------------------------------------------------
 
 #
@@ -128,7 +125,7 @@ CREATE TABLE CPG_config (
   name varchar(40) NOT NULL default '',
   value varchar(255) NOT NULL default '',
   PRIMARY KEY  (name)
-  ) COMMENT='Used to store the configuration options';
+  )  COMMENT='Used to store the configuration options';
 # --------------------------------------------------------
 
 
@@ -140,7 +137,7 @@ CREATE TABLE CPG_dict (
   keyword varchar(60) NOT NULL,
   PRIMARY KEY  (keyId),
   UNIQUE KEY (keyword)
-) COMMENT='Holds the keyword dictionary';
+)  COMMENT='Holds the keyword dictionary';
 # --------------------------------------------------------
 
 #
@@ -156,7 +153,7 @@ CREATE TABLE CPG_ecards (
   date tinytext NOT NULL,
   sender_ip tinytext NOT NULL,
   PRIMARY KEY  (eid)
-) COMMENT='Used to log ecards';
+)  COMMENT='Used to log ecards';
 # --------------------------------------------------------
 
 #
@@ -166,7 +163,7 @@ CREATE TABLE CPG_exif (
   `pid` int(11) NOT NULL,
   `exifData` text NOT NULL,
   PRIMARY KEY (`pid`)
-) COMMENT='Stores EXIF data from individual pics';
+)  COMMENT='Stores EXIF data from individual pics';
 # --------------------------------------------------------
 
 #
@@ -176,7 +173,7 @@ CREATE TABLE CPG_favpics (
 `user_id` INT( 11 ) NOT NULL ,
 `user_favpics` TEXT NOT NULL ,
 PRIMARY KEY ( `user_id` )
-) COMMENT = 'Stores the server side favourites';
+)  COMMENT = 'Stores the server side favourites';
 # --------------------------------------------------------
 
 #
@@ -188,7 +185,7 @@ CREATE TABLE IF NOT EXISTS CPG_filetypes (
   content char(15) default NULL,
   player varchar(5) default NULL,
   PRIMARY KEY (extension)
-) COMMENT='Used to store the file extensions';
+)  COMMENT='Used to store the file extensions';
 # --------------------------------------------------------
 
 #
@@ -205,7 +202,7 @@ CREATE TABLE CPG_hit_stats (
   `os` varchar(50) NOT NULL default '',
   `uid` INT(11) NOT NULL default '0',
   PRIMARY KEY  (`sid`)
-) COMMENT='Detailed stats about hits, only used when enabled';
+)  COMMENT='Detailed stats about hits, only used when enabled';
 # --------------------------------------------------------
 
 #
@@ -222,7 +219,7 @@ CREATE TABLE CPG_languages (
   enabled enum('YES','NO') NOT NULL default 'NO',
   complete enum('YES','NO') NOT NULL default 'NO',
   PRIMARY KEY (lang_id)
-) COMMENT='Contains the language file definitions';
+)  COMMENT='Contains the language file definitions';
 # --------------------------------------------------------
 
 #
@@ -238,7 +235,7 @@ CREATE TABLE CPG_pictures (
   pwidth smallint(6) NOT NULL default '0',
   pheight smallint(6) NOT NULL default '0',
   hits int(10) NOT NULL default '0',
-  mtime datetime NOT NULL default '1000-01-01 00:00:00',
+  mtime datetime NOT NULL default '1000-01-01 00:00:00' ,
   ctime int(11) NOT NULL default '0',
   owner_id int(11) NOT NULL default '0',
   pic_rating int(11) NOT NULL default '0',
@@ -264,7 +261,7 @@ CREATE TABLE CPG_pictures (
   KEY aid_approved (aid, approved),
   KEY pic_aid (aid, pid),
   guest_token varchar(32) default ''
-) COMMENT='Used to store data about individual pics';
+)  COMMENT='Used to store data about individual pics';
 # --------------------------------------------------------
 
 #
@@ -273,12 +270,13 @@ CREATE TABLE CPG_pictures (
 CREATE TABLE CPG_plugins (
   plugin_id int(10) unsigned NOT NULL auto_increment,
   name varchar(64) NOT NULL default '',
+  enabled tinyint(1) NOT NULL DEFAULT '1',
   path varchar(128) NOT NULL default '',
   priority int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (plugin_id),
   UNIQUE KEY name (name),
   UNIQUE KEY path (path)
-) COMMENT='Stores the plugins';
+)  COMMENT='Stores the plugins';
 # --------------------------------------------------------
 
 #
@@ -290,7 +288,7 @@ CREATE TABLE CPG_sessions (
   time int(11) default NULL,
   remember int(1) default '0',
   PRIMARY KEY (session_id)
-) COMMENT='Used to store sessions';
+)  COMMENT='Used to store sessions';
 # --------------------------------------------------------
 
 #
@@ -302,7 +300,7 @@ CREATE TABLE CPG_temp_messages (
   time int(11) default NULL,
   message text NOT NULL,
   PRIMARY KEY (message_id)
-) COMMENT='Used to store messages from one page to the other';
+)  COMMENT='Used to store messages from one page to the other';
 # --------------------------------------------------------
 
 
@@ -323,7 +321,7 @@ CREATE TABLE CPG_usergroups (
   priv_upl_need_approval tinyint(4) NOT NULL default '1',
   access_level tinyint(4) NOT NULL default '3',
   PRIMARY KEY  (group_id)
-);
+) ;
 # --------------------------------------------------------
 
 #
@@ -334,7 +332,10 @@ CREATE TABLE CPG_users (
   user_group int(11) NOT NULL default '2',
   user_active enum('YES','NO') NOT NULL default 'NO',
   user_name varchar(25) NOT NULL default '',
-  user_password varchar(40) NOT NULL default '',
+  user_password varchar(255) NOT NULL default '',
+  user_password_salt varchar(255) NOT NULL default '',
+  user_password_hash_algorithm varchar(25) NOT NULL default '',
+  user_password_iterations varchar(25) NOT NULL default '',
   user_lastvisit datetime NOT NULL default '1000-01-01 00:00:00',
   user_regdate datetime NOT NULL default '1000-01-01 00:00:00',
   user_group_list varchar(255) NOT NULL default '',
@@ -351,7 +352,7 @@ CREATE TABLE CPG_users (
   PRIMARY KEY  (user_id),
   UNIQUE KEY user_name (user_name),
   KEY user_group (user_group)
-) COMMENT='Used to store users, not used when bridged';
+)  COMMENT='Used to store users, not used when bridged';
 # --------------------------------------------------------
 
 #
@@ -362,7 +363,7 @@ CREATE TABLE CPG_votes (
   user_md5_id varchar(32) NOT NULL default '',
   vote_time int(11) NOT NULL default '0',
   PRIMARY KEY  (pic_id,user_md5_id)
-) COMMENT='Stores votes for individual pics';
+)  COMMENT='Stores votes for individual pics';
 #---------------------------------------------------------
 
 #
@@ -379,5 +380,6 @@ CREATE TABLE CPG_vote_stats (
   `os` varchar(50) NOT NULL default '',
   `uid` INT(11) NOT NULL default '0',
   PRIMARY KEY  (`sid`)
-) COMMENT='Detailed stats about votes, only used when enabled';
+)  COMMENT='Detailed stats about votes, only used when enabled';
 # --------------------------------------------------------
+
