@@ -2,7 +2,7 @@
 /*************************
   Coppermine Photo Gallery
   ************************
-  Copyright (c) 2003-2012 Coppermine Dev Team
+  Copyright (c) 2003-2016 Coppermine Dev Team
   v1.0 originally written by Gregory Demar
 
   This program is free software; you can redistribute it and/or modify
@@ -10,15 +10,14 @@
   as published by the Free Software Foundation.
 
   ********************************************
-  Coppermine version: 1.5.18
-  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/trunk/cpg1.5.x/themes/sample/theme.php $
-  $Revision: 8304 $
+  Coppermine version: 1.6.03
+  $HeadURL$
 **********************************************/
 
 // ------------------------------------------------------------------------- //
 // This theme has all CORE items that are available.                         //
 // Do NOT copy the entire contents of this theme into your custom theme,     //
-// but only the sections you want to see changed - this will make ugrading   //
+// but only the sections you want to see changed - this will make upgrading  //
 // easier and results in slightly better performance as well.                //
 // The individual sections are marked accordingly with                       //
       /***********************************
@@ -32,30 +31,6 @@
 // fit.                                                                      //
 // ------------------------------------------------------------------------- //
 
-
-// The following terms can be defined in theme.php
-// ('THEME_HAS_RATING_GRAPHICS', 1) : The location for the ratings graphics will
-//    be directed to the themes images folder.
-//('THEME_HAS_NAVBAR_GRAPHICS', 1); : The location for the navbar graphics will
-//    be directed to the themes images folder.
-//    Back to thumbnails   : images/navbar/thumbnails.png
-//    Picture Information  : images/navbar/info.png
-//    Slideshow            : images/navbar/slideshow.png
-//    Report to admin      : images/navbar/report.png
-//    Ecard                : images/navbar/ecard.png
-//    Previous             : images/navbar/prev.png
-//    Next                 : images/navbar/next.png
-// ('THEME_HAS_FILM_STRIP_GRAPHIC', 1) : The location for the film strip graphics will
-//    be directed to the themes images folder.
-//    tile                 : images/tile.gif
-// ('THEME_HAS_FILM_STRIP_GRAPHICS', 1) : The location for the film strip graphics will
-//    be directed to the themes images folder.
-//    tile on the top      : images/tile1.gif
-//    tile on the bottom   : images/tile2.gif
-//  ('THEME_HAS_NO_SYS_MENU_BUTTONS', 1) : When present the system won't attempt to replace {BUTTONS} in the SYS_MENU template
-//    The entire block needs to be present like in Coppermine 1.3 themes
-//  ('THEME_HAS_NO_SUB_MENU_BUTTONS', 1) When present the system won't attempt to replace {BUTTONS} in the SUB_MENU template
-//    The entire block needs to be present like in Coppermine 1.3 themes
 define('THEME_HAS_PROGRESS_GRAPHICS', 1);
 
 /******************************************************************************
@@ -63,7 +38,7 @@ define('THEME_HAS_PROGRESS_GRAPHICS', 1);
 ******************************************************************************/
 // Creates buttons from a template using an array of tokens
 // this function is used in this file it needs to be declared before being called.
-function assemble_template_buttons($template_buttons,$buttons) 
+function assemble_template_buttons($template_buttons,$buttons)
 {
     $counter=0;
     $output='';
@@ -99,7 +74,7 @@ function assemble_template_buttons($template_buttons,$buttons)
 ******************************************************************************/
 // Creates an array of tokens to be used with function assemble_template_buttons
 // this function is used in this file it needs to be declared before being called.
-function addbutton(&$menu,$href_lnk,$href_title,$href_tgt,$block_id,$spacer,$href_attrib='') 
+function addbutton(&$menu,$href_lnk,$href_title,$href_tgt,$block_id,$spacer,$href_attrib='')
 {
     $menu[]=array($href_lnk,$href_title,$href_tgt,$block_id,$spacer,$href_attrib);
 }
@@ -1059,7 +1034,7 @@ $template_image_comments = <<<EOT
                 <form name="f{MSG_ID}" id="f{MSG_ID}" method="POST" action="db_input.php">
                     <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
-                            <td>    
+                            <td>
                                 <input type="hidden" name="event" value="comment_update" />
                                 <input type="hidden" name="msg_id" value="{MSG_ID}" />
                             </td>
@@ -1099,7 +1074,7 @@ EOT;
 ** Section <<<$template_add_your_comment>>> - START
 ******************************************************************************/
 $template_add_your_comment = <<<EOT
-        <form method="post" name="post" id="post" action="db_input.php">
+        <form method="post" name="post" id="post" onsubmit="return notDefaultUsername(this, '{DEFAULT_USERNAME}', '{DEFAULT_USERNAME_MESSAGE}');" action="db_input.php">
                 <table align="center" width="{WIDTH}" cellspacing="1" cellpadding="0" class="maintable">
                         <tr>
                                         <td width="100%" class="tableh2">{ADD_YOUR_COMMENT}{HELP_ICON}</td>
@@ -1110,7 +1085,7 @@ $template_add_your_comment = <<<EOT
 
 <!-- BEGIN user_name_input -->
                                                         <tr>
-                               <td class="tableb tableb_alternate">
+                                <td class="tableb tableb_alternate">
                                         {NAME}
                                 </td>
                                 <td class="tableb tableb_alternate">
@@ -1137,7 +1112,7 @@ $template_add_your_comment = <<<EOT
                                 <td class="tableb tableb_alternate">
                                 <input type="hidden" name="event" value="comment" />
                                 <input type="hidden" name="pid" value="{PIC_ID}" />
-                                <button type="submit" class="button" name="submit" value="{OK}"  onclick="return notDefaultUsername(this.form, '{DEFAULT_USERNAME}', '{DEFAULT_USERNAME_MESSAGE}');">{OK_ICON}{OK}</button>
+                                <button type="submit" class="button" name="submit" value="{OK}">{OK_ICON}{OK}</button>
                                 <input type="hidden" name="form_token" value="{FORM_TOKEN}" />
                                 <input type="hidden" name="timestamp" value="{TIMESTAMP}" />
                                 </td>
@@ -1572,7 +1547,7 @@ function pageheader($section, $meta = '')
         '{JAVASCRIPT}' => theme_javascript_head(),
         '{MESSAGE_BLOCK}' => theme_display_message_block(),
     );
-    
+
     $template_vars = CPGPluginAPI::filter('theme_pageheader_params', $template_vars);
     echo template_eval($template_header, $template_vars);
 
@@ -1655,7 +1630,7 @@ function pagefooter()
         '{CUSTOM_HEADER}' => $custom_header,
         '{JAVASCRIPT}' => theme_javascript_head(),
         '{CUSTOM_FOOTER}' => $custom_footer,
-        '{VANITY}' => (defined('THEME_IS_XHTML10_TRANSITIONAL')) ? theme_vanity() : '',
+        '{VANITY}' => theme_vanity(),
         '{CREDITS}' => theme_credits(),
     );
 
@@ -1694,7 +1669,7 @@ function theme_javascript_head()
     global $JS, $LINEBREAK;
 
     $return = '';
-    
+
     // Check if we have any variables being set using set_js_vars function
     if (!empty($JS['vars'])) {
         // Convert the $JS['vars'] array to json object string
@@ -1712,11 +1687,11 @@ EOT;
 
     // Check if we have any js includes
     if (!empty($JS['includes'])) {
-        // Bring the jquery core library to the very top of the list 
-        if (in_array('js/jquery-1.3.2.js', $JS['includes']) == TRUE) {
-            $key = array_search('js/jquery-1.3.2.js', $JS['includes']);
+        // Bring the jquery core library to the very top of the list
+        if (in_array(CPG_JQUERY_VERSION, $JS['includes']) == TRUE) {
+            $key = array_search(CPG_JQUERY_VERSION, $JS['includes']);
             unset($JS['includes'][$key]);
-            array_unshift($JS['includes'], 'js/jquery-1.3.2.js');
+            array_unshift($JS['includes'], CPG_JQUERY_VERSION);
         }
         $JS['includes'] = CPGPluginAPI::filter('javascript_includes',$JS['includes']);
         // Include all the files which were set using js_include() function
@@ -1724,7 +1699,7 @@ EOT;
             $return .= js_include($js_file, true) . $LINEBREAK;
         }
     }
-    
+
     return $return;
 }
 /******************************************************************************
@@ -2071,7 +2046,7 @@ function theme_main_menu($which)
             if (USER_ID) {
                 $query = "SELECT null FROM {$CONFIG['TABLE_ALBUMS']} WHERE category='" . (FIRST_USER_CAT + USER_ID) . "' AND aid = '$album'";
                 $user_albums = cpg_db_query($query);
-                if (mysql_num_rows($user_albums)) {
+                if ($user_albums->numRows()) {
                     $upload_allowed = true;
                 } else {
                     $upload_allowed = false;
@@ -2082,7 +2057,7 @@ function theme_main_menu($which)
                 $query = "SELECT null FROM {$CONFIG['TABLE_ALBUMS']} WHERE category < " . FIRST_USER_CAT . " AND uploads='YES' AND (visibility = '0' OR visibility IN ".USER_GROUP_SET.") AND aid = '$album'";
                 $public_albums = cpg_db_query($query);
 
-                if (mysql_num_rows($public_albums)) {
+                if ($public_albums->numRows()) {
                     $upload_allowed = true;
                 } else {
                     $upload_allowed = false;
@@ -2106,9 +2081,9 @@ function theme_main_menu($which)
         if ($CONFIG['display_sidebar_user'] != 2) {
           template_extract_block($template_sys_menu, 'sidebar');
         }
-        
+
         list($timestamp, $form_token) = getFormToken();
-        
+
     } else { // visitor is not logged in
         if ($CONFIG['contact_form_guest_enable'] == 0) {
           template_extract_block($template_sys_menu, 'contact');
@@ -2118,7 +2093,7 @@ function theme_main_menu($which)
         }
         template_extract_block($template_sys_menu, 'logout');
         template_extract_block($template_sys_menu, 'my_profile');
-        
+
         $timestamp = $form_token = '';
     }
 
@@ -2133,7 +2108,7 @@ function theme_main_menu($which)
         }
     }
 
-    if (!USER_CAN_CREATE_ALBUMS) {
+    if (!USER_CAN_CREATE_ALBUMS || !USER_ID) {
         template_extract_block($template_sys_menu, 'my_gallery');
     }
 
@@ -2141,7 +2116,7 @@ function theme_main_menu($which)
         template_extract_block($template_sys_menu, 'my_profile');
     }
 
-    if (!USER_CAN_UPLOAD_PICTURES && !USER_CAN_CREATE_ALBUMS) {
+    if (!USER_CAN_UPLOAD_PICTURES && (!USER_CAN_CREATE_ALBUMS || !USER_ID)) {
         template_extract_block($template_sys_menu, 'upload_pic');
     }
 
@@ -2231,7 +2206,7 @@ function theme_main_menu($which)
         '{CUSTOM_LNK_TGT}' => $CONFIG['custom_lnk_url'],
         '{CUSTOM_LNK_TITLE}' => $CONFIG['custom_lnk_name'],
         '{CUSTOM_LNK_LNK}' => $CONFIG['custom_lnk_name'],
-        '{CUSTOM_ICO}' => cpg_fetch_icon('online', 1),
+        '{CUSTOM_LNK_ICO}' => cpg_fetch_icon('online', 1),
         '{LASTUP_TGT}' => "thumbnails.php?album=lastup$cat_l2",
         '{LASTUP_TITLE}' => $lang_main_menu['lastup_title'],
         '{LASTUP_LNK}' => $lang_main_menu['lastup_lnk'],
@@ -2311,12 +2286,12 @@ function theme_admin_mode_menu()
             // Query the languages table
             $help_lang = '';
             $results = cpg_db_query("SELECT lang_id, abbr FROM {$CONFIG['TABLE_LANGUAGE']} WHERE available='YES' AND enabled='YES'");
-            while ($row = mysql_fetch_array($results)) {
+            while ($row = $results->fetchArray()) {
                 if ($CONFIG['lang'] == $row['lang_id']) {
                     $help_lang = $row['abbr'];
                 }
             } // while
-            mysql_free_result($results);
+            $results->free();
             unset($row);
             if ($help_lang == '') {
                 $help_lang = 'en';
@@ -2518,7 +2493,6 @@ EOT;
         }
     }
     if (GALLERY_ADMIN_MODE) {
-        cpgCleanTempMessage(); // garbage collection: when the admin is logged in, old messages that failed to display for whatever reason are being removed to keep the temp_messages table clean
         $return .= cpg_alert_dev_version();
         // $return .= cpg_display_rss(); //add RSS feed from coppermine-gallery.net later
     } else { // not in admin mode
@@ -2681,6 +2655,7 @@ function theme_display_album_list(&$alb_list, $nbAlb, $cat, $page, $total_pages)
                 '{ALB_INFOS}' => $album['album_info'],
                 '{ALB_HITS}' => $album['alb_hits'],
                 );
+            $params = CPGPluginAPI::filter('theme_album_params', $params);
 
             echo template_eval($album_cell, $params);
 
@@ -2750,7 +2725,7 @@ function theme_display_album_list_cat(&$alb_list, $nbAlb, $cat, $page, $total_pa
     $column_width = ceil(100 / $columns);
     $thumb_cell_width = $CONFIG['alb_list_thumb_size'] + 2;
 
-    starttable('100%');
+    starttable('99%'); // '100%' destroys the layout if $CONFIG['main_table_width'] is a pixel value
 
     if ($STATS_IN_ALB_LIST) {
         $params = array('{STATISTICS}' => $statistics,
@@ -2898,7 +2873,7 @@ function theme_display_thumbnails(&$thumb_list, $nbThumb, $album_name, $aid, $ca
             '{DOWNLOAD_ZIP}' => cpg_fetch_icon ('zip', 2) . $lang_thumb_view['download_zip'],
         );
         // Plugin Filter: allow plugin to modify or add tags to process
-        $param = CPGPluginAPI::filter('theme_thumbnails_title', $param);        
+        $param = CPGPluginAPI::filter('theme_thumbnails_title', $param);
         $title = template_eval($template_fav_thumb_view_title_row, $param);
     } else {
         $title = $album_name;
@@ -2912,6 +2887,7 @@ function theme_display_thumbnails(&$thumb_list, $nbThumb, $album_name, $aid, $ca
         starttable('100%');
     }
 
+    $header = CPGPluginAPI::filter('theme_thumbnails_header', $header);
     echo $header;
 
     $i = 0;
@@ -2982,7 +2958,7 @@ function theme_display_thumbnails(&$thumb_list, $nbThumb, $album_name, $aid, $ca
     for (;($i % $thumbcols); $i++) {
         echo $empty_cell;
     }
-    $footer = CPGPluginAPI::filter('theme_thumbnails_footer', $footer); 
+    $footer = CPGPluginAPI::filter('theme_thumbnails_footer', $footer);
     echo $footer;
 
     if ($display_tabs) {
@@ -3040,7 +3016,7 @@ function theme_display_film_strip(&$thumb_list, $nbThumb, $album_name, $aid, $ca
         $i++;
         if ($mode == 'thumb') {
             if ($thumb['pos'] == $pos && !$superCage->get->keyExists('film_strip')) {
-                $thumb['image'] = str_replace('class="image"', 'class="image middlethumb"', $thumb['image']);
+                $thumb['image'] = str_replace('class="strip_image"', 'class="strip_image middlethumb"', $thumb['image']);
             }
             // determine if thumbnail link targets should open in a pop-up
             if ($CONFIG['thumbnail_to_fullsize'] == 1) { // code for full-size pop-up
@@ -3268,25 +3244,11 @@ function theme_html_picture()
 
     $image_size = array();
 
-    // The weird comparision is because only picture_width is stored
-    $resize_method = $CONFIG['picture_use'] == "thumb" ? ($CONFIG['thumb_use'] == "ex" ? "any" : $CONFIG['thumb_use']) : $CONFIG['picture_use'];
-    if ($resize_method == 'ht' && $CURRENT_PIC_DATA['pheight'] > $CONFIG['picture_width']) {
-        $use_intermediate = true;
-    } elseif ($resize_method == 'wd' && $CURRENT_PIC_DATA['pwidth'] > $CONFIG['picture_width']) {
-        $use_intermediate = true;
-    } elseif ($resize_method == 'any' && max($CURRENT_PIC_DATA['pwidth'], $CURRENT_PIC_DATA['pheight']) > $CONFIG['picture_width']) {
-        $use_intermediate = true;
-    } else {
-        $use_intermediate = false;
-    }
-
-    if ($CONFIG['make_intermediate'] && $use_intermediate) {
+    if ($CONFIG['make_intermediate'] && cpg_picture_dimension_exceeds_intermediate_limit($CURRENT_PIC_DATA['pwidth'], $CURRENT_PIC_DATA['pheight'])) {
         $picture_url = get_pic_url($CURRENT_PIC_DATA, 'normal');
     } else {
         $picture_url = get_pic_url($CURRENT_PIC_DATA, 'fullsize');
     }
-
-    list($image_size['width'], $image_size['height'], , $image_size['geom']) = cpg_getimagesize(urldecode($picture_url));
 
     $pic_title = '';
     $mime_content = cpg_get_type($CURRENT_PIC_DATA['filename']);
@@ -3298,7 +3260,7 @@ function theme_html_picture()
             if ($resize_method == 'ht') {
                 $pwidth = $CONFIG['picture_width']*4/3;
                 $pheight = $CONFIG['picture_width'];
-            } else { 
+            } else {
                 $pwidth = $CONFIG['picture_width'];
                 $pheight = $CONFIG['picture_width']*3/4;
             }
@@ -3321,6 +3283,8 @@ function theme_html_picture()
     }
 
     if ($mime_content['content']=='image') {
+        list($image_size['width'], $image_size['height'], , $image_size['geom']) = cpg_getimagesize(urldecode($picture_url));
+
         if ($CURRENT_PIC_DATA['mode'] != 'fullsize') {
             $winsizeX = $CURRENT_PIC_DATA['pwidth'] + $CONFIG['fullsize_padding_x'];  //the +'s are the mysterious FF and IE paddings
             $winsizeY = $CURRENT_PIC_DATA['pheight'] + $CONFIG['fullsize_padding_y']; //the +'s are the mysterious FF and IE paddings
@@ -3570,7 +3534,7 @@ function theme_html_img_nav_menu() {
     $report_tgt = '';
     if (($CONFIG['report_post']==1) && (USER_CAN_SEND_ECARDS)) {
         $report_tgt = "report_file.php?album=$album$cat_link$date_link&amp;pid=$pid&amp;pos=$pos";
-    } else { 
+    } else {
         // remove button if report toggle is off
         template_extract_block($template_img_navbar, 'report_file_button');
     }
@@ -3643,20 +3607,21 @@ function theme_html_img_nav_menu() {
 function theme_html_rating_box()
 {
     global $CONFIG, $CURRENT_PIC_DATA, $CURRENT_ALBUM_DATA, $THEME_DIR, $USER_DATA, $USER, $LINEBREAK;
-    global $template_image_rating, $template_image_rating_oldstyle, $lang_rate_pic;
+    global $template_image_rating, $template_image_rating_oldstyle, $lang_rate_pic, $raw_ip;
 
     if (!(USER_CAN_RATE_PICTURES && $CURRENT_ALBUM_DATA['votes'] == 'YES')) {
         return '';
     } else {
         //check if the users already voted or if this user is the owner
         $user_md5_id = USER_ID ? md5(USER_ID) : $USER['ID'];
-        $result = cpg_db_query("SELECT pic_id FROM {$CONFIG['TABLE_VOTES']} WHERE pic_id={$CURRENT_PIC_DATA['pid']} AND user_md5_id='$user_md5_id'");
+        $result_votes = cpg_db_query("SELECT null FROM {$CONFIG['TABLE_VOTES']} WHERE pic_id= {$CURRENT_PIC_DATA['pid']} AND user_md5_id='$user_md5_id'");
+        $result_vote_stats = cpg_db_query("SELECT null FROM {$CONFIG['TABLE_VOTE_STATS']} WHERE pid = {$CURRENT_PIC_DATA['pid']} AND ip = '$raw_ip'");
 
         $user_can_vote = 'false';
         if ($CURRENT_PIC_DATA['owner_id'] == $USER_DATA['user_id'] && $USER_DATA['user_id'] != 0 && ($CONFIG['rate_own_files'] == 0 || $CONFIG['rate_own_files'] == 2 && !USER_IS_ADMIN)) {
             // user is owner
             $rate_title = $lang_rate_pic['forbidden'];
-        } elseif (!mysql_num_rows($result)) {
+        } elseif (!$result_votes->numRows() && !$result_vote_stats->numRows()) {
             // user hasn't voted yet, show voting things
             $rate_title = $lang_rate_pic['rate_this_pic'];
             $user_can_vote = 'true';
@@ -3664,6 +3629,9 @@ function theme_html_rating_box()
             //user has voted
             $rate_title = $lang_rate_pic['already_voted'];
         }
+        $result_votes->free();
+        $result_vote_stats->free();
+
         $rating_stars_amount = ($CONFIG['old_style_rating']) ? 5 : $CONFIG['rating_stars_amount'];
         $votes = $CURRENT_PIC_DATA['votes'] ? sprintf($lang_rate_pic['rating'], round(($CURRENT_PIC_DATA['pic_rating'] / 2000) / (5/$rating_stars_amount), 1), $rating_stars_amount, $CURRENT_PIC_DATA['votes']) : $lang_rate_pic['no_votes'];
         $pid = $CURRENT_PIC_DATA['pid'];
@@ -3680,7 +3648,7 @@ function theme_html_rating_box()
             '{TITLE}'      => $rate_title,
             '{VOTES}'      => $votes,
             '{LOCATION}'   => $location,
-            '{WIDTH}'      => $CONFIG['picture_table_width'],
+            '{WIDTH}'      => $CONFIG['picture_table_width'] == "100%" ? $CONFIG['main_table_width'] : $CONFIG['picture_table_width'],
         );
 
         if ($CONFIG['old_style_rating']) {
@@ -3743,7 +3711,7 @@ function theme_html_rating_box()
 // Displays comments for a specific picture
 function theme_html_comments($pid)
 {
-    global $CONFIG, $USER, $CURRENT_ALBUM_DATA, $lang_date, $HTML_SUBST;
+    global $CONFIG, $USER, $CURRENT_ALBUM_DATA, $lang_date, $HTML_SUBST, $THEME_DIR;
     global $template_image_comments, $template_add_your_comment, $lang_display_comments, $lang_common, $REFERER, $lang_bbcode_help_title, $lang_bbcode_help;
 
     $superCage = Inspekt::makeSuperCage();
@@ -3780,7 +3748,7 @@ function theme_html_comments($pid)
     }
 
     $result = cpg_db_query("SELECT COUNT(msg_id) FROM {$CONFIG['TABLE_COMMENTS']} WHERE pid='$pid'");
-    list($num) = mysql_fetch_row($result);
+    list($num) = $result->fetchRow(true);
 
     if ($num) {
 
@@ -3799,11 +3767,12 @@ function theme_html_comments($pid)
 
         $start = max(0, $num - (($max-($page-1))*$limit));
 
+        $location = defined('THEME_HAS_COMMENT_GRAPHICS') ? $THEME_DIR: '';
+
         ob_start();
         echo '<br />';
         starttable();
 
-        
         echo '<tr><td class="tableh2"><div style="float: left">'.$lang_display_comments['comment'].' '.sprintf($lang_display_comments['comment_x_to_y_of_z'], ($start+1), min($num, $start+$limit), $num).'</div>';
         echo '<div style="float: right">'.$lang_display_comments['page'].': ';
         $links = array();
@@ -3824,7 +3793,7 @@ function theme_html_comments($pid)
 
         $result = cpg_db_query("SELECT msg_id, msg_author, msg_body, UNIX_TIMESTAMP(msg_date) AS msg_date, author_id, author_md5_id, msg_raw_ip, msg_hdr_ip, pid, approval FROM {$CONFIG['TABLE_COMMENTS']} WHERE pid='$pid' ORDER BY msg_id $comment_sort_order LIMIT $start, $limit");
 
-        while ($row = mysql_fetch_assoc($result)) { // while-loop start
+        while ($row = $result->fetchAssoc()) { // while-loop start
             $user_can_edit = (GALLERY_ADMIN_MODE) || (USER_ID && USER_ID == $row['author_id'] && USER_CAN_POST_COMMENTS) || (!USER_ID && USER_CAN_POST_COMMENTS && ($USER['ID'] == $row['author_md5_id']));
             if (($user_can_edit != '' && $CONFIG['comment_user_edit'] != 0) || (GALLERY_ADMIN_MODE)) {
                 $comment_buttons = $tmpl_comments_buttons;
@@ -3841,14 +3810,14 @@ function theme_html_comments($pid)
             if (USER_IS_ADMIN) {
                 //display the selector approve/disapprove
                 if ($row['approval'] == 'NO') {
-                    $pending_approval = cpg_fetch_icon('comment_disapprove_disabled', 0) . '<a href="reviewcom.php?pos=-{PID}&amp;msg_id={MSG_ID}&amp;form_token={FORM_TOKEN}&amp;timestamp={TIMESTAMP}&amp;what=approve" title="' . $lang_display_comments['approve'] . '">' . cpg_fetch_icon('comment_approve', 0) . '</a>';
+                    $pending_approval = '<img src="' . $location . 'images/icons/comment_disapprove_disabled.png" border="0" alt="" width="16" height="16" class="icon" /><a href="reviewcom.php?pos=-{PID}&amp;msg_id={MSG_ID}&amp;form_token={FORM_TOKEN}&amp;timestamp={TIMESTAMP}&amp;what=approve" title="' . $lang_display_comments['approve'] . '"><img src="' . $location . 'images/icons/comment_approve.png" border="0" alt="" width="16" height="16" class="icon" /></a>';
                 } else {
-                    $pending_approval = '<a href="reviewcom.php?pos=-{PID}&amp;msg_id={MSG_ID}&amp;form_token={FORM_TOKEN}&amp;timestamp={TIMESTAMP}&amp;what=disapprove" title="' . $lang_display_comments['disapprove'] . '">' . cpg_fetch_icon('comment_disapprove', 0) . '</a>' . cpg_fetch_icon('comment_approve_disabled', 0);
+                    $pending_approval = '<a href="reviewcom.php?pos=-{PID}&amp;msg_id={MSG_ID}&amp;form_token={FORM_TOKEN}&amp;timestamp={TIMESTAMP}&amp;what=disapprove" title="' . $lang_display_comments['disapprove'] . '"><img src="' . $location . 'images/icons/comment_disapprove.png" border="0" alt="" width="16" height="16" class="icon" /></a><img src="' . $location . 'images/icons/comment_approve_disabled.png" border="0" alt="" width="16" height="16" class="icon" />';
                 }
             } else { // user or guest is logged in - start
                 if ($row['approval'] == 'NO') { // the comment is not approved - start
                     if ($user_can_edit) { // the comment comes from the current visitor, display it with a warning that it needs admin approval
-                        $pending_approval = cpg_fetch_icon('comment_approval', 0, $lang_display_comments['pending_approval']);
+                        $pending_approval = '<img src="' . $location . 'images/icons/comment_approval.png" border="0" alt="" width="16" height="16" title="' . $lang_display_comments['pending_approval'] . '" class="icon" />';
                     } else { // the comment comes from someone else - don't display it at all
                         if ($CONFIG['comment_placeholder'] == 0) {
                             $hide_comment = 1;
@@ -3905,8 +3874,8 @@ function theme_html_comments($pid)
                 '{PID}' => $row['pid'],
                 '{EDIT_TITLE}' => &$lang_display_comments['edit_title'],
                 '{DELETE_TITLE}' => &$lang_display_comments['delete_title'],
-                '{DELETE_ICON}' => cpg_fetch_icon('delete', 0),
-                '{EDIT_ICON}' => cpg_fetch_icon('edit', 0),
+                '{DELETE_ICON}' => '<img src="' . $location . 'images/icons/delete.png" border="0" alt="" width="16" height="16" class="icon" />',
+                '{EDIT_ICON}' => '<img src="' . $location . 'images/icons/edit.png" border="0" alt="" width="16" height="16" class="icon" />',
                 '{CONFIRM_DELETE}' => &$lang_display_comments['confirm_delete'],
                 '{MSG_DATE}' => localised_date($row['msg_date'], $lang_date['comment']),
                 '{MSG_BODY}' => bb_decode($comment_body),
@@ -3915,8 +3884,8 @@ function theme_html_comments($pid)
                 '{SMILIES}' => $smilies,
                 '{IP}' => $ip,
                 '{REPORT_COMMENT_TITLE}' => &$lang_display_comments['report_comment_title'],
-                '{REPORT_COMMENT_ICON}' => cpg_fetch_icon('report', 0),
-                '{WIDTH}' => $CONFIG['picture_table_width'],
+                '{REPORT_COMMENT_ICON}' => '<img src="' . $location . 'images/icons/report.png" border="0" alt="" width="16" height="16" class="icon" />',
+                '{WIDTH}' => $CONFIG['picture_table_width'] == "100%" ? $CONFIG['main_table_width'] : $CONFIG['picture_table_width'],
                 '{FORM_TOKEN}' => $form_token,
                 '{TIMESTAMP}' => $timestamp,
                 );
@@ -3925,6 +3894,7 @@ function theme_html_comments($pid)
                 $html .= template_eval($template, $params);
             }
         } // while-loop end
+        $result->free();
 
         $html .= $tabs;
     }
@@ -3948,7 +3918,7 @@ function theme_html_comments($pid)
         }
 
         if ($CONFIG['show_bbcode_help']) {
-            $captionLabel = '&nbsp;'. cpg_display_help('f=empty.htm&amp;base=64&amp;h='.urlencode(base64_encode(serialize($lang_bbcode_help_title))).'&amp;t='.urlencode(base64_encode(serialize($lang_bbcode_help))),470,245);
+            $captionLabel = '&nbsp;'. cpg_display_help('f=empty.htm&amp;h=lang_bbcode_help_title&amp;t=lang_bbcode_help',470,245);
         }
 
         list($timestamp, $form_token) = getFormToken();
@@ -3956,7 +3926,7 @@ function theme_html_comments($pid)
             // Modified Name and comment field
             '{NAME}' => $lang_display_comments['name'],
             '{COMMENT}' => $lang_display_comments['comment'],
-            '{CONFIRM}' => $lang_common['confirm'].'&nbsp;'. cpg_display_help('f=empty.htm&amp;base=64&amp;h='.urlencode(base64_encode(serialize($lang_common['captcha_help_title']))).'&amp;t='.urlencode(base64_encode(serialize($lang_common['captcha_help']))),470,245),
+            '{CONFIRM}' => $lang_common['confirm'].'&nbsp;'. cpg_display_help('f=empty.htm&amp;h=lang_common[captcha_help_title]&amp;t=lang_common[captcha_help]',470,245),
             '{PIC_ID}' => $pid,
             '{USER_NAME}' => $user_name,
             '{MAX_COM_LENGTH}' => $CONFIG['max_com_size'],
@@ -3965,7 +3935,7 @@ function theme_html_comments($pid)
             '{DEFAULT_USERNAME}' => $lang_display_comments['your_name'],
             '{DEFAULT_USERNAME_MESSAGE}' => $lang_display_comments['default_username_message'],
             '{SMILIES}' => '',
-            '{WIDTH}' => $CONFIG['picture_table_width'],
+            '{WIDTH}' => $CONFIG['picture_table_width'] == "100%" ? $CONFIG['main_table_width'] : $CONFIG['picture_table_width'],
             '{HELP_ICON}' => $captionLabel,
             '{FORM_TOKEN}' => $form_token,
             '{TIMESTAMP}' => $timestamp,
@@ -3995,7 +3965,7 @@ function theme_html_comments($pid)
             template_extract_block($template_add_your_comment, 'smilies');
             template_extract_block($template_add_your_comment, 'submit');
             $params = array('{ADD_YOUR_COMMENT}' => $lang_display_comments['add_your_comment'],
-                '{WIDTH}' => $CONFIG['picture_table_width'],
+                '{WIDTH}' => $CONFIG['picture_table_width'] == "100%" ? $CONFIG['main_table_width'] : $CONFIG['picture_table_width'],
                 '{LOGIN_TO_COMMENT}' => sprintf($lang_display_comments['log_in_to_comment'], '<a href="login.php?referer='.$REFERER.'">', '</a>'),
                 '{HELP_ICON}' => '',
                 );
@@ -4107,7 +4077,7 @@ function theme_display_fullsize_pic()
         }
         //$picfile = $_GET['picfile'];
         //$picfile = $superCage->get->getPath('picfile'); // doesn't work with HTML entities
-        $matches = $superCage->get->getMatched('picfile', '/^[0-9A-Za-z\/_.-]+$/');
+        $matches = $superCage->get->getMatched('picfile', '/^[0-9A-Za-z~ \/_.-]+$/');
         $picfile = $matches[0];
         $picname = $CONFIG['fullpath'] . $picfile;
         $imagesize = @getimagesize($picname);
@@ -4115,10 +4085,10 @@ function theme_display_fullsize_pic()
     } elseif ($pid) {
         $sql = "SELECT filepath, filename, url_prefix, pwidth, pheight FROM {$CONFIG['TABLE_PICTURES']} AS p " . "WHERE pid='$pid' $FORBIDDEN_SET";
         $result = cpg_db_query($sql);
-        if (!mysql_num_rows($result)) {
+        if (!$result->numRows()) {
             cpg_die(ERROR, $lang_errors['non_exist_ap'], __FILE__, __LINE__);
         }
-        $row = mysql_fetch_assoc($result);
+        $row = $result->fetchAssoc(true);
         if (is_image($row['filename'])) {
             $pic_url = get_pic_url($row, 'fullsize');
             $geom = 'width="' . $row['pwidth'] . '" height="' . $row['pheight'] . '"';
@@ -4149,6 +4119,7 @@ function theme_display_fullsize_pic()
     }
 
     $charset = ($CONFIG['charset'] == 'language file' ? $lang_charset : $CONFIG['charset']);
+    $jquery_path = CPG_JQUERY_VERSION;
     $fullsize_html = <<<EOT
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -4163,7 +4134,7 @@ function theme_display_fullsize_pic()
             td { vertical-align: middle; text-align:center; }
         </style>
 
-        <script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+        <script type="text/javascript" src="{$jquery_path}"></script>
         <script type="text/javascript" src="js/jquery.dimensions.pack.js"></script>
         <script type="text/javascript" src="js/displayimage.fullsize.js"></script>
     </head>
@@ -4227,21 +4198,12 @@ EOT;
 
 
 
-
 /******************************************************************************
 ** Section <<<theme_vanity>>> - START
 ******************************************************************************/
 function theme_vanity()
 {
-    global $THEME_DIR, $template_vanity ;
-
-    if (defined('THEME_HAS_VANITY_GRAPHICS')) {
-        $location= $THEME_DIR;
-    } else {
-        $location= '';
-    }
-
-    $params = array('{LOCATION}' => $location);
+    global $template_vanity ;
 
     return template_eval($template_vanity, $params);
 }
@@ -4257,8 +4219,8 @@ function theme_vanity()
 /**
 * theme_display_bar()
 *
-* Display a bar graph. 
-* For a list of possible valid color names, look up the function definition of 
+* Display a bar graph.
+* For a list of possible valid color names, look up the function definition of
 * cpgValidateColor in include/functions.inc.php
 *
 * @param float $actualValue
@@ -4279,7 +4241,7 @@ function theme_display_bar(
                        $textUnit = '',
                        $leftBar = 'red',
                        $rightBar = ''
-                       ) 
+                       )
 {
     global $lang_errors;
     // Validate parameters
@@ -4349,7 +4311,7 @@ function theme_display_bar(
 ******************************************************************************/
 // Creates the title tag for each page
 // For the sake of search engine friendliness, the dynamic part $section should come first
-function theme_page_title($section) 
+function theme_page_title($section)
 {
     global $CONFIG;
     $return = strip_tags(bb_decode($section)) . ' - ' . $CONFIG['gallery_name'];
@@ -4365,13 +4327,14 @@ function theme_page_title($section)
 ** Section <<<$template_sidebar>>> - START
 ******************************************************************************/
 // HTML template for sidebar
+$jquery_path = CPG_JQUERY_VERSION;
 $template_sidebar = <<<EOT
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="{LANG_DIR}">
 <head>
 <meta http-equiv="content-type" content="text/html; charset={CHARSET}" />
 <title>{TITLE}</title>
-<script src="js/jquery-1.3.2.js" type="text/javascript"></script>
+<script src="{$jquery_path}" type="text/javascript"></script>
 <script src="js/jquery.treeview.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
@@ -4430,4 +4393,25 @@ function adminmessages()
 ** Section <<<adminmessages>>> - END
 ******************************************************************************/
 
-?>
+
+
+/******************************************************************************
+** Section <<<theme_album_info>>> - START
+******************************************************************************/
+// Format information which is displayed next to each album
+function theme_album_info($pic_count, $link_pic_count, $last_upload_date)
+{
+    global $CONFIG, $lang_list_albums;
+
+    if ($CONFIG['link_last_upload']) {
+        $album_info = sprintf($lang_list_albums['n_pictures'], $pic_count) . (($CONFIG['link_pic_count'] && $link_pic_count > 0 ) ? sprintf(", {$lang_list_albums['n_link_pictures']}, {$lang_list_albums['total_pictures']}", $link_pic_count, $pic_count + $link_pic_count) : "") . (($pic_count || ($CONFIG['link_pic_count'] && $link_pic_count > 0 )) ? sprintf($lang_list_albums['last_added'], $last_upload_date) : "");
+    } else {
+        $album_info = sprintf($lang_list_albums['n_pictures'], $pic_count) . ($pic_count ? sprintf($lang_list_albums['last_added'], $last_upload_date) : "") . (($CONFIG['link_pic_count'] && $link_pic_count > 0) ? sprintf(", {$lang_list_albums['n_link_pictures']}, {$lang_list_albums['total_pictures']}", $link_pic_count, $pic_count + $link_pic_count) : "");
+    }
+
+    return $album_info;
+}
+/******************************************************************************
+** Section <<<theme_album_info>>> - END
+******************************************************************************/
+//EOF

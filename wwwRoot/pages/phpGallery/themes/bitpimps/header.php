@@ -1,6 +1,3 @@
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td>
 <div id="container">
 	<div id="header">
 		<div id="logo"><a href="/"><img src="/images/bitpimps.gif" alt="bitPimps Custom Modifications" name="img_logo" width="170" height="72" border="0" id="img_logo" /></a></div>
