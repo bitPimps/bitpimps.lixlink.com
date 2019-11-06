@@ -1,10 +1,13 @@
 <?php
 /**
 *
-* @package install
-* @version $Id: functions_phpbb20.php 9113 2008-11-24 19:23:23Z naderman $
-* @copyright (c) 2006 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* This file is part of the phpBB Forum Software package.
+*
+* @copyright (c) phpBB Limited <https://www.phpbb.com>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+* For full copyright and license information, please see
+* the docs/CREDITS.txt file.
 *
 */
 
@@ -14,7 +17,7 @@ if (!defined('IN_PHPBB'))
 }
 
 /**
-* Helper functions for phpBB 2.0.x to phpBB 3.0.x conversion
+* Helper functions for phpBB 2.0.x to phpBB 3.1.x conversion
 */
 
 /**
@@ -51,7 +54,7 @@ function phpbb_forum_flags()
 */
 function phpbb_insert_forums()
 {
-	global $db, $src_db, $same_db, $convert, $user, $config;
+	global $db, $src_db, $same_db, $convert, $user;
 
 	$db->sql_query($convert->truncate_statement . FORUMS_TABLE);
 
@@ -71,8 +74,7 @@ function phpbb_insert_forums()
 	$result = $src_db->sql_query($sql);
 	$prune_enabled = (int) $src_db->sql_fetchfield('config_value');
 	$src_db->sql_freeresult($result);
-	
-	
+
 	// Insert categories
 	$sql = 'SELECT cat_id, cat_title
 		FROM ' . $convert->src_table_prefix . 'categories
@@ -90,10 +92,10 @@ function phpbb_insert_forums()
 		$src_db->sql_query("SET NAMES 'utf8'");
 	}
 
-	switch ($db->sql_layer)
+	switch ($db->get_sql_layer())
 	{
-		case 'mssql':
 		case 'mssql_odbc':
+		case 'mssqlnative':
 			$db->sql_query('SET IDENTITY_INSERT ' . FORUMS_TABLE . ' ON');
 		break;
 	}
@@ -176,7 +178,6 @@ function phpbb_insert_forums()
 		$db->sql_query($sql);
 
 		$cats_added[$unknown_cat_id] = $max_forum_id;
-		$max_forum_id++;
 	}
 
 	// Now insert the forums
@@ -220,13 +221,14 @@ function phpbb_insert_forums()
 			'forum_desc'		=> htmlspecialchars(phpbb_set_default_encoding($row['forum_desc']), ENT_COMPAT, 'UTF-8'),
 			'forum_type'		=> FORUM_POST,
 			'forum_status'		=> is_item_locked($row['forum_status']),
-			'enable_prune'		=> ($prune_enabled) ? (int)$row['prune_enable'] : 0,
+			'enable_prune'		=> ($prune_enabled) ? (int) $row['prune_enable'] : 0,
 			'prune_next'		=> (int) null_to_zero($row['prune_next']),
 			'prune_days'		=> (int) null_to_zero($row['prune_days']),
 			'prune_viewed'		=> 0,
 			'prune_freq'		=> (int) null_to_zero($row['prune_freq']),
 
 			'forum_flags'		=> phpbb_forum_flags(),
+			'forum_options'		=> 0,
 
 			// Default values
 			'forum_desc_bitfield'		=> '',
@@ -242,9 +244,12 @@ function phpbb_insert_forums()
 			'forum_rules_options'		=> 7,
 			'forum_rules_uid'			=> '',
 			'forum_topics_per_page'		=> 0,
-			'forum_posts'				=> 0,
-			'forum_topics'				=> 0,
-			'forum_topics_real'			=> 0,
+			'forum_posts_approved'		=> 0,
+			'forum_posts_unapproved'	=> 0,
+			'forum_posts_softdeleted'	=> 0,
+			'forum_topics_approved'		=> 0,
+			'forum_topics_unapproved'	=> 0,
+			'forum_topics_softdeleted'	=> 0,
 			'forum_last_post_id'		=> 0,
 			'forum_last_poster_id'		=> 0,
 			'forum_last_post_subject'	=> '',
@@ -282,14 +287,14 @@ function phpbb_insert_forums()
 	}
 	$src_db->sql_freeresult($result);
 
-	switch ($db->sql_layer)
+	switch ($db->get_sql_layer())
 	{
 		case 'postgres':
 			$db->sql_query("SELECT SETVAL('" . FORUMS_TABLE . "_seq',(select case when max(forum_id)>0 then max(forum_id)+1 else 1 end from " . FORUMS_TABLE . '));');
 		break;
 
-		case 'mssql':
 		case 'mssql_odbc':
+		case 'mssqlnative':
 			$db->sql_query('SET IDENTITY_INSERT ' . FORUMS_TABLE . ' OFF');
 		break;
 
@@ -414,8 +419,6 @@ function phpbb_set_encoding($text, $grab_user_lang = true)
 		}
 	}
 
-	$encoding = $lang_enc_array[$get_lang];
-
 	return utf8_recode($text, $lang_enc_array[$get_lang]);
 }
 
@@ -455,13 +458,13 @@ function phpbb_get_birthday($birthday = '')
 	{
 		$birthday = (int) $birthday;
 
-		if (!$birthday || $birthday == 999999 || ((version_compare(PHP_VERSION, '5.1.0') < 0) && $birthday < 0))
+		if (!$birthday || $birthday == 999999)
 		{
 			return ' 0- 0-   0';
 		}
 
 		// The birthday mod from niels is using this code to transform to day/month/year
-		return sprintf('%2d-%2d-%4d', gmdate('n', $birthday * 86400 + 1), gmdate('j', $birthday * 86400 + 1), gmdate('Y', $birthday * 86400 + 1));
+		return sprintf('%2d-%2d-%4d', gmdate('j', $birthday * 86400 + 1), gmdate('n', $birthday * 86400 + 1), gmdate('Y', $birthday * 86400 + 1));
 	}
 }
 
@@ -506,12 +509,12 @@ function phpbb_user_id($user_id)
 		// If there is a user id 1, we need to increment user ids. :/
 		if ($id === 1)
 		{
-			set_config('increment_user_id', ($max_id + 1), true);
+			$config->set('increment_user_id', ($max_id + 1), false);
 			$config['increment_user_id'] = $max_id + 1;
 		}
 		else
 		{
-			set_config('increment_user_id', 0, true);
+			$config->set('increment_user_id', 0, false);
 			$config['increment_user_id'] = 0;
 		}
 	}
@@ -535,6 +538,15 @@ function phpbb_user_id($user_id)
 	return (int) $user_id;
 }
 
+/**
+* Return correct user id value
+* Everyone's id will be one higher to allow the guest/anonymous user to have a positive id as well
+*/
+function phpbb_topic_replies_to_posts($num_replies)
+{
+	return (int) $num_replies + 1;
+}
+
 /* Copy additional table fields from old forum to new forum if user wants this (for Mod compatibility for example)
 function phpbb_copy_table_fields()
 {
@@ -547,7 +559,7 @@ function phpbb_copy_table_fields()
 */
 function phpbb_convert_authentication($mode)
 {
-	global $db, $src_db, $same_db, $convert, $user, $config, $cache;
+	global $db, $src_db, $same_db, $convert, $config;
 
 	if ($mode == 'start')
 	{
@@ -556,7 +568,6 @@ function phpbb_convert_authentication($mode)
 
 		// What we will do is handling all 2.0.x admins as founder to replicate what is common in 2.0.x.
 		// After conversion the main admin need to make sure he is removing permissions and the founder status if wanted.
-
 
 		// Grab user ids of users with user_level of ADMIN
 		$sql = "SELECT user_id
@@ -645,7 +656,7 @@ function phpbb_convert_authentication($mode)
 		'auth_delete'		=> 'f_delete',
 		'auth_pollcreate'	=> 'f_poll',
 		'auth_vote'			=> 'f_vote',
-		'auth_announce'		=> 'f_announce',
+		'auth_announce'		=> array('f_announce', 'f_announce_global'),
 		'auth_sticky'		=> 'f_sticky',
 		'auth_attachments'	=> array('f_attach', 'f_download'),
 		'auth_download'		=> 'f_download',
@@ -972,12 +983,12 @@ function phpbb_convert_authentication($mode)
 	{
 		// And now the moderators
 		// We make sure that they have at least standard access to the forums they moderate in addition to the moderating permissions
-		
+
 		$mod_post_map = array(
-			'auth_announce'		=> 'f_announce',
+			'auth_announce'		=> array('f_announce', 'f_announce_global'),
 			'auth_sticky'		=> 'f_sticky'
 		);
-		
+
 		foreach ($user_access as $forum_id => $access_map)
 		{
 			$forum_id = (int) $forum_id;
@@ -1060,7 +1071,7 @@ function phpbb_convert_authentication($mode)
 				}
 			}
 
-			if (sizeof($forum_ids))
+			if (count($forum_ids))
 			{
 				// Now make sure the user is able to read these forums
 				$hold_ary = $auth->acl_group_raw_data(false, 'f_list', $forum_ids);
@@ -1205,7 +1216,7 @@ function phpbb_replace_size($matches)
 */
 function phpbb_prepare_message($message)
 {
-	global $phpbb_root_path, $phpEx, $db, $convert, $user, $config, $cache, $convert_row, $message_parser;
+	global $convert, $user, $convert_row, $message_parser;
 
 	if (!$message)
 	{
@@ -1229,18 +1240,15 @@ function phpbb_prepare_message($message)
 	{
 		$message = preg_replace('/\[quote="(.*?)"\]/s', '[quote=&quot;\1&quot;]', $message);
 		$message = preg_replace('/\[quote=\\\"(.*?)\\\"\]/s', '[quote=&quot;\1&quot;]', $message);
-		
+
 		// let's hope that this solves more problems than it causes. Deal with escaped quotes.
 		$message = str_replace('\"', '&quot;', $message);
 		$message = str_replace('\&quot;', '&quot;', $message);
 	}
 
-	// Already the new user id ;)
-	$user_id = $convert->row['poster_id'];
-
+	$message = str_replace('<br />', "\n", $message);
 	$message = str_replace('<', '&lt;', $message);
 	$message = str_replace('>', '&gt;', $message);
-	$message = str_replace('<br />', "\n", $message);
 
 	// make the post UTF-8
 	$message = phpbb_set_encoding($message);
@@ -1258,8 +1266,8 @@ function phpbb_prepare_message($message)
 
 	// parse($allow_bbcode, $allow_magic_url, $allow_smilies, $allow_img_bbcode = true, $allow_flash_bbcode = true, $allow_quote_bbcode = true, $allow_url_bbcode = true, $update_this_message = true, $mode = 'post')
 	$message_parser->parse($enable_bbcode, $enable_magic_url, $enable_smilies);
-	
-	if (sizeof($message_parser->warn_msg))
+
+	if (count($message_parser->warn_msg))
 	{
 		$msg_id = isset($convert->row['post_id']) ? $convert->row['post_id'] : $convert->row['privmsgs_id'];
 		$convert->p_master->error('<span style="color:red">' . $user->lang['POST_ID'] . ': ' . $msg_id . ' ' . $user->lang['CONV_ERROR_MESSAGE_PARSER'] . ': <br /><br />' . implode('<br />', $message_parser->warn_msg), __LINE__, __FILE__, true);
@@ -1289,7 +1297,7 @@ function get_bbcode_bitfield()
 */
 function phpbb_post_edit_user()
 {
-	global $convert_row, $config;
+	global $convert_row;
 
 	if (isset($convert_row['post_edit_count']))
 	{
@@ -1310,7 +1318,7 @@ function phpbb_get_files_dir()
 		return;
 	}
 
-	global $src_db, $same_db, $convert, $user, $config, $cache;
+	global $src_db, $same_db, $convert, $user;
 
 	if ($convert->mysql_convert && $same_db)
 	{
@@ -1349,10 +1357,10 @@ function phpbb_get_files_dir()
 */
 function phpbb_copy_thumbnails()
 {
-	global $db, $convert, $user, $config, $cache, $phpbb_root_path;
+	global $convert, $config, $phpbb_root_path;
 
 	$src_path = $convert->options['forum_path'] . '/' . phpbb_get_files_dir() . '/thumbs/';
-	
+
 	if ($handle = @opendir($src_path))
 	{
 		while ($entry = readdir($handle))
@@ -1401,6 +1409,55 @@ function phpbb_attachment_category($cat_id)
 }
 
 /**
+* Convert the attachment extension names
+* This is only used if the Attachment MOD was installed
+*/
+function phpbb_attachment_extension_group_name()
+{
+	global $db, $phpbb_root_path, $phpEx;
+
+	// Update file extension group names to use language strings.
+	$sql = 'SELECT lang_dir
+		FROM ' . LANG_TABLE;
+	$result = $db->sql_query($sql);
+
+	$extension_groups_updated = array();
+	while ($lang_dir = $db->sql_fetchfield('lang_dir'))
+	{
+		$lang_dir = basename($lang_dir);
+		$lang_file = $phpbb_root_path . 'language/' . $lang_dir . '/acp/attachments.' . $phpEx;
+
+		if (!file_exists($lang_file))
+		{
+			continue;
+		}
+
+		$lang = array();
+		include($lang_file);
+
+		foreach ($lang as $lang_key => $lang_val)
+		{
+			if (isset($extension_groups_updated[$lang_key]) || strpos($lang_key, 'EXT_GROUP_') !== 0)
+			{
+				continue;
+			}
+
+			$sql_ary = array(
+				'group_name'	=> substr($lang_key, 10), // Strip off 'EXT_GROUP_'
+			);
+
+			$sql = 'UPDATE ' . EXTENSION_GROUPS_TABLE . '
+				SET ' . $db->sql_build_array('UPDATE', $sql_ary) . "
+					WHERE group_name = '" . $db->sql_escape($lang_val) . "'";
+			$db->sql_query($sql);
+
+			$extension_groups_updated[$lang_key] = true;
+		}
+	}
+	$db->sql_freeresult($result);
+}
+
+/**
 * Obtain list of forums in which different attachment categories can be used
 */
 function phpbb_attachment_forum_perms($forum_permissions)
@@ -1431,14 +1488,14 @@ function phpbb_attachment_forum_perms($forum_permissions)
 			$pos--;
 			continue;
 		}
-		
+
 		$forum_auth = substr($forum_permissions, $pos, $auth_len);
 		$forum_id = base64_unpack($forum_auth);
 
 		$forum_ids[] = (int) $forum_id;
 	}
-	
-	if (sizeof($forum_ids))
+
+	if (count($forum_ids))
 	{
 		return attachment_forum_perms($forum_ids);
 	}
@@ -1516,7 +1573,7 @@ function phpbb_import_avatar($user_avatar)
 function phpbb_get_avatar_height($user_avatar)
 {
 	global $convert_row;
-	
+
 	if (empty($convert_row['user_avatar_type']))
 	{
 		return 0;
@@ -1536,7 +1593,7 @@ function phpbb_get_avatar_width($user_avatar)
 	{
 		return 0;
 	}
-	
+
 	return get_avatar_width($user_avatar, 'phpbb_avatar_type', $convert_row['user_avatar_type']);
 }
 
@@ -1546,8 +1603,6 @@ function phpbb_get_avatar_width($user_avatar)
 */
 function phpbb_privmsgs_to_userid($to_userid)
 {
-	global $config;
-
 	return 'u_' . phpbb_user_id($to_userid);
 }
 
@@ -1594,7 +1649,7 @@ function phpbb_get_savebox_id($user_id)
 */
 function phpbb_import_attach_config()
 {
-	global $db, $src_db, $same_db, $convert, $config;
+	global $src_db, $same_db, $convert, $config;
 
 	if ($convert->mysql_convert && $same_db)
 	{
@@ -1617,29 +1672,28 @@ function phpbb_import_attach_config()
 	}
 	$src_db->sql_freeresult($result);
 
-	set_config('allow_attachments', 1);
+	$config->set('allow_attachments', 1);
 
 	// old attachment mod? Must be very old if this entry do not exist...
 	if (!empty($attach_config['display_order']))
 	{
-		set_config('display_order', $attach_config['display_order']);
+		$config->set('display_order', $attach_config['display_order']);
 	}
-	set_config('max_filesize', $attach_config['max_filesize']);
-	set_config('max_filesize_pm', $attach_config['max_filesize_pm']);
-	set_config('attachment_quota', $attach_config['attachment_quota']);
-	set_config('max_attachments', $attach_config['max_attachments']);
-	set_config('max_attachments_pm', $attach_config['max_attachments_pm']);
-	set_config('allow_pm_attach', $attach_config['allow_pm_attach']);
+	$config->set('max_filesize', $attach_config['max_filesize']);
+	$config->set('max_filesize_pm', $attach_config['max_filesize_pm']);
+	$config->set('attachment_quota', $attach_config['attachment_quota']);
+	$config->set('max_attachments', $attach_config['max_attachments']);
+	$config->set('max_attachments_pm', $attach_config['max_attachments_pm']);
+	$config->set('allow_pm_attach', $attach_config['allow_pm_attach']);
 
-	set_config('img_display_inlined', $attach_config['img_display_inlined']);
-	set_config('img_max_width', $attach_config['img_max_width']);
-	set_config('img_max_height', $attach_config['img_max_height']);
-	set_config('img_link_width', $attach_config['img_link_width']);
-	set_config('img_link_height', $attach_config['img_link_height']);
-	set_config('img_create_thumbnail', $attach_config['img_create_thumbnail']);
-	set_config('img_max_thumb_width', 400);
-	set_config('img_min_thumb_filesize', $attach_config['img_min_thumb_filesize']);
-	set_config('img_imagick', $attach_config['img_imagick']);
+	$config->set('img_display_inlined', $attach_config['img_display_inlined']);
+	$config->set('img_max_width', $attach_config['img_max_width']);
+	$config->set('img_max_height', $attach_config['img_max_height']);
+	$config->set('img_link_width', $attach_config['img_link_width']);
+	$config->set('img_link_height', $attach_config['img_link_height']);
+	$config->set('img_create_thumbnail', $attach_config['img_create_thumbnail']);
+	$config->set('img_max_thumb_width', 400);
+	$config->set('img_min_thumb_filesize', $attach_config['img_min_thumb_filesize']);
 }
 
 /**
@@ -1700,15 +1754,14 @@ function phpbb_disallowed_username($username)
 */
 function phpbb_create_userconv_table()
 {
-	global $db, $src_db, $convert, $table_prefix, $user, $lang;
+	global $db;
 
-	$map_dbms = '';
-	switch ($db->sql_layer)
+	switch ($db->get_sql_layer())
 	{
 		case 'mysql':
 			$map_dbms = 'mysql_40';
 		break;
-	
+
 		case 'mysql4':
 			if (version_compare($db->sql_server_info(true), '4.1.3', '>='))
 			{
@@ -1719,18 +1772,18 @@ function phpbb_create_userconv_table()
 				$map_dbms = 'mysql_40';
 			}
 		break;
-	
+
 		case 'mysqli':
 			$map_dbms = 'mysql_41';
 		break;
-	
-		case 'mssql':
+
 		case 'mssql_odbc':
+		case 'mssqlnative':
 			$map_dbms = 'mssql';
 		break;
-	
+
 		default:
-			$map_dbms = $db->sql_layer;
+			$map_dbms = $db->get_sql_layer();
 		break;
 	}
 
@@ -1738,13 +1791,6 @@ function phpbb_create_userconv_table()
 	$drop_sql = 'DROP TABLE ' . USERCONV_TABLE;
 	switch ($map_dbms)
 	{
-		case 'firebird':
-			$create_sql = 'CREATE TABLE ' . USERCONV_TABLE . ' (
-				user_id INTEGER NOT NULL,
-				username_clean VARCHAR(255) CHARACTER SET UTF8 DEFAULT \'\' NOT NULL COLLATE UNICODE
-			)';
-		break;
-
 		case 'mssql':
 			$create_sql = 'CREATE TABLE [' . USERCONV_TABLE . '] (
 				[user_id] [int] NOT NULL ,
@@ -1780,7 +1826,7 @@ function phpbb_create_userconv_table()
 			)';
 		break;
 
-		case 'sqlite':
+		case 'sqlite3':
 			$create_sql = 'CREATE TABLE ' . USERCONV_TABLE . ' (
 				user_id INTEGER NOT NULL DEFAULT \'0\',
 				username_clean varchar(255) NOT NULL DEFAULT \'\'
@@ -1796,7 +1842,7 @@ function phpbb_create_userconv_table()
 
 function phpbb_check_username_collisions()
 {
-	global $db, $src_db, $convert, $table_prefix, $user, $lang;
+	global $db, $src_db, $convert, $user, $lang;
 
 	// now find the clean version of the usernames that collide
 	$sql = 'SELECT username_clean
@@ -1813,7 +1859,7 @@ function phpbb_check_username_collisions()
 	$db->sql_freeresult($result);
 
 	// there was at least one collision, the admin will have to solve it before conversion can continue
-	if (sizeof($colliding_names))
+	if (count($colliding_names))
 	{
 		$sql = 'SELECT user_id, username_clean
 			FROM ' . USERCONV_TABLE . '
@@ -1863,4 +1909,62 @@ function phpbb_check_username_collisions()
 	$db->sql_query($drop_sql);
 }
 
-?>
+function phpbb_convert_timezone($timezone)
+{
+	global $config, $db, $phpbb_root_path, $phpEx, $table_prefix;
+
+	$factory = new \phpbb\db\tools\factory();
+	$timezone_migration = new \phpbb\db\migration\data\v310\timezone($config, $db, $factory->get($db), $phpbb_root_path, $phpEx, $table_prefix);
+	return $timezone_migration->convert_phpbb30_timezone($timezone, 0);
+}
+
+function phpbb_add_notification_options($user_notify_pm)
+{
+	global $convert_row, $db;
+
+	$user_id = phpbb_user_id($convert_row['user_id']);
+	if ($user_id == ANONYMOUS)
+	{
+		return;
+	}
+
+	$rows = array();
+
+	$rows[] = array(
+		'item_type'		=> 'post',
+		'item_id'		=> 0,
+		'user_id'		=> (int) $user_id,
+		'notify'		=> 1,
+		'method'		=> 'email',
+	);
+	$rows[] = array(
+		'item_type'		=> 'topic',
+		'item_id'		=> 0,
+		'user_id'		=> (int) $user_id,
+		'notify'		=> 1,
+		'method'		=> 'email',
+	);
+	if ($user_notify_pm)
+	{
+		$rows[] = array(
+			'item_type'		=> 'pm',
+			'item_id'		=> 0,
+			'user_id'		=> (int) $user_id,
+			'notify'		=> 1,
+			'method'		=> 'email',
+		);
+	}
+
+	$db->sql_multi_insert(USER_NOTIFICATIONS_TABLE, $rows);
+}
+
+function phpbb_convert_password_hash($hash)
+{
+	global $phpbb_container;
+
+	/* @var $manager \phpbb\passwords\manager */
+	$manager = $phpbb_container->get('passwords.manager');
+	$hash = $manager->hash($hash, '$H$');
+
+	return '$CP$' . $hash;
+}
