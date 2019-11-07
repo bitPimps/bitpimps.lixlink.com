@@ -10,6 +10,7 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="SHORTCUT ICON" href="/favicon.ico" type="image/x-icon" />
+<link href="fonts.css" rel="stylesheet" type="text/css">
 <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 

@@ -5,7 +5,7 @@
 			<ul>
 				<li><a href="/index.php" title="Home">Home</a></li>
 				<li><a href="/articles/index.php" title="Articles">Articles</a></li>
-				<li><a href="index.php" title="Galleries" style="color:#FFDDAB; background-color:#929292;">Galleries</a></li>
+				<li><a href="/pages/phpGalleryindex.php" title="Galleries" style="color:#FFDDAB; background-color:#929292;">Galleries</a></li>
 				<li><a href="/pages/phpForum/index.php" title="Forums">Forums</a></li>
 			</ul>
 		</div>
