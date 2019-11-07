@@ -26,6 +26,9 @@
 				<span class="footer-link-text">{{ lang('TERMS_LINK') }}</span>
 			</a>
 		</p>
+		<p class="footer-row">
+			Copyright &#0169; 2002 - <script type="text/javascript">var d = new Date(); document.write(d.getFullYear())</script> | All rights resereved by penalty of: death, cappin', blastin', sprayin', etc.
+		</p>
 		<!-- IF DEBUG_OUTPUT -->
 		<p class="footer-row">
 			<span class="footer-info">{{ DEBUG_OUTPUT }}</span>
@@ -115,6 +118,15 @@
 {$SCRIPTS}
 
 <!-- EVENT overall_footer_body_after -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-4969830-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-4969830-1');
+</script>
 
 </body>
 </html>
