@@ -1,3 +1,3 @@
 <?php
-header("Location: http://bitpimps.lixlink.com/articles/");
+header("Location: https://bitpimps.lixlink.com/articles/");
 ?>

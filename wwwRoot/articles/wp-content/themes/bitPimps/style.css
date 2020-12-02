@@ -1,13 +1,13 @@
 /*  
 Theme Name: bitPimps
-Theme URI: http://bitpimps.lixlink.com/
+Theme URI: https://bitpimps.lixlink.com/
 Description: A Typo eXPerimental. Clean, three columns, fixed width. With icons and almost no graphics. Great for 'text-heavy' theme lover.
 Version: 1.0.0
 Author: Scott Lix
 Author URI: http://www.lixlink.com/
 
 	bitPimps v1.0.0
-	http://bitpimps.lixlink.com/
+	https://bitpimps.lixlink.com/
 
 	The CSS, XHTML and design is released under GPL:
 	http://www.opensource.org/licenses/gpl-license.php
@@ -16,7 +16,7 @@ Author URI: http://www.lixlink.com/
 /**********************************/
 /* General                        */
 /**********************************/
-body {font: 0.71em/1.5em Verdana, Arial, Helvetica, sans-serif; color: #333; margin:0; background-image:url(http://bitpimps.lixlink.com/images/bg_page.jpg); background-repeat:repeat-x; background-color:#1C1C1C; width: 980px; margin:0; padding:0;}
+body {font: 0.71em/1.5em Verdana, Arial, Helvetica, sans-serif; color: #333; margin:0; background-image:url(https://bitpimps.lixlink.com/images/bg_page.jpg); background-repeat:repeat-x; background-color:#1C1C1C; width: 980px; margin:0; padding:0;}
 a	{ color: #0D6AA6; text-decoration: none; }
 a:hover	{ text-decoration: underline; color: #f60;}
 form {margin:0;padding:0;}
@@ -34,7 +34,7 @@ img.alignright, img.right {float:right; margin-left: 5px; margin-right: 0px;}
 #container,#left,#content,#sidebar,#footer { overflow:hidden; display:block;}
 #container {width:960px; padding:0; margin: 10px 0px 0px 20px; 
 background: #fff url(img/verdana-bg.gif) repeat-y top right; border:1px solid #E4E4E4;}
-#container #header_bp {height:72px; background-color:#000; background-image:url(http://bitpimps.lixlink.com/images/bg_head.jpg); background-repeat:no-repeat; background-position:right; border-bottom:1px solid #E4E4E4;}
+#container #header_bp {height:72px; background-color:#000; background-image:url(https://bitpimps.lixlink.com/images/bg_head.jpg); background-repeat:no-repeat; background-position:right; border-bottom:1px solid #E4E4E4;}
 #container #header_bp img {border:0; padding:0; margin:0;}
 #container #header_bp #logo img {border:0; padding:0; margin:0;}
 #container #header_bp #logo {width:170px; float:left;}
