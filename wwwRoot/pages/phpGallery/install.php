@@ -4,11 +4,11 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2021 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * install.php
- * @since  1.6.04
+ * @since  1.6.16
  */
 
 ########################
@@ -38,7 +38,7 @@ define('STEP_FINALISE', 10);
 $LINEBREAK = "\r\n"; // For compatibility both on Windows as well as *nix
 
 // Set required versions
-$required_php_version = '5.0.0';
+$required_php_version = '5.4.0';
 
 // Set the parameters that normally get populated by the option form
 $displayOption_array = array(
@@ -85,7 +85,7 @@ if (!defined('COPPERMINE_VERSION')) { // we need to define the constant COPPERMI
 // include Inspekt for sanitization
 $incp = get_include_path().PATH_SEPARATOR.dirname(__FILE__).PATH_SEPARATOR.dirname(__FILE__).DIRECTORY_SEPARATOR.'include';
 set_include_path($incp);
-require_once "include/inspekt.php";
+require_once 'include/inspekt.php';
 $superCage = Inspekt::makeSuperCage();
 
 //load language
@@ -215,31 +215,43 @@ switch($step) {
 			$error .= '<br />';
 		}
 
+		//XML PARSER CHECK
+		if (function_exists('simplexml_load_string') || function_exists('xml_parser_create')) {
+			$has_XML = true;
+		} else {
+			$has_XML = false;
+			$error = $language['no_xml_parser'] . '<br />';
+		}
+
 		$page_title = $language['title_file_check'];
 		html_header();
 		if ($error != '') {
 			html_error(false /*false to not include a button*/);
 		}
 
-		//use versioncheck to check file versions
-		$lang_versioncheck_php = $language['versioncheck'];
-		require_once('include/versioncheck.inc.php');
+		if ($has_XML) {
+			//use versioncheck to check file versions
+			$lang_versioncheck_php = $language['versioncheck'];
+			$lang_common = $language['lang_common'];
+			require_once 'include/versioncheck.inc.php';
+	
+			// TODO: need to deal with connection failing and skip this step (and maybe allow a retry)
+	
+			// Connect to the repository and populate the array with data from the XML file
+			$file_data_array = cpgVersioncheckConnectRepository($displayOption_array);
+	
+			$file_data_array = cpg_versioncheckPopulateArray($file_data_array);
+			//$file_data_array = cpg_versioncheckPopulateArray($file_data_array, $displayOption_array, $textFileExtensions_array, $imageFileExtensions_array, $CONFIG, $maxLength_array, $lang_versioncheck_php);
+			$file_data_count = count($file_data_array);
+			// Print the results
+			$outputResult = cpg_versioncheckCreateHTMLOutput($file_data_array, $textFileExtensions_array, $lang_versioncheck_php, $majorVersion, $displayOption_array);
+			$versioncheck_output = sprintf($lang_versioncheck_php['files_folder_processed'], $outputResult['display'], $outputResult['total'], $outputResult['error']);
+	
+			// TODO: end
+	
+			html_content($versioncheck_output);
+		}
 
-		// TODO: need to deal with connection failing and skip this step (and maybe allow a retry)
-
-		// Connect to the repository and populate the array with data from the XML file
-		$file_data_array = cpgVersioncheckConnectRepository($displayOption_array);
-
-		$file_data_array = cpg_versioncheckPopulateArray($file_data_array);
-		//$file_data_array = cpg_versioncheckPopulateArray($file_data_array, $displayOption_array, $textFileExtensions_array, $imageFileExtensions_array, $CONFIG, $maxLength_array, $lang_versioncheck_php);
-		$file_data_count = count($file_data_array);
-		// Print the results
-		$outputResult = cpg_versioncheckCreateHTMLOutput($file_data_array, $textFileExtensions_array, $lang_versioncheck_php, $majorVersion, $displayOption_array);
-		$versioncheck_output = sprintf($lang_versioncheck_php['files_folder_processed'], $outputResult['display'], $outputResult['total'], $outputResult['error']);
-
-		// TODO: end
-
-		html_content($versioncheck_output);
 		html_footer();
 		setTmpConfig('step', STEP_FOLDER_PERMISSIONS);
 		break;
@@ -381,7 +393,7 @@ switch($step) {
 
 	case STEP_DB_SELECT:	 // Ask the user if he wants to use an existing db or if he wants the installer to create a new database. Try to perform the selected choice. Ask for the table prefix
 		$db_type = $config['db_type'];
-		list($dext, $dsub) = explode(':', $db_type.':');
+		list($dext, $dsub) = array_pad(explode(':', $db_type), 2, '');
 		require_once 'include/database/'.$dext.'/install.php';
 		$page_title = sprintf($language['title_dbase_db_sel'], strtoupper($db_type));
 		// save the db data from previous step
@@ -398,7 +410,7 @@ switch($step) {
 				&& trim($superCage->post->getRaw('new_db_name')) != '')
 		{
 			// try to create a new database.
-			$createDb = 'create'.ucfirst($db_type).'Db';
+			$createDb = 'create'.ucfirst($dext).'Db';
 			$createDb(trim($superCage->post->getRaw('new_db_name'))); // no /\:*?"<>|.
 			// save table prefix
 			setTmpConfig('db_prefix', $superCage->post->getRaw('db_prefix')); // no /\:*?"<>|.
@@ -577,8 +589,9 @@ function html_header()
 {
 	global $language;
 
+	header('Cache-Control: no-cache');
 	echo <<<EOT
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -1045,7 +1058,7 @@ function loadTempConfig($rp=0)
 	} else {
 		// read the temporary file
 		if (file_exists($config_file['temporary'])) {
-			include($config_file['temporary']);
+			include $config_file['temporary'];
 			$GLOBALS['config'] = $install_config;
 		} else {
 			$GLOBALS['config'] = array();
@@ -1093,7 +1106,7 @@ function createTempConfig()
 	if ($handle = @fopen($config_file['temporary'], 'w')) {
 		//$config = serialize($config);
 		//create php array in config
-		$fconfig = '<?php' . $LINEBREAK . arrayToString($config, '$install_config') . $LINEBREAK . '?>';
+		$fconfig = '<?php' . $LINEBREAK . arrayToString($config, '$install_config') . $LINEBREAK;
 		fwrite($handle, $fconfig);
 		fclose($handle);
 		return true;
@@ -1102,6 +1115,20 @@ function createTempConfig()
 		$GLOBALS['error'] = sprintf($language['cant_write_tmp_conf'], $config_file['temporary']) . ' ' . $language['review_permissions'];
 		return false;
 	}
+}
+
+/*
+* sqEsc()
+*
+* escape single quotes in string
+*
+* @param string $str
+*
+* @return string
+*/
+function sqEsc($str)
+{
+	return str_replace("'", "\'", $str);
 }
 
 /*
@@ -1129,6 +1156,7 @@ function arrayToString($array, $array_name, $indent = '')
 			if (is_array($value)) {
 				$array_string .= arrayToString($value, $key, $indent . '	 ');
 			} else {
+				$value = sqEsc($value);
 				$array_string .= $indent . "		'$key' => '$value'," . $LINEBREAK;
 			}
 		}
@@ -1159,7 +1187,7 @@ function getLanguage()
 
 	// try to find the users language if we don't have one defined yet
 	if (!isset($config['lang'])) {
-		include_once('include/select_lang.inc.php');
+		include_once 'include/select_lang.inc.php';
 		setTmpConfig('lang', $USER['lang']);
 		loadTempConfig();
 	}
@@ -1170,16 +1198,17 @@ function getLanguage()
 		loadTempConfig();
 	}
 	if ($language == '') {
-		include('lang/english.php');
+		include 'lang/english.php';
 		$lang_en = $lang_install;
 		$lang_en_versioncheck = $lang_versioncheck_php;
 		if (isset($config['lang']) && file_exists('lang/' . $config['lang'] . '.php')) {
 			// include this lang
-			include('lang/' . $config['lang'] . '.php');
+			include 'lang/' . $config['lang'] . '.php';
 		}
 		// provide fallback
 		$language = array_merge($lang_en, $lang_install);
 		$language['versioncheck'] = isset($lang_versioncheck_php) ? $lang_versioncheck_php : $lang_en_versioncheck;
+		$language['lang_common'] = $lang_common;
 	}
 	return $language;
 }
@@ -1504,9 +1533,6 @@ function populateDatabase()
 		$GLOBALS['error'] = $language['no_thumb_method'];
 		return false;
 	}
-	if (@get_magic_quotes_runtime()) {
-		set_magic_quotes_runtime(0);
-	}
 	// Get a connection with the db.
 	list($dext, $dsub) = explode(':', $config['db_type'].':');
 	$con_check = 'check'.ucfirst($dext).'Connection';
@@ -1529,7 +1555,7 @@ function populateDatabase()
 	}
 	// Create our fantastic cage object
 	$superCage = Inspekt::makeSuperCage();
-	require_once('include/sql_parse.php');
+	require_once 'include/sql_parse.php';
 	// Get gallery directory
 	$possibilities = array('REDIRECT_URL', 'PHP_SELF', 'SCRIPT_URL', 'SCRIPT_NAME','SCRIPT_FILENAME');
 	foreach ($possibilities as $test) {
@@ -1635,7 +1661,7 @@ function createAdmin()
 	// Update table prefix
 	$sql_query = preg_replace('/CPG_/', $config['db_prefix'], $sql_query);
 
-	require_once('include/sql_parse.php');
+	require_once 'include/sql_parse.php';
 	$sql_query = remove_remarks($sql_query);
 	$sql_query = split_sql_file($sql_query, ';');
 	// Get a connection with the db.
@@ -1684,6 +1710,10 @@ function checkSillySafeMode()
 function writeConfig()
 {
 	global $config, $language;
+
+	foreach (['db_type','db_host','db_user','db_password','db_name','db_prefix'] as $ix) {
+		$config[$ix] = sqEsc($config[$ix]);
+	}
 
 	$config = <<<EOT
 <?php

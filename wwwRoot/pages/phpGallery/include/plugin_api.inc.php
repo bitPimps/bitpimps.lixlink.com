@@ -1,18 +1,15 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2016 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.6.03
-  $HeadURL$
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2020 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * include/plugin_api.inc.php
+ * @since  1.6.10
+ */
 
 global $thisplugin;                     // Stores the current plugin being processed
 global $CPG_PLUGINS;                    // Stores all the plugins
@@ -23,7 +20,7 @@ define('CPG_EXEC_ALL','all');           // Define CPG_EXEC_ALL
 define('CPG_EXEC_FIRST', 'first');      // Define CPG_EXEC_FIRST
 define('CPG_EXEC_NEW', 'new');          // Define CPG_EXEC_NEW
 
-if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
+defined('IN_COPPERMINE') or die('Not in Coppermine...');
 
 // Store the table name in CONFIG
 $CONFIG['TABLE_PLUGINS']                = $CONFIG['TABLE_PREFIX'].'plugins';
@@ -79,7 +76,7 @@ abstract class CPGPluginAPI {
             $thisplugin =& $CPG_PLUGINS[$plugin['plugin_id']];
 
 			if ($thisplugin->enabled) {
-	            include ('./plugins/'.$thisplugin->path.'/codebase.php');
+	            include './plugins/'.$thisplugin->path.'/codebase.php';
 	
 	            // Load language files
 	            cpg_load_plugin_language_file($thisplugin->path);
@@ -359,7 +356,7 @@ abstract class CPGPluginAPI {
 
 
         // Include the plugin's code into Coppermine
-        include ('./plugins/'.$thisplugin->path.'/codebase.php');
+        include './plugins/'.$thisplugin->path.'/codebase.php';
 
         return;
     }
@@ -431,7 +428,7 @@ abstract class CPGPluginAPI {
         $priority = (is_null($data['priority'])) ? (0) : ($data['priority']+1);
 
         // Grab the plugin's credits
-        include_once ('./plugins/'.$path.'/configuration.php');
+        include_once './plugins/'.$path.'/configuration.php';
 
         // Create a generic plugin object
         $thisplugin = new CPGPlugin(
@@ -446,7 +443,7 @@ abstract class CPGPluginAPI {
         $thisplugin->awake = true;
 
         // Grab plugin's code
-        include_once ('./plugins/'.$path.'/codebase.php');
+        include_once './plugins/'.$path.'/codebase.php';
 
         // Copy it to the global scope
         $CPG_PLUGINS['new'] = $thisplugin;
@@ -496,6 +493,9 @@ abstract class CPGPluginAPI {
 
         // Grab the plugin from the global scope
         $thisplugin =& $CPG_PLUGINS[$plugin_id];
+
+		// If the plugin is not enabled, load the codebase here so any uninstall action will be available
+		if (!$thisplugin->enabled) include './plugins/'.$thisplugin->path.'/codebase.php';
 
         // Grab the priority level, so you can shift the ones in the database
         $priority = $thisplugin->priority;

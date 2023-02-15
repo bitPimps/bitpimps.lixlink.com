@@ -4,14 +4,14 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2021 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * bridge/coppermine.inc.php
- * @since  1.6.04
+ * @since  1.6.11
  */
 
-if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
+defined('IN_COPPERMINE') or die('Not in Coppermine...');
 
 if (isset($bridge_lookup)) {
 	// Do nothing - the default bridge file "coppermine.inc.php" is not an option in the bridge manager.
@@ -34,7 +34,7 @@ if (isset($bridge_lookup)) {
 
 			if (!USE_BRIDGEMGR) {
 				$this->boardurl = 'http://localhost/coppermine';
-				include_once('../include/config.inc.php');
+				include_once '../include/config.inc.php';
 			} else {
 				$this->boardurl = $CONFIG['site_url'];
 				$this->use_post_based_groups = @$BRIDGE['use_post_based_groups'];
@@ -126,10 +126,14 @@ if (isset($bridge_lookup)) {
 			if ($USER_DATA === false) {
 				return false;
 			}
+			if (CPGPluginAPI::action('authorize_user', $USER_DATA) === false) {
+				return false;
+			}
 
 			// Update lastvisit value and salt password if needed
-			$salt_password = !$password_params['user_password_salt'] ? ', '.cpg_password_create_update_string($password) : '';
+			$salt_password = !$USER_DATA['user_password_salt'] ? ', '.cpg_password_create_update_string($password) : '';
 			$sql = "UPDATE {$this->usertable} SET user_lastvisit = NOW() $salt_password WHERE user_id = {$USER_DATA['user_id']}";
+
 			$this->query($sql);
 
 			// If this is a 'remember me' login set the remember field to true
@@ -241,19 +245,19 @@ if (isset($bridge_lookup)) {
 					$row = $result->fetchAssoc(true);
 					$row['user_id'] = (int) $row['user_id'];
 					$this->sessiontime = $row['time'];
+					$this->session_id = $sessioncookie;
 
-					// Check if there's a user for this session
-					$sql = "SELECT user_id, user_password FROM {$this->usertable} WHERE user_id = {$row['user_id']}";
-					$result = $this->query($sql);
-
-					// If user exists, use the current session
-					if ($result) {
-						$row = $result->fetchAssoc(true);
-						$pass = $row['user_password'];
-						$id = (int) $row['user_id'];
-						$this->session_id = $sessioncookie;
-
-					// If the user doesn't exist, use default guest credentials
+					// If there is user id, check validity
+					if ($row['user_id']) {
+						$sql = "SELECT user_id, user_password FROM {$this->usertable} WHERE user_id={$row['user_id']}";
+						$result = $this->query($sql);
+	
+						// If user exists, return id and pass
+						if ($result->numRows()) {
+							$row = $result->fetchAssoc(true);
+							$pass = $row['user_password'];
+							$id = (int) $row['user_id'];
+						}
 					}
 
 				// If not a valid session exists, create a new session
