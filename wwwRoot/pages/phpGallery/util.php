@@ -4,11 +4,11 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2020 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * util.php
- * @since  1.6.06
+ * @since  1.6.09
  */
 
 /*
@@ -43,7 +43,6 @@ $css = '<style>
 .toolwrap {
 	padding: 1em;
 	padding-left: 3em;
-	background-color: #F0F4F7;
 	display: none;
 }
 #toolpdsp, #toolmsgs {
@@ -105,8 +104,8 @@ if ($action && file_exists('tools/'.$action.'/'.$action.'.php')) {
 		if ($tool[0] != '.' && is_dir('tools/'.$tool)) {
 			$tobj = AdminTool::getTool($tool);
 			if ($tobj) {
-				echo '<tr><td class="tableh2"><input type="radio" name="action" value="'.$tool.'" id="'.$tool.'" class="nobg" /><label for="'.$tool.'" class="clickable_option">'.$tobj->describe().'</label></td></tr>';
-				echo'<tr><td><div id="'.$tool.'_wrapper" class="toolwrap"></div></td></tr>';
+				echo '<tr><td class="tableb"><input type="radio" name="action" value="'.$tool.'" id="'.$tool.'" class="nobg" /><label for="'.$tool.'" class="clickable_option">'.$tobj->describe().'</label></td></tr>';
+				echo'<tr><td class="tableb"><div id="'.$tool.'_wrapper" class="toolwrap"></div></td></tr>';
 			}
 		}
 	}
@@ -115,9 +114,9 @@ if ($action && file_exists('tools/'.$action.'/'.$action.'.php')) {
 	$help_select = '&nbsp;' . cpg_display_help('f=admin-tools.htm&amp;as=admin_tools_usage&amp;ae=admin_tools_usage_end&amp;top=1', '600', '400');
 
 	starttable('100%', $lang_common['select_album'] . $help_select);
-	echo '<tr><td class="tablef"><br>';
+	echo '<tr><td class="tablef">';
 	$cpg_udb->util_filloptions();
-	echo '<br></td></tr>';
+	echo '</td></tr>';
 	endtable();
 
 	list($timestamp, $form_token) = getFormToken();	

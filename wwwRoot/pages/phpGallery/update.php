@@ -1,18 +1,15 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2016 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.6.03
-  $HeadURL$
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2021 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * update.php
+ * @since  1.6.12
+ */
 
 // define('SKIP_AUTHENTICATION', true);
 // If you don't remember the admin account data you're prompted for when running this file in your browser, umcomment the line above by removing the two slashes in front of it, upload that file to your webserver, run it in your browser. After successfully having run it, remember to restore the two slashes you removed and replace the "unsecure" version on your webserver with the "secure" version (the one that contains the double slashes).
@@ -23,16 +20,12 @@ define('UPDATE_PHP', true);
 if (!defined('SKIP_AUTHENTICATION')) { // try to include init.inc.php to get the "regular" coppermine user interface
     $error_reporting = error_reporting(E_ERROR); // silence all error reports but fatal ones
     ob_start(); // turn output buffering on - if including the regular coppermine files breaks, we can make sure that the output doesn't break the subsequent code
-    include_once('include/init.inc.php');
+    include_once 'include/init.inc.php';
     $output = ob_get_clean();
     error_reporting($error_reporting); // set error reporting level back to how it used to be
     //echo $output; // For troubleshooting purposes, echo $output
 }
 session_start();
-
-if (get_magic_quotes_runtime()) {
-    set_magic_quotes_runtime(0);
-}
 
 if (!function_exists('cpgGetMicroTime')) {
 function cpgGetMicroTime()
@@ -44,10 +37,10 @@ function cpgGetMicroTime()
 
 set_include_path(get_include_path().PATH_SEPARATOR.dirname(__FILE__).PATH_SEPARATOR.dirname(__FILE__).DIRECTORY_SEPARATOR.'include');
 
-require_once('include/inspekt.php');
-require_once('include/sql_parse.php');
-require_once('include/config.inc.php');
-require_once('include/functions.inc.php');
+require_once 'include/inspekt.php';
+require_once 'include/sql_parse.php';
+require_once 'include/config.inc.php';
+require_once 'include/functions.inc.php';
 
 // The default values
 $errors = '';
@@ -433,7 +426,7 @@ function cpg_get_config_value($config_name)
     $result = cpg_db_query("SELECT value FROM ".$CONFIG['TABLE_PREFIX']."config WHERE name='".$config_name."' LIMIT 1");
     $row = $result->fetchRow(true);
 
-    return $row[0];
+    return is_array($row) ? $row[0] : null;
 }
 
 // ----------------------------- TEST FUNCTIONS ---------------------------- //
@@ -776,7 +769,9 @@ function delete_files()
     // Attempt to delete outdated files
     $delete_file_array = array(
         'js/jquery-1.3.2.js',
+        'js/jquery-1.4.2.js',
         'logs/log_header.inc.php',
+        'include/log_header.inc.php',
         'js/setup_swf_upload.js',
         'js/swfupload',
         'docs/en/uploading_xp-publisher.htm',

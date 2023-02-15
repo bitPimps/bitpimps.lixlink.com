@@ -1,18 +1,15 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2016 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.6.03
-  $HeadURL$
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2021 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * editpics.php
+ * @since  1.6.15
+ */
 
 define('IN_COPPERMINE', true);
 define('EDITPICS_PHP', true);
@@ -39,7 +36,7 @@ $icon_array = array(
     'exif'               => cpg_fetch_icon('exif_mgr', 2),
     'reset_views'        => cpg_fetch_icon('stats_delete', 0),
     'reset_views_all'    => cpg_fetch_icon('stats_delete', 0, $lang_editpics_php['reset_all_view_count']),
-    'reset_votes'        => cpg_fetch_icon('blank', 2),
+    'reset_votes'        => cpg_fetch_icon('rating', 0),
     'ok'                 => cpg_fetch_icon('ok', 2),
     'category'           => cpg_fetch_icon('category', 2),
     'delete'             => cpg_fetch_icon('delete', 0, $lang_editpics_php['del_pic']),
@@ -423,17 +420,25 @@ function form_pic_info($text)
         $loop_counter = 0;
     }
 
+    $thumb_block = <<<EOT
+        <a href="$thumb_link" target="_blank"><img src="$thumb_url" class="image" border="0" alt="" /></a><br />
+        <span{$isgalleryicon_disabled}><input type="radio" name="galleryicon" id="galleryicon{$CURRENT_PIC['pid']}" value="{$CURRENT_PIC['pid']}" {$isgalleryicon_selected}class="checkbox" /><label for="galleryicon{$CURRENT_PIC['pid']}" class="clickable_option">{$lang_editpics_php['gallery_icon']}</label></span>
+EOT;
+
     if ($CURRENT_PIC['approved'] == 'YES') {
         $pic_approval_checked = 'checked="checked"';
     } else {
         $pic_approval_checked = '';
+        if (!GALLERY_ADMIN_MODE && !MODERATOR_MODE) {
+        	$thumb_block = '<img src="'.$thumb_url.'" class="image" border="0" alt="" /><br /><span style="color:red;background-color:white">'.$lang_editpics_php['unapproved'].'</span>';
+        }
     }
 
     // The approve checkbox is shown only if the user is admin or moderator.
     $approve_html = '';
     if (GALLERY_ADMIN_MODE || MODERATOR_MODE) {
         $approve_html = <<<EOT
-                          <td class="{$row_style_class}" width="40" valign="top">
+                          <td class="{$row_style_class}" width="40">
                                   <input type="checkbox" name="approved{$CURRENT_PIC['pid']}" id="approve{$CURRENT_PIC['pid']}" value="YES" {$pic_approval_checked} class="checkbox" title="{$lang_editpics_php['approve_pic']}" /><label for="approve{$CURRENT_PIC['pid']}" class="clickable_option">{$icon_array['file_approve']}</label>
                           </td>
 EOT;
@@ -464,7 +469,7 @@ EOT;
                 </tr>
                 <tr>
                     <td class="{$row_style_class}">&nbsp;</td>
-                    <td class="{$row_style_class}" width="40" valign="top">
+                    <td class="{$row_style_class}" width="40">
                     <input type="checkbox" name="delete{$CURRENT_PIC['pid']}" id="delete{$CURRENT_PIC['pid']}" value="1" class="checkbox" title="{$lang_editpics_php['del_pic']}" /><label for="delete{$CURRENT_PIC['pid']}" class="clickable_option">{$icon_array['delete']}</label>
                     </td>
                     $approve_html
@@ -472,7 +477,7 @@ EOT;
                             <input type="checkbox" name="reset_vcount{$CURRENT_PIC['pid']}" id="reset_vcount{$CURRENT_PIC['pid']}" value="1" class="checkbox" title="{$lang_editpics_php['reset_view_count']}" {$hits_reset_disabled} /><label for="reset_vcount{$CURRENT_PIC['pid']}" class="clickable_option" title="{$lang_editpics_php['reset_view_count']}">{$icon_array['reset_views']} ({$CURRENT_PIC['hits']})</label>
                     </td>
                     <td class="{$row_style_class}" width="70">
-                            <input type="checkbox" name="reset_votes{$CURRENT_PIC['pid']}" id="reset_votes{$CURRENT_PIC['pid']}" value="1" class="checkbox" title="{$lang_editpics_php['reset_votes']}" {$votes_reset_disabled} /><label for="reset_votes{$CURRENT_PIC['pid']}" class="clickable_option"><img src="images/rating.png" border="0" width="16" height="16" alt="" title="{$lang_editpics_php['reset_votes']}" /> ({$CURRENT_PIC['votes']})</label>
+                            <input type="checkbox" name="reset_votes{$CURRENT_PIC['pid']}" id="reset_votes{$CURRENT_PIC['pid']}" value="1" class="checkbox" title="{$lang_editpics_php['reset_votes']}" {$votes_reset_disabled} /><label for="reset_votes{$CURRENT_PIC['pid']}" class="clickable_option" title="{$lang_editpics_php['reset_votes']}">{$icon_array['reset_votes']} ({$CURRENT_PIC['votes']})</label>
                     </td>
                     <td class="{$row_style_class}" width="40">
                             <input type="checkbox" name="del_comments{$CURRENT_PIC['pid']}" id="del_comments{$CURRENT_PIC['pid']}" value="1" class="checkbox" title="{$lang_editpics_php['del_comm']}" /><label for="del_comments{$CURRENT_PIC['pid']}" class="clickable_option">{$icon_array['comment_delete']}</label>
@@ -489,9 +494,8 @@ EOT;
                 <input type="hidden" name="pid[]" value="{$CURRENT_PIC['pid']}" />
                 $pic_info
         </td>
-           <td class="{$row_style_class}" align="center" valign="top" rowspan="$THUMB_ROWSPAN">
-                <a href="$thumb_link" target="_blank"><img src="$thumb_url" class="image" border="0" alt="" /></a><br />
-                <span{$isgalleryicon_disabled}><input type="radio" name="galleryicon" id="galleryicon{$CURRENT_PIC['pid']}" value="{$CURRENT_PIC['pid']}" {$isgalleryicon_selected}class="checkbox" /><label for="galleryicon{$CURRENT_PIC['pid']}" class="clickable_option">{$lang_editpics_php['gallery_icon']}</label></span>
+           <td class="{$row_style_class}" align="center" rowspan="$THUMB_ROWSPAN">
+        		$thumb_block
         </td>
     </tr>
 
@@ -546,7 +550,7 @@ function form_input($text, $name, $max_length,$field_width = 100)
             <td class="{$row_style_class}" style="white-space: nowrap;">
                 $text
             </td>
-            <td width="100%" class="{$row_style_class}" valign="top">
+            <td width="100%" class="{$row_style_class}">
                 <input type="text" style="width: {$field_width}%" name="$name" id="$name" maxlength="$max_length" value="$value" class="textinput" />
             </td>
         </tr>
@@ -569,7 +573,7 @@ function form_alb_list_box($text, $name)
             <td class="{$row_style_class}" style="white-space: nowrap;">
                         $text
             </td>
-            <td class="{$row_style_class}" valign="top">
+            <td class="{$row_style_class}">
                 {$icon_array['move']}
                 <select name="$name" class="listbox">
                 $options
@@ -590,10 +594,10 @@ function form_textarea($text, $name, $max_length)
 
     echo <<<EOT
         <tr>
-                <td class="{$row_style_class}" valign="top" style="white-space: nowrap;">
+                <td class="{$row_style_class}" style="white-space: nowrap;">
                         $text
                 </td>
-                <td class="{$row_style_class}" valign="top">
+                <td class="{$row_style_class}">
                         <textarea name="$name" id="{$name}" rows="1" cols="60" class="textinput elastic" onkeydown="textCounter(this, $max_length);" onkeyup="textCounter(this, $max_length);" style="max-height:200px;">$value</textarea>
                 </td>
         </tr>
@@ -616,7 +620,7 @@ function form_status($text, $name)
             <td class="{$row_style_class}" style="white-space: nowrap;">
                         $text
             </td>
-            <td width="100%" class="{$row_style_class}" valign="top">
+            <td width="100%" class="{$row_style_class}">
                 <input type="radio" id="approved_yes_{$name}" name="$name" value="YES" $checkYes /><label for="approved_yes_{$name}" class="clickable_option">{$lang_editpics_php['approved']}</label>&nbsp;&nbsp;
                 <input type="radio" id="approved_no_{$name}" name="$name" value="NO" $checkNo /><label for="approved_no_{$name}" class="clickable_option">{$lang_editpics_php['unapproved']}</label>
             </td>
@@ -830,7 +834,7 @@ starttable("100%", $title . $help, 3);
 
 echo <<<EOT
         <tr>
-                <td class="tableh2" colspan="3" align="center" valign="middle">
+                <td class="tableh2" colspan="3" align="center">
                         <strong>$pic_count_text</strong>&nbsp;&nbsp;-&nbsp;&nbsp;
                         $prev_link
                         $next_link
@@ -862,7 +866,7 @@ $approve_all_html = '';
 if (GALLERY_ADMIN_MODE || MODERATOR_MODE) {
 
     $approve_all_html = <<<EOT
-                          <td class="tableh2" width="40" valign="top">
+                          <td class="tableh2" width="40">
                                   <input type="checkbox" name="approveAll" onclick="selectAll(this,'approved');" class="checkbox" id="approveAll" title="{$lang_editpics_php['approve_all']}" /><label for="approveAll" class="clickable_option">{$icon_array['file_approve_all']}</label>
                           </td>
 EOT;
@@ -876,7 +880,7 @@ echo <<<EOT
                         <td class="tableh2" align="right">
                             {$lang_editpics_php['select_unselect']}:
                         </td>
-                        <td class="tableh2" width="40" valign="top">
+                        <td class="tableh2" width="40">
                             <input type="checkbox" name="deleteAll" onclick="selectAll(this,'delete');" class="checkbox" id="deleteAll" title="{$lang_editpics_php['del_all']}" /><label for="deleteAll" class="clickable_option">{$icon_array['delete_all']}</label>
                         </td>
                         $approve_all_html
@@ -884,7 +888,7 @@ echo <<<EOT
                             <input type="checkbox" name="reset_vcountAll" onclick="selectAll(this,'reset_vcount');" class="checkbox" id="reset_vcountAll" title="{$lang_editpics_php['reset_all_view_count']}" /><label for="reset_vcountAll" class="clickable_option">{$icon_array['reset_views_all']}</label>
                         </td>
                         <td class="tableh2" width="70">
-                            <input type="checkbox" name="reset_votesAll" onclick="selectAll(this,'reset_votes');" class="checkbox" id="reset_votesAll" title="{$lang_editpics_php['reset_all_votes']}" /><label for="reset_votesAll" class="clickable_option"><img src="images/rating.png" border="0" width="16" height="16" alt="" title="{$lang_editpics_php['reset_all_votes']}" /></label>
+                            <input type="checkbox" name="reset_votesAll" onclick="selectAll(this,'reset_votes');" class="checkbox" id="reset_votesAll" title="{$lang_editpics_php['reset_all_votes']}" /><label for="reset_votesAll" class="clickable_option">{$icon_array['reset_votes']}</label>
                         </td>
                         <td class="tableh2" width="40">
                             <input type="checkbox" name="del_commentsAll" onclick="selectAll(this,'del_comments');" class="checkbox" id="del_commentsAll" title="{$lang_editpics_php['del_all_comm']}" /><label for="del_commentsAll" class="clickable_option">{$icon_array['comment_delete_all']}</label>

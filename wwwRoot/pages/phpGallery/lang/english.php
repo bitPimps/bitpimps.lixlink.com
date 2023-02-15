@@ -4,11 +4,11 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2022 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * lang/english.php
- * @since  1.6.06
+ * @since  1.6.20
  */
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
@@ -34,15 +34,15 @@ $lang_day_of_week = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 $lang_month = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 
 // The various date formats
-// See http://www.php.net/manual/en/function.strftime.php to define the variable below
-$lang_date['album'] = '%B %d, %Y';
-$lang_date['lastcom'] = '%m/%d/%y at %H:%M';
-$lang_date['lastup'] = '%B %d, %Y';
-$lang_date['register'] = '%B %d, %Y';
-$lang_date['lasthit'] = '%B %d, %Y at %I:%M %p';
-$lang_date['comment'] = '%B %d, %Y at %I:%M %p';
-$lang_date['log'] = '%B %d, %Y at %I:%M %p';
-$lang_date['scientific'] = '%Y-%m-%d %H:%M:%S';
+// See https://www.php.net/manual/en/datetime.format.php to define the date format strings below
+$lang_date['album'] = 'F d, Y';
+$lang_date['lastcom'] = 'm/d/y \a\t H:i';
+$lang_date['lastup'] = 'F d, Y';
+$lang_date['register'] = 'F d, Y';
+$lang_date['lasthit'] = 'F d, Y \a\t h:i A';
+$lang_date['comment'] = 'F d, Y \a\t h:i A';
+$lang_date['log'] = 'F d, Y \a\t h:i A';
+$lang_date['scientific'] = 'Y-m-d H:i:s';
 
 // For the word censor
 $lang_bad_words = array('*fuck*', 'asshole', 'assramer', 'assrammer', 'bitch*', 'c0ck', 'clits', 'Cock', 'cum', 'cunt*', 'dago', 'daygo', 'dego', 'dick*', 'dildo', 'fanculo', 'feces', 'foreskin', 'Fu\(*', 'fuk*', 'honkey', 'hore', 'injun', 'kike', 'lesbo', 'masturbat*', 'motherfucker', 'nazis', 'nigger*', 'nutsack','penis', 'phuck', 'poop', 'pussy', 'scrotum', 'shit', 'slut', 'titties', 'titty', 'twaty', 'wank*', 'whore', 'wop*');
@@ -1558,6 +1558,8 @@ $lang_install['not_exist'] = 'Does not exist';
 // 1.6 dbabstract
 $lang_install['not_available'] = 'not available';
 $lang_install['version_too_old'] = 'version too old';
+// 1.6.08 XML check
+$lang_install['no_xml_parser'] = 'PHP must be enabled for XML parsing';
 }
 
 // ------------------------------------------------------------------------- //
@@ -1852,7 +1854,7 @@ $lang_register_php['last_comments'] = 'Last comment';
 $lang_register_php['you'] = 'you';
 $lang_register_php['last_comments_detail'] = 'Click to see all comments made by %s';
 $lang_register_php['notify_admin_email_body'] = 'A new user with the username "%s" has registered in your gallery';
-$lang_register_php['pic_count'] = 'files uploaded';
+$lang_register_php['pic_count'] = 'Files uploaded';
 $lang_register_php['notify_admin_request_email_subject'] = '%s - Registration request';
 $lang_register_php['thank_you_admin_activation'] = 'Thank you.<br />Your request for account activation was sent to the admin. You will receive an email if approved.';
 $lang_register_php['acct_active_admin_activation'] = 'The account is now active and an email has been sent to the user.';

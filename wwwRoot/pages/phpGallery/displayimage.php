@@ -4,11 +4,11 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2021 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * displayimage.php
- * @since  1.6.06
+ * @since  1.6.15
  */
 
 define('IN_COPPERMINE', true);
@@ -378,7 +378,7 @@ if (!$superCage->get->keyExists('fullsize') && ($pos < 0 || $pid > 0)) {
     $CURRENT_PIC_DATA = $pic_data[$pos];
 }
 
-if (!$superCage->get->keyExists('fullsize') && !$superCage->get->keyExists('ajax_show') && !count($CURRENT_PIC_DATA)) {
+if (!$superCage->get->keyExists('fullsize') && !$superCage->get->keyExists('ajax_show') && empty($CURRENT_PIC_DATA)) {
     cpg_die(ERROR, $lang_errors['non_exist_ap'], __FILE__, __LINE__);
 }
 
@@ -386,7 +386,7 @@ if (!$superCage->get->keyExists('fullsize') && !$superCage->get->keyExists('ajax
 set_js_var('position', $pos);
 set_js_var('album', $album);
 set_js_var('cat', $cat);
-set_js_var('count', $pic_count);
+set_js_var('count', empty($pic_count) ? 0 : $pic_count);
 
 if ($superCage->get->keyExists('msg_id')) {
     set_js_var('msg_id', $superCage->get->getInt('msg_id'));

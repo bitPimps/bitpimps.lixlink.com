@@ -4,11 +4,11 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2022 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * lang/french.php
- * @since  1.6.06
+ * @since  1.6.20
  */
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
@@ -34,15 +34,15 @@ $lang_day_of_week = array('Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam');
 $lang_month = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
 
 // The various date formats
-// See http://www.php.net/manual/en/function.strftime.php to define the variable below
-$lang_date['album'] = '%d %B %Y';
-$lang_date['lastcom'] = '%d/%m/%y à %H:%M';
-$lang_date['lastup'] = '%d %B %Y';
-$lang_date['register'] = '%d %B %Y';
-$lang_date['lasthit'] = '%a %d %B %Y à %H:%M';
-$lang_date['comment'] = '%a %d %B %Y à %H:%M';
-$lang_date['log'] = '%B %d, %Y at %I:%M %p';
-$lang_date['scientific'] = '%d-%m-%Y %H:%M:%S';
+// See https://www.php.net/manual/en/datetime.format.php to define the date format strings below
+$lang_date['album'] = 'd F Y';
+$lang_date['lastcom'] = 'd/m/y \à H:i';
+$lang_date['lastup'] = 'd F Y';
+$lang_date['register'] = 'd F Y';
+$lang_date['lasthit'] = 'D d F Y \à H:i';
+$lang_date['comment'] = 'D d F Y \à H:i';
+$lang_date['log'] = 'F d, Y \à h:i A';
+$lang_date['scientific'] = 'd-m-Y H:i:s';
 
 // For the word censor
 $lang_bad_words = array('merde', 'putain', 'enculé*', 'salope', 'bite', 'cul', 'pute', 'pénis', 'clito', 'couille', 'pétasse', 'connard', 'salaud');
@@ -1816,7 +1816,7 @@ EOT;
  $lang_register_php['you'] = 'vous';
  $lang_register_php['last_comments_detail'] = 'Cliquer pour voir tous les commentaires de %s';
  $lang_register_php['notify_admin_email_body'] = 'Un nouvel utilisateur s\'est inscrit dans votre galerie, sous le nom &quot;%s&quot;';
- $lang_register_php['pic_count'] = 'fichiers téléchargés';
+ $lang_register_php['pic_count'] = 'Fichiers téléchargés';
  $lang_register_php['notify_admin_request_email_subject'] = '%s - Demande d\'enregistrement';
  $lang_register_php['thank_you_admin_activation'] = 'Merci.<br />Votre requête d\'activation du compte a été envoyé à l\'administrateur. Vous recevrez un courriel si votre inscription est approuvée.';
  $lang_register_php['acct_active_admin_activation'] = 'Le compte est maintenant actif et un courriel a été envoyé à l\'utilisateur.';

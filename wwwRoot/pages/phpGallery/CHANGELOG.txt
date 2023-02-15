@@ -3,11 +3,11 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2019 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2022 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * CHANGELOG.txt
- * @since  1.6.07
+ * @since  1.6.21
  */
 Changelog
 =========
@@ -20,6 +20,49 @@ Changelog
 [S] = Security fix (issues that are related to security)
 *********************************************
 
+2022-10-28 [M] Fail more gracefully from database connection error {ron4mac}
+2022-10-18 [B] Correct typo in bridgemgr.php (thanks {bembi64}) {ron4mac}
+2022-08-01 [M,B] Correct PHP8 error with IPTC processing {ron4mac}
+2022-06-08 [M] More updates for PHP 8.1.x deprecations {ron4mac}
+2022-06-08 [O,C] HTML5 audio/video player: removed "autostart" parameter; set control offset to "0" {eenemeenemuu}
+2022-05-03 [B] Correct failure in bridgemgr for PHP 8 {ron4mac}
+2022-04-01 [B] Reset failure report mode in mysqli for PHP 8.1 {ron4mac}
+2022-03-25 [M] Updates for PHP 8.1.x; remove use of strftime() {ron4mac}
+2022-02-02 [B] Handle failure to get image dimensions in thumb updater tool {ron4mac}
+2021-11-22 [B] Allow ratings from different logged in users regardless of IP address {ron4mac}
+2021-11-20 [M] Update third party (ZenPhoto maintained) exif reader {ron4mac}
+2021-11-15 [M] Change bridge file for SMF 2.1 to function with latest SMF version {ron4mac}
+2021-11-09 [B] Correct install failure when single quote (') is used in db config {ron4mac}
+2021-10-07 [B] Correct more issues when running with PHP 8 (thanks to user altenae) {ron4mac}
+2021-10-07 [B] Correct some additional issues when running with PHP 8 {ron4mac}
+2021-09-24 [B] Correct conditions causing failures under PHP 8 {ron4mac}
+2021-09-24 [A] Added re_key admin tool to distribution {ron4mac}
+2021-08-18 [S] Remove possibility of XSS injection in upload_h5a plugin {ron4mac}
+2021-07-25 [B] Correct missing method for database creation when using PDO:mysql {ron4mac}
+2021-06-26 [B] Remove unnecessary, server objectionable parameters from batch upload iframe url (thread ID 80407) {ron4mac}
+2021-04-22 [M] Upgraded jQuery version to 1.12.4 and included migration script (1.4.1) {ron4mac}
+2021-03-21 [A] Added user login authorization hook for plugins {ron4mac}
+2021-02-23 [B] Correct javascript Array.find polyfill for conflict issues {ron4mac}
+2021-01-22 [M] Various code adjustments made for compatibility with PHP 8(.01) {ron4mac}
+2021-01-03 [B] Guard against array_keys failure (PHP8) caused by theme {ron4mac}
+2020-10-03 [B] Correct no plugin uninstall action for disabled plugins {ron4mac}
+2020-09-07 [M] Release of version 1.6.09 {ron4mac}
+2020-07-29 [B] Upload plugin upload_h5a fails to complete queue when uploading one at a time {ron4mac}
+2020-05-01 [B] Upload plugin upload_h5a fails to install if DB already has configuration {ron4mac}
+2020-04-30 [A] Provide themes with a method to request a body tag class based on current page {ron4mac}
+2020-04-28 [M] Cosmetic changes/corrections to admin tools, edit pics and contact {heismauri}
+2020-03-27 [B] Failure in include/archive.php due to __construct() changes {ron4mac}
+2020-03-23 [B] Use 'dbcharset' parameter when opening bridged database {ron4mac}
+2020-02-26 [O,M] Simlify log creation and display {ron4mac}
+2020-02-26 [M] Clean up code involved in PHP warnings {ron4mac}
+2020-02-25 [M] Remove use of deprecated *magic_quotes* functions {ron4mac}
+2020-02-07 [A] Provide themes with a method to use font icons {ron4mac}
+2020-02-07 [M] Clean up rating icon in pics edit {ron4mac}
+2020-02-05 [B] Change javascript 'zebra' code to apply to table cells instead of rows {ron4mac}
+2020-01-22 [B] Refresh form token when admin tools process for extra long times {ron4mac}
+2019-12-29 [A] Add bridge compatibility for SMF2.0.x versions greater than 2.0.15 {ron4mac}
+2019-12-07 [M] Update remaining old class constructors to new style {Dukecz}
+2019-11-08 [B] Abort install if no PHP XML parser cabability {ron4mac}
 2019-08-09 [B] Capture and display admin tool critical errors {ron4mac}
 2019-07-06 [B] Show hidden invalid fields when submitting admin config form {ron4mac}
 2019-06-05 [A] Updated Estonian language file (user contribution) {eenemeenemuu}

@@ -4,11 +4,11 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2019 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2021 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * include/themes.inc.php
- * @since  1.6.07
+ * @since  1.6.20
  */
 
 /////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@
       ***********************************/
 // ----------------------------------------------------------------------------- //
 
-if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');         //{THEMES}//
+defined('IN_COPPERMINE') or die('Not in Coppermine...');         //{THEMES}//
 
 if (!function_exists('assemble_template_buttons')) {  //{THEMES}
 /******************************************************************************
@@ -1521,7 +1521,7 @@ if (!function_exists('pageheader')) {  //{THEMES}
 ******************************************************************************/
 function pageheader($section, $meta = '')
 {
-    global $CONFIG, $THEME_DIR;
+    global $CONFIG, $THEME_DIR, $CPG_PHP_SELF;
     global $template_header, $lang_charset, $lang_text_dir;
 
     $custom_header = cpg_get_custom_include($CONFIG['custom_header_path']);
@@ -1546,6 +1546,10 @@ function pageheader($section, $meta = '')
         '{JAVASCRIPT}' => theme_javascript_head(),
         '{MESSAGE_BLOCK}' => theme_display_message_block(),
     );
+
+	if (defined('THEME_WANTS_BODY_CLASS')) {
+		$template_vars['{BODY_CLASS}'] = 'BC-'.basename($CPG_PHP_SELF,'.php');
+	}
 
     $template_vars = CPGPluginAPI::filter('theme_pageheader_params', $template_vars);
     echo template_eval($template_header, $template_vars);
@@ -1712,7 +1716,7 @@ if (!function_exists('theme_cpg_die')) {  //{THEMES}
 ** Section <<<theme_cpg_die>>> - START
 ******************************************************************************/
 // Function for showing error messages
-function theme_cpg_die($msg_code, $msg_text, $msg_string, $css_class = 'cpg_message_info', $error_file, $error_line, $output_buffer, $ob)
+function theme_cpg_die($msg_code, $msg_text, $msg_string, $css_class, $error_file, $error_line, $output_buffer, $ob)
 {
     global $CONFIG, $lang_cpg_die, $template_cpg_die;
 
@@ -1775,7 +1779,7 @@ if (!function_exists('theme_msg_box')) {  //{THEMES}
 ** Section <<<theme_msg_box>>> - START
 ******************************************************************************/
 // Function for displaying a message-box-like table
-function theme_msg_box($title, $msg_text, $css_class = 'cpg_message_info', $button_text, $button_link)
+function theme_msg_box($title, $msg_text, $css_class, $button_text, $button_link)
 {
     global $template_msg_box;
 
@@ -2850,13 +2854,13 @@ function theme_display_thumbnails(&$thumb_list, $nbThumb, $album_name, $aid, $ca
                 '{ALBUM_ID}'   => $aid,
                 '{CAT_ID}'     => ($cat > 0 ? $cat : $CURRENT_ALBUM_DATA['category']),
                 '{MODIFY_LNK}'     => $lang_common['album_properties'],
-                '{MODIFY_ICO}'     => cpg_fetch_icon('modifyalb', 1),
+                '{MODIFY_ICO}'     => cpg_fetch_icon('modifyalb', 0),
                 '{PARENT_CAT_LNK}' => $lang_common['parent_category'],
-                '{PARENT_CAT_ICO}' => cpg_fetch_icon('category', 1),
+                '{PARENT_CAT_ICO}' => cpg_fetch_icon('category', 0),
                 '{EDIT_PICS_LNK}'  => $lang_common['edit_files'],
-                '{EDIT_PICS_ICO}'  => cpg_fetch_icon('edit', 1),
+                '{EDIT_PICS_ICO}'  => cpg_fetch_icon('edit', 0),
                 '{ALBUM_MGR_LNK}'  => $lang_common['album_manager'],
-                '{ALBUM_MGR_ICO}'  => cpg_fetch_icon('alb_mgr', 1),
+                '{ALBUM_MGR_ICO}'  => cpg_fetch_icon('alb_mgr', 0),
             );
         } else {
             $param = array();
@@ -2982,7 +2986,7 @@ if (!function_exists('theme_display_film_strip')) {  //{THEMES}
 ** Section <<<theme_display_film_strip>>> - START
 ******************************************************************************/
 // Function to display the film strip
-function theme_display_film_strip(&$thumb_list, $nbThumb, $album_name, $aid, $cat, $pos, $sort_options, $mode = 'thumb', $date='', $filmstrip_prev_pos, $filmstrip_next_pos,$max_block_items,$thumb_width)
+function theme_display_film_strip(&$thumb_list, $nbThumb, $album_name, $aid, $cat, $pos, $sort_options, $mode, $date, $filmstrip_prev_pos, $filmstrip_next_pos, $max_block_items, $thumb_width)
 {
     global $CONFIG, $THEME_DIR;
     global $template_film_strip, $lang_film_strip, $lang_common, $pic_count,$mar_pic;
@@ -3279,6 +3283,9 @@ function theme_html_picture()
         $ctrl_offset['swf']=0;
         $ctrl_offset['rm']=0;
         $ctrl_offset_default=45;
+        if ($mime_content['player'] == 'HTMLV' || $mime_content['player'] == 'HTMLA') {
+            $ctrl_offset[$mime_content['extension']] = 0;
+        }
         $ctrl_height = (isset($ctrl_offset[$mime_content['extension']]))?($ctrl_offset[$mime_content['extension']]):$ctrl_offset_default;
         $image_size['whole']='width="'.$CURRENT_PIC_DATA['pwidth'].'" height="'.($CURRENT_PIC_DATA['pheight']+$ctrl_height).'"';
     }
@@ -3346,13 +3353,10 @@ function theme_html_picture()
         //PLUGIN FILTER
         $pic_html = CPGPluginAPI::filter('html_document', $pic_html);
     } else {
-        $autostart = ($CONFIG['media_autostart']) ? ('true'):('false');
-        $autoplay = '" autostart="'.$autostart.'" autoplay="'.$autostart.'" ';
-
         if ($mime_content['player'] == 'HTMLA') {
-            $pic_html  = '<audio controls="true" src="' . $picture_url . $autoplay . '></audio>';
+            $pic_html = '<audio controls ' . ($CONFIG['media_autostart'] ? 'autoplay ' : '') . 'src="' . $picture_url . '"></audio>';
         } elseif ($mime_content['player'] == 'HTMLV') {
-            $pic_html  = '<div class="video"><video controls="true" src="' . $picture_url . $autoplay . 'style="max-width:100%"></video></div>';
+            $pic_html = '<div class="video"><video controls ' . ($CONFIG['media_autostart'] ? 'autoplay ' : '') . 'src="' . $picture_url . '" style="max-width:100%"></video></div>';
         } else {
 
             $players['WMP'] = array('id' => 'MediaPlayer',
@@ -3396,7 +3400,7 @@ function theme_html_picture()
             }
 
             $pic_html  = '<object id="'.$player['id'].'" '.$player['data'].$player['clsid'].$player['codebase'].$player['mime'].$image_size['whole'].'>';
-            $pic_html .= "<param name=\"autostart\" value=\"$autostart\" /><param name=\"src\" value=\"". $picture_url . "\" />";
+            $pic_html .= "<param name=\"autostart\" value=\"".($CONFIG['media_autostart'] ? 'true' : 'false')."\" /><param name=\"src\" value=\"". $picture_url . "\" />";
             $pic_html .= '</object><br />' . $LINEBREAK;
         }
 
@@ -3526,6 +3530,7 @@ function theme_html_img_nav_menu() {
         $ecard_title = $lang_img_nav_bar['ecard_title'];
     } else {
         template_extract_block($template_img_navbar, 'ecard_button'); // added to remove button if cannot send ecard
+        $ecard_tgt = $ecard_title = '';
         /*
         $ecard_tgt = "javascript:alert('" . addslashes($lang_img_nav_bar['ecard_disabled_msg']) . "');";
         $ecard_title = $lang_img_nav_bar['ecard_disabled'];
@@ -3623,7 +3628,7 @@ function theme_html_rating_box()
         if ($CURRENT_PIC_DATA['owner_id'] == $USER_DATA['user_id'] && $USER_DATA['user_id'] != 0 && ($CONFIG['rate_own_files'] == 0 || $CONFIG['rate_own_files'] == 2 && !USER_IS_ADMIN)) {
             // user is owner
             $rate_title = $lang_rate_pic['forbidden'];
-        } elseif (!$result_votes->numRows() && !$result_vote_stats->numRows()) {
+        } elseif ((USER_ID && !$result_votes->numRows()) || !$result_vote_stats->numRows()) {
             // user hasn't voted yet, show voting things
             $rate_title = $lang_rate_pic['rate_this_pic'];
             $user_can_vote = 'true';
@@ -4143,7 +4148,7 @@ function theme_display_fullsize_pic()
     <body style="margin:0px; padding:0px; background-color: gray;">
 
 EOT;
-    if ($pic_html) {
+    if (!empty($pic_html)) {
         $fullsize_html .= $pic_html;
     } else {
         if ($CONFIG['transparent_overlay'] == 1) {

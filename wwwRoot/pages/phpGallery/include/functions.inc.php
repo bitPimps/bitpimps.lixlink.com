@@ -4,11 +4,11 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2022 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * include/functions.inc.php
- * @since  1.6.07
+ * @since  1.6.20
  */
 
 if (!function_exists('stripos')) {
@@ -541,11 +541,16 @@ function localised_date($timestamp, $datefmt)
     global $lang_month, $lang_day_of_week;
 
     $timestamp = localised_timestamp($timestamp);
+    // early use (logging) may not yet have language
+	if (empty($lang_day_of_week)) return date(DATE_RFC822, $timestamp);
 
-    $date = str_replace(array('%a', '%A'), $lang_day_of_week[(int)strftime('%w', $timestamp)], $datefmt);
-    $date = str_replace(array('%b', '%B'), $lang_month[(int)strftime('%m', $timestamp)-1], $date);
+	$dow = '\\' . implode('\\', str_split($lang_day_of_week[(int)date('w', $timestamp)]));
+    $frmt = str_replace(['l','D'], '+', $datefmt);
+    $mon = '\\' . implode('\\', str_split($lang_month[(int)date('m', $timestamp)-1]));
+    $frmt = str_replace(['M','F'], '=', $frmt);
+    $frmt = str_replace(['+','='], [$dow,$mon], $frmt);
 
-    return strftime($date, $timestamp);
+    return date($frmt, $timestamp);
 }
 
 /**
@@ -965,6 +970,7 @@ function load_template()
 
 function template_eval($template, $vars)
 {
+	if (!is_array($vars)) return $template;
     return str_replace(array_keys($vars), array_values($vars), $template);
 }
 
@@ -1381,7 +1387,7 @@ function get_pic_data($album, &$count, &$album_name, $limit1=-1, $limit2=-1, $se
         }
 
         $album_name    = $album_name_keyword['title'];
-        $album_keyword = addslashes($album_name_keyword['keyword']);
+        $album_keyword = $album_name_keyword['keyword'] ? addslashes($album_name_keyword['keyword']) : '';
 
         if (!empty($album_keyword)) {
             $keyword = "OR (keywords like '%$album_keyword%' $forbidden_set_string )";
@@ -2156,8 +2162,8 @@ function get_pic_pos($album, $pid)
         }
 
         $album_name_keyword = get_album_name($album);
-        //$album_name         = $album_name_keyword['title'];
-        $album_keyword      = addslashes($album_name_keyword['keyword']);
+        //$album_name = $album_name_keyword['title'];
+        $album_keyword = $album_name_keyword['keyword'] ? addslashes($album_name_keyword['keyword']) : '';
 
         if (!empty($album_keyword)) {
             $keyword = "OR (keywords like '%$album_keyword%' $forbidden_set_string )";
@@ -2379,7 +2385,7 @@ function get_pic_pos($album, $pid)
         }
 
         $get_pic_pos = true;
-        include('include/search.inc.php');
+        include 'include/search.inc.php';
 
         return $pos;
         break;
@@ -3089,7 +3095,7 @@ function display_thumbnails($album, $cat, $page, $thumbcols, $thumbrows, $displa
 
     $i = 0;
 
-    if (count($pic_data) > 0) {
+    if (is_array($pic_data) && $pic_data) {
 
         foreach ($pic_data as $key => $row) {
 
@@ -3767,8 +3773,8 @@ function& cpg_get_default_lang_var($language_var_name, $override_language = null
         $language = $override_language;
     }
 
-    include('lang/english.php');
-    include('lang/'.$language.'.php');
+    include 'lang/english.php';
+    include 'lang/'.$language.'.php';
 
     return $$language_var_name;
 } // function cpg_get_default_lang_var
@@ -3792,7 +3798,7 @@ function& cpg_lang_var($varname, $index = null)
 
     if (isset($lang_var)) {
         if (!is_null($index) && !isset($lang_var[$index])) {
-            include('lang/english.php');
+            include 'lang/english.php';
             return $lang_var[$index];
         } elseif (is_null($index)) {
             return $lang_var;
@@ -3800,7 +3806,7 @@ function& cpg_lang_var($varname, $index = null)
             return $lang_var[$index];
         }
     } else {
-        include('lang/english.php');
+        include 'lang/english.php';
         return $lang_var;
     }
 } // function cpg_lang_var
@@ -4253,6 +4259,7 @@ function languageSelect($parameter)
     }
     $results->free();
 
+	$lang_language_data = [];
     // get list of available languages
     $results = cpg_db_query("SELECT * FROM {$CONFIG['TABLE_LANGUAGE']}");
     while ( ($row = $results->fetchArray()) ) {
@@ -4745,7 +4752,7 @@ function cpg_get_custom_include($path = '')
     }
 
     ob_start();
-    include($path);
+    include $path;
     $return = ob_get_contents();
     ob_end_clean();
 
@@ -4875,7 +4882,7 @@ function replace_forbidden($str)
      * Transliteration
      */
     if ($condition['transliteration']) {
-        require_once('include/transliteration.inc.php');
+        require_once 'include/transliteration.inc.php';
         $return = transliteration_process($return, '_');
     }
 
@@ -5685,12 +5692,24 @@ function rebuild_tree($parent = 0, $left = 0, $depth = 0, $pos = 0)
 function cpg_fetch_icon($icon_name, $config_level = 0, $title = '', $check = '', $extension = 'png', $type = 0)
 {
     global $CONFIG, $ICON_DIR;
+    static $fonticons;
 
     if ($CONFIG['enable_menu_icons'] < $config_level) {
         return;
     }
 
     $return = '';
+
+	// provide themes with a way to use font icons
+	if (defined('THEME_USES_ICON_FONT')) {
+		if (empty($fonticons)) include_once $ICON_DIR . 'icons.php';
+		if (!empty($fonticons[$icon_name])) {
+			if (!empty($fonticons['_beg'])) $return .= $fonticons['_beg'];
+			$return .= $fonticons[$icon_name];
+			if (!empty($fonticons['_end'])) $return .= $fonticons['_end'];
+			return $return;
+		}
+	}
 
     // sanitize extension
     if ($extension != 'jpg' && $extension != 'gif') {
@@ -5705,6 +5724,11 @@ function cpg_fetch_icon($icon_name, $config_level = 0, $title = '', $check = '',
             return;
         }
     }
+
+	// fall back to distribution icons for missing theme icons
+	if ($ICON_DIR != 'images/icons/' && !file_exists($relative_path)) {
+		$relative_path = 'images/icons/' . $icon_name . '.' . $extension;
+	}
 
     $return .= '<img src="';
     $return .= $relative_path;
@@ -5749,7 +5773,7 @@ function cpg_float2decimal($float)
     // initialize some vars start
     $return = '';
     $fit    = 3; // how many digits to use
-    $fill   = "0"; // what to fill
+    $fill   = '0'; // what to fill
     // initialize some vars end
 
     $remainder = floor($value);
@@ -5763,7 +5787,7 @@ function cpg_float2decimal($float)
 
     $return = $remainder . $return;
 
-    if ($decimal_page != 0) {
+    if ($decimal_page) {
         $return .= $lang_decimal_separator[1] . $decimal_page;
     }
 
@@ -5850,7 +5874,7 @@ if (!function_exists('cpg_get_available_languages')) {
         $results->free();
 
         unset($row);
-        if (count($language_array) == 0) {
+        if (empty($language_array)) {
             unset($language_array);
             $language_array = form_get_foldercontent('lang/', 'file', 'php');
         }
@@ -6855,9 +6879,9 @@ function cpg_load_plugin_language_file($path) {
     if (file_exists('./plugins/'.$path.'/lang/english.php')) {
         $lg = 'lang_plugin_'.$path;
         global $$lg;
-        include ('./plugins/'.$path.'/lang/english.php');
+        include './plugins/'.$path.'/lang/english.php';
         if ($CONFIG['lang'] != 'english' && file_exists('./plugins/'.$path.'/lang/'.$CONFIG['lang'].'.php')) {
-            include ('./plugins/'.$path.'/lang/'.$CONFIG['lang'].'.php');
+            include './plugins/'.$path.'/lang/'.$CONFIG['lang'].'.php';
         }
     }
 }
@@ -6882,7 +6906,7 @@ function cpg_get_user_data($sql_user_email, $password) {
     $password_params = $result->fetchAssoc(true);
 
     // Check for user in users table
-    $sql = "SELECT user_id, user_name, user_password FROM {$cpg_udb->usertable} WHERE $sql_user_email ";
+    $sql = "SELECT user_id, user_name, user_password, user_password_salt FROM {$cpg_udb->usertable} WHERE $sql_user_email ";
     if (!$password_params['user_password_salt']) {
         $sql .= "AND BINARY user_password = '".md5($password)."'";
     } elseif (!cpg_password_validate($password, $password_params)) {

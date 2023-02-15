@@ -4,14 +4,14 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2018 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2021 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * bridge/udb_base.inc.php
- * @since  1.6.04
+ * @since  1.6.10
  */
 
-if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
+defined('IN_COPPERMINE') or die('Not in Coppermine...');
 
 if (isset($bridge_lookup)) {
 	return;
@@ -37,13 +37,15 @@ class core_udb
 		} else {
 			// Connect to udb database if necessary
 			if (!$this->can_join_tables) {
-				$this->dbObj = new CPG_Dbase( array(
-						'dbtype'	=> $CONFIG['dbtype'],
-						'dbserver'	=> $this->db['host'],
-						'dbuser'	=> $this->db['user'],
-						'dbpass'	=> $this->db['password'],
-						'dbname'	=> $this->db['name']
-						));
+				$dbparms = array(
+					'dbtype'	=> $CONFIG['dbtype'],
+					'dbserver'	=> $this->db['host'],
+					'dbuser'	=> $this->db['user'],
+					'dbpass'	=> $this->db['password'],
+					'dbname'	=> $this->db['name']
+					);
+				if (!empty($CONFIG['dbcharset'])) $dbparms['dbcharset'] = $CONFIG['dbcharset'];
+				$this->dbObj = new CPG_Dbase($dbparms);
 				if (!$this->dbObj->isConnected()) {
 					die("<strong>Coppermine critical error</strong>:<br />Unable to connect to UDB database !<br /><br />Error: <strong>" . $this->dbObj->getError(false, true) . "</strong>");
 				}
@@ -114,19 +116,21 @@ class core_udb
 		// For error checking
 		$CONFIG['TABLE_USERS'] = '**ERROR**';
 
-		define('USER_ID', $USER_DATA['user_id']);
-		define('USER_NAME', addslashes($USER_DATA['user_name']));
-		define('USER_GROUP', $USER_DATA['group_name']);
-		define('USER_GROUP_SET', $user_group_set);
-		define('USER_IS_ADMIN', $USER_DATA['has_admin_access']);
-		define('USER_CAN_SEND_ECARDS', (int)$USER_DATA['can_send_ecards']);
-		define('USER_CAN_RATE_PICTURES', (int)$USER_DATA['can_rate_pictures']);
-		define('USER_CAN_POST_COMMENTS', (int)$USER_DATA['can_post_comments']);
-		define('USER_CAN_UPLOAD_PICTURES', (int)$USER_DATA['can_upload_pictures']);
-		define('USER_CAN_CREATE_ALBUMS', ((int)$USER_DATA['can_create_albums'] || (int)$USER_DATA['can_create_public_albums']));
-		define('USER_CAN_CREATE_PRIVATE_ALBUMS', (int)$USER_DATA['can_create_albums']);
-		define('USER_CAN_CREATE_PUBLIC_ALBUMS', (int)$USER_DATA['can_create_public_albums']);
-		define('USER_ACCESS_LEVEL', (int)$USER_DATA['access_level']);
+		if (!defined('USER_ID')) {
+			define('USER_ID', $USER_DATA['user_id']);
+			define('USER_NAME', addslashes($USER_DATA['user_name']));
+			define('USER_GROUP', $USER_DATA['group_name']);
+			define('USER_GROUP_SET', $user_group_set);
+			define('USER_IS_ADMIN', $USER_DATA['has_admin_access']);
+			define('USER_CAN_SEND_ECARDS', (int)$USER_DATA['can_send_ecards']);
+			define('USER_CAN_RATE_PICTURES', (int)$USER_DATA['can_rate_pictures']);
+			define('USER_CAN_POST_COMMENTS', (int)$USER_DATA['can_post_comments']);
+			define('USER_CAN_UPLOAD_PICTURES', (int)$USER_DATA['can_upload_pictures']);
+			define('USER_CAN_CREATE_ALBUMS', ((int)$USER_DATA['can_create_albums'] || (int)$USER_DATA['can_create_public_albums']));
+			define('USER_CAN_CREATE_PRIVATE_ALBUMS', (int)$USER_DATA['can_create_albums']);
+			define('USER_CAN_CREATE_PUBLIC_ALBUMS', (int)$USER_DATA['can_create_public_albums']);
+			define('USER_ACCESS_LEVEL', (int)$USER_DATA['access_level']);
+		}
 
 		$this->session_update();
 	}
@@ -380,9 +384,7 @@ class core_udb
 		$USER_DATA['can_see_all_albums'] = $USER_DATA['has_admin_access'];
 		$USER_DATA["group_id"] = $pri_group;
 		$USER_DATA['groups'] = $groups;
-		if (get_magic_quotes_gpc() == 0) {
-			$USER_DATA['group_name'] = cpg_db_escape_string($USER_DATA['group_name']);
-		}
+		$USER_DATA['group_name'] = cpg_db_escape_string($USER_DATA['group_name']);
 		return($USER_DATA);
 	}
 	// end function get_user_data

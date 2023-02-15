@@ -4,17 +4,18 @@
  *
  * v1.0 originally written by Gregory Demar
  *
- * @copyright  Copyright (c) 2003-2019 Coppermine Dev Team
+ * @copyright  Copyright (c) 2003-2022 Coppermine Dev Team
  * @license    GNU General Public License version 3 or later; see LICENSE
  *
  * include/init.inc.php
- * @since  1.6.07
+ * @since  1.6.21
  */
 
-define('COPPERMINE_VERSION', '1.6.07');
+define('COPPERMINE_VERSION', '1.6.21');
 define('COPPERMINE_VERSION_STATUS', 'stable');
 // Define path to jQuery for this version of Coppermine
-define('CPG_JQUERY_VERSION', 'js/jquery-1.7.2.js');
+define('CPG_JQUERY_VERSION', 'js/jquery-1.12.4.js');
+define('CPG_JQUERY_MIGRATE', 'js/jquery-migrate-1.4.1.js');
 
 if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
@@ -57,10 +58,6 @@ $HTML_SUBST = array('&' => '&amp;', '"' => '&quot;', '<' => '&lt;', '>' => '&gt;
 
 // Store all reported errors in the $cpgdebugger
 require_once('include/debugger.inc.php');
-
-if (get_magic_quotes_runtime()) {
-    set_magic_quotes_runtime(0);
-}
 
 // used for timing purposes
 $query_stats = array();
@@ -172,8 +169,8 @@ require 'include/database/'.$db_ext.'/dbase.inc.php';
 $CPGDB = new CPG_Dbase($CONFIG);
 
 if (!$CPGDB->isConnected()) {
-    log_write("Unable to connect to database: " . $CPGDB->getError(), CPG_DATABASE_LOG);
-    die('<strong>Coppermine critical error</strong>:<br />Unable to connect to database !<br /><br />'.$CPGDB->db_type.' said: <strong>' . $CPGDB->getError() . '</strong>');
+    log_write("Unable to connect to database: " . $CPGDB->getError(false,true), CPG_DATABASE_LOG);
+    die('<strong>Coppermine critical error</strong>:<br />Unable to connect to database !<br /><br />'.$CPGDB->db_type.' said: <strong>' . $CPGDB->getError(false,true) . '</strong>');
 }
 
 // Retrieve DB stored configuration
@@ -193,7 +190,7 @@ if ($CONFIG['keyword_separator'] == '%20') {
 }
 
 if ($CONFIG['log_mode']) {
-    spring_cleaning('logs', ($CONFIG['log_retention'] > 0 ? $CONFIG['log_retention'] : CPG_DAY * 2));
+    spring_cleaning('logs', (!empty($CONFIG['log_retention']) ? $CONFIG['log_retention'] : CPG_DAY * 2));
 }
 
 // Record User's IP address
@@ -404,6 +401,7 @@ if (USER_ID > 0) {
 
 // Include the jquery javascript library. Jquery will be included on all pages.
 js_include(CPG_JQUERY_VERSION);
+js_include(CPG_JQUERY_MIGRATE);
 
 // Include the scripts.js javascript library that contains coppermine-specific
 // JavaScript that is being used on all pages.

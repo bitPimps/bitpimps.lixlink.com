@@ -1,25 +1,23 @@
 <?php
-/*************************
-  Coppermine Photo Gallery
-  ************************
-  Copyright (c) 2003-2016 Coppermine Dev Team
-  v1.0 originally written by Gregory Demar
-
-  This program is free software; you can redistribute it and/or modify
-  it under the terms of the GNU General Public License version 3
-  as published by the Free Software Foundation.
-
-  ********************************************
-  Coppermine version: 1.6.03
-  $HeadURL$
-**********************************************/
+/**
+ * Coppermine Photo Gallery
+ *
+ * v1.0 originally written by Gregory Demar
+ *
+ * @copyright  Copyright (c) 2003-2021 Coppermine Dev Team
+ * @license    GNU General Public License version 3 or later; see LICENSE
+ *
+ * profile.php
+ * @since  1.6.10
+ */
 
 define('IN_COPPERMINE', true);
 define('PROFILE_PHP', true);
 define('USERMGR_PHP', true);
+define('SMILIES_PHP', true);
 
-require('include/init.inc.php');
-include("include/smilies.inc.php");
+require 'include/init.inc.php';
+include 'include/smilies.inc.php';
 
 set_js_var('lang_really_delete', $lang_register_php['really_delete']);
 js_include('js/profile.js');
@@ -577,6 +575,7 @@ EOT;
                         '</span>'.
                         '</a>';
     } else {
+    	$lastUploadByText = '';
         $lastUploadText = $lang_register_php['none'];
     }
 
