@@ -1,4 +1,0 @@
-AuthName "admin"
-AuthType Basic
-AuthUserFile /home/httpd/vhosts/lixlink.com/subdomains/bitpimps/httpdocs/admin/.htpasswd
-Require valid-user
