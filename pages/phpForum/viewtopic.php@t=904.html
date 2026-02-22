@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Painting Flames and Graphics 101 - Lesson 1: Basic Flames - bitPimps.lixlink.com</title>
+
+
+	<link rel="canonical" href="viewtopic.php@t=904.html">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css@assets_version=12.css" rel="stylesheet">
+<link href="styles/bitpimps/theme/stylesheet.css@assets_version=12.css" rel="stylesheet">
+<link href="styles/bitpimps/theme/en_us/stylesheet.css@assets_version=12.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/bitpimps/theme/tweaks.css?assets_version=12" rel="stylesheet">
+<![endif]-->
+
+
+
+
+<link href="../../styles.css" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PTS2QFL');</script>
+<!-- End Google Tag Manager -->
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTS2QFL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="container">
+	<div id="header">
+		<div id="logo"><a href="https://bitpimps.lixlink.com/"><img src="../../images/bitpimps.gif" alt="bitPimps Custom Modifications" name="img_logo" width="170" height="72" border="0" id="img_logo" /></a></div>
+		<div id="nav">
+			<ul>
+				<li><a href="https://bitpimps.lixlink.com/index.php" title="Home">Home</a></li>
+				<li><a href="https://bitpimps.lixlink.com/articles/index.php" title="Articles">Articles</a></li>
+				<li><a href="https://bitpimps.lixlink.com/pages/phpGallery/index.php" title="Galleries">Galleries</a></li>
+				<li><a href="index.php.html" title="Forums" style="color:#FFDDAB; background-color:#929292;">Forums</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="container_body">
+		<div id="content">
+		
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+		<a id="logo" class="logo" href="index.php.html" title="Board index">
+					<span class="site_logo"></span>
+				</a>
+				<h1>bitPimps.lixlink.com</h1>
+				<p>Custom Modifications</p>
+				<p class="skiplink"><a href="viewtopic.php@t=904.html#start_here">Skip to content</a></p>
+			</div>
+
+									
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu hidden" data-skip-responsive="true">
+			<a href="viewtopic.php@t=904.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="app.php/help/faq.html" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=login&amp;redirect=viewtopic.php%3Ft%3D904" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index.php.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">Board index</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="62"><a itemprop="item" href="viewforum.php@f=62.html"><span itemprop="name">bitPimps Hood</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="48"><a itemprop="item" href="viewforum.php@f=48.html"><span itemprop="name">Paint / Decal / Photo Discussion</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php@f=48&amp;t=904.html">Painting Flames and Graphics 101 - Lesson 1: Basic Flames</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Got a question about painting or decals? Using an air brush or rattle cans? Wanna learn how to paint flames and take a good picture of it? It's all in here.<br /></div>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=reply&amp;f=48&amp;t=904" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://bitpimps.lixlink.com/pages/phpForum/viewtopic.php?f=48&amp;t=904&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+	
+			<div class="pagination">
+			55 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php@f=48&amp;t=904&amp;start=15.html" role="button">2</a></li>
+				<li><a class="button" href="viewtopic.php@f=48&amp;t=904&amp;start=30.html" role="button">3</a></li>
+				<li><a class="button" href="viewtopic.php@f=48&amp;t=904&amp;start=45.html" role="button">4</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php@f=48&amp;t=904&amp;start=15.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+		</div>
+
+
+
+
+			<div id="p13134" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13134">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13134">
+
+					<h3 class="first">
+						<a href="viewtopic.php@p=13134.html#p13134">Painting Flames and Graphics 101 - Lesson 1: Basic Flames</a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13134" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13134.html#p13134" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-06-22T23:21:52+00:00">Sun Jun 22, 2003 6:21 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Ok, so I wasn't sure how to cover everything at once, and not get too complicated, so I decided to break it down into a series. <br>
+<br>
+In this first lesson we'll cover preparation, basic painting technique, and laying flames in a single base color, and adding body color last.<br>
+<br>
+I'm going to try to make this as easy as possible for you, but it is going to take some patience, and practice, to develop the  skills. So the key is to relax. Don't do this right after work or school when your all stressed out. Throw on some tunes, get in a groove, mellow out, and take your time. You going to need about 4-5 hours, so make sure you have the time before you start.<br>
+<br>
+<strong class="text-strong"><span style="font-size:150%;line-height:116%">Step 1 - Preparation</span></strong><br>
+<br>
+<strong class="text-strong">Items you'll need:</strong><br>
+<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step01.jpg" class="postimage" alt="Image"><br>
+<br>
+1. <strong class="text-strong">One or two colors of paint.</strong> - I really reccomend acrylic laquer. You get it in the automotive section as touch up paint. I reccomend it because it dries thinner and glossier than enamel. Some cons that I'd like to de-bunk are; It's harder to work with. What we're talking about here is a longer drying and cureing time. Enamel, 5 minutes and it's safe to recoat, 20-30, ands it's safe to handle. Acrylic Laquer, 10-15 to recoat, and 45-60 minutes to safely handle. See, you just have to wait a little longer, and the automotive touch up paints have fan tips that lay really thin even coats, so you really get much more professional results. The other thing I believed until recently, is that it is more expensive. Usually this is true, but I bought these little cans at Walmart for less than $3 a piece in the auto section. That's the same as they charge for the model paint. <br>
+<br>
+If you want to use you current body color for the flames you only need one color, and can skip Step 2 - Base coat. If you using your current color, careful not to sant through in Step 1 - Preperation.<br>
+<br>
+You'll want to pick a top coat color that works well with the base coat, especially if it semi-transparent. If say you wanted to use a blue over a red, and not have it come out purple, then you would have to lay a coat of silver or white first, and this will build up the edges more, and may cause a light ring around the edge. Something I just don't reccomend.<br>
+<br>
+2. <strong class="text-strong">Clear coat</strong> - You'll notice that I'm using a different brand of clear coat than color coat. That is something you want to avoid, but I just love the gloss of that candy clear, so I'm bending the rules, but I have had some issues with paint running into crevices, and getting bubbles, so I'm extra careful about using this stuff with the other brand.<br>
+<br>
+3. <strong class="text-strong">A solvent of some sort</strong> - I used Mineral Spirits, you could also use denatured alcohol, or Naptha (lighter fluid). I don't reccomend using dish detergent, in this case, because I'm going be having you use this stuff between coats, and after masking.<br>
+<br>
+4. <strong class="text-strong">Masking tape</strong> - I used some 1" 3M stuff. Anything will do, the thinner the better, and if you have a sheet of masking film, that will work even better.<br>
+<br>
+5. <strong class="text-strong">Exacto blade</strong> - Obviously, this is important. You'll need fresh blades too.<br>
+<br>
+6. <strong class="text-strong">A Body</strong> - I chose the Zip Zap Challenger for this one, because the Zip Zap has a larger door than bits, making this much easier on first timers, and also because flames really are more at home on American Muscle, than import tuners.<img class="smilies" src="images/smilies/icon_wink.gif" width="15" height="15" alt=";)" title="Wink"><br>
+<br>
+7. <strong class="text-strong">Sandpaper</strong> - 320 - 400 grit, to rough up the surface. I used 320.<br>
+<br>
+8. <strong class="text-strong">A piece of glass</strong> - I just bought a 8x10 picture frame from the dollar store, and got the glass out of that. Wrap the edges with masking tape so you don't cut yourself, and I stuck little pieces of felt on the corners of the back, so it will be esier to turn the glass on the table when I'm cutting curves.<br>
+<br>
+9. <strong class="text-strong">A piece of photo paper</strong> - More on this later. Skip this if you have masking film.<br>
+<br>
+Also needed but not shown:<br>
+<strong class="text-strong">Lint free cloth</strong> - You'l need this to wipe the solvents with. Paper towels leave little fuzzies behind, so find something that does not leave lint. I use the disposable pink cleaning cloths.<br>
+<br>
+<strong class="text-strong">Newspaper</strong> - So you don't make a mess out of your painting area.<br>
+<br>
+<strong class="text-strong">Time to start</strong><br>
+<br>
+Now by this point you should have all your materials gathered, have an area prepared, be calm, relaxed, and ready to get your groove on.<br>
+<br>
+Before you do anything, go to the kitchen, and wash your hands with dishwashing soap. Get your hands good and clean to minimize oils from your hands. <br>
+<br>
+Now wipe your body down with your solvent. Since I went with Mineral Spirits, that what I'll refer to them as from now on.<br>
+<br>
+Now your going to mask off you windows, and any details that you don't want to redo later. I'm having you do this first so they don't get scratched when we sand. Press the tape into the crevices with your fingernail, use that as a guideline for your Exacto blade. After you cut it out, rub the tape down really good with the back of your fingernaill, and use the tip of your fingernail to get it into the crevices..<br>
+<br>
+Now your going to give it quick scuffing with the sandpaper. You don't have to be too thorough, just rough it up a bit. This helps the paint stick, and level out better. If you happen to be painting a clone body, I've noticed they don't like taking paint, and you'll need to give it a thorough sanding.<br>
+<br>
+Wipe it down with mineral spirits again, to remove any oils you might have just got on it. <br>
+<br>
+You should now be ready to paint, and looking about like this:<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step02.jpg" class="postimage" alt="Image"><br>
+<br>
+<strong class="text-strong"><span style="font-size:150%;line-height:116%">Step 2 - Laying the base coat</span></strong><br>
+<br>
+Now your going to need to get ready to paint. Have an area cleared off on your porch. Tape your newspaper down, so a sudden breeze doesn't blow it into your fresh paint. A little trick that I learned at TRC is to stick your bit bodies on top of  pop bottle half full of water. That way it's off the ground, and the weight of the water keeps it from blowing away.<br>
+<br>
+I like to soak my cans of paint in warm, but not too hot , water for about 10-15 minutes. It causes the paint to lay thinner,and more even.<br>
+<br>
+Shake your can thoroughly, for about 2 minutes.<br>
+<br>
+Now you start laying coats. Try not to cover it on your first coat, it should still be semi transparent. Wait about 10-15 minutes between coats, and lay 2 or 3 coats, untill it looks even. Like this:<br>
+<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step03.jpg" class="postimage" alt="Image"><br>
+<br>
+Now give it about an hour to dry.<br>
+<br>
+<strong class="text-strong"><span style="font-size:150%;line-height:116%">Step 3 - Making your flame mask</span></strong><br>
+<br>
+Now while your body is drying, you'll want to make your flame mask.<br>
+<br>
+To make this as easy as possible for you, I'm providing you with the flame graphic. You can get the flame graphic ---&gt;<a href="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/flames_stencil.jpg" class="postlink"><strong class="text-strong">HERE</strong></a>&lt;---  This was designed for the Dodge body, but should work on most Zip zaps, if you wanted to use it for a bit, you should be able to resize and proportion it in your favorite paint program.<br>
+<br>
+If you have masking film, just print that graphic straight to the film, if you using masking tape like me, then print the graphic to the photo paper, to get an idea exactly where the flames going to be. Then stick a piece of masking tape over the flame, like this:<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step04.jpg" class="postimage" alt="Image"><br>
+<br>
+Now print it again on the masking tape, and it should look this:<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step05.jpg" class="postimage" alt="Image"><br>
+<br>
+Give it a minute or two for the ink to dry, then carefully peel the tape off and stick it to your glass.<br>
+<br>
+You're going to now start cutting the flames, so go ahead and put a a fresh blade on your exacto knife. It is very important to relax at this point. If you jam your blade into the glass, the fine tip is going snap, and you'll have a hell of a time cutting then.<br>
+<br>
+The knife is going to try to guide you in a straight line, you are going have to force it to cut curves. Try to cut in one motion, turning the glass and your hand at the same time to make tight curves. That's the reason for the felt. Try your best to start and stop on the tips of the flames. You'll want to cut just outside of the black line, because the knife cut is thinner than your pen line, and that gives you a better guide. Cut past the tips of the flames, also because the knife line is thinner than the pen tip so you get nice sharp tips, and not blunt ones on your flames. Also so you know it's cut thoroughly, and doesn't rip when you take it apart.<br>
+<br>
+When you get done it be lookin something about like this:<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step06.jpg" class="postimage" alt="Image"><br>
+<br>
+Notice now you have a inner, and outer flame. We'll be using the inner flame for this project, but feel free to use the outer flame to mask another project. We'll be getting more into what we can do with that later.<br>
+<br>
+Now very very carefully peel the flames away from the glass. You going to end up with a curled up mess, and I find this part to be the most difficult, and frustrating.<br>
+<br>
+You going to have to try to get it lined up on the body. The best suggestion I can give you is stick one end about where you think it should be, and then hold it down with one thumb, while you get the other end lined up, then hold that end down while you get the first end lined up. Repeat as neccesary. Pick a key spot, like some where on the wheel well to help you identify where the flame goes, and  line up the second side faster.<br>
+<br>
+When you get the flames alll lined up on the car rub it down really good, and use the tip of your finger nail to rub it into door lines, and crevices, and wipe with mineral spirits.<br>
+<br>
+Now your ready to lay your top coat and you should be looking about like this:<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step07.jpg" class="postimage" alt="Image"><br>
+<br>
+I also masked off the old Dodge graphic, so it'll be in gold too. To help balance out the flames, and lend some product identity.<br>
+<br>
+<strong class="text-strong"><span style="font-size:150%;line-height:116%">Step 4 - Top Coat</span></strong><br>
+<br>
+Lay your top coat the same as the base, but be extra careful to lay the first couple coats really thin, so they seal the edges, and your flames  don't bleed. Lay 2 or 3 coats until you have even coverage.<br>
+<br>
+You should be lookin about like this:<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step08.jpg" class="postimage" alt="Image"><br>
+<br>
+Let it dry for about an hour, and you'll be ready to clear coat.<br>
+<br>
+<strong class="text-strong">Step 5 - Clear Coat</strong><br>
+<br>
+After you've let the body dry, it's time to remove the masking tape. This is where you a want to pray to your god, rub a lucky penny, use telepathy, or do whatever you have to do to swing luck your way, and not get bleeds.<br>
+<br>
+Peel the tape away slowly and carefully or you might take chunks of paint with it. When you get it all off, it should be looking about done like this:<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step09.jpg" class="postimage" alt="Image"><br>
+<br>
+Now you just need to clear coat it. Wipe it down with mineral spirits. Like the other coats lay thin coats first, then after 2 or 3 thin coats lay a heavy coat to even it out.<br>
+<br>
+Let it dry for a few hours, throw in some last minute details, and your done!<br>
+<br>
+You should be pimpin' like this now:<br>
+<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step10.jpg" class="postimage" alt="Image"><br>
+<br>
+<img src="http://bitpimps.lixlink.com/images/article_images/mods/flames_crazydave/step11.jpg" class="postimage" alt="Image"><br>
+<br>
+In lesson 2 I will be covering more advanced techniques, such as fades, and making your flames wrap around the hood, but here's the deal, I'm going to be watching over in Flossin' Da City for some pimp ass flames jobs. As soon as I start to see them, I'll get to work on lesson 2.<br>
+<br>
+Hope this works for guys, and hope to be seeing your work soon!</div>
+
+			
+			
+													<div class="notice">
+					Last edited by <a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a> on Mon Jun 23, 2003 2:31 am, edited 8 times in total.
+									</div>
+			
+									<div id="sig13134" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13137" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13137">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=72" class="username">cj</a>							</dt>
+
+						<dd class="profile-rank">Ex-Shack ZipPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 935</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu May 01, 2003 7:18 pm</dd>		
+		
+																										<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Cruisen' in TN</dd>
+							
+							<dd class="profile-contact">
+				<strong>Contact:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="viewtopic.php@t=904.html#" class="dropdown-trigger" title="Contact cj">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contact cj</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="https://www.icq.com/people/5507335/" title="ICQ">
+										<span class="contact-icon phpbb_icq-icon">ICQ</span>									</a>
+																																																<a href="http://www.cjshobbies.net" title="Website">
+										<span class="contact-icon phpbb_website-icon">Website</span>									</a>
+																																																<a href="ymsgr:sendim?cjellis@yahoo.com" title="Yahoo Messenger" class="last-cell">
+										<span class="contact-icon phpbb_yahoo-icon">Yahoo Messenger</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13137">
+
+					<h3 >
+						<a href="viewtopic.php@p=13137.html#p13137">Re: Painting Flames and Graphics 101 - Lesson 1: Basic Flame</a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13137" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13137.html#p13137" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=72" class="username">cj</a></strong> &raquo; </span><time datetime="2003-06-22T23:50:24+00:00">Sun Jun 22, 2003 6:50 pm</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>crazydave wrote:</cite><strong class="text-strong"><span style="font-size:150%;line-height:116%">Step 3 - Making your flame mask</span></strong><br>
+<br>
+Now while your body is drying, you'll want to make your flame mask.<br>
+<br>
+To make this as easy as possible for you, I'm providing you with the flame graphic. You can get the flame graphic ---&gt;<a href="http://erinsbaby.com/davesstuff/images/flame/flame002.jpg" class="postlink"><strong class="text-strong">HERE</strong>&lt;---</a> This was designed for the Dodge body, but should work on most Zip zaps, if you wanted to use it fro a bit, you should be able to resize and proportion it in your favorite paint program.
+</div></blockquote>
+
+Proper URL for the flame Mask ---&gt;<a href="http://erinsbaby.com/davesstuff/images/flame/flame004.jpg" class="postlink"><strong class="text-strong">HERE</strong>&lt;---</a> <br>
+<br>
+Fixed it for you dave.</div>
+
+			
+			
+									
+									<div id="sig13137" class="signature"><a href="http://www.cjshobbies.net/" class="postlink">CJsHobbies.net</a> | <a href="http://losing2live.org" class="postlink">Losing to Live</a><br>
+<img src="http://www.clicksmilies.com/s1106/starwars/star-wars-smiley-023.gif" class="postimage" alt="Image"></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13139" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13139">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13139">
+
+					<h3 >
+						<a href="viewtopic.php@p=13139.html#p13139"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13139" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13139.html#p13139" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-06-23T00:02:18+00:00">Sun Jun 22, 2003 7:02 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Thanks man. I typed alot, I was bound to miss something.<br>
+<br>
+I fixed the link in my post also.</div>
+
+			
+			
+									
+									<div id="sig13139" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13142" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13142">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=2" style="color: #3A4942;" class="username-coloured">CaboWabo</a>							</dt>
+
+						<dd class="profile-rank">Site Admin</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 10259</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue Dec 10, 2002 4:05 pm</dd>		
+		
+																<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> The Adult Table</dd>
+							
+							<dd class="profile-contact">
+				<strong>Contact:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="viewtopic.php@t=904.html#" class="dropdown-trigger" title="Contact CaboWabo">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contact CaboWabo</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://bitpimps.lixlink.com" title="Website" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">Website</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13142">
+
+					<h3 >
+						<a href="viewtopic.php@p=13142.html#p13142"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13142" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13142.html#p13142" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=2" style="color: #3A4942;" class="username-coloured">CaboWabo</a></strong> &raquo; </span><time datetime="2003-06-23T01:10:30+00:00">Sun Jun 22, 2003 8:10 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Holy schizza!<br>
+Dave that tut's da bomb yo!<br>
+thanks mang, I know one day I'm gonna be using this like a mofo.<br>
+<br>
+great job dudeman.</div>
+
+			
+			
+									
+									<div id="sig13142" class="signature"><blockquote class="uncited"><div>Dear Life Cereal, Where do you get off? Part of a balanced breakfast and delicious? Who do you think you are? By now you may have guessed I'm speaking ironically and have nothing but good things to say about what you do. Life cereal do not change a thing.</div></blockquote></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13144" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13144">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=16" class="avatar"><img class="avatar" src="https://bitpimps.lixlink.com/pages/phpForum/download/file.php?avatar=16.gif" width="80" height="65" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=16" class="username">hogjowlz</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 5014</dd>		<dd class="profile-joined"><strong>Joined:</strong> Wed Feb 19, 2003 4:05 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> uranus</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13144">
+
+					<h3 >
+						<a href="viewtopic.php@p=13144.html#p13144"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13144" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13144.html#p13144" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=16" class="username">hogjowlz</a></strong> &raquo; </span><time datetime="2003-06-23T01:27:22+00:00">Sun Jun 22, 2003 8:27 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">now that ive figured out how to paint these things with spraypaint and have it look good its time to follow dave's instructions.<br>
+<br>
+thanks man</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13145" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13145">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=90" class="username">Aquarius</a>							</dt>
+
+						<dd class="profile-rank">bitThug</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 97</dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon May 12, 2003 11:06 pm</dd>		
+		
+																					<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Pimpin it in O-Town(Orlando)</dd>
+							
+							<dd class="profile-contact">
+				<strong>Contact:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="viewtopic.php@t=904.html#" class="dropdown-trigger" title="Contact Aquarius">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contact Aquarius</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://www.classic-rc.tk/" title="Website">
+										<span class="contact-icon phpbb_website-icon">Website</span>									</a>
+																																																<a href="ymsgr:sendim?Pixel Cubed" title="Yahoo Messenger" class="last-cell">
+										<span class="contact-icon phpbb_yahoo-icon">Yahoo Messenger</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13145">
+
+					<h3 >
+						<a href="viewtopic.php@p=13145.html#p13145"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13145" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13145.html#p13145" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=90" class="username">Aquarius</a></strong> &raquo; </span><time datetime="2003-06-23T01:28:17+00:00">Sun Jun 22, 2003 8:28 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Hey dave how much would you charge to do that with a black with neon green flames to a skyline that I would ship to you with the money?</div>
+
+			
+			
+									
+									<div id="sig13145" class="signature"><img src="http://acidinvader.20megsfree.com/sig.jpg" class="postimage" alt="Image"></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13147" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13147">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=18" class="username">sessiz</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 4663</dd>		<dd class="profile-joined"><strong>Joined:</strong> Wed Feb 19, 2003 5:16 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Upstate NY</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13147">
+
+					<h3 >
+						<a href="viewtopic.php@p=13147.html#p13147"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13147" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13147.html#p13147" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=18" class="username">sessiz</a></strong> &raquo; </span><time datetime="2003-06-23T02:14:49+00:00">Sun Jun 22, 2003 9:14 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Excellent tut dave. <img class="smilies" src="images/smilies/icon_hello.gif" width="25" height="22" alt=":-)" title="Smile"></div>
+
+			
+			
+									
+									<div id="sig13147" class="signature"><strong class="text-strong">MASTER of the Harmless CHAOS!!!1!</strong></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13152" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13152">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=36" class="username">ph2t</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 1979</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue Mar 25, 2003 6:33 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> taco city</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13152">
+
+					<h3 >
+						<a href="viewtopic.php@p=13152.html#p13152"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13152" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13152.html#p13152" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=36" class="username">ph2t</a></strong> &raquo; </span><time datetime="2003-06-23T03:03:23+00:00">Sun Jun 22, 2003 10:03 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">A brilliant tute Dave, I'm in awe of your skillz..... <img class="smilies" src="images/smilies/icon_melt.gif" width="20" height="15" alt=":-(" title="Sad"> <br>
+<br>
+Just one question though, doesn't the tape have problems sticking to the shell after being stuck to the paper then the glass?<br>
+<br>
+ph2t.</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13159" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13159">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=124" class="avatar"><img class="avatar" src="https://bitpimps.lixlink.com/pages/phpForum/download/file.php?avatar=124.gif" width="80" height="67" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=124" class="username">Pie</a>							</dt>
+
+						<dd class="profile-rank">bitThug</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 77</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Jun 05, 2003 8:01 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> E-Town, Canada</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13159">
+
+					<h3 >
+						<a href="viewtopic.php@p=13159.html#p13159"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13159" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13159.html#p13159" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=124" class="username">Pie</a></strong> &raquo; </span><time datetime="2003-06-23T04:19:17+00:00">Sun Jun 22, 2003 11:19 pm</time>
+			</p>
+			
+			
+			
+			<div class="content"><img class="smilies" src="images/smilies/icon_iamwithstupid.gif" width="41" height="46" alt=":fool:" title="Play">  mm mm good!  that's some serious skill goin there.. how did you cut so well with a knife?  steady hands...?<br>
+<br>
+ph2t - masking tape can stick to glass, but it usually comes off w/o losing it's stickyness.  maybe it;s cuz glass is so smooth and clean..  <img class="smilies" src="images/smilies/icon_thinking.gif" width="18" height="18" alt=":???:" title="Confused"></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13160" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13160">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=36" class="username">ph2t</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 1979</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue Mar 25, 2003 6:33 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> taco city</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13160">
+
+					<h3 >
+						<a href="viewtopic.php@p=13160.html#p13160"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13160" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13160.html#p13160" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=36" class="username">ph2t</a></strong> &raquo; </span><time datetime="2003-06-23T04:27:05+00:00">Sun Jun 22, 2003 11:27 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">That's what I thought, just wanted to hear it from the master.. <img class="smilies" src="images/smilies/icon_bowdown.gif" width="27" height="22" alt=":bowdown:" title="Play"></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13161" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13161">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=114" class="username">dabigpig</a>							</dt>
+
+						<dd class="profile-rank">bitGangsta'</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 360</dd>		<dd class="profile-joined"><strong>Joined:</strong> Fri May 30, 2003 2:02 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> can ya shiva?? look north</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13161">
+
+					<h3 >
+						<a href="viewtopic.php@p=13161.html#p13161"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13161" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13161.html#p13161" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=114" class="username">dabigpig</a></strong> &raquo; </span><time datetime="2003-06-23T04:37:22+00:00">Sun Jun 22, 2003 11:37 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">if glass is soo smoth then why is it that you can light a strike anywhere on it. found that out when i was drunk.</div>
+
+			
+			
+									
+									<div id="sig13161" class="signature"><img src="http://members.shaw.ca/dabigpig/spank.gif" class="postimage" alt="Image"><br>
+if you post it... i've probably seen it...<br>
+-^-_-^</div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13163" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13163">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13163">
+
+					<h3 >
+						<a href="viewtopic.php@p=13163.html#p13163"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13163" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13163.html#p13163" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-06-23T05:13:02+00:00">Mon Jun 23, 2003 12:13 am</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>ph2t wrote:</cite>A brilliant tute Dave, I'm in awe of your skillz..... <img class="smilies" src="images/smilies/icon_melt.gif" width="20" height="15" alt=":-(" title="Sad"> <br>
+<br>
+Just one question though, doesn't the tape have problems sticking to the shell after being stuck to the paper then the glass?<br>
+<br>
+ph2t.</div></blockquote>
+
+Thanks man. Yeah you'd think the stick wouldn't stick, but it does. As long as it's a smooth shiny surface, you'll be fine. That's why we use the photo paper. Stretching and curling is the biggest problem. It does lose a bit of tackiness. Which actually helps when repositioning it, but is the reason I emphasize rub it down really good with the back of you finger nail, and rub it into the crevices, lay thin coats at first to seal the edge, never lay too a coat, and pray, or rely on superstition. The gods were with me today.  <br>
+<br>
+I cut it on glass, because it it's easier to cut on a flat surface than your body, and most importantly the hard surface of the glass keeps the tip from digging in so you are cutting with the tip, and it's much easier to cut curves. The tape also cuts easier on the glass, because the hard surface presses back harder on the blade.<br>
+<br>
+I actually meant to mention that stuff in the tut.<br>
+<br>
+@ everyone, thanks, I glad y'all like it. Took me a long time, because it took extra long painting the body while snapping pictures. Then I typed for 2 hours, and proof read 'til I gave myself a headache. Still haven't all my typos. I suck at typeing. I had to take a nap after, and just woke up, and am seeing all my leftover mistakes.<br>
+<br>
+@ Aquarius, I'll PM you, but really I'm hoping the tutorial will get everyone doing their own fly ass paint jobs <img class="smilies" src="images/smilies/icon_wink.gif" width="15" height="15" alt=";)" title="Wink"></div>
+
+			
+			
+									
+									<div id="sig13163" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13166" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13166">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=36" class="username">ph2t</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 1979</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue Mar 25, 2003 6:33 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> taco city</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13166">
+
+					<h3 >
+						<a href="viewtopic.php@p=13166.html#p13166"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13166" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13166.html#p13166" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=36" class="username">ph2t</a></strong> &raquo; </span><time datetime="2003-06-23T05:21:17+00:00">Mon Jun 23, 2003 12:21 am</time>
+			</p>
+			
+			
+			
+			<div class="content">thanks again man. <img class="smilies" src="images/smilies/icon_biggrin.gif" width="15" height="15" alt=":grin:" title="Very Happy"></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13168" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13168">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13168">
+
+					<h3 >
+						<a href="viewtopic.php@p=13168.html#p13168"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13168" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13168.html#p13168" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-06-23T06:42:29+00:00">Mon Jun 23, 2003 1:42 am</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>dabigpig wrote:</cite>if glass is soo smoth then why is it that you can light a strike anywhere on it. found that out when i was drunk.</div></blockquote>
+Just a theory, but maybe because of glass's crystaline structure makes it microscopically sharp, even though it appears smooth to us.  What appears smooth to us is actually rough under a microscope.<br>
+
+<blockquote><div><cite>Pie wrote:</cite>how did you cut so well with a knife? steady hands...?</div></blockquote>
+I wish, I lost my nerves when I was 23, and my hands shake like leaves. <br>
+<br>
+Just keep the knife right on the outside edge of the black line, so no tape color shows through, and your not cutting into the black. Keep your right hand moving and turning, while you turn the glass with you left hand, try to keep one continuous stroke. Stopping and starting your strokes on the tips.<br>
+<br>
+Just force to the tip to go where to want, but not forcing it into the glass, and keeping the sharp edge aligned in the direction you're going.<br>
+<br>
+Seriously my hands do shake bad sometimes, if I can pull this off, I'm confident that you guys can too.</div>
+
+			
+			
+									
+									<div id="sig13168" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p13320" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile13320">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=36" class="username">ph2t</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 1979</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue Mar 25, 2003 6:33 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> taco city</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content13320">
+
+					<h3 >
+						<a href="viewtopic.php@p=13320.html#p13320"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=48&amp;p=13320" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=13320.html#p13320" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=36" class="username">ph2t</a></strong> &raquo; </span><time datetime="2003-06-24T05:23:09+00:00">Tue Jun 24, 2003 12:23 am</time>
+			</p>
+			
+			
+			
+			<div class="content">Did a quick search on google and found the following. <img class="smilies" src="images/smilies/icon_eyemouth.gif" width="15" height="15" alt=":smile:" title="Smile"> <br>
+<br>
+<img src="http://va.ptcruiserclub.org/virginia/images/flames.jpg" class="postimage" alt="Image"><br>
+<br>
+<img src="http://www.speedgraphics.net/images/designs/slamwrap/hood-flames.jpg" class="postimage" alt="Image"><br>
+<br>
+<img src="http://www.bwhracing.com/flames.jpg" class="postimage" alt="Image"><br>
+<br>
+<img src="http://efyaccessories.com/ForYour/Stickers/754-C-Star-w_-Flames.jpg" class="postimage" alt="Image"><br>
+<br>
+<img src="http://www.superiordash.com/Samples/Synthetics_Misc/Flames-Black.jpg" class="postimage" alt="Image"><br>
+<br>
+Gonna play around with some of these templates on the weekend, cool!<br>
+<br>
+ <img class="smilies" src="images/smilies/icon_toocool.gif" width="16" height="16" alt="8-)" title="Cool"> <br>
+<br>
+ph2t.</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@t=904.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=reply&amp;f=48&amp;t=904" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://bitpimps.lixlink.com/pages/phpForum/viewtopic.php?f=48&amp;t=904&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php@f=48&amp;t=904.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			55 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php@f=48&amp;t=904&amp;start=15.html" role="button">2</a></li>
+				<li><a class="button" href="viewtopic.php@f=48&amp;t=904&amp;start=30.html" role="button">3</a></li>
+				<li><a class="button" href="viewtopic.php@f=48&amp;t=904&amp;start=45.html" role="button">4</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php@f=48&amp;t=904&amp;start=15.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php@f=48.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Paint / Decal / Photo Discussion”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="America/Chicago">UTC-06:00</span></li>
+							<li class="rightside">
+				<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row" role="menu">
+			<a class="footer-link" href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=privacy" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=terms" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+		<p class="footer-row">
+			Copyright &#0169; 2002 - <script type="text/javascript">var d = new Date(); document.write(d.getFullYear())</script> | All rights resereved by penalty of: death, cappin', blastin', sprayin', etc.
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php@t=904.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php@t=904.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="assets/javascript/jquery-3.5.1.min.js@assets_version=12"></script>
+<script src="assets/javascript/core.js@assets_version=12"></script>
+
+
+
+<script src="styles/bitpimps/template/forum_fn.js@assets_version=12"></script>
+<script src="styles/bitpimps/template/ajax.js@assets_version=12"></script>
+
+
+
+</body>
+</html>

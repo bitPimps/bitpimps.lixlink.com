@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>The Sub-Genius MOSFET mod - bitPimps.lixlink.com</title>
+
+
+	<link rel="canonical" href="viewtopic.php@t=1405.html">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css@assets_version=12.css" rel="stylesheet">
+<link href="styles/bitpimps/theme/stylesheet.css@assets_version=12.css" rel="stylesheet">
+<link href="styles/bitpimps/theme/en_us/stylesheet.css@assets_version=12.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/bitpimps/theme/tweaks.css?assets_version=12" rel="stylesheet">
+<![endif]-->
+
+
+
+
+<link href="../../styles.css" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PTS2QFL');</script>
+<!-- End Google Tag Manager -->
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTS2QFL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="container">
+	<div id="header">
+		<div id="logo"><a href="https://bitpimps.lixlink.com/"><img src="../../images/bitpimps.gif" alt="bitPimps Custom Modifications" name="img_logo" width="170" height="72" border="0" id="img_logo" /></a></div>
+		<div id="nav">
+			<ul>
+				<li><a href="https://bitpimps.lixlink.com/index.php" title="Home">Home</a></li>
+				<li><a href="https://bitpimps.lixlink.com/articles/index.php" title="Articles">Articles</a></li>
+				<li><a href="https://bitpimps.lixlink.com/pages/phpGallery/index.php" title="Galleries">Galleries</a></li>
+				<li><a href="index.php.html" title="Forums" style="color:#FFDDAB; background-color:#929292;">Forums</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="container_body">
+		<div id="content">
+		
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+		<a id="logo" class="logo" href="index.php.html" title="Board index">
+					<span class="site_logo"></span>
+				</a>
+				<h1>bitPimps.lixlink.com</h1>
+				<p>Custom Modifications</p>
+				<p class="skiplink"><a href="viewtopic.php@p=19633.html#start_here">Skip to content</a></p>
+			</div>
+
+									
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu hidden" data-skip-responsive="true">
+			<a href="viewtopic.php@p=19633.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="app.php/help/faq.html" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=login&amp;redirect=viewtopic.php%3Fp%3D19633" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index.php.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">Board index</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="62"><a itemprop="item" href="viewforum.php@f=62.html"><span itemprop="name">bitPimps Hood</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="21"><a itemprop="item" href="viewforum.php@f=21.html"><span itemprop="name">Weird Science Laboratory</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php@f=21&amp;t=1405.html">The Sub-Genius MOSFET mod</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">Mostly dealing with electronics and pcbs and modifying them, all the things that make electrical-engineers tick and the rest of us cringe in fear.<br /></div>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=reply&amp;f=21&amp;t=1405" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://bitpimps.lixlink.com/pages/phpForum/viewtopic.php?f=21&amp;t=1405&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+	
+			<div class="pagination">
+			86 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=15.html" role="button">2</a></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=30.html" role="button">3</a></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=45.html" role="button">4</a></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=60.html" role="button">5</a></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=75.html" role="button">6</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php@f=21&amp;t=1405&amp;start=15.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+		</div>
+
+
+
+
+			<div id="p19609" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19609">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=80" class="avatar"><img class="avatar" src="images/avatars/gallery/homies_set2/angel.jpg" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=80" class="username">SuperFly</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 2760</dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon May 05, 2003 6:37 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> nationwide</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19609">
+
+					<h3 class="first">
+						<a href="viewtopic.php@p=19609.html#p19609">The Sub-Genius MOSFET mod</a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19609" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19609.html#p19609" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=80" class="username">SuperFly</a></strong> &raquo; </span><time datetime="2003-08-03T17:40:53+00:00">Sun Aug 03, 2003 12:40 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Wow. Hue35 and I successfully completed the MOSFET mod last night. Everything you've read about this mod being both very difficult and very rewarding are true. <br>
+<br>
+Keep in mind that prior to February or so, neither of us had ever messed with PCBs, and our soldering experience consisted of fixing the jacks in a wah-wah pedal or something like that (I'm speaking for hue35 here, I'm sure he'll correct me if I'm wrong). We are both graphic designers for our day jobs, so electronic engineering does not come naturally. I only point this out because there are some obvious experts with this sort of thing (ph2t and microamps come to mind), and that's not us.<br>
+<br>
+Anyway, we'll post some tips, techniques and info that will help all you non-solder monkeys through it. Watch this thread, coming soon.</div>
+
+			
+			
+									
+									<div id="sig19609" class="signature"><a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10017" class="postlink"><img src="http://www.grymttr.com/carpix/superFlySigN2.gif" class="postimage" alt="Image"></a></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19614" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19614">
+			<dt class="has-profile-rank no-avatar">
+				<div class="avatar-container">
+																			</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=2" style="color: #3A4942;" class="username-coloured">CaboWabo</a>							</dt>
+
+						<dd class="profile-rank">Site Admin</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 10259</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue Dec 10, 2002 4:05 pm</dd>		
+		
+																<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> The Adult Table</dd>
+							
+							<dd class="profile-contact">
+				<strong>Contact:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="viewtopic.php@p=19633.html#" class="dropdown-trigger" title="Contact CaboWabo">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contact CaboWabo</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://bitpimps.lixlink.com" title="Website" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">Website</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19614">
+
+					<h3 >
+						<a href="viewtopic.php@p=19614.html#p19614"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19614" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19614.html#p19614" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=2" style="color: #3A4942;" class="username-coloured">CaboWabo</a></strong> &raquo; </span><time datetime="2003-08-03T18:01:46+00:00">Sun Aug 03, 2003 1:01 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">*patiently waiting* lol<br>
+<br>
+sounds perfect - I think I might be in the same group as you and hue...</div>
+
+			
+			
+									
+									<div id="sig19614" class="signature"><blockquote class="uncited"><div>Dear Life Cereal, Where do you get off? Part of a balanced breakfast and delicious? Who do you think you are? By now you may have guessed I'm speaking ironically and have nothing but good things to say about what you do. Life cereal do not change a thing.</div></blockquote></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19632" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19632">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19632">
+
+					<h3 >
+						<a href="viewtopic.php@p=19632.html#p19632"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19632" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19632.html#p19632" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-08-03T19:11:34+00:00">Sun Aug 03, 2003 2:11 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Doing my first mosfet mod today. <br>
+<br>
+I'm like Hue, but I've actually etched my own PCBs, and made a few distortion pedals. My only experience with these tiny boards is popping off the crip cap.<br>
+<br>
+My biggest concern is the tiny size, so I'm going to practice swapping  few transistors first.</div>
+
+			
+			
+									
+									<div id="sig19632" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19633" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19633">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=80" class="avatar"><img class="avatar" src="images/avatars/gallery/homies_set2/angel.jpg" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=80" class="username">SuperFly</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 2760</dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon May 05, 2003 6:37 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> nationwide</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19633">
+
+					<h3 >
+						<a href="viewtopic.php@p=19633.html#p19633"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19633" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19633.html#p19633" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=80" class="username">SuperFly</a></strong> &raquo; </span><time datetime="2003-08-03T19:18:16+00:00">Sun Aug 03, 2003 2:18 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">OK. Here's the first of the general tips:<br>
+<br>
+• MicroAmp's tutorial says it takes about 2 hours. This is true for the most part, but we needed an additional 2 hours for troubleshooting/fixing broken stuff.<br>
+<br>
+• You need 4 mosfets to do the mod. The little tabs break off very easily, so order extras. Hue35 and I each used 6, I believe.<br>
+<br>
+• You need a really good soldering iron with a very fine tip. I would also recommend the really fine soldering wire. <br>
+<br>
+• Don't drink too much coffee, and get up and stretch after each milestone.<br>
+<br>
+• Hue35 removed a couple of the mosfets while troubleshooting no reverse function. He ended up replacing some of the original transistors, and now has a car that has the mosfet boost only in the forward direction. Actually quite useful, considering one usually uses reverse for crash recovery, and you don't really want all that torque in reverse. Not to mention perhaps only needing 2 mosfets to do the mod. We're going to look into this.<br>
+<br>
+• Here are some really helpful diagrams from the german tutorial… <br>
+<br>
+<img src="http://www.universalhost.de/html_bit/mosfet/1fet.jpg" class="postimage" alt="Image"><br>
+<br>
+<img src="http://www.universalhost.de/html_bit/mosfet/2schaltplanmosfet.jpg" class="postimage" alt="Image"><br>
+<br>
+<img src="http://www.universalhost.de/html_bit/mosfet/schaltplanmosfet.jpg" class="postimage" alt="Image"><br>
+<br>
+• One last thing: it's not obvious from the turorials I found that you will be gluing the 2 mosfets on the back of the pcb on their backs with the tabs facing up. We used superglue, but wished we had a hot glue gun. The superglue was fine, though.</div>
+
+			
+			
+									
+									<div id="sig19633" class="signature"><a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10017" class="postlink"><img src="http://www.grymttr.com/carpix/superFlySigN2.gif" class="postimage" alt="Image"></a></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19722" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19722">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=157" class="avatar"><img class="avatar" src="images/avatars/gallery/homies_set6/dreamer.jpg" width="80" height="76" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=157" class="username">lefftoe</a>							</dt>
+
+						<dd class="profile-rank">bitThug</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 55</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue Jun 24, 2003 10:14 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> leff shoe</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19722">
+
+					<h3 >
+						<a href="viewtopic.php@p=19722.html#p19722"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19722" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19722.html#p19722" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=157" class="username">lefftoe</a></strong> &raquo; </span><time datetime="2003-08-04T06:36:26+00:00">Mon Aug 04, 2003 1:36 am</time>
+			</p>
+			
+			
+			
+			<div class="content">yo, check out the bit-racer.de mosfet guide that cartman did, the pics show you an easier way to do it <img class="smilies" src="images/smilies/icon_biggrin.gif" width="15" height="15" alt=":grin:" title="Very Happy"> <br>
+<br>
+i know babelfish turns german to jabberubbish<br>
+but check it:<br>
+<a href="http://549.rapidforum.com/topic=101684609757" class="postlink">http://549.rapidforum.com/topic=101684609757</a><br>
+<br>
+see the two fets that you glue to the backside, and how you just need to offset them..........less wires makes this mod easier to do.......</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19727" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19727">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19727">
+
+					<h3 >
+						<a href="viewtopic.php@p=19727.html#p19727"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19727" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19727.html#p19727" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-08-04T07:20:44+00:00">Mon Aug 04, 2003 2:20 am</time>
+			</p>
+			
+			
+			
+			<div class="content">I didn't get around to the mosfets, but I practiced switching transistors, trying to save the steering on a board to use as a subject for the mosfet mod.<br>
+<br>
+Here's what I learned:<br>
+<br>
+Since I wanted to reuse the transistors after I removed them, I had to be careful not to break it. I used a piece of stripped wire as soldering braid to remove as much solder as possible. Then I inserted the tip of the exacto knife under the transistor, and twisted very lightly. Touched the soldering iron to the tab on the side w/ just one tab, and it came undone, and the transistor came up slightly. I stuck my finger nail under the tab, and when I laid the tip of of the soldering iron across the two tabs, the transistor came right off. <br>
+<br>
+Now to put it back on the burned board. At first I tried soldering tweezers, but the transistor kept moving in the tip. So I just held it in place with my thumbnal, and heted the one tab. Which held it in place, while I did the 2 on the other side.<br>
+<br>
+Took me about 20min. to do, and since 2 of the mosfet are direct swaps for the transistors, that half the mod right there.<br>
+<br>
+I was mostly intimidated by the size, but I'm feeling pretty confident now. Hopefully I should have m a mosfet modded car by tomorrow evening. <img class="smilies" src="images/smilies/icon_fro.gif" width="33" height="28" alt=":)" title="Smile"></div>
+
+			
+			
+									
+									<div id="sig19727" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19799" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19799">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19799">
+
+					<h3 >
+						<a href="viewtopic.php@p=19799.html#p19799">Well crap my pants, I did it!</a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19799" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19799.html#p19799" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-08-04T17:13:31+00:00">Mon Aug 04, 2003 12:13 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">I used a Cannonball PCB that I had replaced the steering transistors with Microsizer ones. I opted for the on the top of the PCB version.<br>
+<br>
+I was really nervous, because I'm using Mosfets donated by Havok. He gave me one set to practice with, and I didn't want to blow it. So my hands were shaking like crazy. I got everything a little crooked because of that, but i made sure that everything connected good. <br>
+<br>
+I had all the mosfetes soldered to the board, I had made the jump from Q6 to Q2, and I had attached my wire to Q3, I was getting ready make my final connection without a hitch when the tab broke off the mosfet. So luckily it was a reverse one, and one of the flipped ones, so I just popped the same transistor off my MS donor board, and saved myself the last jump, which besides my crooked placement, makes it look cleaner, and like Superfly said, you don't need all that speed in reverse.<br>
+<br>
+I threw in Black Sabbath "The Ozzy Ozzborne Years", a 76 min. CD, I was done by the second to last track, and racing my car during the last rack. So it took me a little over an hour.<br>
+<br>
+I friggin' screams too. Dual cell like, but way punchier, and maybe not as much top speed, but I was popping wheelies, and flipping my car, with a Cannonball 2.6. I've got a dual cell Cannonball on the same frequency. I'll make a comparison video.<br>
+<img src="http://erinsbaby.com/davesstuff/mosfeted.jpg" class="postimage" alt="Image"><br>
+<br>
+Oh yeah and speed was improved in reverse, even though I only used the one mosfet.</div>
+
+			
+			
+									
+									<div id="sig19799" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19813" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19813">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=100" class="avatar"><img class="avatar" src="https://bitpimps.lixlink.com/pages/phpForum/download/file.php?avatar=100.jpg" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=100" class="username">hue35</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 2244</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue May 20, 2003 3:03 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> all up in ya fuckin' mind, yo.</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19813">
+
+					<h3 >
+						<a href="viewtopic.php@p=19813.html#p19813">Re: Well crap my pants, I did it!</a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19813" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19813.html#p19813" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=100" class="username">hue35</a></strong> &raquo; </span><time datetime="2003-08-04T18:10:23+00:00">Mon Aug 04, 2003 1:10 pm</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>crazydave wrote:</cite>I threw in Black Sabbath "The Ozzy Ozzborne Years"</div></blockquote>
+
+Perfect. <br>
+<br>
+Hey Dave, what version of the mod did you do?</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19822" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19822">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=15" class="avatar"><img class="avatar" src="images/avatars/gallery/homies_set3/big_spooky.jpg" width="80" height="76" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=15" class="username">noxorc</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 2104</dd>		<dd class="profile-joined"><strong>Joined:</strong> Wed Feb 19, 2003 2:49 pm</dd>		
+		
+						
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19822">
+
+					<h3 >
+						<a href="viewtopic.php@p=19822.html#p19822"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19822" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19822.html#p19822" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=15" class="username">noxorc</a></strong> &raquo; </span><time datetime="2003-08-04T18:25:57+00:00">Mon Aug 04, 2003 1:25 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">excellent SuperFly.<br>
+<br>
+I still have my two sets...<br>
+<br>
+<br>
+just gotta find the time....   (anyone got any to spare)</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19831" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19831">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19831">
+
+					<h3 >
+						<a href="viewtopic.php@p=19831.html#p19831">Re: Well crap my pants, I did it!</a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19831" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19831.html#p19831" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-08-04T18:43:49+00:00">Mon Aug 04, 2003 1:43 pm</time>
+			</p>
+			
+			
+			
+			<div class="content"><blockquote><div><cite>hue35 wrote:</cite><blockquote><div><cite>crazydave wrote:</cite>I threw in Black Sabbath "The Ozzy Ozzborne Years"</div></blockquote>
+
+Perfect. <br>
+<br>
+Hey Dave, what version of the mod did you do?</div></blockquote>This one, that's posted above. I just looked at this diagram.<br>
+<img src="http://www.spedition-reinhold.de/bits/plan3a.jpg" class="postimage" alt="Image"></div>
+
+			
+			
+									
+									<div id="sig19831" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19866" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19866">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=100" class="avatar"><img class="avatar" src="https://bitpimps.lixlink.com/pages/phpForum/download/file.php?avatar=100.jpg" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=100" class="username">hue35</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 2244</dd>		<dd class="profile-joined"><strong>Joined:</strong> Tue May 20, 2003 3:03 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> all up in ya fuckin' mind, yo.</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19866">
+
+					<h3 >
+						<a href="viewtopic.php@p=19866.html#p19866"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19866" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19866.html#p19866" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=100" class="username">hue35</a></strong> &raquo; </span><time datetime="2003-08-04T20:25:07+00:00">Mon Aug 04, 2003 3:25 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">I'll have to draw a diagram that shows what my accident produced. I ended up with the increased power for fwd only but it only uses 2 mosfets. The diagram you used must be increasing power to the steering too... do you notice a difference?</div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19873" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19873">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19873">
+
+					<h3 >
+						<a href="viewtopic.php@p=19873.html#p19873"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19873" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19873.html#p19873" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-08-04T21:09:49+00:00">Mon Aug 04, 2003 4:09 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Yeah, that's like a full mosfet mod. I didn't do the steering mosfets, and I ended up not doing the position 3 mosfet, which is for reverse. <br>
+<br>
+Video coming soon</div>
+
+			
+			
+									
+									<div id="sig19873" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19930" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19930">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=144" class="avatar"><img class="avatar" src="images/avatars/gallery/homies_set4/willie_g.jpg" width="80" height="76" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=144" class="username">maximan</a>							</dt>
+
+						<dd class="profile-rank">bitThug</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 90</dd>		<dd class="profile-joined"><strong>Joined:</strong> Mon Jun 16, 2003 7:17 pm</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> toys r us exchanging ms pros boards for thunder charger boards</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19930">
+
+					<h3 >
+						<a href="viewtopic.php@p=19930.html#p19930"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19930" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19930.html#p19930" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=144" class="username">maximan</a></strong> &raquo; </span><time datetime="2003-08-05T00:06:38+00:00">Mon Aug 04, 2003 7:06 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">an someone  make a list of what each position is where the diagram and what each one does</div>
+
+			
+			
+									
+									<div id="sig19930" class="signature">if you can't see my car now wait until i hit the boost botton</div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19935" class="post has-profile bg1">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19935">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19935">
+
+					<h3 >
+						<a href="viewtopic.php@p=19935.html#p19935"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19935" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19935.html#p19935" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-08-05T00:37:57+00:00">Mon Aug 04, 2003 7:37 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Here's The vid (it's in Quicktime format):<br>
+<br>
+<a href="http://members.cox.net/crazylittlecars/vids/FETed1.MOV" class="postlink"><strong class="text-strong">FET'ed</strong></a><br>
+<br>
+In the first half we see the mosfet car on the right take the dual cell car. The Cannonaball dual cell does kinda suck, but it's a fair comparison, because the mosfet'ed car used the same PCB, and motor.<br>
+<br>
+In the second half I'm just screwing around pulling wheelies.</div>
+
+			
+			
+									
+									<div id="sig19935" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+				<div id="p19944" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile19944">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="avatar"><img class="avatar" src="download/file.php@avatar=51_1233026592.gif" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 6874</dd>		<dd class="profile-joined"><strong>Joined:</strong> Thu Apr 17, 2003 9:05 am</dd>		
+		
+											<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Koolsville</dd>
+							
+						
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content19944">
+
+					<h3 >
+						<a href="viewtopic.php@p=19944.html#p19944"></a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=21&amp;p=19944" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=19944.html#p19944" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=51" class="username">crazydave</a></strong> &raquo; </span><time datetime="2003-08-05T00:51:36+00:00">Mon Aug 04, 2003 7:51 pm</time>
+			</p>
+			
+			
+			
+			<div class="content">Here ya go, maximan.<br>
+<img src="http://erinsbaby.com/davesstuff/moslayout.jpg" class="postimage" alt="Image"></div>
+
+			
+			
+									
+									<div id="sig19944" class="signature">...crazy man, crazy...dig it.<br>
+<a href="http://bitpimps.lixlink.com/pages/phpGallery/index.php?cat=10007" class="postlink"><span style="color:#FF0040"><span style="font-size:150%;line-height:116%">crazydave's</span> <span style="font-size:150%;line-height:116%">Gallery</span></span></a><br>
+<span style="font-size:85%;line-height:116%"><span style="color:#80BF00">Ratfink says: "Man, it's the craziest"</span></span></div>
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=19633.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=reply&amp;f=21&amp;t=1405" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://bitpimps.lixlink.com/pages/phpForum/viewtopic.php?f=21&amp;t=1405&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+			<form method="post" action="viewtopic.php@f=21&amp;t=1405.html">
+		<div class="dropdown-container dropdown-container-left dropdown-button-control sort-tools">
+	<span title="Display and sorting options" class="button button-secondary dropdown-trigger dropdown-select">
+		<i class="icon fa-sort-amount-asc fa-fw" aria-hidden="true"></i>
+		<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+	</span>
+	<div class="dropdown hidden">
+		<div class="pointer"><div class="pointer-inner"></div></div>
+		<div class="dropdown-contents">
+			<fieldset class="display-options">
+							<label>Display: <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select></label>
+								<label>Sort by: <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select></label>
+				<label>Direction: <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select></label>
+								<hr class="dashed" />
+				<input type="submit" class="button2" name="sort" value="Go" />
+						</fieldset>
+		</div>
+	</div>
+</div>
+		</form>
+	
+	
+	
+			<div class="pagination">
+			86 posts
+							<ul>
+		<li class="active"><span>1</span></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=15.html" role="button">2</a></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=30.html" role="button">3</a></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=45.html" role="button">4</a></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=60.html" role="button">5</a></li>
+				<li><a class="button" href="viewtopic.php@f=21&amp;t=1405&amp;start=75.html" role="button">6</a></li>
+				<li class="arrow next"><a class="button button-icon-only" href="viewtopic.php@f=21&amp;t=1405&amp;start=15.html" rel="next" role="button"><i class="icon fa-chevron-right fa-fw" aria-hidden="true"></i><span class="sr-only">Next</span></a></li>
+	</ul>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php@f=21.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Weird Science Laboratory”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="America/Chicago">UTC-06:00</span></li>
+							<li class="rightside">
+				<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row" role="menu">
+			<a class="footer-link" href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=privacy" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=terms" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+		<p class="footer-row">
+			Copyright &#0169; 2002 - <script type="text/javascript">var d = new Date(); document.write(d.getFullYear())</script> | All rights resereved by penalty of: death, cappin', blastin', sprayin', etc.
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php@p=19633.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php@p=19633.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="assets/javascript/jquery-3.5.1.min.js@assets_version=12"></script>
+<script src="assets/javascript/core.js@assets_version=12"></script>
+
+
+
+<script src="styles/bitpimps/template/forum_fn.js@assets_version=12"></script>
+<script src="styles/bitpimps/template/ajax.js@assets_version=12"></script>
+
+
+
+</body>
+</html>

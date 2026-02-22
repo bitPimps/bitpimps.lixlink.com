@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Heli Setup and TX Programming - bitPimps.lixlink.com</title>
+
+
+	<link rel="canonical" href="viewtopic.php@t=9488.html">
+
+<!--
+	phpBB style name: prosilver
+	Based on style:   prosilver (this is the default phpBB3 style)
+	Original author:  Tom Beddard ( http://www.subBlue.com/ )
+	Modified by:
+-->
+
+<link href="assets/css/font-awesome.min.css@assets_version=12.css" rel="stylesheet">
+<link href="styles/bitpimps/theme/stylesheet.css@assets_version=12.css" rel="stylesheet">
+<link href="styles/bitpimps/theme/en_us/stylesheet.css@assets_version=12.css" rel="stylesheet">
+
+
+
+
+<!--[if lte IE 9]>
+	<link href="./styles/bitpimps/theme/tweaks.css?assets_version=12" rel="stylesheet">
+<![endif]-->
+
+
+
+
+<link href="../../styles.css" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PTS2QFL');</script>
+<!-- End Google Tag Manager -->
+
+</head>
+<body id="phpbb" class="nojs notouch section-viewtopic ltr ">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTS2QFL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="container">
+	<div id="header">
+		<div id="logo"><a href="https://bitpimps.lixlink.com/"><img src="../../images/bitpimps.gif" alt="bitPimps Custom Modifications" name="img_logo" width="170" height="72" border="0" id="img_logo" /></a></div>
+		<div id="nav">
+			<ul>
+				<li><a href="https://bitpimps.lixlink.com/index.php" title="Home">Home</a></li>
+				<li><a href="https://bitpimps.lixlink.com/articles/index.php" title="Articles">Articles</a></li>
+				<li><a href="https://bitpimps.lixlink.com/pages/phpGallery/index.php" title="Galleries">Galleries</a></li>
+				<li><a href="index.php.html" title="Forums" style="color:#FFDDAB; background-color:#929292;">Forums</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="container_body">
+		<div id="content">
+		
+
+<div id="wrap" class="wrap">
+	<a id="top" class="top-anchor" accesskey="t"></a>
+	<div id="page-header">
+		<div class="headerbar" role="banner">
+					<div class="inner">
+
+			<div id="site-description" class="site-description">
+		<a id="logo" class="logo" href="index.php.html" title="Board index">
+					<span class="site_logo"></span>
+				</a>
+				<h1>bitPimps.lixlink.com</h1>
+				<p>Custom Modifications</p>
+				<p class="skiplink"><a href="viewtopic.php@p=112400.html#start_here">Skip to content</a></p>
+			</div>
+
+									
+			</div>
+					</div>
+				<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-main" class="nav-main linklist" role="menubar">
+
+		<li id="quick-links" class="quick-links dropdown-container responsive-menu hidden" data-skip-responsive="true">
+			<a href="viewtopic.php@p=112400.html#" class="dropdown-trigger">
+				<i class="icon fa-bars fa-fw" aria-hidden="true"></i><span>Quick links</span>
+			</a>
+			<div class="dropdown">
+				<div class="pointer"><div class="pointer-inner"></div></div>
+				<ul class="dropdown-contents" role="menu">
+					
+					
+										<li class="separator"></li>
+
+									</ul>
+			</div>
+		</li>
+
+				<li data-skip-responsive="true">
+			<a href="app.php/help/faq.html" rel="help" title="Frequently Asked Questions" role="menuitem">
+				<i class="icon fa-question-circle fa-fw" aria-hidden="true"></i><span>FAQ</span>
+			</a>
+		</li>
+						
+			<li class="rightside"  data-skip-responsive="true">
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=login&amp;redirect=viewtopic.php%3Fp%3D112400" title="Login" accesskey="x" role="menuitem">
+				<i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>Login</span>
+			</a>
+		</li>
+					<li class="rightside" data-skip-responsive="true">
+				<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=register" role="menuitem">
+					<i class="icon fa-pencil-square-o  fa-fw" aria-hidden="true"></i><span>Register</span>
+				</a>
+			</li>
+						</ul>
+
+	<ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+				
+		
+		<li class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+
+			
+							<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope><a itemprop="item" href="index.php.html" accesskey="h" data-navbar-reference="index"><i class="icon fa-home fa-fw"></i><span itemprop="name">Board index</span></a><meta itemprop="position" content="1" /></span>
+
+											
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="62"><a itemprop="item" href="viewforum.php@f=62.html"><span itemprop="name">bitPimps Hood</span></a><meta itemprop="position" content="2" /></span>
+															
+								<span class="crumb" itemtype="https://schema.org/ListItem" itemprop="itemListElement" itemscope data-forum-id="58"><a itemprop="item" href="viewforum.php@f=58.html"><span itemprop="name">Fly Shit &amp; Shit That Flies</span></a><meta itemprop="position" content="3" /></span>
+							
+					</li>
+
+		
+			</ul>
+
+	</div>
+</div>
+	</div>
+
+	
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main">
+		
+		
+<h2 class="topic-title"><a href="viewtopic.php@f=58&amp;t=9488.html">Heli Setup and TX Programming</a></h2>
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none !important;">All about RCs in the air. If it's a plane, a helicopter, a ufo, or anything else that flies in the air - it goes here.<br /></div>
+
+
+<div class="action-bar bar-top">
+	
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=reply&amp;f=58&amp;t=9488" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+	
+			<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://bitpimps.lixlink.com/pages/phpForum/viewtopic.php?f=58&amp;t=9488&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+	
+	
+			<div class="pagination">
+			1 post
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+		</div>
+
+
+
+
+			<div id="p112400" class="post has-profile bg2">
+		<div class="inner">
+
+		<dl class="postprofile" id="profile112400">
+			<dt class="has-profile-rank has-avatar">
+				<div class="avatar-container">
+																<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=188" class="avatar"><img class="avatar" src="download/file.php@avatar=188_1233026853.jpg" width="80" height="80" alt="User avatar" /></a>														</div>
+								<a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=188" class="username">Clint</a>							</dt>
+
+						<dd class="profile-rank">bitPimp</dd>			
+		<dd class="profile-posts"><strong>Posts:</strong> 519</dd>		<dd class="profile-joined"><strong>Joined:</strong> Sun Jul 06, 2003 7:20 am</dd>		
+		
+																<dd class="profile-custom-field profile-phpbb_location"><strong>Location:</strong> Albany, NY</dd>
+							
+							<dd class="profile-contact">
+				<strong>Contact:</strong>
+				<div class="dropdown-container dropdown-left">
+					<a href="viewtopic.php@p=112400.html#" class="dropdown-trigger" title="Contact Clint">
+						<i class="icon fa-commenting-o fa-fw icon-lg" aria-hidden="true"></i><span class="sr-only">Contact Clint</span>
+					</a>
+					<div class="dropdown">
+						<div class="pointer"><div class="pointer-inner"></div></div>
+						<div class="dropdown-contents contact-icons">
+																																								<div>
+																	<a href="http://www.v6power.net" title="Website" class="last-cell">
+										<span class="contact-icon phpbb_website-icon">Website</span>									</a>
+																	</div>
+																					</div>
+					</div>
+				</div>
+			</dd>
+				
+		</dl>
+
+		<div class="postbody">
+						<div id="post_content112400">
+
+					<h3 class="first">
+						<a href="viewtopic.php@p=112400.html#p112400">Heli Setup and TX Programming</a>
+		</h3>
+
+													<ul class="post-buttons">
+																																									<li>
+							<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=quote&amp;f=58&amp;p=112400" title="Reply with quote" class="button button-icon-only">
+								<i class="icon fa-quote-left fa-fw" aria-hidden="true"></i><span class="sr-only">Quote</span>
+							</a>
+						</li>
+														</ul>
+							
+						<p class="author">
+									<a class="unread" href="viewtopic.php@p=112400.html#p112400" title="Post">
+						<i class="icon fa-file fa-fw icon-lightgray icon-md" aria-hidden="true"></i><span class="sr-only">Post</span>
+					</a>
+								<span class="responsive-hide">by <strong><a href="https://bitpimps.lixlink.com/pages/phpForum/memberlist.php?mode=viewprofile&amp;u=188" class="username">Clint</a></strong> &raquo; </span><time datetime="2007-09-09T05:59:26+00:00">Sun Sep 09, 2007 12:59 am</time>
+			</p>
+			
+			
+			
+			<div class="content">If you own a heli, you've probably watched(or at least heard of) Finless Bob White's Helicopter Tutorial videos.<br>
+<a href="http://www.helifreak.com/showthread.php?t=11373" class="postlink">http://www.helifreak.com/showthread.php?t=11373</a><br>
+<br>
+I've watched them countless times, and decided to textualize some of the basics while setting up the HBKv2. <br>
+<br>
+I believe this will make a good complement to those videos if you use his style of setup.<br>
+
+<div class="codebox"><p>Code: <a href="viewtopic.php@p=112400.html#" onclick="selectCode(this); return false;">Select all</a></p><pre><code>Helicopter programming
+
+Reset an unused model and set to Heli mode.
+set trims off, revo off, subtrims off, atvs 100, d/r 100, expo off, failsafes, 
+tcuts, mixes etc  note:INH=inhibited=Off
+
+Name your model. 
+tip- at different stages during programming, save a backup to another 
+model in case you need to go back to a certain point.
+
+on 120 degree CCPM (typical radio setup)
+Ch1 Aileron  - right side servo 
+Ch2 Elevator - rear servo
+Ch3 Throttle - main motor esc
+Ch4 Rudder   - gyro or tail motor esc
+Ch5 Gain     - either knob or switch for gyro gain
+Ch6 Pitch    - left side servo
+
+
+Servo Setup
+
+1. Set swash mode first as changing this can reset other related settings.
+2. Set servo reversing
+ex:pos pitch all 3 servos up
+perform swash function reversing if any ccpm function is backwards
+or change swash to a different mode. (dependant on radio)
+
+example of how servos should move(can depend on head style)
+pitch all servos move up/down in unison
+aileron   right-stick    left-servo up     right-servo down
+aileron   left-stick     left-servo down   right-servo up
+elevator  back-stick     rear-servo down   front-servos up
+elevator  forward-stick  rear-servo up     front-servos down
+
+3. Put throttle stick at center and set servo arms mechanically as close to 90 degrees as possible.
+4. Set subtrims to finalize servo arms to 90 degrees.
+
+Head setup
+
+1. Adjust links between servos and swash so swash sits level and:
+full positive stick does not touch/bind with head/washout
+full negative stick does not touch/bind with mainshaft collar
+
+2. At center stick, washout arms should be lined up/level.
+so adjust links between washout and seesaw and then go back to 1.
+Note: both washout-to-seesaw links need to be same lenght.
+repeat 1 and 2 until complete.
+
+3. At center stick, seesaw mixer arms should be level with eachother.
+note: flybar must be level with heli to set this.
+so, adjust links from swash-to-seesaw to level the seesaw mixer arms.
+
+4. At center stick, eyeball the blade grips and set corresponding
+links to about 0 pitch. Re-check pitch later when blades are on.
+
+5. Remove ccpm interactions at full pos and neg stick using ATV/endpoints.
+At center stick, paddles should be level. eyeball with flybar cage to ensure.
+now watch paddles to make sure they remain level when at various full sticks. 
+Has to be done with flybar parallel to tailboom(checks ail/pit) and again 
+with flybar perpendicular to tailboom(checks elevator).
+full pos pitch should not tilt paddles in relation to elevator
+full neg pitch should not tilt paddles in relation to elevator
+full pos pitch should not tilt paddles in relation to aileron/pitch
+full neg pitch should not tilt paddles in relation to aileron/pitch
+
+Adjust servo endpoints(ATV) as needed to keep paddles level at full stick.
+
+set trims on swash as needed, if previous adjustments cause swash to bind.
+
+6. Check entire range of stick motion for unwanted interaction.
+(again in both elevator and aileron directions) 
+paddles should remain fairly level during entire stick moves.
+excessive paddle movement means servos arent in sync with eachother. 
+setup custom p-mix to remove these interactions throughout the range.
+Digital servos are more precise than analog servos, but will require
+a switching bec for accessory power.
+
+7. Center throttle sitck, install blades, pitch guage should
+read 0. flybar needs to be level. adjust links at blade grip to 
+set 0 pitch.
+
+8. check pitch range, go full positive and full negative.
+-10 to 10 is good, -9 to 9, -11 to 11.. should always be equal.
+adjust swash mix pitch %. recheck all other links now for binding/levelness.
+
+9. Set swash cyclic angle of paddles in aileron/elevator directions
+for 6-8 degrees.ensure swashplate does not bind with main shaft. 
+adjust swash mix % for aileron and elevator.
+
+note:mixing can overdrive endpoints on servos. Final checks on full
+collective and full throttle should be done to eliminate chance of binding.
+
+
+Pitch curves
+
+mechanical setup previously done now allows a linear pitch curve:
+low  stick = full negative pitch
+mid  stick = 0 pitch
+high stick = full positive pitch
+
+setting of pitch curves
+In normal mode we want about -1/-2/-3 pitch at 0 stick to bring heli 
+down in windy conditions. It is a personal preference, as too much
+negative pitch can slam heli down in emergency throttle stick down situations.
+Attach pitch guage and set pt#1 to where pitch guage shows -1/-2/-3 degrees.
+calculate p#2 to be midway between pt#1 and pt#3.
+note: p#3,#4,#5 need to be same on all throttle modes so there is no pitch
+change during idle up mode swaps.
+
+ex:
+Normal  mode  40  45  50  75  100   -2 to +10 pitch
+Idle up mode  0   25  50  75  100 stunt mode idle up 1 -10 to +10
+
+
+Throttle Curves
+
+Throttle is best set to where motor efficiency is.
+Heli should not osscilate in hover=rpm too low.
+Hovering in Normal mode should occur between mid to 3/4 stick.
+More blade pitch needs more power to not bog the heli.
+The goal of the throttle curve is to keep a consistent useable head rpm 
+through all pitch ranges.
+
+ex:
+Normal  mode  0   50  80 * 90  100  * is where you normally switch modes
+Idle up mode  100 90  85   90  100
+
+
+401 gyro setup
+
+1. Set digital/analog mode.
+2. Plug servo into ch4, Plug remote gain into ch5
+3. Find a servo arm that gets you 90 degrees and use the hole on the arm
+that is closest to the servo screw. 
+4. Tail pushrod should be a straight shot down the tail, parallel to boom.
+5. Position the servo on the boom so the tail pitch slider is in the
+center of the shaft. = full deflection in both directions.
+
+6. Typical gain setup.
+remote gain set to right = rate mode(revo)
+remote gain set to left = heading hold mode
+you can assign ch5 a knob or switch.
+for a switch set atv endpoints to where you want gain.
+for initial setup set both atv endpoints to 50%.  (25/75 of a 0-100 range)
+set gyro limit(servo endpoints) in rate mode to check for servo binding.
+actual gyro gain will need to be set by test flights, no drift while 
+giving throttle and no wagging while hovering.
+
+7. Checking gyro mode on initialization.
+Put switch into what you set hh mode to.
+if gyro is blinking then reverse ch5(gain) to enter heading hold mode.
+solid red led=hh mode on the 401.
+
+8. Setting servo Limits.
+Turn switch to rate mode, and set limit pot on gyro so it does not bind
+in each direction. readjust servo on boom if binding/not travelling far
+enough in one direction.
+
+9. Gyro servo direction.
+- as set up to fly the nose. 
+tail rotates up into the downwash of the rotor.
+right turn should make the slider go toward the boom.
+left turn should make the slider go to the tail blades.
+reverse ch4 if needed.
+
+10. Setting gyro reverse switch on gyro.
+move tail boom toward you, gyro should move slider away(or towards blades)
+if not, hit reverse switch on gyro.
+
+
+Brushless esc programming
+
+make sure throttle is not reversed, it should arm on 0 stick.
+motor should also not spin blades reversed. switch any 1 motor wire.
+timing(preference)
+brake disabled (no brake on helis)
+battery lipo mode cutoff (preference)
+soft start (preference)
+governor mode (preference)
+throttle response (preference)
+
+note: when programming with sticks, 
+throttle curve needs to be linear and full 0 to 100 endpoints.</code></pre></div></div>
+
+			
+			
+									
+									
+						</div>
+
+		</div>
+
+				<div class="back2top">
+						<a href="viewtopic.php@p=112400.html#top" class="top" title="Top">
+				<i class="icon fa-chevron-circle-up fa-fw icon-gray" aria-hidden="true"></i>
+				<span class="sr-only">Top</span>
+			</a>
+					</div>
+		
+		</div>
+	</div>
+
+	
+
+	<div class="action-bar bar-bottom">
+	
+			<a href="https://bitpimps.lixlink.com/pages/phpForum/posting.php?mode=reply&amp;f=58&amp;t=9488" class="button" title="Post a reply">
+							<span>Post Reply</span> <i class="icon fa-reply fa-fw" aria-hidden="true"></i>
+					</a>
+		
+		<div class="dropdown-container dropdown-button-control topic-tools">
+		<span title="Topic tools" class="button button-secondary dropdown-trigger dropdown-select">
+			<i class="icon fa-wrench fa-fw" aria-hidden="true"></i>
+			<span class="caret"><i class="icon fa-sort-down fa-fw" aria-hidden="true"></i></span>
+		</span>
+		<div class="dropdown">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents">
+																												<li>
+					<a href="https://bitpimps.lixlink.com/pages/phpForum/viewtopic.php?f=58&amp;t=9488&amp;view=print" title="Print view" accesskey="p">
+						<i class="icon fa-print fa-fw" aria-hidden="true"></i><span>Print view</span>
+					</a>
+				</li>
+											</ul>
+		</div>
+	</div>
+
+	
+	
+	
+			<div class="pagination">
+			1 post
+							&bull; Page <strong>1</strong> of <strong>1</strong>
+					</div>
+	</div>
+
+
+<div class="action-bar actions-jump">
+		<p class="jumpbox-return">
+		<a href="viewforum.php@f=58.html" class="left-box arrow-left" accesskey="r">
+			<i class="icon fa-angle-left fa-fw icon-black" aria-hidden="true"></i><span>Return to “Fly Shit &amp; Shit That Flies”</span>
+		</a>
+	</p>
+	
+		<br /><br />
+	</div>
+
+
+
+			</div>
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+	<div class="navbar" role="navigation">
+	<div class="inner">
+
+	<ul id="nav-footer" class="nav-footer linklist" role="menubar">
+		<li class="breadcrumbs">
+									<span class="crumb"><a href="index.php.html" data-navbar-reference="index"><i class="icon fa-home fa-fw" aria-hidden="true"></i><span>Board index</span></a></span>					</li>
+		
+				<li class="rightside">All times are <span title="America/Chicago">UTC-06:00</span></li>
+							<li class="rightside">
+				<a href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=delete_cookies" data-ajax="true" data-refresh="true" role="menuitem">
+					<i class="icon fa-trash fa-fw" aria-hidden="true"></i><span>Delete cookies</span>
+				</a>
+			</li>
+														</ul>
+
+	</div>
+</div>
+
+	<div class="copyright">
+				<p class="footer-row">
+			<span class="footer-copyright">Powered by <a href="https://www.phpbb.com/">phpBB</a>&reg; Forum Software &copy; phpBB Limited</span>
+		</p>
+						<p class="footer-row" role="menu">
+			<a class="footer-link" href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=privacy" title="Privacy" role="menuitem">
+				<span class="footer-link-text">Privacy</span>
+			</a>
+			|
+			<a class="footer-link" href="https://bitpimps.lixlink.com/pages/phpForum/ucp.php?mode=terms" title="Terms" role="menuitem">
+				<span class="footer-link-text">Terms</span>
+			</a>
+		</p>
+		<p class="footer-row">
+			Copyright &#0169; 2002 - <script type="text/javascript">var d = new Date(); document.write(d.getFullYear())</script> | All rights resereved by penalty of: death, cappin', blastin', sprayin', etc.
+		</p>
+					</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="AJAX error" data-ajax-error-text="Something went wrong when processing your request." data-ajax-error-text-abort="User aborted request." data-ajax-error-text-timeout="Your request timed out; please try again." data-ajax-error-text-parsererror="Something went wrong with the request and the server returned an invalid reply.">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="Error" data-l-timeout-processing-req="Request timed out.">
+		<a href="viewtopic.php@p=112400.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="viewtopic.php@p=112400.html#" class="alert_close">
+			<i class="icon fa-times-circle fa-fw" aria-hidden="true"></i>
+		</a>
+		<div class="alert_text"></div>
+	</div>
+</div>
+
+</div>
+
+<div>
+	<a id="bottom" class="anchor" accesskey="z"></a>
+	</div>
+
+<script src="assets/javascript/jquery-3.5.1.min.js@assets_version=12"></script>
+<script src="assets/javascript/core.js@assets_version=12"></script>
+
+
+
+<script src="styles/bitpimps/template/forum_fn.js@assets_version=12"></script>
+<script src="styles/bitpimps/template/ajax.js@assets_version=12"></script>
+
+
+
+</body>
+</html>
