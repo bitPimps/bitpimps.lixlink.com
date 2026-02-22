@@ -1,6 +1,7 @@
 wwwRoot/articles/wp-config.php
 wwwRoot/pages/phpForum/config.php
 assets/accounts/*
+assets\documents/*
 assets/movies/arch2b/Arch2BEnduro10.wmv
 assets/movies/crazydave/bajatrip.avi
 assets/movies/crazydave/bajatrip2.avi
